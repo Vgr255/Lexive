@@ -1,0 +1,1 @@
+To run this bot, you need to create a config.py file with the command prefix as `prefix` (str), the OAuth token as `token` (str) and the Owner ID as `owner` (int)

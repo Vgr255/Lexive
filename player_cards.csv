@@ -1,0 +1,298 @@
+# Aeon's End;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Jade;G;2;A=2;;Gain 2$.;Jade is as common as bone at the mouth of the cave.;;1;Aeon's End;;76;82
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Sifter's Pearl;G;3;;;Gain 2$. Each player reveals the top card of their deck and either discards it or returns it to the top of their deck.;"""To those who have stepped through the breach, the pearl shows the splinters of time itself."" - Phaedraxa, Breach Mage Seer";;1;Aeon's End;;90;96
+V'riswood Amber;G;3;;When you gain this, you may place it on top of your deck.;Gain 2$.;"""Once, the trees of V'riswood towered ancient and beautiful. These polished bits of their amber is all that remains beyond that memory."" - Brama, Breach Mage Elder";;1;Aeon's End;;97;103
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Flexing Dagger;R;2;;;The next time you focus or open a breach this turn, it costs 3$.#OR#Destroy this. Deal 1 damage.;"""Forged from unstable void ore, the blade shifts with the will of its wielder."" - Adelheim, Breach Mage Weaponsmith";;1;Aeon's End;;114;118
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Leeching Agate;G;3;;When you gain this, gain 1 charge.;Gain 2$.;"""These stones are among the most powerful in the labyrinth of lost caves. They are also the most corrupted."" - Kadir, Breach Mage Delver";;1;The Nameless;;2;8
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Radiance;S;8;;;Cast: Deal 5 damage. Each ally draws a card.;"""All of us, together. For apart we are doomed."" - Brama, Breach Mage Elder";;1;The Nameless;;24;28
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Monstrous Inferno;S;8;;This spell must be prepped to two adjacent breaches so that this card touches both breaches. This fully occupies both breaches.;Cast: Deal 7 damage divided however you choose to the nemesis and any number of minions.;"""There is a certain serenity to becoming flame. Then they can barely hear the voidspawn as it turns them to coals."" - Z'hana, Breach Mage Renegade";;1;The Depths;;36;40
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+# War Eternal;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Dread Diamond;G;3;;;Gain 2$. You may discard a prepped spell. If you do, gain an additional 1$.;"""There is a cruelty within this stone, a hunger veiled as beauty."" - Xaxos, Voidbringer";;2;War Eternal;;70;76
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Frozen Magmite;G;3;;;Gain 2$. You may place the next card you gain this turn on top of your deck.;"""Fear not returning to the dust, younglings. Even fire must sleep."" - Mazahaedron, Henge Mystic";;2;War Eternal;;84;90
+;;;;;;;;;;;;
+Volcanic Glass;G;3;;When you gain this on your turn, you may spend 2$. If you do, any ally also gains a Volcanic Glass and places it on top of their deck.;Gain 2$.;"""Long has this brittle slag been called 'god's mirror'."" - Mazahaedron, Henge Mystic";;2;War Eternal;;98;104
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Mage's Totem;R;2;;;Destroy a gem or relic you played this turn.#OR#Destroy this. Gravehold gains 1 life.;"""Once, the conclave worshipped at the foot of a great tower much like this very effigy."" - Yan Magda, Enlightened Exile";;2;War Eternal;;120;124
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Crystallize;S;8;;This spell must be prepped to two adjacent breaches so that this card touches both breaches. This fully occupies both breaches.;Cast: Any ally reveals their hand. Deal 2 damage for each gem in that ally's hand.;"""Born in dirt, buried in dirt"" - Henge Mystic Gospel";;2;War Eternal;;160;164
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Fossilized Scarab;G;3;;;Gain 2$.#OR#Destroy a card in hand.;"""This creature is not dead, youngling. It sleeps. There is no death, only the moment before waking."" - Yan Magda, Enlightened Exile";;2;The Void;;3;9
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Haunted Berylite;G;3;;;Gain 2$.#OR#Discard a card in hand. If you do, gain 2 charges.;"""All things end. And each leaves behind a shadow, a skull, a memory."" - Yan Magda, Enlightened Exile";;2;The Outer Dark;;11;17
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Char;S;8;;;Cast: Deal 6 damage. If this damage causes a minion to be discarded, any player gains 2 life.;"""It is not killing. It is research."" - Xaxos, Voidbringer";;2;The Outer Dark;;35;39
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+# Legacy;;;;;;;;;;;;
+;;;;;;;;;;;;
+Ancient Cyanolith;G;3;A=2;;Gain 2$.;The ancients prized this gem for its potential.;;3;Legacy;Ia;2;8
+Branching Radite;G;4;;;Gain 2$. If you have two or more prepped spells, gain an additional 1$.;One vein of pure radite can power a mage for life.;;3;Legacy;Ia;9;15
+Gilded Marble;G;6;A=3;;Gain 3$.;;;3;Legacy;Ia;16;22
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Entangled Shard;G;4;;;Gain 2$. If you have 3 or more charges, gain an additional 1$.;The shard feeds on your inner magic, using your stored charges to power itself.;;3;Legacy;II;2;8
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Soothing Torporene;G;3;;;Gain 2$.#OR#Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Conductive Grit;G;3;;;Gain 2$. Gain 1 pulse token.#OR#You may lose 1 pulse token. If you do, gain 3$.;The grit can be used to regulate and store the electricity that pulses through us all.;;3;Legacy;V;12;18
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Thunderous Oath;S;8;;;Cast: Deal 6 damage. Gain 1 pulse token. You may lose any number of pulse tokens. If you do, any ally draws cards equal to the number of pulse tokens lost this way.;Oaths are never to be taken lightly. The very utterance of these words can cause immense shifts in reality.;;3;Legacy;VI;30;34
+;;;;;;;;;;;;
+Arcing Silicate;G;4;;;Gain 2$. Gain 1 pulse token. You may lose any number of pulse tokens. Deal damage equal to the number of pulse tokens lost this way.;Strange pulses now run through our bodies. Perhaps they can be directed outwards and used to destabilize our foes.;;3;Legacy;VIII;2;8
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Sphere of Inversion;S;9;;;Cast: Deal 7 damage. Any ally may destroy a card in hand. If they do, they gain 2 life.;The sphere can temporarily invert a mage's power, allowing them to turn it in upon themselves to restore their wounds.;;3;Legacy;VIII;19;23
+;;;;;;;;;;;;
+Jolting Crust;G;3;;;Gain 2$. Gain 1 pulse token.#OR#Gain 2$. Lose 1 pulse token. If you do, gain 1 charge.;This gem allows mages to gain and convert latent Pulse energy into charges.;;3;Buried Secrets;;1;7
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Summonite;G;3;;;Gain 2$.#OR#Gain a Summonite from the supply and place it on top of any ally's discard pile.;When imbued with the correct frequency of energies, the summonite is able to replicate itself, thus increasing its potential.;;3;Buried Secrets;;36;42
+Triplite Core;G;4;;;Gain 3$ that can only be used to gain cards.;Triplite is a fragile crystal, holding unbalanced energies inside. A careful hand is required to use it properly.;;3;Buried Secrets;;43;49
+Voidium Spike;G;3;;;Gain 2$. Each ally may discard a card in hand. Each ally that does gains 1 charge.;When driven into the ground, the Voidium Spike acts as a tether, allowing other nearby mages to draw charges from it.;;3;Buried Secrets;;50;56
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Psychic Eruption;S;8;;;Cast: Deal damage equal to the number of cards in any player's discard pile.;Brama's newest technique allows breach mages to leverage each other's minds and use that rush of knowledge to power their attacks.;;3;Buried Secrets;;117;121
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+# New Age;;;;;;;;;;;;
+;;;;;;;;;;;;
+Exogranite;G;3;;;Gain 2$.#OR#Destroy this. Gain 3$.;"""I love the colors this one makes when it explodes."" - Claudia";;4;The New Age;1a;2;8
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Resonant Pearl;G;3;;;Gain 2$. Any ally may discard a Resonant Pearl in hand and draw a card. If they do, gain an additional 1$.;"""Aether echoes in numerous ways."" - Lexive, Arcane Theorist";;4;The New Age;1d;10;16
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Spirit Lift;S;8;;While prepped once during your turn when you gain a charge, any ally gains 2 charges.;Cast: Deal 5 damage.;"""More!"" - Gygar";;4;The New Age;1d;27;31
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Lurking Sionite;G;3;;;Gain 2$. If there is a Lurking Sionite in any ally's discard pile, gain an additional 1$.;"""One man can accomplish much, but give him brothers, sisters, friends? He is an army."" - Taqren";;4;The New Age;END;18;24
+Marble Galaxy;R;2;;;Any ally may discard a Marble Galaxy in hand and draw a card. Gain 1 charge or focus your closed breach with the lowest focus cost. If an ally discarded a Marble Galaxy, resolve both effects.;"""Hold the world in your hands."" - Nook";;4;The New Age;END;25;29
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Olivinite;G;3;;;Gain 2$.#OR#Deal 1 damage to a minion.;"""Break off a chunk and throw it as hard as you can."" - Rhia";;4;Shattered Dreams;;3;9
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Jeweled Brain;G;3;;;Gain 2$.#OR#Gain 1$. Return to your hand a card in your discard pile that costs 0$.;"""This is what our insides look like!"" - Claudia";;4;Into the Wild;;76;82
+;;;;;;;;;;;;
+Wound Mender;S;8;;Echo;Cast: Deal 2 damage. If this was cast from an opened III or IV breach, gain 1 life.;"""Then, I extract its life essence. Simple. First I insert it here."" - Nook";;4;Into the Wild;;88;92
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+# Outcasts;;;;;;;;;;;;
+;;;;;;;;;;;;
+Molten Peridot;G;3;;;Gain 2$. If this is the second time you have played Molten Peridot this turn, you may destroy this. If you do, gain a card that costs 4$ or less from any supply pile.;;;5;Outcasts;1a;2;8
+Petrified Phoenixium;G;4;;;Gain 2$. The next time you gain a card this turn, you may cast any player's prepped spell.;;;5;Outcasts;1a;9;15
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Galvanized Sapphire;G;4;;;Gain 2$. Xaxos: Outcast gains 1 charge.;;;5;Outcasts;1d;8;14
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Arcane Relay;S;8;;;Cast: Any ally draws a card and then reveals their hand. Deal 4 damage. Deal 1 additional damage for each card in that ally's hand that costs 1$ or more.;;;5;Outcasts;2b;19;23
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Helix of Amber;G;3;;;Gain 2$. You may suffer 1 damage. If you do, destroy a card that costs 0$ in your hand.;;;5;Outcasts;3b;2;8
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Orb of the Deep;R;2;;;Focus your closed breach with the lowest focus cost.#OR#Destroy this. Gain 1 charge.;;;5;Outcasts;END;9;13
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Unstable Pyrite;G;2;A=1,X+2;;Gain 1$. You may destroy this. If you do, gain an additional 2$.;;;5;Outcasts;END;2;8
+;;;;;;;;;;;;
+Dizzying Burst;S;8;;;Cast: Deal 6 damage. Reveal the turn order deck. Return it in any order.;"""If magic alone can disorient them, it means their lens of the world may be as imperfect as ours."" - Lexive, Arcane Theorist";;5;Outcasts;END;49;53
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Quickening Qitite;G;3;;;Gain 2$. You may discard a card in hand. If you do, focus any player's II breach.;;;5;The Southern Village;;1;7
+;;;;;;;;;;;;
+Cat's Eye;R;1;;You cannot gain this card if you have gained another card this turn. You cannot gain any other cards the turn you gain this.;Gain 1 charge. You may destroy this. If you do, gain 1$.;;;5;The Southern Village;;15;19
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Glass-Eyed Oracle;R;1;;;Gain 1$.#OR#Destroy this and any number of copies of this card in hand. You may gain a card with cost up to three times the number of copies destroyed;;;5;Return to Gravehold;;1;5
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+# Promos;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Coruscating Sapal;G;4;;;Gain 2$. You may lose 1 charge. If you do, gain an additional 2$.;;;5;Outcasts KSE;Promo;90;96
