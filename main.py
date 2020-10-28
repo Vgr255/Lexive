@@ -1,3 +1,5 @@
+from typing import Optional
+
 import discord
 import csv
 from discord.ext import commands
@@ -20,7 +22,7 @@ def load():
                 continue
             special = special.replace("#", "\n")
             text = text.replace("#", "\n")
-            casefolded_name = name.lower().replace(" ", "").replace("'", "")
+            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
             player_cards[casefolded_name] = {
                 "name": name, "type": ctype, "cost": int(cost), "code": code,
                 "special": special, "text": text, "flavour": flavour, "wave": int(wave),
@@ -37,9 +39,8 @@ class Lexive(commands.Bot):
             return
         if message.content.startswith(config.prefix):
             content = message.content.lstrip(config.prefix)
-            arg = content.lower().replace(" ", "").replace("'", "")
-            if arg in player_cards:
-                values = player_card(arg)
+            values = get_player_card(content)
+            if values:
                 await message.channel.send("\n".join(values))
                 return
 
@@ -47,7 +48,7 @@ class Lexive(commands.Bot):
 
 bot = Lexive(command_prefix=config.prefix, owner_id=config.owner)
 
-def player_card(name):
+def player_card(name: str) -> list:
     c = player_cards[name]
     values = [f"```{c['name']}", "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""]
     if c['special']:
@@ -72,12 +73,26 @@ def player_card(name):
 
     return values
 
-@bot.command()
-async def card(ctx, *args):
-    arg = "".join(args).lower().replace("'", "")
-    to_send = ""
+def get_player_card(name: str) -> Optional[list]:
+    mention = None # Optional
+    if "<@!" in name and ">" in name: # mentioning someone else
+        index = name.index("<@!")
+        name, mention = name[:index], name[index:]
+    for x in ("@", "#"): # ignore what's after
+        if x in name:
+            name = name[:name.index(x)]
+    arg = name.lower().replace(" ", "").replace("'", "").replace(",", "")
     if arg in player_cards:
         values = player_card(arg)
+        if mention is not None:
+            values.insert(0, mention)
+        return values
+    return None
+
+@bot.command()
+async def card(ctx, *args):
+    values = get_player_card("".join(args))
+    if values:
         to_send = "\n".join(values)
     else:
         to_send = f"No player card found matching {' '.join(args)}"
@@ -107,7 +122,12 @@ async def reload(ctx):
 
 @bot.command()
 async def whoami(ctx):
-    await ctx.send(f"I am Lexive v{VERSION} and I was created by {AUTHOR}. "+
+    author = AUTHOR
+    owner = ctx.bot.get_user(config.owner)
+    if owner is not None:
+        author += f" ({owner.mention})"
+    await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. "+
+    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit bug reports.\n" +
     "I am a utility bot for all Aeon's End content. You can ask me about any card by doing "+
     f"`{config.prefix}card <card name>` or simply `{config.prefix}<card name>` in any channel "
     "on this server. I also know about some unique mechanics.")
