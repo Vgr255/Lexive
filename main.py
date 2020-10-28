@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Tuple, Iterable
 
 import discord
 import csv
@@ -23,6 +23,8 @@ def load():
             special = special.replace("#", "\n")
             text = text.replace("#", "\n")
             casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
+            if casefolded_name in player_cards:
+                raise ValueError(f"duplicate value {casefolded_name}")
             player_cards[casefolded_name] = {
                 "name": name, "type": ctype, "cost": int(cost), "code": code,
                 "special": special, "text": text, "flavour": flavour, "wave": int(wave),
@@ -39,9 +41,12 @@ class Lexive(commands.Bot):
             return
         if message.content.startswith(config.prefix):
             content = message.content.lstrip(config.prefix)
-            values = get_player_card(content)
-            if values:
+            values, possible = get_player_card(content)
+            if possible == 1:
                 await message.channel.send("\n".join(values))
+                return
+            elif possible > 1:
+                await message.channel.send(f"Ambiguous value. Possible matches: {', '.join(values)}")
                 return
 
         await super().on_message(message)
@@ -73,7 +78,7 @@ def player_card(name: str) -> list:
 
     return values
 
-def get_player_card(name: str) -> Optional[list]:
+def get_player_card(name: str) -> Tuple[Optional[list], int]:
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
         index = name.index("<@!")
@@ -82,18 +87,33 @@ def get_player_card(name: str) -> Optional[list]:
         if x in name:
             name = name[:name.index(x)]
     arg = name.lower().replace(" ", "").replace("'", "").replace(",", "")
-    if arg in player_cards:
-        values = player_card(arg)
+    matches = complete_match(arg, player_cards)
+    if len(matches) == 1:
+        values = player_card(matches[0])
         if mention is not None:
             values.insert(0, mention)
-        return values
-    return None
+        return values, 1
+    elif len(matches) > 1:
+        values = [player_cards[x]["name"] for x in matches]
+        return values, len(matches)
+    return None, 0
+
+def complete_match(string: str, matches: Iterable) -> list:
+    possible_matches = set()
+    for possible in matches:
+        if string == possible:
+            return [string]
+        if possible.startswith(string):
+            possible_matches.add(possible)
+    return sorted(possible_matches)
 
 @bot.command()
 async def card(ctx, *args):
-    values = get_player_card("".join(args))
-    if values:
+    values, possible = get_player_card("".join(args))
+    if possible == 1:
         to_send = "\n".join(values)
+    elif possible > 1:
+        to_send = f"Ambiguous value. Possible matches: {', '.join(values)}"
     else:
         to_send = f"No player card found matching {' '.join(args)}"
 
