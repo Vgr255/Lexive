@@ -7,12 +7,9 @@
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Diamond Cluster;G;4;;;Gain 2$. If this is the second time you have played Diamond Cluster this turn, gain an additional 2$.;These gems were once the most precious, the most scarce. Now they line the walls of caves like shimmering fangs.;;1;Aeon's End;;69;75
 Jade;G;2;A=2;;Gain 2$.;Jade is as common as bone at the mouth of the cave.;;1;Aeon's End;;76;82
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Searing Ruby;G;4;;;Gain 2$. Gain an additional 1$ that can only be used to gain a spell.;"""Some use these to heat and light their hovels against the dark of the cave. Others know that within these gems lies a fire that can be tamed."" - Ghan, Gem Scavenger";;1;Aeon's End;;83;89
 Sifter's Pearl;G;3;;;Gain 2$. Each player reveals the top card of their deck and either discards it or returns it to the top of their deck.;"""To those who have stepped through the breach, the pearl shows the splinters of time itself."" - Phaedraxa, Breach Mage Seer";;1;Aeon's End;;90;96
 V'riswood Amber;G;3;;When you gain this, you may place it on top of your deck.;Gain 2$.;"""Once, the trees of V'riswood towered ancient and beautiful. These polished bits of their amber is all that remains beyond that memory."" - Brama, Breach Mage Elder";;1;Aeon's End;;97;103
 ;;;;;;;;;;;;
@@ -53,12 +50,12 @@ Monstrous Inferno;S;8;;This spell must be prepped to two adjacent breaches so th
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Breach Ore;G;4;;;Gain 2$.#OR#Focus your closed breach with the lowest focus cost.;"""If you want to make those wretched things scream, try this."" - Sparrow, Breach Mage Soldier";;2;War Eternal;;63;69
 Dread Diamond;G;3;;;Gain 2$. You may discard a prepped spell. If you do, gain an additional 1$.;"""There is a cruelty within this stone, a hunger veiled as beauty."" - Xaxos, Voidbringer";;2;War Eternal;;70;76
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Frozen Magmite;G;3;;;Gain 2$. You may place the next card you gain this turn on top of your deck.;"""Fear not returning to the dust, younglings. Even fire must sleep."" - Mazahaedron, Henge Mystic";;2;War Eternal;;84;90
-;;;;;;;;;;;;
+Scoria Slag;G;4;;;Gain 2$. If the nemesis tier is 2 or higher, gain an additional 1$.;"""The cave shudders when the breaches open. And when they close, the rocks are but glowing slag."" - Nerva, Survivor";;2;War Eternal;;91;97
 Volcanic Glass;G;3;;When you gain this on your turn, you may spend 2$. If you do, any ally also gains a Volcanic Glass and places it on top of their deck.;Gain 2$.;"""Long has this brittle slag been called 'god's mirror'."" - Mazahaedron, Henge Mystic";;2;War Eternal;;98;104
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -85,7 +82,7 @@ Fossilized Scarab;G;3;;;Gain 2$.#OR#Destroy a card in hand.;"""This creature is 
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Alien Element;G;4;;;Gain 1$. For each of your breaches with a spell prepped to it, gain an additional 1$.;"""It matters not what it is, only what it can do."" - Garu, Oathsworn Protector";;2;The Outer Dark;;4;10
 Haunted Berylite;G;3;;;Gain 2$.#OR#Discard a card in hand. If you do, gain 2 charges.;"""All things end. And each leaves behind a shadow, a skull, a memory."" - Yan Magda, Enlightened Exile";;2;The Outer Dark;;11;17
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -116,8 +113,11 @@ Entangled Shard;G;4;;;Gain 2$. If you have 3 or more charges, gain an additional
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-Soothing Torporene;G;3;;;Gain 2$.#OR#Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
 ;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Soothing Torporene;G;3;;;Gain 2$.#OR#Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
+Phased Portalite;G;4;;;Gain 2$. If your III breach is opened, gain an additional 1$.;When broken down, Portalite allows a seasoned breach mage to draw even greater aether from a particular breach.;;3;Legacy;IV;12;18
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -156,7 +156,7 @@ Psychic Eruption;S;8;;;Cast: Deal damage equal to the number of cards in any pla
 # New Age;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Exogranite;G;3;;;Gain 2$.#OR#Destroy this. Gain 3$.;"""I love the colors this one makes when it explodes."" - Claudia";;4;The New Age;1a;2;8
-;;;;;;;;;;;;
+Recurring Jasper;G;4;;;Gain 2$. If the top card of your discard spell is a spell, you may place this gem on top of your deck.;"""Most times, aether calls to magic. In this one, magic calls to aether."" - Lexive, Arcane Theorist";;4;The New Age;1a;9;15
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -198,7 +198,7 @@ Marble Galaxy;R;2;;;Any ally may discard a Marble Galaxy in hand and draw a card
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Olivinite;G;3;;;Gain 2$.#OR#Deal 1 damage to a minion.;"""Break off a chunk and throw it as hard as you can."" - Rhia";;4;Shattered Dreams;;3;9
-;;;;;;;;;;;;
+Cache Glass;G;4;;;Gain 2$. If there is a Cache Glass in your discard pile, you may destroy a card in your discard pile.;"""Numerous facets, reflecting into countless possibilities."" - Lexive, Arcane Theorist";;4;Shattered Dreams;;10;16
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -227,6 +227,9 @@ Petrified Phoenixium;G;4;;;Gain 2$. The next time you gain a card this turn, you
 ;;;;;;;;;;;;
 Galvanized Sapphire;G;4;;;Gain 2$. Xaxos: Outcast gains 1 charge.;;;5;Outcasts;1d;8;14
 ;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Elongated Looq;G;4;;;Gain 2$. The next time you focus or open a breach this turn, gain 1 charge.;;;5;Outcasts;2b;2;8
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Arcane Relay;S;8;;;Cast: Any ally draws a card and then reveals their hand. Deal 4 damage. Deal 1 additional damage for each card in that ally's hand that costs 1$ or more.;;;5;Outcasts;2b;19;23
@@ -286,13 +289,13 @@ Glass-Eyed Oracle;R;1;;;Gain 1$.#OR#Destroy this and any number of copies of thi
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
+Echo Stone;G;4;;;Gain 2$. If you have played another Echo Stone this turn, gain an additional 1$.;Kadir never said how she learned this stone resonated with itself.;;3;Legacy (Kickstarter Exclusive);Promo;42;48
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Fractured Quartz;G;4;;;Gain 2$. You may destroy two cards in this card's supply pile. If you do, gain an additional 1$.;"""Many push their magic to the breaking point. Some push their gems to the same."" - Lexive, Arcane Theorist";;4;The New Age (Kickstarter Exclusive);Promo;58;64
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-Coruscating Sapal;G;4;;;Gain 2$. You may lose 1 charge. If you do, gain an additional 2$.;;;5;Outcasts KSE;Promo;90;96
+Coruscating Sapal;G;4;;;Gain 2$. You may lose 1 charge. If you do, gain an additional 2$.;;;5;Outcasts (Kickstarter Exclusive);Promo;90;96
