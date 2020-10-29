@@ -21,7 +21,7 @@ def load():
         for name, ctype, cost, code, special, text, flavour, starter, wave, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
-            special = special.replace("#", "\n")
+            special = special.replace("#", "\n").replace("!", config.prefix)
             text = text.replace("#", "\n")
             casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
             if casefolded_name in player_cards:
@@ -119,6 +119,10 @@ async def card(ctx, *args):
         to_send = f"No player card found matching {' '.join(args)}"
 
     await ctx.send(to_send)
+
+@bot.command()
+async def link(ctx):
+    await ctx.send("Two spells with Link may be prepped to the same breach.")
 
 @bot.command()
 async def echo(ctx):
