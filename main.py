@@ -121,17 +121,17 @@ async def card(ctx, *args):
 
 @bot.command()
 async def echo(ctx):
-    await ctx.send("```When you cast a spell with Echo, resolve that Cast effect twice. "+
-    "Any additional effects granted for casting the spell are added to both resolutions of the spell. "+
-    "For example, you cast a spell with Echo that has a Cast effect if \"Deal 2 damage\". "+
-    "That spell was prepped to a breach that has the following two effects: \"Deals +1 damage\" "+
-    "and \"Gravehold gains 1 life\". You will resolve the following: \"Deal 3 damage. Gravehold gains 1 life\" "+
+    await ctx.send("```When you cast a spell with Echo, resolve that Cast effect twice. " +
+    "Any additional effects granted for casting the spell are added to both resolutions of the spell. " +
+    "For example, you cast a spell with Echo that has a Cast effect if \"Deal 2 damage\". " +
+    "That spell was prepped to a breach that has the following two effects: \"Deals +1 damage\" " +
+    "and \"Gravehold gains 1 life\". You will resolve the following: \"Deal 3 damage. Gravehold gains 1 life\" " +
     "then \"Deal 3 damage. Gravehold gains 1 life\"```")
 
 @bot.command()
 async def wandering(ctx):
-    await ctx.send("```Some minions have Wandering. This means that all damage dealt to them "+
-    "by abilities and cards is reduced to 1. However, players may spend aether ($) to deal "+
+    await ctx.send("```Some minions have Wandering. This means that all damage dealt to them " +
+    "by abilities and cards is reduced to 1. However, players may spend aether ($) to deal " +
     "these types of minions an equivalent amount of damage.```")
 
 @bot.command()
@@ -144,12 +144,15 @@ async def reload(ctx):
 async def whoami(ctx):
     author = AUTHOR
     owner = ctx.bot.get_user(config.owner)
+    mention = ""
     if owner is not None:
         author += f" ({owner.mention})"
-    await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. "+
-    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit bug reports.\n" +
-    "I am a utility bot for all Aeon's End content. You can ask me about any card by doing "+
-    f"`{config.prefix}card <card name>` or simply `{config.prefix}<card name>` in any channel "
+        mention = f" You may also ask or tell {owner.mention} directly."
+    await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
+    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit pull requests " +
+    f"and bug reports.{mention}" +
+    "\nI am a utility bot for all Aeon's End content. You can ask me about any card by doing " +
+    f"`{config.prefix}card <card name>` or simply `{config.prefix}<card name>` in any channel " +
     "on this server. I also know about some unique mechanics.")
 
 print("Bot loaded. Starting")
