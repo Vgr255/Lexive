@@ -8,6 +8,7 @@ import config
 
 VERSION = "0.1"
 AUTHOR = "Anilyka Barry"
+author_id = 320646088723791874
 
 player_cards = {}
 ctypes = {"G": "Gem", "R": "Relic", "S": "Spell"}
@@ -143,11 +144,11 @@ async def reload(ctx):
 @bot.command()
 async def whoami(ctx):
     author = AUTHOR
-    owner = ctx.bot.get_user(config.owner)
+    aid = ctx.bot.get_user(author_id)
     mention = ""
-    if owner is not None:
-        author += f" ({owner.mention})"
-        mention = f" You may also ask or tell {owner.mention} directly."
+    if aid is not None:
+        author += f" ({aid.mention})"
+        mention = f" You may also ask or tell {aid.mention} directly."
     await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
     "My code is available at <https://github.com/Vgr255/Lexive> where you can submit pull requests " +
     f"and bug reports.{mention}" +
