@@ -7,6 +7,10 @@
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Burning Opal;G;5;;;Gain 3$. You may discard a card in hand. If you do, any ally draws a card.;"""Careful, youngling. You'll be wanting tongs to handle that!"" - Adelheim, Breach Mage Weaponsmith";;1;Aeon's End;;55;61
+Clouded Sapphire;G;6;;;Gain 3$. If this is the first time you have played Clouded Sapphire this turn, any ally gains 1 charge.;"""They say if you look closely, the shadow of The World That Was is imprisoned within."" - Phaedraxa, Breach Mage Seer";;1;Aeon's End;;62;68
 Diamond Cluster;G;4;;;Gain 2$. If this is the second time you have played Diamond Cluster this turn, gain an additional 2$.;These gems were once the most precious, the most scarce. Now they line the walls of caves like shimmering fangs.;;1;Aeon's End;;69;75
 Jade;G;2;A=2;;Gain 2$.;Jade is as common as bone at the mouth of the cave.;;1;Aeon's End;;76;82
 Searing Ruby;G;4;;;Gain 2$. Gain an additional 1$ that can only be used to gain a spell.;"""Some use these to heat and light their hovels against the dark of the cave. Others know that within these gems lies a fire that can be tamed."" - Ghan, Gem Scavenger";;1;Aeon's End;;83;89
@@ -30,6 +34,9 @@ Radiance;S;8;;;Cast: Deal 5 damage. Each ally draws a card.;"""All of us, togeth
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
+Banishing Topaz;G;5;;;Gain 2$. You may place a card in hand on top of your deck. If you do, gain an additional 2$.;"""They give. And then they take."" - Mist, Dagger Captain";;1;The Depths;;4;10
+;;;;;;;;;;;;
+;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -49,11 +56,10 @@ Monstrous Inferno;S;8;;This spell must be prepped to two adjacent breaches so th
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Bloodstone Jewel;G;6;;When you gain a Bloodstone Jewel for the first time on your turn, gain 3$.;Gain 3$.;"""This world bleeds, like all living things."" - Mazahaedron, Henge Mage";;2;War Eternal;;56;62
 Breach Ore;G;4;;;Gain 2$.#OR#Focus your closed breach with the lowest focus cost.;"""If you want to make those wretched things scream, try this."" - Sparrow, Breach Mage Soldier";;2;War Eternal;;63;69
 Dread Diamond;G;3;;;Gain 2$. You may discard a prepped spell. If you do, gain an additional 1$.;"""There is a cruelty within this stone, a hunger veiled as beauty."" - Xaxos, Voidbringer";;2;War Eternal;;70;76
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Erratic Ingot;G;5;;;Gain 2$. Gain an additional 2$ if there is at least one nemesis turn order card in the turn order discard pile.;"""Hit it all you like, Adelheim. It has a mind of its own."" - Gex, Breach Mage Advisor";;2;War Eternal;;77;83
 Frozen Magmite;G;3;;;Gain 2$. You may place the next card you gain this turn on top of your deck.;"""Fear not returning to the dust, younglings. Even fire must sleep."" - Mazahaedron, Henge Mystic";;2;War Eternal;;84;90
 Scoria Slag;G;4;;;Gain 2$. If the nemesis tier is 2 or higher, gain an additional 1$.;"""The cave shudders when the breaches open. And when they close, the rocks are but glowing slag."" - Nerva, Survivor";;2;War Eternal;;91;97
 Volcanic Glass;G;3;;When you gain this on your turn, you may spend 2$. If you do, any ally also gains a Volcanic Glass and places it on top of their deck.;Gain 2$.;"""Long has this brittle slag been called 'god's mirror'."" - Mazahaedron, Henge Mystic";;2;War Eternal;;98;104
@@ -84,7 +90,7 @@ Fossilized Scarab;G;3;;;Gain 2$.#OR#Destroy a card in hand.;"""This creature is 
 ;;;;;;;;;;;;
 Alien Element;G;4;;;Gain 1$. For each of your breaches with a spell prepped to it, gain an additional 1$.;"""It matters not what it is, only what it can do."" - Garu, Oathsworn Protector";;2;The Outer Dark;;4;10
 Haunted Berylite;G;3;;;Gain 2$.#OR#Discard a card in hand. If you do, gain 2 charges.;"""All things end. And each leaves behind a shadow, a skull, a memory."" - Yan Magda, Enlightened Exile";;2;The Outer Dark;;11;17
-;;;;;;;;;;;;
+Pain Stone;G;6;;;Gain 3$.#OR#Gain 2$ and deal 1 damage.;"""Pain is the true and only tongue of The Nameless."" - Garu, Oathsworn Protector";;2;The Outer Dark;;18;24
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Char;S;8;;;Cast: Deal 6 damage. If this damage causes a minion to be discarded, any player gains 2 life.;"""It is not killing. It is research."" - Xaxos, Voidbringer";;2;The Outer Dark;;35;39
@@ -97,7 +103,7 @@ Char;S;8;;;Cast: Deal 6 damage. If this damage causes a minion to be discarded, 
 ;;;;;;;;;;;;
 Ancient Cyanolith;G;3;A=2;;Gain 2$.;The ancients prized this gem for its potential.;;3;Legacy;Ia;2;8
 Branching Radite;G;4;;;Gain 2$. If you have two or more prepped spells, gain an additional 1$.;One vein of pure radite can power a mage for life.;;3;Legacy;Ia;9;15
-Gilded Marble;G;6;A=3;;Gain 3$.;;;3;Legacy;Ia;16;22
+Gilded Marble;G;6;A=3;;Gain 3$.;Marble is among the most valued materials in Gravehold.;;3;Legacy;Ia;16;22
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -105,7 +111,7 @@ Gilded Marble;G;6;A=3;;Gain 3$.;;;3;Legacy;Ia;16;22
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Crumbling Compound;G;5;;;Gain 2$. You may discard a gem in hand. If you do, gain an additional 2$.;Long ago, Brama discovered that this compound could temporarily drain and transform another gem's essence into raw aether.;;3;Legacy;Id;2;8
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -117,16 +123,18 @@ Entangled Shard;G;4;;;Gain 2$. If you have 3 or more charges, gain an additional
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Soothing Torporene;G;3;;;Gain 2$.#OR#Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
+;;;;;;;;;;;;
+;;;;;;;;;;;;
 Phased Portalite;G;4;;;Gain 2$. If your III breach is opened, gain an additional 1$.;When broken down, Portalite allows a seasoned breach mage to draw even greater aether from a particular breach.;;3;Legacy;IV;12;18
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Refined Lumenium;G;5;;;Gain 2$. Any ally draws a card.;After going through extensive refinement, Lumenium provides a burst of power to allies.;;3;Legacy;IV;19;25
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Conductive Grit;G;3;;;Gain 2$. Gain 1 pulse token.#OR#You may lose 1 pulse token. If you do, gain 3$.;The grit can be used to regulate and store the electricity that pulses through us all.;;3;Legacy;V;12;18
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Fulmite Slab;G;6;;;Gain 1$. Gain 2 pulse tokens. Until the end of the turn, you may lose 1 pulse token to gain 1$ any number of times.;This ordinary slab, when charged, can produce aether on par with the richest gems.;;3;Legacy;VI;13;19
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Thunderous Oath;S;8;;;Cast: Deal 6 damage. Gain 1 pulse token. You may lose any number of pulse tokens. If you do, any ally draws cards equal to the number of pulse tokens lost this way.;Oaths are never to be taken lightly. The very utterance of these words can cause immense shifts in reality.;;3;Legacy;VI;30;34
@@ -137,11 +145,10 @@ Arcing Silicate;G;4;;;Gain 2$. Gain 1 pulse token. You may lose any number of pu
 Sphere of Inversion;S;9;;;Cast: Deal 7 damage. Any ally may destroy a card in hand. If they do, they gain 2 life.;The sphere can temporarily invert a mage's power, allowing them to turn it in upon themselves to restore their wounds.;;3;Legacy;VIII;19;23
 ;;;;;;;;;;;;
 Jolting Crust;G;3;;;Gain 2$. Gain 1 pulse token.#OR#Gain 2$. Lose 1 pulse token. If you do, gain 1 charge.;This gem allows mages to gain and convert latent Pulse energy into charges.;;3;Buried Secrets;;1;7
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Mentite Chunk;G;5;;;Gain 3$. If there are seven or more cards in your discard pile, gain an additional 1$.;Efficient management of resources is key to a swift victory. The breach mage who plans ahead can turn a disadvantage into a great strength.;;3;Buried Secrets;;8;14
+Muted Lacoste;G;5;;When you gain this, Silence a minion.;Gain 3$.;This newly discovered gem innately allows its user to silence minions. Mist never told us where she found it.;;3;Buried Secrets;;15;21
+Oblivium Resin;G;5;;;Gain 2$. If you have three or more cards in hand that cost 0$, gain an additional 2$.;The power of this resin ebbs and flows - when placed next to stronger materials, the power of the resin fades, hidden away inside.;;3;Buried Secrets;;22;28
+Shining Tetrite;G;6;;;Gain 4$ that cannot be used to gain a card.;Tetrite was discovered by the breach mage Malastar, who is still unlocking its secrets. Some believe it to be useless, but a keen eye knows better.;;3;Buried Secrets;;29;35
 Summonite;G;3;;;Gain 2$.#OR#Gain a Summonite from the supply and place it on top of any ally's discard pile.;When imbued with the correct frequency of energies, the summonite is able to replicate itself, thus increasing its potential.;;3;Buried Secrets;;36;42
 Triplite Core;G;4;;;Gain 3$ that can only be used to gain cards.;Triplite is a fragile crystal, holding unbalanced energies inside. A careful hand is required to use it properly.;;3;Buried Secrets;;43;49
 Voidium Spike;G;3;;;Gain 2$. Each ally may discard a card in hand. Each ally that does gains 1 charge.;When driven into the ground, the Voidium Spike acts as a tether, allowing other nearby mages to draw charges from it.;;3;Buried Secrets;;50;56
@@ -157,7 +164,7 @@ Psychic Eruption;S;8;;;Cast: Deal damage equal to the number of cards in any pla
 ;;;;;;;;;;;;
 Exogranite;G;3;;;Gain 2$.#OR#Destroy this. Gain 3$.;"""I love the colors this one makes when it explodes."" - Claudia";;4;The New Age;1a;2;8
 Recurring Jasper;G;4;;;Gain 2$. If the top card of your discard spell is a spell, you may place this gem on top of your deck.;"""Most times, aether calls to magic. In this one, magic calls to aether."" - Lexive, Arcane Theorist";;4;The New Age;1a;9;15
-;;;;;;;;;;;;
+Energized Rubidium;G;5;;;Gain 3$. Any ally may discard a card in hand. If they do, that player gains 1 charge.;"""Let knowledge empower you."" - Gygar";;4;The New Age;1a;16;22
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -175,6 +182,11 @@ Spirit Lift;S;8;;While prepped once during your turn when you gain a charge, any
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
+Unrefined Blaststone;G;6;;;Gain 3$.#OR#Destroy a card in this card's supply pile. If you do, deal 3 damage.;"""Not every blast needs to come from a spell."" - Lexive, Arcane Theorist";;4;The New Age;3b;17;23
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Lurking Sionite;G;3;;;Gain 2$. If there is a Lurking Sionite in any ally's discard pile, gain an additional 1$.;"""One man can accomplish much, but give him brothers, sisters, friends? He is an army."" - Taqren";;4;The New Age;END;18;24
@@ -188,6 +200,11 @@ Marble Galaxy;R;2;;;Any ally may discard a Marble Galaxy in hand and draw a card
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Shining Fluorite;G;7;;;Gain 3$. Place the next spell you gain this turn into your hand.;"""Never forget how unrestrained a spell can be if you loosen your grip."" - Lexive, Arcane Theorist";;4;The Ancients;;13;19
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -217,7 +234,7 @@ Wound Mender;S;8;;Echo;Cast: Deal 2 damage. If this was cast from an opened III 
 ;;;;;;;;;;;;
 Molten Peridot;G;3;;;Gain 2$. If this is the second time you have played Molten Peridot this turn, you may destroy this. If you do, gain a card that costs 4$ or less from any supply pile.;;;5;Outcasts;1a;2;8
 Petrified Phoenixium;G;4;;;Gain 2$. The next time you gain a card this turn, you may cast any player's prepped spell.;;;5;Outcasts;1a;9;15
-;;;;;;;;;;;;
+Duplicating Sazite;G;6;;;Gain 3$. The next time you gain a card this turn, you may discard a prepped spell that costs 1$ or more. If you do, any ally gains a card from the supply that costs less than or equal to the card you gained.;;;5;Outcasts;1a;16;22
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -226,7 +243,7 @@ Petrified Phoenixium;G;4;;;Gain 2$. The next time you gain a card this turn, you
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Galvanized Sapphire;G;4;;;Gain 2$. Xaxos: Outcast gains 1 charge.;;;5;Outcasts;1d;8;14
-;;;;;;;;;;;;
+Vigorous Sunstone;G;5;;When you gain this, if this is the second card you gained this turn, place this into your hand.;Gain 3$.;;;5;Outcasts;1d;15;21
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Elongated Looq;G;4;;;Gain 2$. The next time you focus or open a breach this turn, gain 1 charge.;;;5;Outcasts;2b;2;8
@@ -261,7 +278,7 @@ Dizzying Burst;S;8;;;Cast: Deal 6 damage. Reveal the turn order deck. Return it 
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Quickening Qitite;G;3;;;Gain 2$. You may discard a card in hand. If you do, focus any player's II breach.;;;5;The Southern Village;;1;7
-;;;;;;;;;;;;
+Jeweled Urup;G;5;;;Gain 3$.#OR#If this is the second time you have played Jeweled Urup this turn, you may destroy this. If you do, gain a card from any supply pile that costs 7$ or less.;;;5;The Southern Village;;8;14
 Cat's Eye;R;1;;You cannot gain this card if you have gained another card this turn. You cannot gain any other cards the turn you gain this.;Gain 1 charge. You may destroy this. If you do, gain 1$.;;;5;The Southern Village;;15;19
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
