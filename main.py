@@ -11,18 +11,23 @@ AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
 
 player_cards = {}
-ctypes = {"G": "Gem", "R": "Relic", "S": "Spell", "T1": "Level 1 Treasure", "T2": "Level 2 Treasure", "T3": "Level 3 Treasure"}
+nemesis_cards = {}
+
+ctypes = {"G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
+    "T1": "Level 1 Treasure", "T2": "Level 2 Treasure", "T3": "Level 3 Treasure",
+    "P": "Power", "M": "Minion", "A": "Attack", "C": "Curse"}
 
 def load():
     print("Loading content")
     player_cards.clear()
-    with open("player_cards.csv", newline="") as csv_file:
-        content = csv.reader(csv_file, dialect="excel", delimiter=";")
+    with open("player_cards.csv", newline="") as player_file:
+        content = csv.reader(player_file, dialect="excel", delimiter=";")
         for name, ctype, cost, code, special, text, flavour, starter, wave, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
             special = special.replace("#", "\n").replace("!", config.prefix)
             text = text.replace("#", "\n")
+            flavour = flavour.replace("#", "\n")
             casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
             if casefolded_name in player_cards:
                 raise ValueError(f"duplicate value {casefolded_name}")
@@ -34,6 +39,29 @@ def load():
 
     print("Player cards loaded")
 
+    nemesis_cards.clear()
+    with open("nemesis_cards.csv", newline="") as nemesis_file:
+        content = csv.reader(nemesis_file, dialect="excel", delimiter=";")
+        for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, wave, box, deck, num in content:
+            if not name or name.startswith("#"):
+                continue
+            special = special.replace("#", "\n").replace("!", config.prefix)
+            effect = effect.replace("#", "\n")
+            flavour = flavour.replace("#", "\n")
+            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
+            if casefolded_name in nemesis_cards:
+                raise ValueError(f"duplicate value {casefolded_name}")
+            nemesis_cards[casefolded_name] = {
+                "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
+                "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
+                "code": code, "special": special, "discard": discard, "immediate": immediate,
+                "effect": effect, "flavour": flavour, "wave": int(wave), "box": box, "deck": deck, "number": int(num)
+            }
+
+    print("Nemesis cards loaded")
+
+    assert not player_cards.keys() & nemesis_cards.keys()
+
 load()
 
 class Lexive(commands.Bot):
@@ -42,11 +70,13 @@ class Lexive(commands.Bot):
             return
         if message.content.startswith(config.prefix):
             content = message.content.lstrip(config.prefix)
+            if not content:
+                return
             if content.lower() in cmds:
                 await super().on_message(message)
                 return # these commands supersede cards
 
-            values, possible = get_player_card(content)
+            values, possible = get_card(content)
             if possible == 1:
                 await message.channel.send("\n".join(values))
                 return
@@ -91,7 +121,54 @@ def player_card(name: str) -> list:
 
     return values
 
-def get_player_card(name: str) -> Tuple[Optional[list], int]:
+def nemesis_card(name: str) -> list:
+    c = nemesis_cards[name]
+    values = [f"```{c['name']}", "", f"Type: {ctypes[c['type']]}", ""]
+    if c['category'] == "B":
+        values.append(f"Basic Nemesis (Tier {c['tier']})")
+    elif c['category'] == "U":
+        values.append(f"Upgraded Basic Nemesis (Tier {c['tier']})")
+    else: # Nemesis-specific card
+        values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
+
+    values.append("")
+
+    if c['special']:
+        values.append(f"** {c['special']} **\n")
+
+    if c['immediate']:
+        values.append(f"IMMEDIATELY: {c['immediate']}\n")
+
+    if c['type'] == "P":
+        if c['discard']:
+            values.append(f"TO DISCARD: {c['discard']}\n")
+        values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
+
+    elif c['type'] == "M":
+        values.append(f"Health: {c['tokens_hp']}")
+        if c['shield']:
+            values.append(f"Shield tokens: {c['shield']}")
+        values.append(f"PERSISTENT: {c['effect']}")
+
+    elif c['type'] == "A":
+        values.append(f"{c['effect']}")
+
+    values.append("")
+
+    if c['flavour']:
+        values.append(f"{c['flavour']}\n")
+
+    values.append(f"From {c['box']} (Wave {c['wave']})")
+    if c['deck']:
+        values.append(f"Deck {c['deck']}, Card {c['number']}")
+    else:
+        values.append(f"Card {c['number']}")
+
+    values.append("```")
+
+    return values
+
+def get_card(name: str) -> Tuple[Optional[list], int]:
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
         index = name.index("<@!")
@@ -100,14 +177,22 @@ def get_player_card(name: str) -> Tuple[Optional[list], int]:
         if x in name:
             name = name[:name.index(x)]
     arg = name.lower().replace(" ", "").replace("'", "").replace(",", "")
-    matches = complete_match(arg, player_cards)
+    matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys())
     if len(matches) == 1:
-        values = player_card(matches[0])
+        if matches[0] in player_cards:
+            values = player_card(matches[0])
+        else:
+            values = nemesis_card(matches[0])
         if mention is not None:
             values.insert(0, mention)
         return values, 1
     elif len(matches) > 1:
-        values = [player_cards[x]["name"] for x in matches]
+        values = []
+        for x in matches:
+            if x in player_cards:
+                values.append(player_cards[x]["name"])
+            elif x in nemesis_cards:
+                values.append(nemesis_cards[x]["name"])
         return values, len(matches)
     return None, 0
 
@@ -122,7 +207,7 @@ def complete_match(string: str, matches: Iterable) -> list:
 
 @cmd
 async def card(ctx, *args):
-    values, possible = get_player_card("".join(args))
+    values, possible = get_card("".join(args))
     if possible == 1:
         to_send = "\n".join(values)
     elif not args:
@@ -140,11 +225,11 @@ async def link(ctx):
 
 @cmd
 async def silence(ctx):
-    await ctx.send("When a minion is silenced, place a silence token on it. "+
+    await ctx.send("```When a minion is silenced, place a silence token on it. "+
     "During the next nemesis turn, remove this token and ignore the persistent "+
     "effect of that minion. You may not silence a minion that has a silence "+
     "token on it. Silence does not prevent minion effects written on the card "+
-    "that are not after the Persistent keyword.")
+    "that are not after the Persistent keyword.```")
 
 @cmd
 async def echo(ctx):
@@ -158,8 +243,8 @@ async def echo(ctx):
 @cmd
 async def wandering(ctx):
     await ctx.send("```Some minions have Wandering. This means that all damage dealt to them " +
-    "by abilities and cards is reduced to 1. However, players may spend aether ($) to deal " +
-    "these types of minions an equivalent amount of damage.```")
+    "by abilities and cards is reduced to 1. However, during any player's main phase, that "+
+    "player may spend aether ($) to deal an equal amount of damage to minions of this type.```")
 
 @cmd
 async def reload(ctx):
