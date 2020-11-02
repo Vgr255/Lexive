@@ -120,14 +120,14 @@ Starfire Frenzy;S;6;;;Cast: Deal 4 damage. You may discard a spell in hand. If y
 Force Transfusion;S;4;;;Cast: Deal 3 damage. If you have 3 or more charges, gain 1 charge.;Learned mages can compound their stored charges, leading to even greater power.;;3;Legacy;II;14;18
 Brane Knife;R;3;;;Gain 1 charge. Any ally focuses their closed breach with the lowest focus cost.;Discovered in the ancient tunnels, this knife can slice through reality in a way never before seen.;;3;Legacy;II;19;23
 ;;;;;;;;;;;;
-Soothing Torporene;G;3;(A=2)/S;;Gain 2$.#OR#Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
+Soothing Torporene;G;3;(A=2)/S;;Gain 2$.#OR#!Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
 Void Mill;R;5;;;Focus any player's breach. Two different players may destroy the top card of their discard pile.;Breaches are like living things -- they hunger, and need to be fed.;;3;Legacy;III;31;35
 Arcane Salvo;S;5;;While prepped, once per turn during your main phase, you may place a relic you played this turn or a relic in your discard pile on top of your deck.;Cast: Deal 4 damage.;Malastar has developed a way to recharge relics quickly, allowing them to be used more often.;;3;Legacy;III;36;40
 Breach Collision;S;7;;When you gain this, you may place it on top of any player's discard pile.;Cast: Deal 5 damage. Gravehold gains 1 life.;When two breaches touch, memories and thoughts collide, often with unexpected results.;;3;Legacy;III;41;45
 ;;;;;;;;;;;;
 Phased Portalite;G;4;;;Gain 2$. If your III breach is opened, gain an additional 1$.;When broken down, Portalite allows a seasoned breach mage to draw even greater aether from a particular breach.;;3;Legacy;IV;12;18
 Refined Lumenium;G;5;;;Gain 2$. Any ally draws a card.;After going through extensive refinement, Lumenium provides a burst of power to allies.;;3;Legacy;IV;19;25
-Reality Stabilizer;R;6;C=2,S;;Gain 2 charges. Silence a minion.;The ability to silence minions might have won us the battle for Gravehold.;;3;Legacy;IV;26;30
+Reality Stabilizer;R;6;C=2,S;;Gain 2 charges. !Silence a minion.;The ability to silence minions might have won us the battle for Gravehold.;;3;Legacy;IV;26;30
 Pyro Geist;S;6;;When you prep this, deal 1 damage.;Cast: Deal 1 damage. Deal 2 damage.#(Effects that modify damage affect both instances of damage this spell deals when cast.);Channeling the swirling flames of the geist takes dedicated practice.;;3;Legacy;IV;31;35
 ;;;;;;;;;;;;
 Conductive Grit;G;3;;;Gain 2$. Gain 1 pulse token.#OR#You may lose 1 pulse token. If you do, gain 3$.;The grit can be used to regulate and store the electricity that pulses through us all.;;3;Legacy;V;12;18
@@ -147,7 +147,7 @@ Sphere of Inversion;S;9;;;Cast: Deal 7 damage. Any ally may destroy a card in ha
 ;;;;;;;;;;;;
 Jolting Crust;G;3;;;Gain 2$. Gain 1 pulse token.#OR#Gain 2$. Lose 1 pulse token. If you do, gain 1 charge.;This gem allows mages to gain and convert latent Pulse energy into charges.;;3;Buried Secrets;;1;7
 Mentite Chunk;G;5;;;Gain 3$. If there are seven or more cards in your discard pile, gain an additional 1$.;Efficient management of resources is key to a swift victory. The breach mage who plans ahead can turn a disadvantage into a great strength.;;3;Buried Secrets;;8;14
-Muted Lacoste;G;5;;When you gain this, Silence a minion.;Gain 3$.;This newly discovered gem innately allows its user to silence minions. Mist never told us where she found it.;;3;Buried Secrets;;15;21
+Muted Lacoste;G;5;;When you gain this, !Silence a minion.;Gain 3$.;This newly discovered gem innately allows its user to silence minions. Mist never told us where she found it.;;3;Buried Secrets;;15;21
 Oblivium Resin;G;5;;;Gain 2$. If you have three or more cards in hand that cost 0$, gain an additional 2$.;The power of this resin ebbs and flows - when placed next to stronger materials, the power of the resin fades, hidden away inside.;;3;Buried Secrets;;22;28
 Shining Tetrite;G;6;;;Gain 4$ that cannot be used to gain a card.;Tetrite was discovered by the breach mage Malastar, who is still unlocking its secrets. Some believe it to be useless, but a keen eye knows better.;;3;Buried Secrets;;29;35
 Summonite;G;3;;;Gain 2$.#OR#Gain a Summonite from the supply and place it on top of any ally's discard pile.;When imbued with the correct frequency of energies, the summonite is able to replicate itself, thus increasing its potential.;;3;Buried Secrets;;36;42
@@ -163,10 +163,10 @@ Burning Current;S;3;;While prepped, during your casting phase, you may lose 2 pu
 Double Tap;S;3;;;Cast: Deal 1 damage. Deal 1 damage.#(Effects that modify damage affect both instances of damage this spell deals.);Sometimes, one shot isn't enough.;;3;Buried Secrets;;92;96
 Draining Touch;S;2;;;Cast: Deal 1 damage. Gain 1 charge.;Xaxos taught us this simple spell to steal a creature's essence to fuel ourselves.;;3;Buried Secrets;;97;101
 Flash of Intellect;S;4;;!Link;Cast: Deal 3 damage. If there are six or more other cards in your discard pile, you may gain a Flash of Intellect from the supply and place it on top of your deck.;Clever breach mages adapt to the battlefield, seizing any advantage they can.;;3;Buried Secrets;;102;106
-Nerve Jab;S;2;;;Cast: Deal 1 damage. Silence a minion.;With a few precise strikes to exactly the right points, we can impair a minion for a few precious moments.;;3;Buried Secrets;;107;111
+Nerve Jab;S;2;;;Cast: Deal 1 damage. !Silence a minion.;With a few precise strikes to exactly the right points, we can impair a minion for a few precious moments.;;3;Buried Secrets;;107;111
 Precision Shot;S;3;;!Link;Cast: Deal 2 damage. If there are six or more other cards in your discard pile, deal 2 additional damage.;The time it takes to line up a perfect shot might seem like a waste to some, but the deadliness that comes with a precise strike is worth the preparation.;;3;Buried Secrets;;112;116
 Psychic Eruption;S;8;;;Cast: Deal damage equal to the number of cards in any player's discard pile.;Brama's newest technique allows breach mages to leverage each other's minds and use that rush of knowledge to power their attacks.;;3;Buried Secrets;;117;121
-Stunning Force;S;5;;;Cast: Deal 4 damage to the nemesis. Silence a minion.;The sheer power of this spell is great enough that its reverberations stop nearby minions in their tracks.;;3;Buried Secrets;;122;126
+Stunning Force;S;5;;;Cast: Deal 4 damage to the nemesis. !Silence a minion.;The sheer power of this spell is great enough that its reverberations stop nearby minions in their tracks.;;3;Buried Secrets;;122;126
 ;;;;;;;;;;;;
 # New Age;;;;;;;;;;;;
 ;;;;;;;;;;;;

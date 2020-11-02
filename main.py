@@ -139,6 +139,14 @@ async def link(ctx):
     await ctx.send("Two spells with Link may be prepped to the same breach.")
 
 @cmd
+async def silence(ctx):
+    await ctx.send("When a minion is silenced, place a silence token on it. "+
+    "During the next nemesis turn, remove this token and ignore the persistent "+
+    "effect of that minion. You may not silence a minion that has a silence "+
+    "token on it. Silence does not prevent minion effects written on the card "+
+    "that are not after the Persistent keyword.")
+
+@cmd
 async def echo(ctx):
     await ctx.send("```When you cast a spell with Echo, resolve that Cast effect twice. " +
     "Any additional effects granted for casting the spell are added to both resolutions of the spell. " +
