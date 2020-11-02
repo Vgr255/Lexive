@@ -1,4 +1,4 @@
-from typing import Optional, Tuple, Iterable
+from typing import Optional, Tuple, Iterable, Callable
 
 import discord
 import csv
@@ -11,7 +11,7 @@ AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
 
 player_cards = {}
-ctypes = {"G": "Gem", "R": "Relic", "S": "Spell"}
+ctypes = {"G": "Gem", "R": "Relic", "S": "Spell", "T1": "Level 1 Treasure", "T2": "Level 2 Treasure", "T3": "Level 3 Treasure"}
 
 def load():
     print("Loading content")
@@ -42,6 +42,10 @@ class Lexive(commands.Bot):
             return
         if message.content.startswith(config.prefix):
             content = message.content.lstrip(config.prefix)
+            if content.lower() in cmds:
+                await super().on_message(message)
+                return # these commands supersede cards
+
             values, possible = get_player_card(content)
             if possible == 1:
                 await message.channel.send("\n".join(values))
@@ -52,7 +56,15 @@ class Lexive(commands.Bot):
 
         await super().on_message(message)
 
-bot = Lexive(command_prefix=config.prefix, owner_id=config.owner)
+bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True)
+
+cmds = {}
+
+def cmd(func: Callable) -> Callable:
+    if func.__name__ in cmds:
+        raise ValueError(f"duplicate function name {func.__name__}")
+    cmds[func.__name__] = func
+    return bot.command()(func)
 
 def player_card(name: str) -> list:
     c = player_cards[name]
@@ -108,11 +120,13 @@ def complete_match(string: str, matches: Iterable) -> list:
             possible_matches.add(possible)
     return sorted(possible_matches)
 
-@bot.command()
+@cmd
 async def card(ctx, *args):
     values, possible = get_player_card("".join(args))
     if possible == 1:
         to_send = "\n".join(values)
+    elif not args:
+        to_send = "No card name provided."
     elif possible > 1:
         to_send = f"Ambiguous value. Possible matches: {', '.join(values)}"
     else:
@@ -120,11 +134,11 @@ async def card(ctx, *args):
 
     await ctx.send(to_send)
 
-@bot.command()
+@cmd
 async def link(ctx):
     await ctx.send("Two spells with Link may be prepped to the same breach.")
 
-@bot.command()
+@cmd
 async def echo(ctx):
     await ctx.send("```When you cast a spell with Echo, resolve that Cast effect twice. " +
     "Any additional effects granted for casting the spell are added to both resolutions of the spell. " +
@@ -133,19 +147,19 @@ async def echo(ctx):
     "and \"Gravehold gains 1 life\". You will resolve the following: \"Deal 3 damage. Gravehold gains 1 life\" " +
     "then \"Deal 3 damage. Gravehold gains 1 life\"```")
 
-@bot.command()
+@cmd
 async def wandering(ctx):
     await ctx.send("```Some minions have Wandering. This means that all damage dealt to them " +
     "by abilities and cards is reduced to 1. However, players may spend aether ($) to deal " +
     "these types of minions an equivalent amount of damage.```")
 
-@bot.command()
+@cmd
 async def reload(ctx):
     if ctx.author.is_owner():
         load()
         await ctx.send("Reloaded data.")
 
-@bot.command()
+@cmd
 async def whoami(ctx):
     author = AUTHOR
     aid = ctx.bot.get_user(author_id)
@@ -157,8 +171,8 @@ async def whoami(ctx):
     "My code is available at <https://github.com/Vgr255/Lexive> where you can submit pull requests " +
     f"and bug reports.{mention}" +
     "\nI am a utility bot for all Aeon's End content. You can ask me about any card by doing " +
-    f"`{config.prefix}card <card name>` or simply `{config.prefix}<card name>` in any channel " +
-    "on this server. I also know about some unique mechanics.")
+    f"`{config.prefix}<card name>` in any channel on this server. I also know " +
+    "about some unique mechanics, and autocomplete is supported for cards.")
 
 print("Bot loaded. Starting")
 
