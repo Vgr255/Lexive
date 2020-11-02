@@ -26,15 +26,15 @@ Flexing Dagger;R;2;;;The next time you focus or open a breach this turn, it cost
 Focusing Orb;R;4;;;Focus any player's breach.#OR#Destroy this. Gravehold gains 3 life.;Jian picked up the orb as if knowing its purpose. That was the last day she ever spoke.;;1;Aeon's End;;119;123
 Mage's Talisman;R;5;;;Gain 1 charge. Any ally gains 1 charge.;The sister-mages of old would wear their talismans as a symbol of their station and a warning to those that would challenge them.;;1;Aeon's End;;124;128
 Unstable Prism;R;3;;;Play a gem in hand twice and destroy it.#OR#Gain 2$.;"""Not every pretty rock is a means to wage war. Some must be cut and carved into more useful things."" - Adelheim, Breach Mage Weaponsmith";;1;Aeon's End;;129;133
-;;;;;;;;;;;;
+Amplify Vision;S;4;;;Cast: Focus your closed breach with the lowest focus cost. Deal 2 damage. If all of your breaches are opened, deal 1 additional damage.;"""The breaches are merely a mirror through which worlds whisper."" - Phaedraxa, Breach Mage Seer";;1;Aeon's End;;134;138
 Arcane Nexus;S;7;;While prepped, once per turn during your main phase you may return a gem you played this turn to your hand.;Cast: Deal 4 damage.;"""The taint of aether clings to everything in Gravehold. And we that survived near-extinction reek with it, too."" - Nerva, Survivor";;1;Aeon's End;;139;143
 Chaos Arc;S;6;;;Cast: Deal 3 damage. Deal 2 additional damage for each prepped spell in an adjacent breach.;"""Even the blind can see what little is left of our world."" - Phaedraxa, Breach Mage Seer";;1;Aeon's End;;144;148
 Consuming Void;S;7;;;Cast: Destroy up to two cards in hand. Deal 3 damage for each card destroyed in this way.;"""The Far Hollow hovels still smolder from the last time a mage lost his wits and will to the void."" - Ghan, Gem Scavenger";;1;Aeon's End;;149;153
 Dark Fire;S;5;;;Cast: Discard up to two cards in hand. Deal 3 damage for each card discarded this way.;"""Xaxos always says, to come back to light, we must first visit the shadow."" - Malastar, Breach Mage Mentor";;1;Aeon's End;;154;158
 Essence Theft;S;5;;;Cast: Deal 3 damage. You may discard a card in hand. If you do, any player gains 1 life.;"""There is talk of the link between the mages and our adversaries. More and more, the difference between the two becomes harder to see."" - Ohat, Dirt Merchant";;1;Aeon's End;;159;163
 Feral Lightning;S;5;;This spell may be prepped to a closed breach without focusing it.;Cast: Deal 3 damage.;"""All things can be tamed."" - Lash, Breach Mage Scout";;1;Aeon's End;;164;168
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Ignite;S;4;;;Cast: Deal 2 damage. Any ally gains 1 charge.;"""We are but one flickering flame against unimaginable dark."" - Kadir, Breach Mage Delver";;1;Aeon's End;;169;173
+Lava Tendril;S;4;;While prepped, at the end of your casting phase, deal 1 damage.;Cast: Deal 3 damage.;"""My turn!"" - Nym, Breach Apprentice";;1;Aeon's End;;174;178
 Oblivion Swell;S;5;;While prepped, once per turn during your main phase, you may gain 1$.;Cast: Deal 2 damage. You may discard a gem. If you do, deal additional damage equal to its cost.;Many folk have made their fortune harvesting gems. The very breaches through which The Nameless come bestow the stones with strange properties.;;1;Aeon's End;;179;183
 ;;;;;;;;;;;;
 Planar Insight;S;6;;;Cast: Deal 2 damage. Deal 1 additional damage for each of your opened breaches.;"""She may no longer speak, but she sees much."" - Brama, Breach Mage Elder";;1;Aeon's End;;189;193
@@ -49,7 +49,7 @@ Wildfire Whip;S;6;;While prepped, during your main phase, you may spend 2$ to ca
 Leeching Agate;G;3;;When you gain this, gain 1 charge.;Gain 2$.;"""These stones are among the most powerful in the labyrinth of lost caves. They are also the most corrupted."" - Kadir, Breach Mage Delver";;1;The Nameless;;2;8
 Molten Hammer;R;5;;;Gain 1 charge. You may destroy a card in hand or on top of any player's discard pile.;"""Some tools are meant for making, while others hold a more pernicious look."" - Mist, Dagger Captain";;1;The Nameless;;9;13
 Temporal Helix;R;7;;;Cast any player's prepped spell without discarding it.;"""Breach mages are never truly in possession of their own minds."" - Brama, Breach Mage Elder";;1;The Nameless;;14;18
-;;;;;;;;;;;;
+Blaze;S;4;;When you gain this, you may place it on top of any player's discard pile.;Cast: Deal 2 damage. Deal 1 additional damage for each other time you have cast Blaze this turn and for each other Blaze you currently have prepped.;;;1;The Nameless;;19;23
 Radiance;S;8;;;Cast: Deal 5 damage. Each ally draws a card.;"""All of us, together. For apart we are doomed."" - Brama, Breach Mage Elder";;1;The Nameless;;24;28
 Sage's Brand;S;7;;This spell must be prepped to two adjacent breaches so that this touches both breaches. This fully occupies both breaches.##While prepped, draw an additional card during your draw phase.;Cast: Deal 6 damage.;"""The mark of the void lay beneath our skin, not upon it."" - Xaxos, Breach Mage Adept";;1;The Nameless;;29;33
 Scrying Bolt;S;6;;;Cast: Deal 5 damage. You may lose 1 charge. If you do, reveal the top two cards of the nemesis deck. Return them in any order.;"""Who would've thought you could see the future so clearly at the end of a bolt of aether."" - Reeve, Breach Mage Elite";;1;The Nameless;;34;38
@@ -66,7 +66,7 @@ Combustion;S;5;;;Cast: Deal 2 damage to a minion. Deal 2 damage to a different m
 Devouring Shadow;S;6;;While prepped, once per turn during your main phase, you may destroy a card in hand.;Cast: Deal 3 damage.;"""To thrive, everything must eat. Even shadows."" - Malastar, Breach Mage Mentor";;1;The Depths;;26;30
 Disintegrating Scythe;S;7;;;Cast: Deal 8 damage. Suffer 1 damage. Instead of discarding this, destroy it or place it on top of any player's discard pile.;"""Being struck by lightning would only be half as bad."" - Lash, Breach Mage Scout";;1;The Depths;;31;35
 Monstrous Inferno;S;8;;This spell must be prepped to two adjacent breaches so that this card touches both breaches. This fully occupies both breaches.;Cast: Deal 7 damage divided however you choose to the nemesis and any number of minions.;"""There is a certain serenity to becoming flame. Then they can barely hear the voidspawn as it turns them to coals."" - Z'hana, Breach Mage Renegade";;1;The Depths;;36;40
-;;;;;;;;;;;;
+Void Bond;S;4;;;Cast: Deal 3 damage. You may cast any player's prepped spell.;"""We share the same fire, we and The Nameless."" - Xaxos, Breach Mage Adept";;1;The Depths;;41;45
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -102,17 +102,17 @@ Mage's Totem;R;2;;;Destroy a gem or relic you played this turn.#OR#Destroy this.
 Primordial Fetish;R;4;;;Focus any player's breach.#OR#Destroy this. Gain 3 life.;"""The child rose from the dust and opened its eyes. The Conclave revere this child, for she was the first of their kind."" - Mazahaedron, Henge Mystic";;2;War Eternal;;125;129
 Vortex Gauntlet;R;6;;;Cast any player's prepped spell. Return that spell to that player's hand.;"""One does not wield this glove. The glove wields the bearer."" - Gex, Breach Mage Advisor";;2;War Eternal;;130;134
 Aurora;S;5;;While prepped, once per turn during your main phase, you may gain 1 charge.;Cast: Deal 3 damage.;"""It is only natural that they question my being here. But let my answer be written in fire."" - Yan Magda, Enlightened Exile";;2;War Eternal;;135;139
-;;;;;;;;;;;;
+Carbonize;S;4;;;Cast: Deal 3 damage. Reveal the top card of the turn order deck. You may place that card on the bottom of the turn order deck.;;;2;War Eternal;;140;144
 Conjure the Lost;S;6;;;Cast: Deal 5 damage. You may destroy this. If you do, Gravehold gains 4 life.;"""We would all gladly give our lives for Gravehold to live but another day."" - Indira, Breach Apprentice";;2;War Eternal;;145;149
 Celestial Spire;S;5;;;Cast: Deal 3 damage. If this card's supply pile is empty, any ally draws a card.;"""The spires are beacons in the spaces in between."" - Mist, Voidwalker";;2;War Eternal;;150;154
 Convection Field;S;5;;;Cast: Deal 4 damage.#OR#Cast: Deal 2 damage. Any ally may destroy a card in hand.;"""Much to Ulgimor's dismay, no shadow would be cast without the coward Ohat."" - Nerva, Survivor";;2;War Eternal;;155;159
 Crystallize;S;8;;This spell must be prepped to two adjacent breaches so that this card touches both breaches. This fully occupies both breaches.;Cast: Any ally reveals their hand. Deal 2 damage for each gem in that ally's hand.;"""Born in dirt, buried in dirt"" - Henge Mystic Gospel";;2;War Eternal;;160;164
 Equilibrium;S;7;;While prepped, when you suffer damage, reduce that damage by 1, to a minimum of 1.;Cast: Deal 4 damage.;"""I have spun light into the dark places they fear most. But I have brought the darkness with me."" - Yan Magda, Enlightened Exile";;2;War Eternal;;165;169
 Fiery Torrent;S;5;;;Cast: Deal 2 damage. Deal 2 additional damage for each other Fiery Torrent prepped by any player.;"""Fire feeds fire."" - Dezmodia, Voidborn Prodigy";;2;War Eternal;;170;174
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Jagged Lightning;S;4;;;Cast: Deal 3 damage. You may discard a card in hand. If you do, any player focuses their closed breach with the lowest focus cost.;"""Let us hope it hurts."" - Sparrow, Breach Mage Soldier";;2;War Eternal;;175;179
+Kindle;S;4;;While prepped, during your main phase, you may also prep one Spark to the breach this spell is prepped to.#(You cannot use this effect while there is a Spark prepped in this breach.);Cast: Deal 3 damage.;"""Let them burn along with us."" - Garu, Oathsworn Protector";;2;War Eternal;;180;184
 Nova Forge;S;6;;While prepped, once per turn during your main phase, you may gain 2$ that can only be used to gain a spell.;Cast: Deal 4 damage.;"""As I have said before, the breach is my anvil, Adelheim."" - Gex, Breach Mage Advisor";;2;War Eternal;;185;189
-;;;;;;;;;;;;
+Pyrotechnic Surge;S;4;;This spell must be prepped to two adjacent breaches so that this card touches both breaches. This fully occupies both breaches.;Cast: Deal 4 damage. You may destroy a card in your discard pile.;;;2;War Eternal;;190;194
 Reduce to Ash;S;7;;While prepped, at the start of your casting phase, reveal the top card of your deck. You may destroy the revealed card.;Cast: Deal 4 damage;Whether the shadowkin beast known as Ulgimor resides in that lump of coal or it is some part of Ohat remains a topic of controversy.;;2;War Eternal;;195;199
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -129,7 +129,7 @@ Resonate;S;6;;;Cast: Deal 4 damage. If there are six or more other cards in your
 ;;;;;;;;;;;;
 Fulminate;S;5;;While prepped, other spells you cast deal 1 additional damage.#!Link;Cast: Deal 3 damage.;;;2;The Void;;30;34
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Thermal Dart;S;4;;!Link;Cast: Deal 3 damage. If this is not the first Thermal Dart you have cast this turn, gain 1 charge.;"""Become lethal or become lost."" - Sparrow, Breach Mage Soldier";;2;The Void;;40;44
 ;;;;;;;;;;;;
 Alien Element;G;4;;;Gain 1$. For each of your breaches with a spell prepped to it, gain an additional 1$.;"""It matters not what it is, only what it can do."" - Garu, Oathsworn Protector";;2;The Outer Dark;;4;10
 Haunted Berylite;G;3;;;Gain 2$.#OR#Discard a card in hand. If you do, gain 2 charges.;"""All things end. And each leaves behind a shadow, a skull, a memory."" - Yan Magda, Enlightened Exile";;2;The Outer Dark;;11;17
@@ -155,7 +155,7 @@ Neural Wreath;R;4;;;Focus any player's breach. Any player may prep a spell in ha
 Ethereal Hand;R;6;;;Any ally draws two cards.;A helping hand can turn the tide of a battle.;;3;Legacy;Ia;28;32
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Incinerating Fist;S;4;C=3;;Cast: Deal 3 damage.;This spell is the standard for those who want to fight up close and personal.;;3;Legacy;Ia;43;47
 Gravity Node;S;5;;;Cast: Any player discards a card in hand. If they do, deal 4 damage.;Normally, breach mages do not experiment with gravity. These are not normal times.;;3;Legacy;Ia;48;52
 ;;;;;;;;;;;;
 Crumbling Compound;G;5;;;Gain 2$. You may discard a gem in hand. If you do, gain an additional 2$.;Long ago, Brama discovered that this compound could temporarily drain and transform another gem's essence into raw aether.;;3;Legacy;Id;2;8
@@ -165,7 +165,7 @@ Bending Beam;S;5;;;Cast: Deal 2 damage. If this spell was cast from an opened II
 ;;;;;;;;;;;;
 Entangled Shard;G;4;;;Gain 2$. If you have 3 or more charges, gain an additional 1$.;The shard feeds on your inner magic, using your stored charges to power itself.;;3;Legacy;II;2;8
 Starfire Frenzy;S;6;;;Cast: Deal 4 damage. You may discard a spell in hand. If you do, deal 1 additional damage and gain 1 charge.;Every mage knows the legends of the stars' power, but little remains besides this spell.;;3;Legacy;II;9;13
-;;;;;;;;;;;;
+Force Transfusion;S;4;;;Cast: Deal 3 damage. If you have 3 or more charges, gain 1 charge.;Learned mages can compound their stored charges, leading to even greater power.;;3;Legacy;II;14;18
 Brane Knife;R;3;;;Gain 1 charge. Any ally focuses their closed breach with the lowest focus cost.;Discovered in the ancient tunnels, this knife can slice through reality in a way never before seen.;;3;Legacy;II;19;23
 ;;;;;;;;;;;;
 Soothing Torporene;G;3;(A=2)/S;;Gain 2$.#OR#Silence a minion.;This newly acquired gem will soothe even the most aggressive minions into a passive sleep.;;3;Legacy;III;24;30
@@ -178,10 +178,10 @@ Refined Lumenium;G;5;;;Gain 2$. Any ally draws a card.;After going through exten
 Reality Stabilizer;R;6;C=2,S;;Gain 2 charges. Silence a minion.;The ability to silence minions might have won us the battle for Gravehold.;;3;Legacy;IV;26;30
 Pyro Geist;S;6;;When you prep this, deal 1 damage.;Cast: Deal 1 damage. Deal 2 damage.#(Effects that modify damage affect both instances of damage this spell deals when cast.);Channeling the swirling flames of the geist takes dedicated practice.;;3;Legacy;IV;31;35
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
 Conductive Grit;G;3;;;Gain 2$. Gain 1 pulse token.#OR#You may lose 1 pulse token. If you do, gain 3$.;The grit can be used to regulate and store the electricity that pulses through us all.;;3;Legacy;V;12;18
 Voltaic Relay;R;4;;;Any player gains 3 pulse tokens. That player may lose 1 pulse token. If they do, they destroy a card in hand.;This staff allows us to channel the newfound Pulse energy into a willing vessel, purging them of unwanted thoughts.;;3;Legacy;V;19;23
 Infernal Mirror;R;5;;;Any ally gains 1 charge. Any player gains 2 pulse tokens. You may lose 2 pulse tokens. If you do, cast any player's prepped spell. That spell deals 1 additional damage.;The mirror reflects our darkest truths. If you can withstand them, you can reshape reality.;;3;Legacy;V;24;28
+Breach Communion;S;4;;While prepped, once per turn during your main phase, you may gain 1 pulse token.;Cast: Deal 2 damage. You may lose 2 pulse tokens. If you do, deal 3 additional damage.;Finding ways to use newly discovered Pulse magic has given us greater power than ever before.;;3;Legacy;V;29;33
 ;;;;;;;;;;;;
 Fulmite Slab;G;6;;;Gain 1$. Gain 2 pulse tokens. Until the end of the turn, you may lose 1 pulse token to gain 1$ any number of times.;This ordinary slab, when charged, can produce aether on par with the richest gems.;;3;Legacy;VI;13;19
 Prophetic Lens;R;4;;;Gain 1 charge. Reveal the top card of your deck. You may destroy it. If you don't, gain 1$.;In our eagerness to explore the newfound Pulse magic, we nearly overlooked this lens that allow its wearer to glimpse the future.;;3;Legacy;VI;20;24
@@ -210,6 +210,8 @@ Blade of Wisdom;S;6;;When you gain this, if there are seven or more other cards 
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
+Flash of Intellect;S;4;;!Link;Cast: Deal 3 damage. If there are six or more other cards in your discard pile, you may gain a Flash of Intellect from the supply and place it on top of your deck.;Clever breach mages adapt to the battlefield, seizing any advantage they can.;;3;Buried Secrets;;102;106
+;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Psychic Eruption;S;8;;;Cast: Deal damage equal to the number of cards in any player's discard pile.;Brama's newest technique allows breach mages to leverage each other's minds and use that rush of knowledge to power their attacks.;;3;Buried Secrets;;117;121
 Stunning Force;S;5;;;Cast: Deal 4 damage to the nemesis. Silence a minion.;The sheer power of this spell is great enough that its reverberations stop nearby minions in their tracks.;;3;Buried Secrets;;122;126
@@ -222,7 +224,7 @@ Energized Rubidium;G;5;;;Gain 3$. Any ally may discard a card in hand. If they d
 Galvanized Bauble;R;3;;;Focus any ally's breach.#OR#Cast any player's prepped spell. You may destroy it.;"""I think I knew this relic once. I was happier then."" - Lost";;4;The New Age;1a;23;27
 Aether Conduit;R;4;;;Attach this to any player's breach. When a spell is cast from this breach, the player who cast that spell gains 1$.;"""This is just one of the many techniques I brought from the Void."" - Qu";;4;The New Age;1a;28;32
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Force Amplifier;S;4;;;Cast: Deal 3 damage. If this was cast from an opened III or IV breach, deal 1 additional damage.;"""Put your hand here, yes there. Bend this way. Okay, now imagine fire."" - Talix";;4;The New Age;1a;38;42
 Imbued Smash;S;5;;;Cast: Deal 4 damage. You may discard a card in hand. If you do, deal 2 damage to the nemesis.#(Effects that modify damage affect both instances of damage.);"""Of course it's done! Just... punch far away from me first, okay?"" - Claudia";;4;The New Age;1a;43;47
 Patterned Strike;S;7;;;Cast: Deal 4 damage. You may return to your hand up to two cards in your discard pile that cost 0$.;"""Even breach magic is governed by rules of action and result."" - Lexive, Arcane Theorist";;4;The New Age;1a;48;52
 ;;;;;;;;;;;;
@@ -243,7 +245,7 @@ Bouncing Boom;S;6;;!Echo;Cast: Deal 2 damage.;"""A simple trick, but exponential
 ;;;;;;;;;;;;
 Unrefined Blaststone;G;6;;;Gain 3$.#OR#Destroy a card in this card's supply pile. If you do, deal 3 damage.;"""Not every blast needs to come from a spell."" - Lexive, Arcane Theorist";;4;The New Age;3b;17;23
 Link Conduit;R;6;;;Attach this to any player's breach. Two spells may be prepped to this breach.;"""I can see the stars. They will fuel us."" - Sahala";;4;The New Age;3b;24;28
-;;;;;;;;;;;;
+Reverating Shock;S;4;;!Echo;Cast: Deal 1 damage. Gain 1$ that can only be used to gain cards.;"""Thank you, my friends. Go forth."" - Sahala";;4;The New Age;3b;29;33
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -282,8 +284,8 @@ Cache Glass;G;4;;;Gain 2$. If there is a Cache Glass in your discard pile, you m
 Reflective Conduit;R;3;;;Attach this to any player's breach. When a spell is cast from this breach, the player who cast that spell may return it to their hand instead of discarding it. If they do, discard this.;"""Slice it like this. Now expand and make it two."" - Qu";;4;Shattered Dreams;;17;21
 Will Weaver;R;7;;;Gain 2 charges. After the next time you activate your ability this turn, deal 3 damage.;"""It makes me uncomfortable, hurts my head, but it flows with power."" - Talix";;4;Shattered Dreams;;22;26
 Breache Seeker;S;5;;!Echo;Cast: Deal 1 damage. Focus any ally's breach.;"""Cut through the aether, bring me the Void!"" - Mazra";;4;Shattered Dreams;;27;31
-;;;;;;;;;;;;
-;;;;;;;;;;;;
+Crescendo Ray;S;4;;;Cast: Deal 3 damage. Gain 1$ for each other spell you have prepped.;"""Do not challenge me."" - Soskel";;4;Shattered Dreams;;32;36
+Storm Vapors;S;4;;;Cast: Deal 3 damage. If there is another Storm Vapors in any player's discard pile, focus any player's breach.;"""Mazra told me where to go, but I was the one to bring it back."" - Razra";;4;Shattered Dreams;;37;41
 ;;;;;;;;;;;;
 Embody Flame;S;7;;;Cast: Deal 5 damage. You may destroy a card in this card's supply pile. If you do, deal 3 additional damage.;"""Arms crossed, knee locked. Turn the aether to flame."" - Talix";;4;Shattered Dreams;;47;51
 Snap Ritual;S;6;;While prepped, once per turn during your main phase, you may discard a card in hand to deal 2 damage.;Cast: Deal 3 damage.;"""HahahAHAHA."" - Claudia";;4;Shattered Dreams;;52;56
@@ -317,13 +319,14 @@ Duplicating Sazite;G;6;;;Gain 3$. The next time you gain a card this turn, you m
 Destiny Forger;R;4;;;Any ally may destroy a card in hand. That player may gain a card that costs up to 2$ more than the destroyed card and place it into their hand.#OR#Destroy this. Gain 2 charges.;;;5;Outcasts;1a;23;27
 Transmuter's Lens;R;5;;;Destroy this. You may destroy a card in your hand or discard pile. Gain a card that costs up to 6$ from any supply pile.;;;5;Outcasts;1a;28;32
 ;;;;;;;;;;;;
-;;;;;;;;;;;;
+Twisted Fang;S;4;;;Cast: Deal 3 damage. If this card's supply pile is empty, deal 1 additional damage.;;;5;Outcasts;1a;38;42
 Lightning Arrow;S;5;;;Cast: Deal 3 damage. You may discard a card in hand. If you do, Gravehold gains 1 life.;;;5;Outcasts;1a;43;47
 Tornado of Insight;S;6;;;Cast: Deal 5 damage. If you have no closed breaches, gain 1 charge.;"""A breach has power, even without forcing magic through it."" - Lexive, Arcane Theorist";;5;Outcasts;1a;48;52
 ;;;;;;;;;;;;
 Galvanized Sapphire;G;4;A=2,O=1;;Gain 2$. Xaxos: Outcast gains 1 charge.;;;5;Outcasts;1d;8;14
 Vigorous Sunstone;G;5;;When you gain this, if this is the second card you gained this turn, place this into your hand.;Gain 3$.;;;5;Outcasts;1d;15;21
 Carnivorous Roox;R;3;;;Gain 1$. You may destroy a card in hand to gain $ equal to its cost.#OR#Destroy this. Focus your closed breach with the lowest focus cost twice.;;;5;Outcasts;1d;22;26
+Infused Ignition;S;4;;;Cast: Deal 3 damage. If Xaxos: Outcast has 4 or less charges, he gains 1 charge.;;;5;Outcasts;1d;27;31
 ;;;;;;;;;;;;
 Elongated Looq;G;4;;;Gain 2$. The next time you focus or open a breach this turn, gain 1 charge.;;;5;Outcasts;2b;2;8
 Chain of Retrieval;R;4;;;Focus any ally's breach.#OR#Return a card in your discard pile to your hand that costs 6$ or less.;;;5;Outcasts;2b;9;13
@@ -345,7 +348,7 @@ Unstable Pyrite;G;2;A=1,X+2;;Gain 1$. You may destroy this. If you do, gain an a
 Orb of the Deep;R;2;;;Focus your closed breach with the lowest focus cost.#OR#Destroy this. Gain 1 charge.;;;5;Outcasts;END;9;13
 Rift Dagger;R;3;;;Gain a card from any other supply pile that costs 3$ or less. You may destroy this to gain a card that costs up to 4$ instead. You may spend 1$. If you do, place that card into your hand.;;;5;Outcasts;END;14;18
 Bottled Sun;R;6;O=3;;Xaxos: Outcast gains 3 charges.;;;5;Outcasts;END;19;23
-;;;;;;;;;;;;
+Shattering Bolt;S;4;;;Cast: Deal 2 damage. You may destroy a card in your hand.#OR#Cast: Discard a gem in hand. If you do, deal 4 damage.;;;5;Outcasts;END;24;28
 Unstable Rift;S;5;;While prepped, at the end of your casting phase, deal 1 damage and gain 1$.;Cast: Deal 4 damage.;;;5;Outcasts;END;29;33
 Gathered Will;S;5;;;Cast: Deal 2 damage. You may gain a spell from any supply pile that costs 4$ or less and place it on top of your deck.;;;5;Outcasts;END;34;38
 Hasted Intellect;S;6;;While prepped, when you gain a card, you may place that card on top of your deck.;Cast: Deal 4 damage.;"""A mage's mind is a useful weapon. We should try to sharpen it as we would any weapon."" - Lexive, Arcane Theorist";;5;Outcasts;END;39;43
@@ -377,7 +380,7 @@ Erasure of Mind;S;7;;;Cast: Destroy a card in hand that costs 3$ or more. If you
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
 Glass-Eyed Oracle;R;1;;;Gain 1$.#OR#Destroy this and any number of copies of this card in hand. You may gain a card with cost up to three times the number of copies destroyed;;;5;Return to Gravehold;;1;5
-;;;;;;;;;;;;
+Cleanse;S;4;;;Cast: Deal 3 damage. If you have 3 or less life, gain 1 life.;;;5;Return to Gravehold;;6;10
 Memory Break;S;6;;;Cast: Deal 3 damage. You may destroy a card in hand. If you do, deal additional damage equal to the cost of the destroyed card.;;;5;Return to Gravehold;;11;15
 ;;;;;;;;;;;;
 ;;;;;;;;;;;;
@@ -412,5 +415,5 @@ Illuminating Flame;S;6;;;Cast: Deal 5 damage. If this was cast from an opened II
 Chronal Arc;S;7;;This spell must be prepped to two adjacent breaches so that this card touches both breaches. This fully occupies both breaches.;Cast: Deal 4 damage. You may place this card into your hand.;"""The potential of one single spell is infinite, provided the mage is wise enough to unlock it."" - Lexive, Arcane Theorist";;4;The New Age (Kickstarter Exclusive);Promo;80;84
 ;;;;;;;;;;;;
 Coruscating Sapal;G;4;;;Gain 2$. You may lose 1 charge. If you do, gain an additional 2$.;;;5;Outcasts (Kickstarter Exclusive);Promo;90;96
-;;;;;;;;;;;;
+Force Catalyst;S;4;;While prepped, during you may phase, you may spend 3$ to cast any player's prepped spell.;Cast: Deal 3 damage.;;;5;Outcasts (Kickstarter Exclusive);;97;101
 Humming Shell;R;7;;;Destroy up to two cards in hand or discard pile.#OR#Gain 2 charges.;;;5;Outcasts (Kickstarter Exclusive);Promo;102;106
