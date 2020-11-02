@@ -290,3 +290,9 @@ Chronal Arc;S;7;;This spell must be prepped to two adjacent breaches so that thi
 Coruscating Sapal;G;4;;;Gain 2$. You may lose 1 charge. If you do, gain an additional 2$.;;;5;Outcasts (Kickstarter Exclusive);Promo;90;96
 Force Catalyst;S;4;;While prepped, during you may phase, you may spend 3$ to cast any player's prepped spell.;Cast: Deal 3 damage.;;;5;Outcasts (Kickstarter Exclusive);;97;101
 Humming Shell;R;7;;;Destroy up to two cards in hand or discard pile.#OR#Gain 2 charges.;;;5;Outcasts (Kickstarter Exclusive);Promo;102;106
+;;;;;;;;;;;;
+# Curses;;;;;;;;;;;;
+;;;;;;;;;;;;
+Cursed Shard;G;0;;;Gain 1$. Place this on top of your deck.#OR#Spend 2$ to destroy this.;Starts the game in the Curse deck.;;5;Outcasts;1c;33;36
+Cursed Manacles;R;0;;;Gain 1 charges. Suffer 1 damage.#OR#Discard two prepped spells to destroy this.;Starts the game in the Curse deck.;;5;Outcasts;1c;38;39
+Cursed Bolt;S;0;;;Cast: Deal 1 damage. Place this on top of your deck.#OR#Cast: Deal 1 damage. Discard two cards in hand. If you do, destroy this.;Starts the game in the Curse deck.;;5;Outcasts;1c;40;42

@@ -142,3 +142,6 @@ Withering Rot;A;;;1;B;;;;;Any player suffers 3 damage and gains a Curse of Rot f
 Menace;A;;;1;B;;;;;The players collectively discard four cards.;"""Fear is a luxury no longer granted to the living."" - Brama, Breach Mage Mentor";3;Legacy (Kickstarter Exclusive);Promo;1
 Glyph Enigma;M;7;;1;B;;;;;Gravehold suffers 1 damage. If the nemesis tier is 2 or higher, Gravehold suffers 2 additional damage.#(The nemesis tier is equal to the tier of the last nemesis card drawn.);;3;Legacy (Kickstarter Exclusive);Promo;5
 Spirit Cage;P;3;;1;B;;;Discard a card in hand that costs 5$ or more.;;Unleash twice. Any player discards a spell in hand.;;3;Legacy (Kickstarter Exclusive);Promo;13
+;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+Curse of Rot;C;;;0;B;;;;;When this is in your hand, immediately either:#Discard this.#OR#Lose 3 charges to destroy this and draw a card.;Starts the game in the Curse deck.;5;Outcasts;1c;37

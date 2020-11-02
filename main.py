@@ -123,7 +123,7 @@ def player_card(name: str) -> list:
 
 def nemesis_card(name: str) -> list:
     c = nemesis_cards[name]
-    values = [f"```{c['name']}", "", f"Type: {ctypes[c['type']]}", ""]
+    values = [f"```{c['name']}", "", f"Type: {ctypes[c['type']]}"]
     if c['category'] == "B":
         values.append(f"Basic Nemesis (Tier {c['tier']})")
     elif c['category'] == "U":
@@ -152,6 +152,12 @@ def nemesis_card(name: str) -> list:
 
     elif c['type'] == "A":
         values.append(f"{c['effect']}")
+
+    elif c['type'] == "C":
+        values.append(f"{c['effect']}")
+
+    else: # unknown type
+        values.append("Type unknown")
 
     values.append("")
 
@@ -221,7 +227,7 @@ async def card(ctx, *args):
 
 @cmd
 async def link(ctx):
-    await ctx.send("Two spells with Link may be prepped to the same breach.")
+    await ctx.send("```Two spells with Link may be prepped to the same breach.```")
 
 @cmd
 async def silence(ctx):
