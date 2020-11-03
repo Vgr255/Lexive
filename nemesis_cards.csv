@@ -195,3 +195,28 @@ Labyrinth Wraith;M;6;;1;U;;!Wandering;;;Unleash. Any player suffers 1 damage.;;5
 ;;;;;;;;;;;;;;;
 Writhe;A;;;1;U;;;;;Unleash twice. Any player suffers 1 damage.;;5;Outcasts (Kickstarter Exclusive);Promo;117
 Bubbling Ruin;P;3;;1;U;;;Spend 6$.;;Unleash. Any player discards three cards in hand. Gravehold suffers 2 damage.;;5;Outcasts (Kickstarter Exclusive);Promo;118
+;;;;;;;;;;;;;;;
+# Upgraded tier 2 basics;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+Reap;A;;;2;E;;;;;Unleash twice. The player with the most charges loses 3 charges or suffers 3 damage.;;3;Legacy;Evolve;23
+Crushing Wave;P;2;;2;E;;;Spend 8$.;;Unleash twice. If Gravehold has 15 life or more, Gravehold suffers 6 damage. Otherwise, any player suffers 4 damage.;;3;Legacy;Evolve;39
+Dark Bond;P;2;;2;E;;;Spend 8$.;;Unleash twice. The player with the lowest life suffers 4 damage.;;3;Legacy;Evolve;45
+Humming Drones;M;9;2;2;E;;This minion can have any number of shield tokens.;;;This minion gains one shield token. [Any player] suffers damage equal to the number of shield tokens this minion has.;;3;Legacy;Evolve;59
+;;;;;;;;;;;;;;;
+Separate;A;;;2;U;;;;;Unleash twice. Gravehold suffers 2 damage. The player with the most expensive prepped spell discards that spell.;;4;The New Age;2a;3
+Sky Tremor;P;1;;2;U;;;Spend 7$.;;Unleash twice. Gravehold suffers 4 damage.;;4;The New Age;2a;4
+Engulfing Madness;P;2;;2;U;;;Spend 8$.;;Unleash twice. Any player suffers 4 damage.;;4;The New Age;2a;5
+Marked;A;;;2;U;;;;;Unleash twice. The player with the lowest life suffers 3 damage.;;4;The New Age;3a;3
+Needle Doom;M;12;;2;U;;;;;Unleash. Gravehold suffers 2 damage.;;4;The New Age;4;3
+;;;;;;;;;;;;;;;
+Howling Slayer;M;14;;2;U;;;;;Any player suffers 2 damage. Any player discards a card in hand.;;4;The Ancients;;84
+Mangle;A;;;2;U;;;;;The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.;;4;The Ancients;;85
+;;;;;;;;;;;;;;;
+Rescind;A;;;2;U;;;;;Unleash twice. The player with the most expensive prepped spell discards that spell and suffers 2 damage.;;5;Outcasts;2a;13
+Hunt the Weak;A;;;2;U;;;;;Any player suffers 3 damage. Gravehold suffers 3 damage.;;5;Outcasts;2a;14
+Silent Decay;P;2;;2;U;;;Spend 8$.;;Unleash twice. Gravehold suffers 3 damage. Any player gains a Cursed Bolt from the Curse deck and places it on top of their deck.;;5;Outcasts;2a;15
+Harbinger of Monstrosity;M;8;;2;U;;When a player deals damage to this minion, reduce that damage by 2, to a minimum of 1.;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;5;Outcasts;3a;25
+Mage Devourer;M;11;;2;U;;When a player deals damage to this minion, the player with the most opened breaches suffers 1 damage.;;;Unleash. Gravehold suffers 1 damage.;;5;Outcasts;4;23
+;;;;;;;;;;;;;;;
+Sweeping Blackness;A;;;2;U;;;;;Gravehold suffers 4 damage. Any player loses 2 charges and discards two cards in hand.;;5;Outcasts (Kickstarter Exclusive);Promo;119
+Twisting Flesh;P;1;;2;U;;;Spend 7$.;;Unleash twice. Any player suffers 3 damage. That player gains a Cursed Manacles from the Curse deck and places it on top of their deck.;;5;Outcasts (Kickstarter Exclusive);Promo;120
