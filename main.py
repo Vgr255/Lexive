@@ -133,6 +133,8 @@ def nemesis_card(name: str) -> list:
         values.append(f"Basic Nemesis (Tier {c['tier']})")
     elif c['category'] == "U":
         values.append(f"Upgraded Basic Nemesis (Tier {c['tier']})")
+    elif c['category'] == "E":
+        values.append(f"Fully-Evolved Legacy Basic Nemesis suitable as Upgraded Basic (Tier {c['tier']})")
     else: # Nemesis-specific card
         values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
 
@@ -276,7 +278,8 @@ async def whoami(ctx):
     f"and bug reports.{mention}" +
     "\nI am a utility bot for all Aeon's End content. You can ask me about any card by doing " +
     f"`{config.prefix}<card name>` in any channel on this server. I also know " +
-    "about some unique mechanics, and autocomplete is supported for cards.")
+    "about some unique mechanics, and autocomplete is supported for cards. "+
+    "Legacy-specific content is not currently implemented.")
 
 print("Bot loaded. Starting")
 
