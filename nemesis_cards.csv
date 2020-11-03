@@ -76,7 +76,7 @@ Hunted;A;;;2;B;;;;;Unleash twice. The player with the lowest life suffers 1 dama
 Tempting Offer;P;3;;2;B;;;Spend 7$.;;Unleash twice. The player with the lowest life suffers 3 damage.;;3;Legacy;END;69
 Annihilate;A;;;3;B;;;;;Unleash twice. The player with the most expensive card in hand discards two cards in hand. Then, for each card in that player's hand that costs 2$ or more, Gravehold suffers 2 damage.;;3;Legacy;END;70
 Facet Ogre;M;1;4;3;B;;;;;Gravehold suffers damage equal to the number of shield tokens this minion has. If this minion has two or less shield tokens, it gains one shield token.;;3;Legacy;END;71
-Flash of Decay;P;2;;3;B;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;3;Legacy;END;72
+# Flash of Decay;P;2;;3;B;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;3;Legacy;END;72
 Gathering Storm;P;2;;3;B;;;Spend 8$.;;Unleash twice. If there are two nemesis turn order cards in the turn order discard pile, any player suffers 4 damage. Otherwise, Gravehold suffers 4 damage.;;3;Legacy;END;73
 Maddening Spectre;M;7;2;3;B;;;;;Unleash twice.;;3;Legacy;END;74
 Scatter;A;;;3;B;;;;;Unleash twice. Any player destroys their most expensive card in hand.;;3;Legacy;END;75
@@ -220,3 +220,24 @@ Mage Devourer;M;11;;2;U;;When a player deals damage to this minion, the player w
 ;;;;;;;;;;;;;;;
 Sweeping Blackness;A;;;2;U;;;;;Gravehold suffers 4 damage. Any player loses 2 charges and discards two cards in hand.;;5;Outcasts (Kickstarter Exclusive);Promo;119
 Twisting Flesh;P;1;;2;U;;;Spend 7$.;;Unleash twice. Any player suffers 3 damage. That player gains a Cursed Manacles from the Curse deck and places it on top of their deck.;;5;Outcasts (Kickstarter Exclusive);Promo;120
+;;;;;;;;;;;;;;;
+# Upgraded tier 3 basics;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+Maddening Eidolon;M;7;4;3;E;;;;;Unleash twice.;;3;Legacy;Evolve;15
+Facet Juggernaut;M;1;5;3;E;;;;;Gravehold suffers 1 damage. Gravehold suffers additional damage equal to the number of shield tokens this minion has.;;3;Legacy;Evolve;27
+;;;;;;;;;;;;;;;
+# Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any player suffers 4 damage.;;4;The New Age;2a;6
+Eradicate;A;;;3;U;;;;;Unleash twice. Any player discards their three most expensive cards in hand.;;4;The New Age;2a;7
+# Ray of Desolation;P;1;;3;U;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;;4;The New Age;2a;8
+Flash of Decay;P;2;;3;U;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;4;The New Age;3a;4
+Terrify;A;;;3;U;;;;;Unleash three times. Gravehold suffers 2 damage. Any player destroys two cards in hand.;;4;The New Age;3a;5
+Burialskulk;M;18;;3;U;;;;;Unleash twice.;;4;The New Age;4;4
+Thunderous Tempest;P;2;;3;U;;;Spend 9$.;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, any player suffers 8 damage. Otherwise, any player suffers 5 damage.;;4;The New Age;4;5
+;;;;;;;;;;;;;;;
+Sky Crush;A;;;3;U;;;;;Unleash three times. Any player destroys two cards in hand and suffers 2 damage.;;5;Outcasts;2a;16
+Scion of the Void;M;13;;3;U;;When a player deals damage to this minion, Unleash.;;;Unleash twice.;;5;Outcasts;2a;17
+Ray of Desolation;P;1;;3;U;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;;5;Outcasts;2a;18
+Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any player suffers 4 damage.;;5;Outcasts;3a;26
+Blighted Magic;P;2;;3;U;;;;;Unleash. The player with the most expensive prepped spell destroys it. A different player destroys two cards in hand that cost 1$ or more.;;5;Outcasts;3a;27
+Scour;A;;;3;U;;;;;Unleash three times. The player with the most expensive card in hand discards their three most expensive cards in hand.;;5;Outcasts;4;24
+Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;5;Outcasts;4;25
