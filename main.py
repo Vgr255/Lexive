@@ -24,7 +24,6 @@ ctypes = {
 }
 
 def load():
-    print("Loading content")
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
         content = csv.reader(player_file, dialect="excel", delimiter=";")
@@ -94,6 +93,9 @@ def load():
     assert (not nemesis_cards.keys() & player_mats.keys()), "nemesis cards & player mats"
     assert (not nemesis_cards.keys() & nemesis_mats.keys()), "nemesis cards & mats"
 
+    print("Loading complete")
+
+print("Loading content")
 load()
 
 class Lexive(commands.Bot):
@@ -316,7 +318,8 @@ async def wandering(ctx):
 
 @cmd
 async def reload(ctx):
-    if bot.is_owner(ctx.author):
+    if await ctx.bot.is_owner(ctx.author):
+        print("\nReloading content")
         load()
         await ctx.send("Reloaded data.")
 
