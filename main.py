@@ -123,7 +123,12 @@ def player_card(name: str) -> list:
 
 def nemesis_card(name: str) -> list:
     c = nemesis_cards[name]
-    values = [f"```{c['name']}", "", f"Type: {ctypes[c['type']]}"]
+    ctype = c["type"]
+    values = [f"```{c['name']}", ""]
+    if len(ctype) > 1: # something specific
+        ctype = ctypes[ctype[0]] + ctype[1:]
+    values.append(f"Type: {ctype}")
+    ctype = c["type"][0]
     if c['category'] == "B":
         values.append(f"Basic Nemesis (Tier {c['tier']})")
     elif c['category'] == "U":
@@ -139,21 +144,21 @@ def nemesis_card(name: str) -> list:
     if c['immediate']:
         values.append(f"IMMEDIATELY: {c['immediate']}\n")
 
-    if c['type'] == "P":
+    if ctype == "P":
         if c['discard']:
             values.append(f"TO DISCARD: {c['discard']}\n")
         values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
-    elif c['type'] == "M":
+    elif ctype == "M":
         values.append(f"Health: {c['tokens_hp']}")
         if c['shield']:
             values.append(f"Shield tokens: {c['shield']}")
         values.append(f"PERSISTENT: {c['effect']}")
 
-    elif c['type'] == "A":
+    elif ctype == "A":
         values.append(f"{c['effect']}")
 
-    elif c['type'] == "C":
+    elif ctype == "C":
         values.append(f"{c['effect']}")
 
     else: # unknown type
