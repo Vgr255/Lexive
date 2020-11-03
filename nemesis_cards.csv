@@ -241,3 +241,31 @@ Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any 
 Blighted Magic;P;2;;3;U;;;;;Unleash. The player with the most expensive prepped spell destroys it. A different player destroys two cards in hand that cost 1$ or more.;;5;Outcasts;3a;27
 Scour;A;;;3;U;;;;;Unleash three times. The player with the most expensive card in hand discards their three most expensive cards in hand.;;5;Outcasts;4;24
 Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;5;Outcasts;4;25
+;;;;;;;;;;;;;;;
+# Nemesis-specific cards;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+Provoker;M;5;;1;Rageborne;;;;;Gravehold suffers damage equal to the number of Fury tokens Rageborne has.;"""I nearly wasted a freshly forged chopper on one of these things."" - Reeve, Breach Mage Elite";1;Aeon's End;;262
+Cleave;A;;;1;Rageborne;;;;;Rageborne Strikes.;Thraxir was breach commander for as long as most could remember. To honor him, to this very day no man or woman has been elected to the post in his stead.;1;Aeon's End;;263
+Unrelenting Ire;A;;;1;Rageborne;;;;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, Unleash two additional times.;"""I reckon its head would look good on a post."" - Reeve, Breach Mage Elite";1;Aeon's End;;264
+Blood Cry;P;2;;2;Rageborne;;;Lose 4 charges.;;Unleash four times.;The cave walls crumble and quake as it bellows to its kin.;1;Aeon's End;;265
+Invoke Carnage;P;2;;2;Rageborne;;;Spend 7$.;;Unleash. Any player suffers 1 damage. That player suffers 1 additional damage for each Fury token Rageborne has.;"""There is but a single power among The Nameless that can shatter Gravehold."" - Brama, Breach Mage Elder";1;Aeon's End;;266
+Scorn;M;9;;2;Rageborne;;;;;Gravehold suffers 3 damage.#OR#Unleash twice.;"""Part of me almost admires the craftmanship of this horrible thing."" - Adelheim, Breach Mage Weaponsmith";1;Aeon's End;;267
+Avatar of Wrath;M;16;;3;Rageborne;;;;;Rageborne Strikes.;Many a mage found their end in the gullet of this beast.;1;Aeon's End;;268
+Onslaught;A;;;3;Rageborne;;;;;Unleash three times. The players collectively discard cards in hand equal to the number of Fury tokens Rageborne has.;Even its shadow leaves a wake of carnage, smoke, and screams.;1;Aeon's End;;269
+Rolling Death;P;2;;3;Rageborne;;;Spend 8$.;;Rageborne Strikes twice.;"""Its breath rasped as it turned the black rocks red. And those who could, ran."" - Nerva, Survivor";1;Aeon's End;;270
+Convoke;T;;;0;Rageborne;;;;;Any player suffers 4 damage.;"""No other thing, in our world or theirs, has been so violent as this beast."" - Brama, Breach Mage Elder";1;Aeon's End;;271
+Devastate;T;;;0;Rageborne;;;;;Gravehold suffers 5 damage.;"""Anger is born in fire."" - Z'hana, Breach Mage Renegade";1;Aeon's End;;272
+Eviscerate;T;;;0;Rageborne;;;;;The player with the lowest life suffers 2 damage.;"""The breach commander Thraxir was split in twain with a single blow, his armor twisted and glowing like a brand. I have never seen such a thing before or since."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;273
+Frenzy;T;;;0;Rageborne;;;;;The player with the most opened breaches suffers 3 damage.;"""All great armies have a warrior that is feared above all others. We call theirs Rageborne."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;274
+Raze;T;;;0;Rageborne;;;;;Gravehold suffers 3 damage. Any player suffers 1 damage.;"""The fire spread from the old barracks to the south wall in a moment, the ancient stone hissing and turning black as the beast strode through the city."" - Nerva, Survivor";1;Aeon's End;;275
+Seize;T;;;0;Rageborne;;;;;The players collectively discard the two most expensive prepped spells.;"""How this cave has not long ago collapsed is a wonder and a mercy."" - Nerva, Survivor";1;Aeon's End;;276
+;;;;;;;;;;;;;;;
+Broodwomb;M;5;;1;Carapace Queen;;If there is at least one husk in play, prevent all damage dealt to this minion.;;;Place a husk in play.;It is the husk-mother, spewing multitudes through the void into Gravehold.;1;Aeon's End;;226
+Endless Throng;A;;;1;Carapace Queen;;;;;Carapace Queen Swarms.;"""The Queen, she is the worst of their foul lot, for her young are without number."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;227
+Hatch;A;;;1;Carapace Queen;;;;;Place a husk into play for each turn order card in the turn order discard pile.;The Queen wears her offspring like some writhing armor.;1;Aeon's End;;228
+Blot the Sun;P;2;;2;Carapace Queen;;;Lose 4 charges.;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""Were we still in The World That Was, these wretched things would envelop the very sky."" - Malastar, Breach Mage Mentor";1;Aeon's End;;229
+Foul Multitudes;P;3;;2;Carapace Queen;;Husks have 2 life. Damaged husks heal to full life at the end of each turn.;;Unleash.;Carapace Queen Swarms.;It took the survivors of Gravehold half-a-moon to shovel up the dead husks and carry them into the depths, where they now lie in piles high enough to touch the tops of the cave vaults.;1;Aeon's End;;230
+Infest;A;;;2;Carapace Queen;;;;;Carapace Queen Swarms twice.#OR#Any player suffers 4 damage.;"""Husks are easy enough to dispatch... one on one, that is."" - Lash, Breach Mage Scout";1;Aeon's End;;231
+Legion Beacon;P;2;;3;Carapace Queen;;;;Unleash twice.;Discard half of the husks in play, rounded up. Gravehold suffers 2 damage for each husks discarded this way. Carapace Queen Swarms.;Gravehold knows when the Queen is near, for the claxon call of her legions echoes throughout the cave.;1;Aeon's End;;232
+Maggot Engine;M;0;;3;Carapace Queen;;;;Unleash three times. Then, set this minion's life equal to twice the number of husks in play.;Carapace Queen Swarms.;"""Which end is the head?"" - Nym, Breach Apprentice";1;Aeon's End;;233
+Spawn;A;;;3;Carapace Queen;;;;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""The sound of the things, skittering across the cave walls, is loud enough to drown our screams."" - Nerva, Survivor";1;Aeon's End;;234
