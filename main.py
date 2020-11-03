@@ -1,4 +1,4 @@
-from typing import Optional, Tuple, Iterable, Callable
+from typing import Optional, Tuple, Iterable, Callable, List
 
 import discord
 import csv
@@ -12,10 +12,16 @@ author_id = 320646088723791874
 
 player_cards = {}
 nemesis_cards = {}
+player_mats = {}
+nemesis_mats = {}
 
-ctypes = {"G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
+ctypes = {
+    "G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
     "T1": "Level 1 Treasure", "T2": "Level 2 Treasure", "T3": "Level 3 Treasure",
-    "P": "Power", "M": "Minion", "A": "Attack", "C": "Curse"}
+    "P": "Power", "M": "Minion", "A": "Attack", "C": "Curse",
+    # Nemesis-specific stuff
+    "T": "Strike"
+}
 
 def load():
     print("Loading content")
@@ -60,7 +66,33 @@ def load():
 
     print("Nemesis cards loaded")
 
-    assert not player_cards.keys() & nemesis_cards.keys()
+    nemesis_mats.clear()
+    with open("nemesis_mats.csv", newline="") as nmats_file:
+        content = csv.reader(nmats_file, dialect="excel", delimiter=";")
+        for name, hp, diff, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, wave, box, deck, start, end in content:
+            if not name or name.startswith("#"):
+                continue
+            setup = setup.replace("#", "\n")
+            add_r = add_r.replace("#", "\n")
+            flavour = flavour.replace("#", "\n")
+            side = side.replace("#", "\n")
+            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
+            if casefolded_name in nemesis_mats:
+                raise ValueError(f"duplicate value {casefolded_name}")
+            nemesis_mats[casefolded_name] = {
+                "name": name, "hp": hp, "difficulty": diff, "unleash": unleash,
+                "setup": setup, "additional_rules": add_r, "flavour": flavour,
+                "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
+                "side": side, "wave": int(wave), "box": box, "deck": deck,
+                "start": int(start), "end": int(end)
+            }
+
+    print("Nemesis mats loaded")
+
+    assert (not player_cards.keys() & nemesis_cards.keys()), "player & nemesis cards"
+    assert (not player_cards.keys() & player_mats.keys()), "player cards & mats"
+    assert (not nemesis_cards.keys() & player_mats.keys()), "nemesis cards & player mats"
+    assert (not nemesis_cards.keys() & nemesis_mats.keys()), "nemesis cards & mats"
 
 load()
 
@@ -96,9 +128,9 @@ def cmd(func: Callable) -> Callable:
     cmds[func.__name__] = func
     return bot.command()(func)
 
-def player_card(name: str) -> list:
+def player_card(name: str) -> List[str]:
     c = player_cards[name]
-    values = [f"```{c['name']}", "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""]
+    values = ["```", f"{c['name']}", "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""]
     if c['special']:
         values.append(f"** {c['special']} **")
         values.append("")
@@ -121,14 +153,9 @@ def player_card(name: str) -> list:
 
     return values
 
-def nemesis_card(name: str) -> list:
+def nemesis_card(name: str) -> List[str]:
     c = nemesis_cards[name]
-    ctype = c["type"]
-    values = [f"```{c['name']}", ""]
-    if len(ctype) > 1: # something specific
-        ctype = ctypes[ctype[0]] + ctype[1:]
-    values.append(f"Type: {ctype}")
-    ctype = c["type"][0]
+    values = ["```", f"{c['name']}", "", f"Type: {ctypes[c['type']]}"]
     if c['category'] == "B":
         values.append(f"Basic Nemesis (Tier {c['tier']})")
     elif c['category'] == "U":
@@ -146,25 +173,19 @@ def nemesis_card(name: str) -> list:
     if c['immediate']:
         values.append(f"IMMEDIATELY: {c['immediate']}\n")
 
-    if ctype == "P":
+    if c['type'] == "P":
         if c['discard']:
             values.append(f"TO DISCARD: {c['discard']}\n")
         values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
-    elif ctype == "M":
+    elif c['type'] == "M":
         values.append(f"Health: {c['tokens_hp']}")
         if c['shield']:
             values.append(f"Shield tokens: {c['shield']}")
         values.append(f"PERSISTENT: {c['effect']}")
 
-    elif ctype == "A":
+    else:
         values.append(f"{c['effect']}")
-
-    elif ctype == "C":
-        values.append(f"{c['effect']}")
-
-    else: # unknown type
-        values.append("Type unknown")
 
     values.append("")
 
@@ -181,6 +202,36 @@ def nemesis_card(name: str) -> list:
 
     return values
 
+def player_mat(name: str) -> List[str]:
+    return ["Not implemented"]
+
+def nemesis_mat(name: str) -> List[str]:
+    c = nemesis_mats[name]
+    values = ["```", f"{c['name']}", f"Health: {c['hp']}", f"Difficulty rating: {c['difficulty']}", "",
+              f"SETUP: {c['setup']}", "", f"UNLEASH: {c['unleash']}", "", "* INCREASED DIFFICULTY *"]
+    if c['id_setup']:
+        values.append(f"SETUP: {c['id_setup']}")
+    if c['id_unleash']:
+        values.append(f"UNLEASH: {c['id_unleash']}")
+    if c['id_rules']:
+        values.append(f"RULES: {c['id_rules']}")
+
+    values.extend(["", "* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
+
+    if c['side']: # side mat
+        values.append(f"{c['side']}\n")
+
+    values.extend([f"{c['flavour']}", "", f"From {c['box']} (Wave {c['wave']})"])
+
+    if c['deck']:
+        values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {c['start']}-{c['end']}")
+    else:
+        values.append(f"Cards used with this nemesis: {c['start']}-{c['end']}")
+
+    values.append("```")
+
+    return values
+
 def get_card(name: str) -> Tuple[Optional[list], int]:
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
@@ -190,12 +241,16 @@ def get_card(name: str) -> Tuple[Optional[list], int]:
         if x in name:
             name = name[:name.index(x)]
     arg = name.lower().replace(" ", "").replace("'", "").replace(",", "")
-    matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys())
+    matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys() | player_mats.keys() | nemesis_mats.keys())
     if len(matches) == 1:
         if matches[0] in player_cards:
             values = player_card(matches[0])
-        else:
+        elif matches[0] in nemesis_cards:
             values = nemesis_card(matches[0])
+        elif matches[0] in player_mats:
+            values = player_mat(matches[0])
+        elif matches[0] in nemesis_mats:
+            values = nemesis_mat(matches[0])
         if mention is not None:
             values.insert(0, mention)
         return values, 1
@@ -219,16 +274,16 @@ def complete_match(string: str, matches: Iterable) -> list:
     return sorted(possible_matches)
 
 @cmd
-async def card(ctx, *args):
+async def info(ctx, *args):
     values, possible = get_card("".join(args))
     if possible == 1:
         to_send = "\n".join(values)
     elif not args:
-        to_send = "No card name provided."
+        to_send = "No argument provided."
     elif possible > 1:
         to_send = f"Ambiguous value. Possible matches: {', '.join(values)}"
     else:
-        to_send = f"No player card found matching {' '.join(args)}"
+        to_send = f"No content found matching {' '.join(args)}"
 
     await ctx.send(to_send)
 
@@ -261,7 +316,7 @@ async def wandering(ctx):
 
 @cmd
 async def reload(ctx):
-    if ctx.author.is_owner():
+    if bot.is_owner(ctx.author):
         load()
         await ctx.send("Reloaded data.")
 
@@ -279,7 +334,7 @@ async def whoami(ctx):
     "\nI am a utility bot for all Aeon's End content. You can ask me about any card by doing " +
     f"`{config.prefix}<card name>` in any channel on this server. I also know " +
     "about some unique mechanics, and autocomplete is supported for cards. "+
-    "Legacy-specific content is not currently implemented.")
+    "Legacy-specific content is not currently implemented and will arrive in v0.2")
 
 print("Bot loaded. Starting")
 
