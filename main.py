@@ -68,7 +68,7 @@ def load():
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
         content = csv.reader(nmats_file, dialect="excel", delimiter=";")
-        for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, wave, box, deck, start, end in content:
+        for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, wave, box, deck, cards in content:
             if not name or name.startswith("#"):
                 continue
             setup = setup.replace("#", "\n")
@@ -83,8 +83,8 @@ def load():
                 "name": name, "hp": int(hp), "difficulty": diff, "unleash": unleash,
                 "setup": setup, "additional_rules": add_r, "flavour": flavour,
                 "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
-                "side": side, "wave": int(wave), "box": box, "deck": deck,
-                "battle": int(battle), "start": int(start), "end": int(end)
+                "side": side, "wave": int(wave), "box": box, "battle": int(battle),
+                "deck": deck, "cards": cards.split(",")
             }
 
     print("Nemesis mats loaded")
@@ -233,9 +233,9 @@ def nemesis_mat(name: str) -> List[str]:
     values.extend([f"From {c['box']} (Wave {c['wave']})"])
 
     if c['deck']:
-        values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {c['start']}-{c['end']}")
+        values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {', '.join(c['cards'])}")
     else:
-        values.append(f"Cards used with this nemesis: {c['start']}-{c['end']}")
+        values.append(f"Cards used with this nemesis: {', '.join(c['cards'])}")
 
     values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
 
