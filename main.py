@@ -119,7 +119,16 @@ def load():
     print("Loading complete")
 
 print("Loading content")
+
 load()
+
+activity = discord.Activity(
+    name=f"{config.prefix}whoami",
+    application_id=0,
+    url="https://github.com/Vgr255/Lexive",
+    type=discord.ActivityType.playing,
+    state="Studying the arcane knowledge",
+)
 
 class Lexive(commands.Bot):
     async def on_message(self, message):
@@ -145,7 +154,7 @@ class Lexive(commands.Bot):
 
         await super().on_message(message)
 
-bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True)
+bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True, activity=activity)
 
 cmds = {}
 
