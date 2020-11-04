@@ -1,281 +1,291 @@
-# Name;Type;Tokens & HP;Shield;Tier;Category;Code;Special;To discard;Immediate;Effect;Flavour;Wave;Box;Deck;Number
-;;;;;;;;;;;;;;;
-# Aeon's End Basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Agony Field;P;2;;1;B;;;Destroy a card in hand that costs 2$ or more.;;Unleash. Any player discards three cards in hand and then draws one card.;"""Every breath is torment."" - Nerva, Survivor";1;Aeon's End;;204
-Bane Sire;M;6;;1;B;;;;;Unleash. Any player discards three cards in hand and then draws one card.;"""Best to kill these first."" - Reeve, Breach Mage Elite";1;Aeon's End;;205
-Bleed Static;P;3;;1;B;;;;;The player with the most prepped spells suffers 2 damage for each of their prepped spells.;"""There are no words to describe the sound of a breach opening. Only the screams echoing off the cave walls after."" - Z'hana, Breach Mage Renegade";1;Aeon's End;;206
-Eye of Nothing;P;2;;1;B;;;Spend 6$.;;Unleash twice.;"""We toy with forces we barely comprehend."" - Z'hana, Breach Mage Renegade";1;Aeon's End;;207
-Haze Spewer;M;5;;1;B;;;;;Gravehold suffers damage equal to this minion's current life. Then, this minion suffers 1 damage.;The fumes they belch are so caustic that they rarely live long themselves.;1;Aeon's End;;208
-Skewer;A;;;1;B;;;;;Unleash. Any player suffers 3 damage and draws a card.;"""It takes years to train a breach mage properly, but only a second to snuff one out."" - Malastar, Breach Mage Mentor";1;Aeon's End;;209
-Slaughter;A;;;1;B;;;;;Unleash. Gravehold suffers 3 damage.;"""We have nothing left to lose but our lives."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;210
-Woven Sky;P;2;;1;B;;;Discard three cards in hand.;;Unleash. Any player suffers 4 damage.;"Nym looked up in awe as Malastar pointed to the roiling air at the dome of the cave. ""Those, boy, are stars.""";1;Aeon's End;;211
-Awaken;A;;;2;B;;;;;Unleash twice and Gravehold suffers 3 damage.#OR#Place the most recently discarded minion card in the nemesis discard pile back into play.;"""They were always just outside the edge of our knowing, sitting there in some quiet abyss just waiting to visit ruin upon us."" - Z'hana, Breach Mage Renegade";1;Aeon's End;;212
-Cauterizer;M;3;;2;B;;When damage is dealt to this minion, reduce that damage to 1.;;;Any player suffers damage equal to this minion's current life.;"""Hack away all you like, youngling. It will only grow back another... whatever that part is."" - Adelheim, Breach Mage Weaponsmith";1;Aeon's End;;213
-Dispel;A;;;2;B;;;;;Unleash twice. The player with the most prepped spells discards their most expensive prepped spell.;"""The words and gestures needed left him, and the breach grew dim."" - Nerva, Survivor";1;Aeon's End;;214
-Needlemaw;M;11;;2;B;;;;;Gravehold suffers 2 damage.;"""The teeth of this beast make a fine trophy. The trick is keeping all your fingers in the taking of them."" - Reeve, Breach Mage Elite";1;Aeon's End;;215
-Lay Waste;A;;;2;B;;;;;Unleash twice. Any player suffers 2 damage.;Gravehold sat silent and forgotten for a thousand ages before The Nameless came. No one remembers for whom this vast city was built. Those stories lay in the ash outside the cave with the bones of those who once told them.;1;Aeon's End;;216
-Pulverizing Ray;P;1;;2;B;;;;;Gravehold suffers 18 damage. The players may collectively discard up to six gems. For each gem discarded this way, prevent 3 of that damage.;"""The ground absorbed the latent energy left by the first breaches ever opened. Without this to fuel our spells, our fate would be certain."" - Malastar, Breach Mage Mentor";1;Aeon's End;;217
-Venomite;M;9;;2;B;;;;;The player with the lowest life suffers 2 damage.#OR#Any player discards a prepped spell that costs 3$ or more.;"""In The World That Was, there were many creatures that used poison as a means of survival. But these things ARE poison."" - Lash, Breach Mage Scout";1;Aeon's End;;218
-Doom Aegis;P;1;;3;B;;;Spend 7$.;;The player with the most charges suffers 4 damage and loses all of their charges.;"""There is a saying: all wars must end."" - Nerva, Survivor";1;Aeon's End;;219
-Gather Darkness;A;;;3;B;;;;;Any player places their discard pile on top of their deck, shuffles it, and then destroys the top four cards of their deck. Then, Unleash twice.;"""The Nameless do not die, for they themselves are death."" - Xaxos, Breach Mage Adept";1;Aeon's End;;220
-Jagged One;M;14;;3;B;;;;;Unleash twice.;Jagged ones are the heralds of The Nameless, leading legions in siege after siege of Gravehold.;1;Aeon's End;;221
-Obliterate;A;;;3;B;;;;;Unleash twice. The player with the most opened breaches destroys four cards in hand or suffers 4 damage.;"""While the breaches amplify our magic a thousandfold, it comes at the highest ransom imaginable."" - Brama, Breach Mage Elder";1;Aeon's End;;222
-Reality Rupture;P;1;;3;B;;;Destroy two prepped spells that each cost 3$ or more.;;Unleash three times.;"""The world shattered in a blink, and in the ruin I glimpsed the other side of the void."" - Phaedraxa, Breach Mage Seer";1;Aeon's End;;223
-Sunder;A;;;3;B;;;;;Gravehold suffers 4 damage and the player with the lowest life suffers 4 damage.#OR#Shuffle all of the nemesis turn order cards into the turn order deck.;"""We fight for the lingering hope of returning to The World That Was, but in our hearts we know our future lies within these caves."" - Z'hana, Breach Mage Renegade";1;Aeon's End;;224
-Topple;A;;;3;B;;;;;Unleash twice. Gravehold suffers 4 damage.;"""LOOK OU--"", Last words of Quilion Rafe, Far Hollow watchman";1;Aeon's End;;225
-;;;;;;;;;;;;;;;
-# War Eternal Basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Afflict;A;;;1;B;;;;;Unleash. Any player suffers 3 damage and may place a card in their discard pile into their hand.;"""Such wisdom comes at a considerable price."" - Xaxos, Voidbringer";2;War Eternal;;205
-Catacomb Drone;M;5;;1;B;;;;;Unleash. Gravehold suffers 1 damage.;"""Kadir remains convinced the drones were once merely creatures from The Depths.""";2;War Eternal;;206
-Encroach;A;;;1;B;;;;;Unleash. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage. Otherwise, Gravehold suffers 3 damage.;;2;War Eternal;;207
-Heart of Nothing;P;2;;1;B;;;Discard four cards in hand.;;Unleash twice.#OR#Any player suffers 4 damage.;"""Beyond our world is a vast nothing. At the center of this lies The Nameless."" - Mist, Voidwalker";2;War Eternal;;208
-Howling Spinners;M;5;;1;B;;;;;Any player suffers 2 damage.;"""The sound they make as they weave echoes through the cave is like the otherworldly throes of our lost companions."" - Gex, Breach Mage Advisor";2;War Eternal;;209
-Night Unending;P;3;;1;B;;;;;Gravehold suffers 2 damage for each spell prepped by the player with the most prepped spells.;"""Here beneath The World That Was there is no day, no time really, just night unending."" - Xaxos, Voidbringer";2;War Eternal;;210
-Nix;A;;;1;B;;;;;Unleash. Any player suffers 1 damage and discards their most expensive card in hand.;"""It's as if the world itself is screaming."" - Nerva, Survivor";2;War Eternal;;211
-Planar Collision;P;2;;1;B;;;Discard two prepped spells.;;Unleash twice.;"""None remembered the true name of The World That Was until Yan Magda spoke it aloud: Khasad Vol.""";2;War Eternal;;212
-Thrash;A;;;1;B;;;;;Unleash. The players collectively discard two cards in hand.;"""The creature thrashed as it burned, its massive body collapsing into the South Wall like a hot blade through cloth."" - Garu, Oathsworn Keeper";2;War Eternal;;213
-Aphotic Sun;P;2;;2;B;;;Spend 7$.;;Unleash. The player with the most charges suffers 3 damage and loses all of their charges.;"""The harsh light of the dead star burned away the dark as it crept through the breach. Amd around it I saw ravaged worlds The Nameless had already claimed."" - Indira, Breach Apprentice";2;War Eternal;;214
-Chaos Flail;P;2;;2;B;;;Spend 7$.;;Unleash twice. Any player places their discard pile on top of their deck and shuffles it. Then, that player reveals the top two cards of their deck and destroys the most expensive card revealed.;;2;War Eternal;;215
-Mage Ender;M;9;;2;B;;;;;The player with the most opened breaches suffers 2 damage.;"""It sneered as it lunged at us, an awful maw of jagged teeth eager to end one of us, if not all."" - Ohat, Dirt Merchant";2;War Eternal;;216
-Mangleroot;M;12;;2;B;;;;;Gravehold suffers 3 damage. This minion suffers 2 damage.;"""One of the few indigenous creatures of the cave, though corrupted from exposure to the breach."" - Gex, Breach Mage Advisor";2;War Eternal;;217
-Morbid Gyre;P;1;;2;B;;;Spend 7$.;;Unleash twice. The players collectively discard three cards in hand.;"""It churned and roiled, a maelstrom of malign power. The void was upon me and yet I felt only the throes of freedom from my prison of sleep."" - Yan Magda, Enlightened Exile";2;War Eternal;;218
-Mutilate;A;;;2;B;;;;;Unleash. The players collectively discard two prepped spells. Any player suffers 2 damage.;"""They say that before The Nameless found Gravehold, nothing grew in these caves. It appears the cave burgeons through our blood."" - Gex, Breach Mage Advisor";2;War Eternal;;219
-Null Scion;M;11;;2;B;;;;;Unleash.;"""Quilius's first blow glanced off its carapace like breach, but her second blow carved it in twain."" - Dezmodia, Voidborn Prodigy";2;War Eternal;;220
-Smite;A;;;2;B;;;;;Unleash twice. Gravehold suffers 2 damage.;"""One side of this struggle must fall for the other to truly live."" - Xaxos, Voidbringer";2;War Eternal;;221
-# Apocalypse Ritual;P;2;;3;B;;;Spend 8$.;;Gravehold suffers 5 damage for each nemesis turn order card in the turn order discard pile.;;2;War Eternal;;222
-Banish;A;;;3;B;;;;;Unleash twice. The player with the most prepped spells suffers 1 damage for each for their prepped spells.;"""Get down! It's ejecting back at us!"" - Ohat, Dirt Merchant";2;War Eternal;;223
-Cataclysmic Fate;P;1;;3;B;;;Destroy a prepped spell that costs 5$ or more and a breach in which it was prepped.;;The player with the lowest life suffers 4 damage.;;2;War Eternal;;224
-Monstrosity of Omens;M;5;;3;B;;When damage is dealt to this minion, reduce that damage to 1.;;;Gravehold suffers damage equal to this minion's current life.;"""Never have I seen such a creature, even among the ranks of The Nameless."" - Yan Magda, Enlightened Exile";2;War Eternal;;225
-Engulf;A;;;3;B;;;;;Resolve the most recently discarded attack card in the nemesis discard pile.;"""The Nameless rarely attack in the same fashion twice. It would seem today is an exception."" - Dezmodia, Voidborn Prodigy";2;War Eternal;;226
-Quell;A;;;3;B;;;;;Gravehold suffers 7 damage.#OR#Unleash three times.;"""The Nameless hunger for the same thing we do: an end to this war."" - Garu, Oathsworn Protector";2;War Eternal;;227
-Throttle;A;;;3;B;;;;;Unleash twice. Any player destroys their three most expensive cards in hand.;"""Were I made of muscle and blood like the others, the impact would have surely ended me."" - Remnant, Aetherial Entity";2;War Eternal;;228
-Withering Beam;P;2;;3;B;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;"""I watched a fellow merchant atrophy and fall to the ground in ash as the beam hit his cart."" - Ohat, Dirt Merchant";2;War Eternal;;229
-;;;;;;;;;;;;;;;
-Labyrinth Wisp;M;5;;1;B;;;;;Any player discards a prepped spell.#OR#Any player loses 1 charge.;"""It is the very breath of the void."" - Yan Magda, Enlightened Exile";2;The Outer Dark;;65
-Assail;A;;;2;B;;;;;Unleash twice. The player with the most expensive prepped spell places that spell on top of their deck.;"""For as massive as they are, they are quick."" - Sparrow, Breach Mage Soldier";2;The Outer Dark;;66
-Dire Abbatoir;P;2;;3;B;;;Spend 8$.;;The player with the most life suffers damage equal to their current life.;;2;The Outer Dark;;67
-;;;;;;;;;;;;;;;
-# Legacy;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Ambush;A;;;1;B;;;;;Unleash. Gravehold suffers 2 damage. Any player suffers 1 damage.;;3;Legacy;END;55
-Conduct;A;;;1;B;;;;;Unleash. The player with the most charges suffers 2 damage and gains a charge.;;3;Legacy;END;56
-Creeping Curse;P;3;;1;B;;;Spend 6$.;;Unleash. Any player suffers 2 damage. The players collectively discard two cards in hand.;;3;Legacy;END;57
-Daze;A;;;1;B;;;;;Any player suffers 2 damage and discards a card in hand. If that card costs 0$, Gravehold suffers 2 damage.;;3;Legacy;END;58
-Endless Chasm;P;2;;1;B;;;Spend 6$.;;Unleash twice. Gravehold suffers 2 damage.;;3;Legacy;END;59
-Aether Extract;P;2;;1;B;;;;;Unleash. Any player discards two gems. If both of those gems cost 0$, Unleash.;;3;Legacy;END;60
-Ravenous Leviathan;M;6;;1;B;;;;;Gravehold suffers 2 damage.;;3;Legacy;END;61
-Spine Thresher;M;1;3;1;B;;;;;Unleash. Any player suffers 1 damage.;;3;Legacy;END;62
-Caustic Cocoon;M;9;;2;B;;;;;Unleash. Gravehold suffers 1 damage.;;3;Legacy;END;63
-Sap;A;;;2;B;;;;;Unleash twice. Any player loses 2 charges.#OR#Unleash twice. Any player suffers 3 damage.;;3;Legacy;END;64
-Tremor;P;2;;2;B;;;Spend 7$.;;Unleash twice. Gravehold suffers 4 damage.;;3;Legacy;END;65
-Drain;A;;;2;B;;;;;Unleash. Gravehold suffers 2 damage. The players collectively discard two prepped spells. Then, if any player has a prepped spell that costs 4$ or more, Unleash.;;3;Legacy;END;66
-Humming Hive;M;5;3;2;B;;;;;Any player suffers 2 damage.;;3;Legacy;END;67
-Hunted;A;;;2;B;;;;;Unleash twice. The player with the lowest life suffers 1 damage.;;3;Legacy;END;68
-Tempting Offer;P;3;;2;B;;;Spend 7$.;;Unleash twice. The player with the lowest life suffers 3 damage.;;3;Legacy;END;69
-Annihilate;A;;;3;B;;;;;Unleash twice. The player with the most expensive card in hand discards two cards in hand. Then, for each card in that player's hand that costs 2$ or more, Gravehold suffers 2 damage.;;3;Legacy;END;70
-Facet Ogre;M;1;4;3;B;;;;;Gravehold suffers damage equal to the number of shield tokens this minion has. If this minion has two or less shield tokens, it gains one shield token.;;3;Legacy;END;71
-# Flash of Decay;P;2;;3;B;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;3;Legacy;END;72
-Gathering Storm;P;2;;3;B;;;Spend 8$.;;Unleash twice. If there are two nemesis turn order cards in the turn order discard pile, any player suffers 4 damage. Otherwise, Gravehold suffers 4 damage.;;3;Legacy;END;73
-Maddening Spectre;M;7;2;3;B;;;;;Unleash twice.;;3;Legacy;END;74
-Scatter;A;;;3;B;;;;;Unleash twice. Any player destroys their most expensive card in hand.;;3;Legacy;END;75
-Suffocate;A;;;3;B;;;;;Unleash three times.#OR#Gravehold suffers 3 damage and any player suffers 3 damage.;;3;Legacy;END;76
-;;;;;;;;;;;;;;;
-Blade Storm;A;;;1;B;;;;;Gravehold suffers 3 damage. The player with the fewest opened breaches suffers 2 damage.;;3;Buried Secrets;;149
-Hex of Vulnerability;P;3;;1;B;;;Spend 6$.;;Place this card next to the player with the most life. For the rest of the game, when that player suffers damage, they suffer 1 additional damage.#(This cannot be removed once resolved.);;3;Buried Secrets;;150
-Throng Commander;M;1;3;1;B;;;;;If there are two or more other minions in play, Gravehold suffers 6 damage and discard this minion. Otherwise, any player suffers 2 damage.;;3;Buried Secrets;;151
-Divert;A;;;2;B;;;;;The player with the most expensive prepped spell casts that spell. The damage that spell deals must be dealt to the player who cast it instead of to a minion or the nemesis.;;3;Buried Secrets;;152
-Depreciate;P;2;;2;B;;;Spend 7$.;;Unleash twice. The player with the most expensive card in hand destroys that card and then gains a card of the same type that costs less from any supply pile. That player suffers 2 damage.;;3;Buried Secrets;;153
-Armored Haze;M;1;4;2;B;;;;;Any player suffers 1 damage for each shield token this minion has. Then, this minion suffers 1 damage.;;3;Buried Secrets;;154
-Muster;A;;;3;B;;;;;Unleash twice. Each minion in play gains 5 life.;;3;Buried Secrets;;155
-Breach Tunnel;P;4;;3;B;;;;;If each player has at least one closed breach, the nemesis overwhelms them and the players lose.;;3;Buried Secrets;;156
-Mailed Shade;M;8;1;3;B;;This minion can only be dealt damage by spells from a III breach.;;;Unleash twice.;;3;Buried Secrets;;157
-;;;;;;;;;;;;;;;
-# New Age Basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Eliminate;A;;;3;B;;;;;Unleash three times.#OR#Gravehold suffers 6 damage.#OR#Any player suffers 5 damage.;;4;The New Age;1c;2
-Crushing Storm;P;1;;3;B;;;Destroy two opened breaches.;;Unleash three times.;;4;The New Age;1c;3
-Gnashing Maw;P;2;;3;B;;;;;Unleash. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, Unleash and any player suffers 3 damage.;;4;The New Age;1c;4
-Disperse;A;;;3;B;;;;;Unleash twice. Any player suffers 2 damage and destroys their most expensive card in hand.;;4;The New Age;1c;6
-Gore;A;;;3;B;;;;;Unleash twice. The player with the most expensive card in hand discards three cards in hand. Then, for each card in that player's hand that costs 2$ or more, that player suffers 2 damage.;;4;The New Age;1c;8
-Hex of Destruction;P;2;;3;B;;;Spend 8$.;;Unleash twice. Gravehold suffers 4 damage. Any player destroys the top four cards of their deck.;;4;The New Age;1c;9
-Eternal Watcher;M;10;;3;B;;;;;Any player suffers 3 damage. If this minion has 6 or less life, it gains 3 life.;;4;The New Age;1c;10
-Dement;A;;;2;B;;;;;Unleash twice. Any player suffers 1 damage and places their most expensive card in hand on top of their deck.;;4;The New Age;1c;12
-Decay;A;;;2;B;;;;;Unleash twice. Any player or Gravehold suffers 3 damage.;;4;The New Age;1c;13
-Culling Scythe;P;2;;2;B;;;Spend 7$.;;Unleash. The player with the lowest life suffers 4 damage.;;4;The New Age;1c;15
-Fugue;A;;;2;B;;;;;Any player discards three cards in hand and suffers 2 damage.;;4;The New Age;1c;17
-Volcanic Zala;M;10;;2;B;;;;;Gravehold suffers 3 damage.#OR#Any player loses 2 charges.;;4;The New Age;1c;18
-Seeking Destruction;P;3;;2;B;;;Spend 7$.;Place the player number token of the player with the most opened breaches on this.;If the player whose player token is on this has the most opened breaches, that player suffers 5 damage. Otherwise, Unleash twice.;;4;The New Age;1c;19
-Portal Guardian;M;8;;2;B;;;;;Unleash. Any player suffers 1 damage.;;4;The New Age;1c;20
-Obliterating Meteor;P;1;;2;B;;;Discard four cards in hand.;;Unleash twice. Gravehold suffers 3 damage.;;4;The New Age;1c;21
-Drillbeak Wurm;M;6;;1;B;;;;;Any player suffers 1 damage. Gravehold suffers 1 damage.;;4;The New Age;1c;24
-Carriode Colony;M;8;;1;B;;;;This minion suffers damage equal to the numbers of players in the game.;Unleash.;;4;The New Age;1c;26
-Chaos Orb;P;3;;1;B;;;Spend 6$.;;Unleash. Gravehold suffers 4 damage.;;4;The New Age;1c;27
-Disorient;A;;;1;B;;;;;Unleash. Any player suffers 1 damage and discards a card in hand. If that card is a gem, Gravehold suffers 2 damage.;;4;The New Age;1c;28
-Rend;A;;;1;B;;;;;Unleash. Gravehold suffers 1 damage. Any player suffers 1 damage.;;4;The New Age;1c;29
-Unnerving Howl;P;2;;1;B;;;;;Unleash. Any player discards two gems in hand.;;4;The New Age;1c;30
-Ceaseless Darkness;P;2;;1;B;;;Spend 5$.;;Unleash. Any player suffers 3 damage. Any player discards a card in hand.;;4;The New Age;1c;31
-Aether Shock;A;;;1;B;;;;;Unleash. The player with the most prepped spells suffers 1 damage and discards a prepped spell.;;4;The New Age;1c;32
-;;;;;;;;;;;;;;;
-# Decimate;A;;;1;B;;;;;Unleash twice and any player gains 2 charges.#OR#Gravehold suffers 4 damage.;;4;The New Age;END;135
-Blind Enigma;M;7;;1;B;;;;;Any player suffers 1 damage. If the nemesis tier is 2 or higher, that player suffers 2 additional damage.;;4;The New Age;END;136
-# Planar Collision;P;2;;1;B;;;Discard two prepped spells.;;Unleash twice.;;4;The New Age;END;137
-Spirit Snare;P;3;;1;B;;;Discard a card in hand that costs 5$ or more.;;Unleash. Any player discards a spell in hand and suffers 2 damage.;;4;The New Age;END;138
-# Mutilate;A;;;2;B;;;;;Unleash. The players collectively discard two prepped spells. Any player suffers 2 damage.;;4;The New Age;END;139
-# Needlemaw;M;11;;2;B;;;;;Gravehold suffers 2 damage.;;4;The New Age;END;140
-# Morbid Gyre;P;1;;2;B;;;Spend 7$.;;Unleash twice. The players collectively discard three cards in hand.;;4;The New Age;END;141
-# Gravity  Splinter;P;2;;2;B;;;Spend 7$.;;Unleash twice. The player with the fewest opened breaches suffers 3 damage.;;4;The New Age;END;142
-# Sunder;A;;;3;B;;;;;Gravehold suffers 4 damage and the player with the lowest life suffers 4 damage.#OR#Shuffle all of the nemesis turn order cards into the turn order deck.;;4;The New Age;END;143
-# Topple;A;;;3;B;;;;;Unleash twice. Gravehold suffers 4 damage.;;4;The New Age;END;144
-# Monstrosity of Omens;M;5;;3;B;;When damage is dealt to this minion, reduce that damage to 1.;;;Gravehold suffers damage equal to this minion's current life.;;4;The New Age;END;145
-# Doom Aegis;P;1;;3;B;;;Spend 7$.;;The player with the most charges suffers 4 damage and loses all of their charges.;;4;The New Age;END;146
-;;;;;;;;;;;;;;;
-# Outcasts Basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Breach Spike;A;;;3;B;;;;;Unleash twice. The player with the most prepped spells suffers 3 damage.;;5;Outcasts;1c;2
-Apocalypse Ritual;P;2;;3;B;;;Spend 8$.;;Gravehold suffers 5 damage for each nemesis turn order card in the turn order discard pile.;"""Don't forget, they use the same power our mages do, and they've got ages of experience on us."" - Ruya, Surface Scout";5;Outcasts;1c;3
-# Topple;A;;;3;B;;;;;Unleash twice. Gravehold suffers 4 damage.;;5;Outcasts;1c;4
-Nyx, The Spine Cruncher;M;14;;3;B;;;;;Unleash. Any player suffers 2 damage.;;5;Outcasts;1c;5
-Endless Torment;P;2;;3;B;;;Spend 8$.;;Unleash three times.#OR#Any player suffers 6 damage.;;5;Outcasts;1c;7
-# Throttle;A;;;3;B;;;;;Unleash twice. Any player destroys their three most expensive cards in hand.;;5;Outcasts;1c;9
-Darkening Depths;P;1;;3;B;;;Destroy a prepped spell that costs 3$ or more and a breach in which it was prepped.;;Unleash. The player with the lowest life suffers 3 damage.;;5;Outcasts;1c;10
-Wandering Observer;M;11;;2;B;;!Wandering;;;Gravehold suffers 2 damage.;;5;Outcasts;1c;13
-Toxic Subterfuge;P;3;;2;B;;When a power token is removed from this, Gravehold suffers 2 damage.;Spend 7$.;;Unleash.;"""Cut it off early. If our water's poisoned, we'll die in days instead of seconds."" - Ruya, Surface Scout";5;Outcasts;1c;15
-Suffocating Haze;P;3;;2;B;;Reduce by 1 all damage dealt to minions from the nemesis deck, to a minimum of 1.;;;Unleash twice. Gravehold suffers 2 damage.;"""If you don't like choking while you cast, then stay away."" - Ruya, Surface Scout";5;Outcasts;1c;17
-Chitin Crawler;M;9;;2;B;;Reduce to 1 all damage dealth to this by spells that cost 3$ or less.;;;Any player suffers 3 damage.#OR#Unleash.;;5;Outcasts;1c;18
-Conjured Grapple;A;;;2;B;;;;;Unleash twice. Any player suffers 2 damage and discards two cards in hand. That player gains a Cursed Manacles from the Curse deck and places it into their hand.;"""It only held me for a moment. I think it was meant for a mage. They'd probably get hit far harder."" - Ruya, Surface Scout";5;Outcasts;1c;20
-Marked for Death;A;;;2;B;;;;;Unleash twice. Place this card in front of any player.#For the rest of the game, when a nemesis card specifies 'any player', the player with this card must resolve that effect, if possible. When the player with this card becomes exhausted, discard this.;;5;Outcasts;1c;21
-Moonstruck Hound;M;5;;1;B;;Reduce to 1 all damage dealt to this minion by spells that cost 5$ or more.;;;Gravehold suffers 2 damage.;;5;Outcasts;1c;25
-Hemorrhage;A;;;1;B;;;;;Unleash. Gravehold suffers 1 damage. Place this in front of the player with the most opened breaches.#At the start of that player's turn, they suffer 1 damage. When that player gains a card that costs 5$ or more, this card is discarded. If there are no cards in the supply that cost 5$ or more, discard this when they gain a card with the highest cost in the supply.;;5;Outcasts;1c;26
-Wandering Lasher;M;6;;1;B;;!Wandering;;;Unleash.;;5;Outcasts;1c;27
-Aura Drain;P;2;;1;B;;When a power token is removed from this, any player suffers 2 damage.;Spend 5$.;;Unleash.;;5;Outcasts;1c;28
-Noxious Winds;P;2;;1;B;;;Spend 5$.;;Gravehold suffers 3 damage. Any player gains a Cursed Shard from the Curse deck. Any player gains a Cursed Bolt from the Curse deck.;"""Just standing there exhausted me. I didn't stick around to find out what else could happen."" - Ruya, Surface Scout";5;Outcasts;1c;29
-Haunted Force;P;2;;1;B;;;;;Unleash. Gravehold suffers 2 damage. Any player gains a Cursed Bolt from the Curse deck.;"""It's not just the wind. The stuff it's blowing, that's not sand and stone."" - Ruya, Surface Scout";5;Outcasts;1c;30
-Weeping Hex;A;;;1;B;;;;;Unleash. Any player suffers 2 damage, gains a Cursed Shard from the Curse deck, and places it on top of their deck.;;5;Outcasts;1c;31
-Withering Rot;A;;;1;B;;;;;Any player suffers 3 damage and gains a Curse of Rot from the Curse deck.;;5;Outcasts;1c;32
-;;;;;;;;;;;;;;;
-# Promos;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Menace;A;;;1;B;;;;;The players collectively discard four cards.;"""Fear is a luxury no longer granted to the living."" - Brama, Breach Mage Mentor";3;Legacy (Kickstarter Exclusive);Promo;1
-Gravity Splinter;P;2;;2;B;;;Spend 7$.;;Unleash twice. The player with the fewest opened breaches suffers 3 damage.;"""In an instant, the breach went dark. The mage then collapsed, gasping as the creatures fell upon him."" - Nerva, Survivor";3;Legacy (Kickstarter Exclusive);Promo;2
-World Purge;P;2;;3;B;;;Spend 8$.;;Unleash three times.#OR#Gravehold suffers 7 damage.;"""We are lost."" - Ghan, Gem Scavenger";3;Legacy (Kickstarter Exclusive);Promo;3
-Glyph Enigma;M;7;;1;B;;;;;Gravehold suffers 1 damage. If the nemesis tier is 2 or higher, Gravehold suffers 2 additional damage.#(The nemesis tier is equal to the tier of the last nemesis card drawn.);;3;Legacy (Kickstarter Exclusive);Promo;5
-Decimate;A;;;1;B;;;;;Unleash twice and any player gains 2 charges.#OR#Gravehold suffers 4 damage.;"""The days seem shorter as we approach a war eternal."" - Nerva, Survivor";3;Legacy (Kickstarter Exclusive);Promo;12
-Spirit Cage;P;3;;1;B;;;Discard a card in hand that costs 5$ or more.;;Unleash twice. Any player discards a spell in hand.;;3;Legacy (Kickstarter Exclusive);Promo;13
-Baneful Crux;P;2;;2;B;;;Discard two cards in hand that each cost 4$ or more.;;Unleash twice. Gravehold suffers 3 damage.;"""The myriad faces of The Thrice-Dead Prophet seemed to stare at us at once, the way one does at insects clambering upon a wall."" - Mazahaedron, Henge Mystic";3;Legacy (Kickstarter Exclusive);Promo;14
-Negate;A;;;2;B;;;;;Unleash twice. Any player destroys their most expensive card in hand.#OR#Unleash twice. Gravehold suffers 3 damage.;;3;Legacy (Kickstarter Exclusive);Promo;15
-Gallowskulk;M;10;;3;B;;;;;The player with the lowest life suffers 3 damage.;;3;Legacy (Kickstarter Exclusive);Promo;16
-Unmake;A;;;3;B;;;;;Unleash twice. Any player destroys the top three cards of their deck and suffers 3 damage.;"""The Wraithmonger flailed, its ephemereal tentacle passing through a guard on the South Wall. And like that, he was gone. Not only from this world, but all worlds."" - Ohat, Dirt Merchant";3;Legacy (Kickstarter Exclusive);Promo;17
-;;;;;;;;;;;;;;;
-# Special;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Curse of Rot;C;;;0;B;;;;;When this is in your hand, immediately either:#Discard this.#OR#Lose 3 charges to destroy this and draw a card.;Starts the game in the Curse deck.;5;Outcasts;1c;37
-;;;;;;;;;;;;;;;
-# Upgraded tier 1 basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Waylay;A;;;1;E;;;;;Unleash twice. Gravehold suffers 1 damage for each player turn order card in the turn order discard pile.;;3;Legacy;Evolve;9
-Skybound Leviathan;M;9;;1;E;;;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;3;Legacy;Evolve;33
-Disrupt;A;;;1;E;;;;;Unleash. [The player with the most charges/Any player] suffers 4 damage and gains 2 charges.;;3;Legacy;Evolve;35
-Paralyze;A;;;1;E;;;;;Unleash. The player with the lowest life suffers 2 damage.;;3;Legacy;Evolve;37
-Calamitous Bane;P;3;;1;E;;;[Any player] discard a card in hand that costs 3$ or more during their turn.;;Unleash. Any player suffers 3 damage. The players collectively discard three cards in hand.;;3;Legacy;Evolve;49
-Unforeseen Collapse;P;2;;1;E;;;;;Unleash twice. [Any player] discards their most expensive prepped spell.;;3;Legacy;Evolve;53
-Spine Reaper;M;2;4;1;E;;;;;Unleash. Any player suffers 2 damage.;;3;Legacy;Evolve;55
-;;;;;;;;;;;;;;;
-Wreck;A;;;1;U;;;;;Unleash twice. Gravehold suffers 1 damage.;;4;The New Age;2a;2
-Hissing Acid;P;3;;1;U;;;Spend 6$.;;Reveal the top card of the turn order deck. If it's a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.;;4;The New Age;3a;2
-Bane Commander;M;6;;1;U;;;;;Unleash. Any player suffers 1 damage.;;4;The New Age;4;2
-;;;;;;;;;;;;;;;
-Rupture;A;;;1;U;;;;;Unleash. Any player suffers 4 damage.;;4;The Ancients;;83
-Furrow of Destruction;P;2;;1;U;;;Spend 6$.;;Unleash twice. Gravehold suffers 3 damage.;;4;The Ancients;;86
-;;;;;;;;;;;;;;;
-Chaos Strike;A;;;1;U;;;;;Unleash. Gravehold suffers 4 damage. Any player gains a Cursed Shard from the Curse deck and places it on top of their deck.;;5;Outcasts;2a;12
-Rain of Devastation;P;2;;1;U;;;Spend 6$.;;Unleash twice. Any player suffers 3 damage.;;5;Outcasts;3a;24
-Labyrinth Wraith;M;6;;1;U;;!Wandering;;;Unleash. Any player suffers 1 damage.;;5;Outcasts;4;22
-;;;;;;;;;;;;;;;
-Writhe;A;;;1;U;;;;;Unleash twice. Any player suffers 1 damage.;;5;Outcasts (Kickstarter Exclusive);Promo;117
-Bubbling Ruin;P;3;;1;U;;;Spend 6$.;;Unleash. Any player discards three cards in hand. Gravehold suffers 2 damage.;;5;Outcasts (Kickstarter Exclusive);Promo;118
-;;;;;;;;;;;;;;;
-# Upgraded tier 2 basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Reap;A;;;2;E;;;;;Unleash twice. The player with the most charges loses 3 charges or suffers 3 damage.;;3;Legacy;Evolve;23
-Crushing Wave;P;2;;2;E;;;Spend 8$.;;Unleash twice. If Gravehold has 15 life or more, Gravehold suffers 6 damage. Otherwise, any player suffers 4 damage.;;3;Legacy;Evolve;39
-Dark Bond;P;2;;2;E;;;Spend 8$.;;Unleash twice. The player with the lowest life suffers 4 damage.;;3;Legacy;Evolve;45
-Humming Drones;M;9;2;2;E;;This minion can have any number of shield tokens.;;;This minion gains one shield token. [Any player] suffers damage equal to the number of shield tokens this minion has.;;3;Legacy;Evolve;59
-;;;;;;;;;;;;;;;
-Separate;A;;;2;U;;;;;Unleash twice. Gravehold suffers 2 damage. The player with the most expensive prepped spell discards that spell.;;4;The New Age;2a;3
-Sky Tremor;P;1;;2;U;;;Spend 7$.;;Unleash twice. Gravehold suffers 4 damage.;;4;The New Age;2a;4
-Engulfing Madness;P;2;;2;U;;;Spend 8$.;;Unleash twice. Any player suffers 4 damage.;;4;The New Age;2a;5
-Marked;A;;;2;U;;;;;Unleash twice. The player with the lowest life suffers 3 damage.;;4;The New Age;3a;3
-Needle Doom;M;12;;2;U;;;;;Unleash. Gravehold suffers 2 damage.;;4;The New Age;4;3
-;;;;;;;;;;;;;;;
-Howling Slayer;M;14;;2;U;;;;;Any player suffers 2 damage. Any player discards a card in hand.;;4;The Ancients;;84
-Mangle;A;;;2;U;;;;;The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.;;4;The Ancients;;85
-;;;;;;;;;;;;;;;
-Rescind;A;;;2;U;;;;;Unleash twice. The player with the most expensive prepped spell discards that spell and suffers 2 damage.;;5;Outcasts;2a;13
-Hunt the Weak;A;;;2;U;;;;;Any player suffers 3 damage. Gravehold suffers 3 damage.;;5;Outcasts;2a;14
-Silent Decay;P;2;;2;U;;;Spend 8$.;;Unleash twice. Gravehold suffers 3 damage. Any player gains a Cursed Bolt from the Curse deck and places it on top of their deck.;;5;Outcasts;2a;15
-Harbinger of Monstrosity;M;8;;2;U;;When a player deals damage to this minion, reduce that damage by 2, to a minimum of 1.;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;5;Outcasts;3a;25
-Mage Devourer;M;11;;2;U;;When a player deals damage to this minion, the player with the most opened breaches suffers 1 damage.;;;Unleash. Gravehold suffers 1 damage.;;5;Outcasts;4;23
-;;;;;;;;;;;;;;;
-Sweeping Blackness;A;;;2;U;;;;;Gravehold suffers 4 damage. Any player loses 2 charges and discards two cards in hand.;;5;Outcasts (Kickstarter Exclusive);Promo;119
-Twisting Flesh;P;1;;2;U;;;Spend 7$.;;Unleash twice. Any player suffers 3 damage. That player gains a Cursed Manacles from the Curse deck and places it on top of their deck.;;5;Outcasts (Kickstarter Exclusive);Promo;120
-;;;;;;;;;;;;;;;
-# Upgraded tier 3 basics;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Maddening Eidolon;M;7;4;3;E;;;;;Unleash twice.;;3;Legacy;Evolve;15
-Facet Juggernaut;M;1;5;3;E;;;;;Gravehold suffers 1 damage. Gravehold suffers additional damage equal to the number of shield tokens this minion has.;;3;Legacy;Evolve;27
-;;;;;;;;;;;;;;;
-# Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any player suffers 4 damage.;;4;The New Age;2a;6
-Eradicate;A;;;3;U;;;;;Unleash twice. Any player discards their three most expensive cards in hand.;;4;The New Age;2a;7
-# Ray of Desolation;P;1;;3;U;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;;4;The New Age;2a;8
-Flash of Decay;P;2;;3;U;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;4;The New Age;3a;4
-Terrify;A;;;3;U;;;;;Unleash three times. Gravehold suffers 2 damage. Any player destroys two cards in hand.;;4;The New Age;3a;5
-Burialskulk;M;18;;3;U;;;;;Unleash twice.;;4;The New Age;4;4
-Thunderous Tempest;P;2;;3;U;;;Spend 9$.;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, any player suffers 8 damage. Otherwise, any player suffers 5 damage.;;4;The New Age;4;5
-;;;;;;;;;;;;;;;
-Sky Crush;A;;;3;U;;;;;Unleash three times. Any player destroys two cards in hand and suffers 2 damage.;;5;Outcasts;2a;16
-Scion of the Void;M;13;;3;U;;When a player deals damage to this minion, Unleash.;;;Unleash twice.;;5;Outcasts;2a;17
-Ray of Desolation;P;1;;3;U;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;;5;Outcasts;2a;18
-Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any player suffers 4 damage.;;5;Outcasts;3a;26
-Blighted Magic;P;2;;3;U;;;;;Unleash. The player with the most expensive prepped spell destroys it. A different player destroys two cards in hand that cost 1$ or more.;;5;Outcasts;3a;27
-Scour;A;;;3;U;;;;;Unleash three times. The player with the most expensive card in hand discards their three most expensive cards in hand.;;5;Outcasts;4;24
-Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;5;Outcasts;4;25
-;;;;;;;;;;;;;;;
-# Nemesis-specific cards;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-Provoker;M;5;;1;Rageborne;;;;;Gravehold suffers damage equal to the number of Fury tokens Rageborne has.;"""I nearly wasted a freshly forged chopper on one of these things."" - Reeve, Breach Mage Elite";1;Aeon's End;;262
-Cleave;A;;;1;Rageborne;;;;;Rageborne Strikes.;Thraxir was breach commander for as long as most could remember. To honor him, to this very day no man or woman has been elected to the post in his stead.;1;Aeon's End;;263
-Unrelenting Ire;A;;;1;Rageborne;;;;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, Unleash two additional times.;"""I reckon its head would look good on a post."" - Reeve, Breach Mage Elite";1;Aeon's End;;264
-Blood Cry;P;2;;2;Rageborne;;;Lose 4 charges.;;Unleash four times.;The cave walls crumble and quake as it bellows to its kin.;1;Aeon's End;;265
-Invoke Carnage;P;2;;2;Rageborne;;;Spend 7$.;;Unleash. Any player suffers 1 damage. That player suffers 1 additional damage for each Fury token Rageborne has.;"""There is but a single power among The Nameless that can shatter Gravehold."" - Brama, Breach Mage Elder";1;Aeon's End;;266
-Scorn;M;9;;2;Rageborne;;;;;Gravehold suffers 3 damage.#OR#Unleash twice.;"""Part of me almost admires the craftmanship of this horrible thing."" - Adelheim, Breach Mage Weaponsmith";1;Aeon's End;;267
-Avatar of Wrath;M;16;;3;Rageborne;;;;;Rageborne Strikes.;Many a mage found their end in the gullet of this beast.;1;Aeon's End;;268
-Onslaught;A;;;3;Rageborne;;;;;Unleash three times. The players collectively discard cards in hand equal to the number of Fury tokens Rageborne has.;Even its shadow leaves a wake of carnage, smoke, and screams.;1;Aeon's End;;269
-Rolling Death;P;2;;3;Rageborne;;;Spend 8$.;;Rageborne Strikes twice.;"""Its breath rasped as it turned the black rocks red. And those who could, ran."" - Nerva, Survivor";1;Aeon's End;;270
-Convoke;T;;;0;Rageborne;;;;;Any player suffers 4 damage.;"""No other thing, in our world or theirs, has been so violent as this beast."" - Brama, Breach Mage Elder";1;Aeon's End;;271
-Devastate;T;;;0;Rageborne;;;;;Gravehold suffers 5 damage.;"""Anger is born in fire."" - Z'hana, Breach Mage Renegade";1;Aeon's End;;272
-Eviscerate;T;;;0;Rageborne;;;;;The player with the lowest life suffers 2 damage.;"""The breach commander Thraxir was split in twain with a single blow, his armor twisted and glowing like a brand. I have never seen such a thing before or since."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;273
-Frenzy;T;;;0;Rageborne;;;;;The player with the most opened breaches suffers 3 damage.;"""All great armies have a warrior that is feared above all others. We call theirs Rageborne."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;274
-Raze;T;;;0;Rageborne;;;;;Gravehold suffers 3 damage. Any player suffers 1 damage.;"""The fire spread from the old barracks to the south wall in a moment, the ancient stone hissing and turning black as the beast strode through the city."" - Nerva, Survivor";1;Aeon's End;;275
-Seize;T;;;0;Rageborne;;;;;The players collectively discard the two most expensive prepped spells.;"""How this cave has not long ago collapsed is a wonder and a mercy."" - Nerva, Survivor";1;Aeon's End;;276
-;;;;;;;;;;;;;;;
-Broodwomb;M;5;;1;Carapace Queen;;If there is at least one husk in play, prevent all damage dealt to this minion.;;;Place a husk in play.;It is the husk-mother, spewing multitudes through the void into Gravehold.;1;Aeon's End;;226
-Endless Throng;A;;;1;Carapace Queen;;;;;Carapace Queen Swarms.;"""The Queen, she is the worst of their foul lot, for her young are without number."" - Mist, Breach Mage Dagger Captain";1;Aeon's End;;227
-Hatch;A;;;1;Carapace Queen;;;;;Place a husk into play for each turn order card in the turn order discard pile.;The Queen wears her offspring like some writhing armor.;1;Aeon's End;;228
-Blot the Sun;P;2;;2;Carapace Queen;;;Lose 4 charges.;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""Were we still in The World That Was, these wretched things would envelop the very sky."" - Malastar, Breach Mage Mentor";1;Aeon's End;;229
-Foul Multitudes;P;3;;2;Carapace Queen;;Husks have 2 life. Damaged husks heal to full life at the end of each turn.;;Unleash.;Carapace Queen Swarms.;It took the survivors of Gravehold half-a-moon to shovel up the dead husks and carry them into the depths, where they now lie in piles high enough to touch the tops of the cave vaults.;1;Aeon's End;;230
-Infest;A;;;2;Carapace Queen;;;;;Carapace Queen Swarms twice.#OR#Any player suffers 4 damage.;"""Husks are easy enough to dispatch... one on one, that is."" - Lash, Breach Mage Scout";1;Aeon's End;;231
-Legion Beacon;P;2;;3;Carapace Queen;;;;Unleash twice.;Discard half of the husks in play, rounded up. Gravehold suffers 2 damage for each husks discarded this way. Carapace Queen Swarms.;Gravehold knows when the Queen is near, for the claxon call of her legions echoes throughout the cave.;1;Aeon's End;;232
-Maggot Engine;M;0;;3;Carapace Queen;;;;Unleash three times. Then, set this minion's life equal to twice the number of husks in play.;Carapace Queen Swarms.;"""Which end is the head?"" - Nym, Breach Apprentice";1;Aeon's End;;233
-Spawn;A;;;3;Carapace Queen;;;;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""The sound of the things, skittering across the cave walls, is loud enough to drown our screams."" - Nerva, Survivor";1;Aeon's End;;234
-;;;;;;;;;;;;;;;
-Cryptid;M;6;;1;Umbra Titan;;;;;The player with the most expensive prepped spell discards that spell.#OR#Umbra Titan loses one nemesis token.;"""The beasts of this cave seem to revere The Titan as though it were some ancient god."" - Mazahaedron, Henge Mystic";2;War Eternal;;266
-Grubber;M;5;;1;Umbra Titan;;;;;If the nemesis has two turn order cards in the turn order discard pile, Umbra Titan loses one nemesis token. Otherwise, Gravehold suffers 2 damage.;"""Kick it, stab it, burn it... the thing just keeps grinning."" - Sparrow, Breach Mage Soldier";2;War Eternal;;267
-Seismic Roar;P;3;;1;Umbra Titan;;;Spend 6$.;;Umbra Titan loses two nemesis tokens.;"""I roared as it bore through the rock. And Gravehold shuddered like those within its walls."" - Nerva, Survivor";2;War Eternal;;268
-Maul;A;;;2;Umbra Titan;;;;;The players collectively destroy the two most expensive prepped spells.#OR#Umbra Titan loses two nemesis tokens.;;2;War Eternal;;269
-Tombfright;M;8;;2;Umbra Titan;;;;;If Umbra Titan has 5 or more nemesis tokens, it loses a nemesis token. Otherwise, Gravehold suffers 3 damage.;"""With two heads, it's twice as eager to make a meal of a mage."" - Sparrow, Breach Mage Soldier";2;War Eternal;;270
-Vault Behemoth;M;9;;2;Umbra Titan;;;;;Any player suffers 2 damage. If this minion has 8 or less life, Umbra Titan loses one nemesis token.;The air rasping in its massive lungs is enough to burst your eardrums.;2;War Eternal;;271
-Crumble;A;;;3;Umbra Titan;;;;;Umbra Titan loses three nemesis tokens.#OR#Unleash. Place the most recently discarded minion in the nemesis discard pile back into play.;;2;War Eternal;;272
-Demi-Ancient;M;18;;3;Umbra Titan;;;;;Umbra Titan loses one nemesis token.;"""In the time before ours, their kind thrived in the tumult of the fledgling world. Now, they seek a new home among The Nameless."" - Mazahaedron, Henge Mystic";2;War Eternal;;273
-Yawning Black;P;2;;3;Umbra Titan;;;Spend 8$.;;Any player suffers 6 damage.#OR#Umbra Titan loses three nemesis tokens.;The Titan hides beneath the skin of the cave, emerging only to strike.;2;War Eternal;;274
+# Name;Type;Tokens & HP;Shield;Tier;Category;Code;Special;To discard;Immediate;Effect;Flavour;Box;Deck;Number
+;;;;;;;;;;;;;;
+# Aeon's End Basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Agony Field;P;2;;1;B;;;Destroy a card in hand that costs 2$ or more.;;Unleash. Any player discards three cards in hand and then draws one card.;"""Every breath is torment."" - Nerva, Survivor";Aeon's End;;204
+Bane Sire;M;6;;1;B;;;;;Unleash. Any player discards three cards in hand and then draws one card.;"""Best to kill these first."" - Reeve, Breach Mage Elite";Aeon's End;;205
+Bleed Static;P;3;;1;B;;;;;The player with the most prepped spells suffers 2 damage for each of their prepped spells.;"""There are no words to describe the sound of a breach opening. Only the screams echoing off the cave walls after."" - Z'hana, Breach Mage Renegade";Aeon's End;;206
+Eye of Nothing;P;2;;1;B;;;Spend 6$.;;Unleash twice.;"""We toy with forces we barely comprehend."" - Z'hana, Breach Mage Renegade";Aeon's End;;207
+Haze Spewer;M;5;;1;B;;;;;Gravehold suffers damage equal to this minion's current life. Then, this minion suffers 1 damage.;The fumes they belch are so caustic that they rarely live long themselves.;Aeon's End;;208
+Skewer;A;;;1;B;;;;;Unleash. Any player suffers 3 damage and draws a card.;"""It takes years to train a breach mage properly, but only a second to snuff one out."" - Malastar, Breach Mage Mentor";Aeon's End;;209
+Slaughter;A;;;1;B;;;;;Unleash. Gravehold suffers 3 damage.;"""We have nothing left to lose but our lives."" - Mist, Breach Mage Dagger Captain";Aeon's End;;210
+Woven Sky;P;2;;1;B;;;Discard three cards in hand.;;Unleash. Any player suffers 4 damage.;"Nym looked up in awe as Malastar pointed to the roiling air at the dome of the cave. ""Those, boy, are stars.""";Aeon's End;;211
+Awaken;A;;;2;B;;;;;Unleash twice and Gravehold suffers 3 damage.#OR#Place the most recently discarded minion card in the nemesis discard pile back into play.;"""They were always just outside the edge of our knowing, sitting there in some quiet abyss just waiting to visit ruin upon us."" - Z'hana, Breach Mage Renegade";Aeon's End;;212
+Cauterizer;M;3;;2;B;;When damage is dealt to this minion, reduce that damage to 1.;;;Any player suffers damage equal to this minion's current life.;"""Hack away all you like, youngling. It will only grow back another... whatever that part is."" - Adelheim, Breach Mage Weaponsmith";Aeon's End;;213
+Dispel;A;;;2;B;;;;;Unleash twice. The player with the most prepped spells discards their most expensive prepped spell.;"""The words and gestures needed left him, and the breach grew dim."" - Nerva, Survivor";Aeon's End;;214
+Needlemaw;M;11;;2;B;;;;;Gravehold suffers 2 damage.;"""The teeth of this beast make a fine trophy. The trick is keeping all your fingers in the taking of them."" - Reeve, Breach Mage Elite";Aeon's End;;215
+Lay Waste;A;;;2;B;;;;;Unleash twice. Any player suffers 2 damage.;Gravehold sat silent and forgotten for a thousand ages before The Nameless came. No one remembers for whom this vast city was built. Those stories lay in the ash outside the cave with the bones of those who once told them.;Aeon's End;;216
+Pulverizing Ray;P;1;;2;B;;;;;Gravehold suffers 18 damage. The players may collectively discard up to six gems. For each gem discarded this way, prevent 3 of that damage.;"""The ground absorbed the latent energy left by the first breaches ever opened. Without this to fuel our spells, our fate would be certain."" - Malastar, Breach Mage Mentor";Aeon's End;;217
+Venomite;M;9;;2;B;;;;;The player with the lowest life suffers 2 damage.#OR#Any player discards a prepped spell that costs 3$ or more.;"""In The World That Was, there were many creatures that used poison as a means of survival. But these things ARE poison."" - Lash, Breach Mage Scout";Aeon's End;;218
+Doom Aegis;P;1;;3;B;;;Spend 7$.;;The player with the most charges suffers 4 damage and loses all of their charges.;"""There is a saying: all wars must end."" - Nerva, Survivor";Aeon's End;;219
+Gather Darkness;A;;;3;B;;;;;Any player places their discard pile on top of their deck, shuffles it, and then destroys the top four cards of their deck. Then, Unleash twice.;"""The Nameless do not die, for they themselves are death."" - Xaxos, Breach Mage Adept";Aeon's End;;220
+Jagged One;M;14;;3;B;;;;;Unleash twice.;Jagged ones are the heralds of The Nameless, leading legions in siege after siege of Gravehold.;Aeon's End;;221
+Obliterate;A;;;3;B;;;;;Unleash twice. The player with the most opened breaches destroys four cards in hand or suffers 4 damage.;"""While the breaches amplify our magic a thousandfold, it comes at the highest ransom imaginable."" - Brama, Breach Mage Elder";Aeon's End;;222
+Reality Rupture;P;1;;3;B;;;Destroy two prepped spells that each cost 3$ or more.;;Unleash three times.;"""The world shattered in a blink, and in the ruin I glimpsed the other side of the void."" - Phaedraxa, Breach Mage Seer";Aeon's End;;223
+Sunder;A;;;3;B;;;;;Gravehold suffers 4 damage and the player with the lowest life suffers 4 damage.#OR#Shuffle all of the nemesis turn order cards into the turn order deck.;"""We fight for the lingering hope of returning to The World That Was, but in our hearts we know our future lies within these caves."" - Z'hana, Breach Mage Renegade";Aeon's End;;224
+Topple;A;;;3;B;;;;;Unleash twice. Gravehold suffers 4 damage.;"""LOOK OU--"", Last words of Quilion Rafe, Far Hollow watchman";Aeon's End;;225
+;;;;;;;;;;;;;;
+# War Eternal Basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Afflict;A;;;1;B;;;;;Unleash. Any player suffers 3 damage and may place a card in their discard pile into their hand.;"""Such wisdom comes at a considerable price."" - Xaxos, Voidbringer";War Eternal;;205
+Catacomb Drone;M;5;;1;B;;;;;Unleash. Gravehold suffers 1 damage.;"""Kadir remains convinced the drones were once merely creatures from The Depths.""";War Eternal;;206
+Encroach;A;;;1;B;;;;;Unleash. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage. Otherwise, Gravehold suffers 3 damage.;;War Eternal;;207
+Heart of Nothing;P;2;;1;B;;;Discard four cards in hand.;;Unleash twice.#OR#Any player suffers 4 damage.;"""Beyond our world is a vast nothing. At the center of this lies The Nameless."" - Mist, Voidwalker";War Eternal;;208
+Howling Spinners;M;5;;1;B;;;;;Any player suffers 2 damage.;"""The sound they make as they weave echoes through the cave is like the otherworldly throes of our lost companions."" - Gex, Breach Mage Advisor";War Eternal;;209
+Night Unending;P;3;;1;B;;;;;Gravehold suffers 2 damage for each spell prepped by the player with the most prepped spells.;"""Here beneath The World That Was there is no day, no time really, just night unending."" - Xaxos, Voidbringer";War Eternal;;210
+Nix;A;;;1;B;;;;;Unleash. Any player suffers 1 damage and discards their most expensive card in hand.;"""It's as if the world itself is screaming."" - Nerva, Survivor";War Eternal;;211
+Planar Collision;P;2;;1;B;;;Discard two prepped spells.;;Unleash twice.;"""None remembered the true name of The World That Was until Yan Magda spoke it aloud: Khasad Vol.""";War Eternal;;212
+Thrash;A;;;1;B;;;;;Unleash. The players collectively discard two cards in hand.;"""The creature thrashed as it burned, its massive body collapsing into the South Wall like a hot blade through cloth."" - Garu, Oathsworn Keeper";War Eternal;;213
+Aphotic Sun;P;2;;2;B;;;Spend 7$.;;Unleash. The player with the most charges suffers 3 damage and loses all of their charges.;"""The harsh light of the dead star burned away the dark as it crept through the breach. Amd around it I saw ravaged worlds The Nameless had already claimed."" - Indira, Breach Apprentice";War Eternal;;214
+Chaos Flail;P;2;;2;B;;;Spend 7$.;;Unleash twice. Any player places their discard pile on top of their deck and shuffles it. Then, that player reveals the top two cards of their deck and destroys the most expensive card revealed.;;War Eternal;;215
+Mage Ender;M;9;;2;B;;;;;The player with the most opened breaches suffers 2 damage.;"""It sneered as it lunged at us, an awful maw of jagged teeth eager to end one of us, if not all."" - Ohat, Dirt Merchant";War Eternal;;216
+Mangleroot;M;12;;2;B;;;;;Gravehold suffers 3 damage. This minion suffers 2 damage.;"""One of the few indigenous creatures of the cave, though corrupted from exposure to the breach."" - Gex, Breach Mage Advisor";War Eternal;;217
+Morbid Gyre;P;1;;2;B;;;Spend 7$.;;Unleash twice. The players collectively discard three cards in hand.;"""It churned and roiled, a maelstrom of malign power. The void was upon me and yet I felt only the throes of freedom from my prison of sleep."" - Yan Magda, Enlightened Exile";War Eternal;;218
+Mutilate;A;;;2;B;;;;;Unleash. The players collectively discard two prepped spells. Any player suffers 2 damage.;"""They say that before The Nameless found Gravehold, nothing grew in these caves. It appears the cave burgeons through our blood."" - Gex, Breach Mage Advisor";War Eternal;;219
+Null Scion;M;11;;2;B;;;;;Unleash.;"""Quilius's first blow glanced off its carapace like breach, but her second blow carved it in twain."" - Dezmodia, Voidborn Prodigy";War Eternal;;220
+Smite;A;;;2;B;;;;;Unleash twice. Gravehold suffers 2 damage.;"""One side of this struggle must fall for the other to truly live."" - Xaxos, Voidbringer";War Eternal;;221
+# Apocalypse Ritual;P;2;;3;B;;;Spend 8$.;;Gravehold suffers 5 damage for each nemesis turn order card in the turn order discard pile.;;War Eternal;;222
+Banish;A;;;3;B;;;;;Unleash twice. The player with the most prepped spells suffers 1 damage for each for their prepped spells.;"""Get down! It's ejecting back at us!"" - Ohat, Dirt Merchant";War Eternal;;223
+Cataclysmic Fate;P;1;;3;B;;;Destroy a prepped spell that costs 5$ or more and a breach in which it was prepped.;;The player with the lowest life suffers 4 damage.;;War Eternal;;224
+Monstrosity of Omens;M;5;;3;B;;When damage is dealt to this minion, reduce that damage to 1.;;;Gravehold suffers damage equal to this minion's current life.;"""Never have I seen such a creature, even among the ranks of The Nameless."" - Yan Magda, Enlightened Exile";War Eternal;;225
+Engulf;A;;;3;B;;;;;Resolve the most recently discarded attack card in the nemesis discard pile.;"""The Nameless rarely attack in the same fashion twice. It would seem today is an exception."" - Dezmodia, Voidborn Prodigy";War Eternal;;226
+Quell;A;;;3;B;;;;;Gravehold suffers 7 damage.#OR#Unleash three times.;"""The Nameless hunger for the same thing we do: an end to this war."" - Garu, Oathsworn Protector";War Eternal;;227
+Throttle;A;;;3;B;;;;;Unleash twice. Any player destroys their three most expensive cards in hand.;"""Were I made of muscle and blood like the others, the impact would have surely ended me."" - Remnant, Aetherial Entity";War Eternal;;228
+Withering Beam;P;2;;3;B;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;"""I watched a fellow merchant atrophy and fall to the ground in ash as the beam hit his cart."" - Ohat, Dirt Merchant";War Eternal;;229
+;;;;;;;;;;;;;;
+Labyrinth Wisp;M;5;;1;B;;;;;Any player discards a prepped spell.#OR#Any player loses 1 charge.;"""It is the very breath of the void."" - Yan Magda, Enlightened Exile";The Outer Dark;;65
+Assail;A;;;2;B;;;;;Unleash twice. The player with the most expensive prepped spell places that spell on top of their deck.;"""For as massive as they are, they are quick."" - Sparrow, Breach Mage Soldier";The Outer Dark;;66
+Dire Abbatoir;P;2;;3;B;;;Spend 8$.;;The player with the most life suffers damage equal to their current life.;;The Outer Dark;;67
+;;;;;;;;;;;;;;
+# Legacy;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Ambush;A;;;1;B;;;;;Unleash. Gravehold suffers 2 damage. Any player suffers 1 damage.;;Legacy;END;55
+Conduct;A;;;1;B;;;;;Unleash. The player with the most charges suffers 2 damage and gains a charge.;;Legacy;END;56
+Creeping Curse;P;3;;1;B;;;Spend 6$.;;Unleash. Any player suffers 2 damage. The players collectively discard two cards in hand.;;Legacy;END;57
+Daze;A;;;1;B;;;;;Any player suffers 2 damage and discards a card in hand. If that card costs 0$, Gravehold suffers 2 damage.;;Legacy;END;58
+Endless Chasm;P;2;;1;B;;;Spend 6$.;;Unleash twice. Gravehold suffers 2 damage.;;Legacy;END;59
+Aether Extract;P;2;;1;B;;;;;Unleash. Any player discards two gems. If both of those gems cost 0$, Unleash.;;Legacy;END;60
+Ravenous Leviathan;M;6;;1;B;;;;;Gravehold suffers 2 damage.;;Legacy;END;61
+Spine Thresher;M;1;3;1;B;;;;;Unleash. Any player suffers 1 damage.;;Legacy;END;62
+Caustic Cocoon;M;9;;2;B;;;;;Unleash. Gravehold suffers 1 damage.;;Legacy;END;63
+Sap;A;;;2;B;;;;;Unleash twice. Any player loses 2 charges.#OR#Unleash twice. Any player suffers 3 damage.;;Legacy;END;64
+Tremor;P;2;;2;B;;;Spend 7$.;;Unleash twice. Gravehold suffers 4 damage.;;Legacy;END;65
+Drain;A;;;2;B;;;;;Unleash. Gravehold suffers 2 damage. The players collectively discard two prepped spells. Then, if any player has a prepped spell that costs 4$ or more, Unleash.;;Legacy;END;66
+Humming Hive;M;5;3;2;B;;;;;Any player suffers 2 damage.;;Legacy;END;67
+Hunted;A;;;2;B;;;;;Unleash twice. The player with the lowest life suffers 1 damage.;;Legacy;END;68
+Tempting Offer;P;3;;2;B;;;Spend 7$.;;Unleash twice. The player with the lowest life suffers 3 damage.;;Legacy;END;69
+Annihilate;A;;;3;B;;;;;Unleash twice. The player with the most expensive card in hand discards two cards in hand. Then, for each card in that player's hand that costs 2$ or more, Gravehold suffers 2 damage.;;Legacy;END;70
+Facet Ogre;M;1;4;3;B;;;;;Gravehold suffers damage equal to the number of shield tokens this minion has. If this minion has two or less shield tokens, it gains one shield token.;;Legacy;END;71
+# Flash of Decay;P;2;;3;B;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;Legacy;END;72
+Gathering Storm;P;2;;3;B;;;Spend 8$.;;Unleash twice. If there are two nemesis turn order cards in the turn order discard pile, any player suffers 4 damage. Otherwise, Gravehold suffers 4 damage.;;Legacy;END;73
+Maddening Spectre;M;7;2;3;B;;;;;Unleash twice.;;Legacy;END;74
+Scatter;A;;;3;B;;;;;Unleash twice. Any player destroys their most expensive card in hand.;;Legacy;END;75
+Suffocate;A;;;3;B;;;;;Unleash three times.#OR#Gravehold suffers 3 damage and any player suffers 3 damage.;;Legacy;END;76
+;;;;;;;;;;;;;;
+Blade Storm;A;;;1;B;;;;;Gravehold suffers 3 damage. The player with the fewest opened breaches suffers 2 damage.;;Buried Secrets;;149
+Hex of Vulnerability;P;3;;1;B;;;Spend 6$.;;Place this card next to the player with the most life. For the rest of the game, when that player suffers damage, they suffer 1 additional damage.#(This cannot be removed once resolved.);;Buried Secrets;;150
+Throng Commander;M;1;3;1;B;;;;;If there are two or more other minions in play, Gravehold suffers 6 damage and discard this minion. Otherwise, any player suffers 2 damage.;;Buried Secrets;;151
+Divert;A;;;2;B;;;;;The player with the most expensive prepped spell casts that spell. The damage that spell deals must be dealt to the player who cast it instead of to a minion or the nemesis.;;Buried Secrets;;152
+Depreciate;P;2;;2;B;;;Spend 7$.;;Unleash twice. The player with the most expensive card in hand destroys that card and then gains a card of the same type that costs less from any supply pile. That player suffers 2 damage.;;Buried Secrets;;153
+Armored Haze;M;1;4;2;B;;;;;Any player suffers 1 damage for each shield token this minion has. Then, this minion suffers 1 damage.;;Buried Secrets;;154
+Muster;A;;;3;B;;;;;Unleash twice. Each minion in play gains 5 life.;;Buried Secrets;;155
+Breach Tunnel;P;4;;3;B;;;;;If each player has at least one closed breach, the nemesis overwhelms them and the players lose.;;Buried Secrets;;156
+Mailed Shade;M;8;1;3;B;;This minion can only be dealt damage by spells from a III breach.;;;Unleash twice.;;Buried Secrets;;157
+;;;;;;;;;;;;;;
+# New Age Basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Eliminate;A;;;3;B;;;;;Unleash three times.#OR#Gravehold suffers 6 damage.#OR#Any player suffers 5 damage.;;The New Age;1c;2
+Crushing Storm;P;1;;3;B;;;Destroy two opened breaches.;;Unleash three times.;;The New Age;1c;3
+Gnashing Maw;P;2;;3;B;;;;;Unleash. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, Unleash and any player suffers 3 damage.;;The New Age;1c;4
+Disperse;A;;;3;B;;;;;Unleash twice. Any player suffers 2 damage and destroys their most expensive card in hand.;;The New Age;1c;6
+Gore;A;;;3;B;;;;;Unleash twice. The player with the most expensive card in hand discards three cards in hand. Then, for each card in that player's hand that costs 2$ or more, that player suffers 2 damage.;;The New Age;1c;8
+Hex of Destruction;P;2;;3;B;;;Spend 8$.;;Unleash twice. Gravehold suffers 4 damage. Any player destroys the top four cards of their deck.;;The New Age;1c;9
+Eternal Watcher;M;10;;3;B;;;;;Any player suffers 3 damage. If this minion has 6 or less life, it gains 3 life.;;The New Age;1c;10
+Dement;A;;;2;B;;;;;Unleash twice. Any player suffers 1 damage and places their most expensive card in hand on top of their deck.;;The New Age;1c;12
+Decay;A;;;2;B;;;;;Unleash twice. Any player or Gravehold suffers 3 damage.;;The New Age;1c;13
+Culling Scythe;P;2;;2;B;;;Spend 7$.;;Unleash. The player with the lowest life suffers 4 damage.;;The New Age;1c;15
+Fugue;A;;;2;B;;;;;Any player discards three cards in hand and suffers 2 damage.;;The New Age;1c;17
+Volcanic Zala;M;10;;2;B;;;;;Gravehold suffers 3 damage.#OR#Any player loses 2 charges.;;The New Age;1c;18
+Seeking Destruction;P;3;;2;B;;;Spend 7$.;Place the player number token of the player with the most opened breaches on this.;If the player whose player token is on this has the most opened breaches, that player suffers 5 damage. Otherwise, Unleash twice.;;The New Age;1c;19
+Portal Guardian;M;8;;2;B;;;;;Unleash. Any player suffers 1 damage.;;The New Age;1c;20
+Obliterating Meteor;P;1;;2;B;;;Discard four cards in hand.;;Unleash twice. Gravehold suffers 3 damage.;;The New Age;1c;21
+Drillbeak Wurm;M;6;;1;B;;;;;Any player suffers 1 damage. Gravehold suffers 1 damage.;;The New Age;1c;24
+Carriode Colony;M;8;;1;B;;;;This minion suffers damage equal to the numbers of players in the game.;Unleash.;;The New Age;1c;26
+Chaos Orb;P;3;;1;B;;;Spend 6$.;;Unleash. Gravehold suffers 4 damage.;;The New Age;1c;27
+Disorient;A;;;1;B;;;;;Unleash. Any player suffers 1 damage and discards a card in hand. If that card is a gem, Gravehold suffers 2 damage.;;The New Age;1c;28
+Rend;A;;;1;B;;;;;Unleash. Gravehold suffers 1 damage. Any player suffers 1 damage.;;The New Age;1c;29
+Unnerving Howl;P;2;;1;B;;;;;Unleash. Any player discards two gems in hand.;;The New Age;1c;30
+Ceaseless Darkness;P;2;;1;B;;;Spend 5$.;;Unleash. Any player suffers 3 damage. Any player discards a card in hand.;;The New Age;1c;31
+Aether Shock;A;;;1;B;;;;;Unleash. The player with the most prepped spells suffers 1 damage and discards a prepped spell.;;The New Age;1c;32
+;;;;;;;;;;;;;;
+# Decimate;A;;;1;B;;;;;Unleash twice and any player gains 2 charges.#OR#Gravehold suffers 4 damage.;;The New Age;END;135
+Blind Enigma;M;7;;1;B;;;;;Any player suffers 1 damage. If the nemesis tier is 2 or higher, that player suffers 2 additional damage.;;The New Age;END;136
+# Planar Collision;P;2;;1;B;;;Discard two prepped spells.;;Unleash twice.;;The New Age;END;137
+Spirit Snare;P;3;;1;B;;;Discard a card in hand that costs 5$ or more.;;Unleash. Any player discards a spell in hand and suffers 2 damage.;;The New Age;END;138
+# Mutilate;A;;;2;B;;;;;Unleash. The players collectively discard two prepped spells. Any player suffers 2 damage.;;The New Age;END;139
+# Needlemaw;M;11;;2;B;;;;;Gravehold suffers 2 damage.;;The New Age;END;140
+# Morbid Gyre;P;1;;2;B;;;Spend 7$.;;Unleash twice. The players collectively discard three cards in hand.;;The New Age;END;141
+# Gravity  Splinter;P;2;;2;B;;;Spend 7$.;;Unleash twice. The player with the fewest opened breaches suffers 3 damage.;;The New Age;END;142
+# Sunder;A;;;3;B;;;;;Gravehold suffers 4 damage and the player with the lowest life suffers 4 damage.#OR#Shuffle all of the nemesis turn order cards into the turn order deck.;;The New Age;END;143
+# Topple;A;;;3;B;;;;;Unleash twice. Gravehold suffers 4 damage.;;The New Age;END;144
+# Monstrosity of Omens;M;5;;3;B;;When damage is dealt to this minion, reduce that damage to 1.;;;Gravehold suffers damage equal to this minion's current life.;;The New Age;END;145
+# Doom Aegis;P;1;;3;B;;;Spend 7$.;;The player with the most charges suffers 4 damage and loses all of their charges.;;The New Age;END;146
+;;;;;;;;;;;;;;
+# Outcasts Basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Breach Spike;A;;;3;B;;;;;Unleash twice. The player with the most prepped spells suffers 3 damage.;;Outcasts;1c;2
+Apocalypse Ritual;P;2;;3;B;;;Spend 8$.;;Gravehold suffers 5 damage for each nemesis turn order card in the turn order discard pile.;"""Don't forget, they use the same power our mages do, and they've got ages of experience on us."" - Ruya, Surface Scout";Outcasts;1c;3
+# Topple;A;;;3;B;;;;;Unleash twice. Gravehold suffers 4 damage.;;Outcasts;1c;4
+Nyx, The Spine Cruncher;M;14;;3;B;;;;;Unleash. Any player suffers 2 damage.;;Outcasts;1c;5
+Endless Torment;P;2;;3;B;;;Spend 8$.;;Unleash three times.#OR#Any player suffers 6 damage.;;Outcasts;1c;7
+# Throttle;A;;;3;B;;;;;Unleash twice. Any player destroys their three most expensive cards in hand.;;Outcasts;1c;9
+Darkening Depths;P;1;;3;B;;;Destroy a prepped spell that costs 3$ or more and a breach in which it was prepped.;;Unleash. The player with the lowest life suffers 3 damage.;;Outcasts;1c;10
+Wandering Observer;M;11;;2;B;;!Wandering;;;Gravehold suffers 2 damage.;;Outcasts;1c;13
+Toxic Subterfuge;P;3;;2;B;;When a power token is removed from this, Gravehold suffers 2 damage.;Spend 7$.;;Unleash.;"""Cut it off early. If our water's poisoned, we'll die in days instead of seconds."" - Ruya, Surface Scout";Outcasts;1c;15
+Suffocating Haze;P;3;;2;B;;Reduce by 1 all damage dealt to minions from the nemesis deck, to a minimum of 1.;;;Unleash twice. Gravehold suffers 2 damage.;"""If you don't like choking while you cast, then stay away."" - Ruya, Surface Scout";Outcasts;1c;17
+Chitin Crawler;M;9;;2;B;;Reduce to 1 all damage dealth to this by spells that cost 3$ or less.;;;Any player suffers 3 damage.#OR#Unleash.;;Outcasts;1c;18
+Conjured Grapple;A;;;2;B;;;;;Unleash twice. Any player suffers 2 damage and discards two cards in hand. That player gains a Cursed Manacles from the Curse deck and places it into their hand.;"""It only held me for a moment. I think it was meant for a mage. They'd probably get hit far harder."" - Ruya, Surface Scout";Outcasts;1c;20
+Marked for Death;A;;;2;B;;;;;Unleash twice. Place this card in front of any player.#For the rest of the game, when a nemesis card specifies 'any player', the player with this card must resolve that effect, if possible. When the player with this card becomes exhausted, discard this.;;Outcasts;1c;21
+Moonstruck Hound;M;5;;1;B;;Reduce to 1 all damage dealt to this minion by spells that cost 5$ or more.;;;Gravehold suffers 2 damage.;;Outcasts;1c;25
+Hemorrhage;A;;;1;B;;;;;Unleash. Gravehold suffers 1 damage. Place this in front of the player with the most opened breaches.#At the start of that player's turn, they suffer 1 damage. When that player gains a card that costs 5$ or more, this card is discarded. If there are no cards in the supply that cost 5$ or more, discard this when they gain a card with the highest cost in the supply.;;Outcasts;1c;26
+Wandering Lasher;M;6;;1;B;;!Wandering;;;Unleash.;;Outcasts;1c;27
+Aura Drain;P;2;;1;B;;When a power token is removed from this, any player suffers 2 damage.;Spend 5$.;;Unleash.;;Outcasts;1c;28
+Noxious Winds;P;2;;1;B;;;Spend 5$.;;Gravehold suffers 3 damage. Any player gains a Cursed Shard from the Curse deck. Any player gains a Cursed Bolt from the Curse deck.;"""Just standing there exhausted me. I didn't stick around to find out what else could happen."" - Ruya, Surface Scout";Outcasts;1c;29
+Haunted Force;P;2;;1;B;;;;;Unleash. Gravehold suffers 2 damage. Any player gains a Cursed Bolt from the Curse deck.;"""It's not just the wind. The stuff it's blowing, that's not sand and stone."" - Ruya, Surface Scout";Outcasts;1c;30
+Weeping Hex;A;;;1;B;;;;;Unleash. Any player suffers 2 damage, gains a Cursed Shard from the Curse deck, and places it on top of their deck.;;Outcasts;1c;31
+Withering Rot;A;;;1;B;;;;;Any player suffers 3 damage and gains a Curse of Rot from the Curse deck.;;Outcasts;1c;32
+;;;;;;;;;;;;;;
+# Promos;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Menace;A;;;1;B;;;;;The players collectively discard four cards.;"""Fear is a luxury no longer granted to the living."" - Brama, Breach Mage Mentor";Legacy (Kickstarter Exclusive);Promo;1
+Gravity Splinter;P;2;;2;B;;;Spend 7$.;;Unleash twice. The player with the fewest opened breaches suffers 3 damage.;"""In an instant, the breach went dark. The mage then collapsed, gasping as the creatures fell upon him."" - Nerva, Survivor";Legacy (Kickstarter Exclusive);Promo;2
+World Purge;P;2;;3;B;;;Spend 8$.;;Unleash three times.#OR#Gravehold suffers 7 damage.;"""We are lost."" - Ghan, Gem Scavenger";Legacy (Kickstarter Exclusive);Promo;3
+Glyph Enigma;M;7;;1;B;;;;;Gravehold suffers 1 damage. If the nemesis tier is 2 or higher, Gravehold suffers 2 additional damage.#(The nemesis tier is equal to the tier of the last nemesis card drawn.);;Legacy (Kickstarter Exclusive);Promo;5
+Decimate;A;;;1;B;;;;;Unleash twice and any player gains 2 charges.#OR#Gravehold suffers 4 damage.;"""The days seem shorter as we approach a war eternal."" - Nerva, Survivor";Legacy (Kickstarter Exclusive);Promo;12
+Spirit Cage;P;3;;1;B;;;Discard a card in hand that costs 5$ or more.;;Unleash twice. Any player discards a spell in hand.;;Legacy (Kickstarter Exclusive);Promo;13
+Baneful Crux;P;2;;2;B;;;Discard two cards in hand that each cost 4$ or more.;;Unleash twice. Gravehold suffers 3 damage.;"""The myriad faces of The Thrice-Dead Prophet seemed to stare at us at once, the way one does at insects clambering upon a wall."" - Mazahaedron, Henge Mystic";Legacy (Kickstarter Exclusive);Promo;14
+Negate;A;;;2;B;;;;;Unleash twice. Any player destroys their most expensive card in hand.#OR#Unleash twice. Gravehold suffers 3 damage.;;Legacy (Kickstarter Exclusive);Promo;15
+Gallowskulk;M;10;;3;B;;;;;The player with the lowest life suffers 3 damage.;;Legacy (Kickstarter Exclusive);Promo;16
+Unmake;A;;;3;B;;;;;Unleash twice. Any player destroys the top three cards of their deck and suffers 3 damage.;"""The Wraithmonger flailed, its ephemereal tentacle passing through a guard on the South Wall. And like that, he was gone. Not only from this world, but all worlds."" - Ohat, Dirt Merchant";Legacy (Kickstarter Exclusive);Promo;17
+;;;;;;;;;;;;;;
+# Special;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Curse of Rot;C;;;0;B;;;;;When this is in your hand, immediately either:#Discard this.#OR#Lose 3 charges to destroy this and draw a card.;Starts the game in the Curse deck.;Outcasts;1c;37
+;;;;;;;;;;;;;;
+# Upgraded tier 1 basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Waylay;A;;;1;E;;;;;Unleash twice. Gravehold suffers 1 damage for each player turn order card in the turn order discard pile.;;Legacy;Evolve;9
+Skybound Leviathan;M;9;;1;E;;;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;Legacy;Evolve;33
+Disrupt;A;;;1;E;;;;;Unleash. [The player with the most charges/Any player] suffers 4 damage and gains 2 charges.;;Legacy;Evolve;35
+Paralyze;A;;;1;E;;;;;Unleash. The player with the lowest life suffers 2 damage.;;Legacy;Evolve;37
+Calamitous Bane;P;3;;1;E;;;[Any player] discard a card in hand that costs 3$ or more during their turn.;;Unleash. Any player suffers 3 damage. The players collectively discard three cards in hand.;;Legacy;Evolve;49
+Unforeseen Collapse;P;2;;1;E;;;;;Unleash twice. [Any player] discards their most expensive prepped spell.;;Legacy;Evolve;53
+Spine Reaper;M;2;4;1;E;;;;;Unleash. Any player suffers 2 damage.;;Legacy;Evolve;55
+;;;;;;;;;;;;;;
+Wreck;A;;;1;U;;;;;Unleash twice. Gravehold suffers 1 damage.;;The New Age;2a;2
+Hissing Acid;P;3;;1;U;;;Spend 6$.;;Reveal the top card of the turn order deck. If it's a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.;;The New Age;3a;2
+Bane Commander;M;6;;1;U;;;;;Unleash. Any player suffers 1 damage.;;The New Age;4;2
+;;;;;;;;;;;;;;
+Rupture;A;;;1;U;;;;;Unleash. Any player suffers 4 damage.;;The Ancients;;83
+Furrow of Destruction;P;2;;1;U;;;Spend 6$.;;Unleash twice. Gravehold suffers 3 damage.;;The Ancients;;86
+;;;;;;;;;;;;;;
+Chaos Strike;A;;;1;U;;;;;Unleash. Gravehold suffers 4 damage. Any player gains a Cursed Shard from the Curse deck and places it on top of their deck.;;Outcasts;2a;12
+Rain of Devastation;P;2;;1;U;;;Spend 6$.;;Unleash twice. Any player suffers 3 damage.;;Outcasts;3a;24
+Labyrinth Wraith;M;6;;1;U;;!Wandering;;;Unleash. Any player suffers 1 damage.;;Outcasts;4;22
+;;;;;;;;;;;;;;
+Writhe;A;;;1;U;;;;;Unleash twice. Any player suffers 1 damage.;;Outcasts (Kickstarter Exclusive);Promo;117
+Bubbling Ruin;P;3;;1;U;;;Spend 6$.;;Unleash. Any player discards three cards in hand. Gravehold suffers 2 damage.;;Outcasts (Kickstarter Exclusive);Promo;118
+;;;;;;;;;;;;;;
+# Upgraded tier 2 basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Reap;A;;;2;E;;;;;Unleash twice. The player with the most charges loses 3 charges or suffers 3 damage.;;Legacy;Evolve;23
+Crushing Wave;P;2;;2;E;;;Spend 8$.;;Unleash twice. If Gravehold has 15 life or more, Gravehold suffers 6 damage. Otherwise, any player suffers 4 damage.;;Legacy;Evolve;39
+Dark Bond;P;2;;2;E;;;Spend 8$.;;Unleash twice. The player with the lowest life suffers 4 damage.;;Legacy;Evolve;45
+Humming Drones;M;9;2;2;E;;This minion can have any number of shield tokens.;;;This minion gains one shield token. [Any player] suffers damage equal to the number of shield tokens this minion has.;;Legacy;Evolve;59
+;;;;;;;;;;;;;;
+Separate;A;;;2;U;;;;;Unleash twice. Gravehold suffers 2 damage. The player with the most expensive prepped spell discards that spell.;;The New Age;2a;3
+Sky Tremor;P;1;;2;U;;;Spend 7$.;;Unleash twice. Gravehold suffers 4 damage.;;The New Age;2a;4
+Engulfing Madness;P;2;;2;U;;;Spend 8$.;;Unleash twice. Any player suffers 4 damage.;;The New Age;2a;5
+Marked;A;;;2;U;;;;;Unleash twice. The player with the lowest life suffers 3 damage.;;The New Age;3a;3
+Needle Doom;M;12;;2;U;;;;;Unleash. Gravehold suffers 2 damage.;;The New Age;4;3
+;;;;;;;;;;;;;;
+Howling Slayer;M;14;;2;U;;;;;Any player suffers 2 damage. Any player discards a card in hand.;;The Ancients;;84
+Mangle;A;;;2;U;;;;;The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.;;The Ancients;;85
+;;;;;;;;;;;;;;
+Rescind;A;;;2;U;;;;;Unleash twice. The player with the most expensive prepped spell discards that spell and suffers 2 damage.;;Outcasts;2a;13
+Hunt the Weak;A;;;2;U;;;;;Any player suffers 3 damage. Gravehold suffers 3 damage.;;Outcasts;2a;14
+Silent Decay;P;2;;2;U;;;Spend 8$.;;Unleash twice. Gravehold suffers 3 damage. Any player gains a Cursed Bolt from the Curse deck and places it on top of their deck.;;Outcasts;2a;15
+Harbinger of Monstrosity;M;8;;2;U;;When a player deals damage to this minion, reduce that damage by 2, to a minimum of 1.;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;Outcasts;3a;25
+Mage Devourer;M;11;;2;U;;When a player deals damage to this minion, the player with the most opened breaches suffers 1 damage.;;;Unleash. Gravehold suffers 1 damage.;;Outcasts;4;23
+;;;;;;;;;;;;;;
+Sweeping Blackness;A;;;2;U;;;;;Gravehold suffers 4 damage. Any player loses 2 charges and discards two cards in hand.;;Outcasts (Kickstarter Exclusive);Promo;119
+Twisting Flesh;P;1;;2;U;;;Spend 7$.;;Unleash twice. Any player suffers 3 damage. That player gains a Cursed Manacles from the Curse deck and places it on top of their deck.;;Outcasts (Kickstarter Exclusive);Promo;120
+;;;;;;;;;;;;;;
+# Upgraded tier 3 basics;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Maddening Eidolon;M;7;4;3;E;;;;;Unleash twice.;;Legacy;Evolve;15
+Facet Juggernaut;M;1;5;3;E;;;;;Gravehold suffers 1 damage. Gravehold suffers additional damage equal to the number of shield tokens this minion has.;;Legacy;Evolve;27
+;;;;;;;;;;;;;;
+# Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any player suffers 4 damage.;;The New Age;2a;6
+Eradicate;A;;;3;U;;;;;Unleash twice. Any player discards their three most expensive cards in hand.;;The New Age;2a;7
+# Ray of Desolation;P;1;;3;U;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;;The New Age;2a;8
+Flash of Decay;P;2;;3;U;;;;;Unleash twice. The player with the most expensive prepped spell destroys it. If that spell costs 4$ or less, or no spell was destroyed, Unleash.;;The New Age;3a;4
+Terrify;A;;;3;U;;;;;Unleash three times. Gravehold suffers 2 damage. Any player destroys two cards in hand.;;The New Age;3a;5
+Burialskulk;M;18;;3;U;;;;;Unleash twice.;;The New Age;4;4
+Thunderous Tempest;P;2;;3;U;;;Spend 9$.;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, any player suffers 8 damage. Otherwise, any player suffers 5 damage.;;The New Age;4;5
+;;;;;;;;;;;;;;
+Sky Crush;A;;;3;U;;;;;Unleash three times. Any player destroys two cards in hand and suffers 2 damage.;;Outcasts;2a;16
+Scion of the Void;M;13;;3;U;;When a player deals damage to this minion, Unleash.;;;Unleash twice.;;Outcasts;2a;17
+Ray of Desolation;P;1;;3;U;;;;;Unleash twice. The players collectively destroy the two most expensive prepped spells.;;Outcasts;2a;18
+Sacrifice;A;;;3;U;;;;;Unleash four times.#OR#Gravehold suffers 4 damage and any player suffers 4 damage.;;Outcasts;3a;26
+Blighted Magic;P;2;;3;U;;;;;Unleash. The player with the most expensive prepped spell destroys it. A different player destroys two cards in hand that cost 1$ or more.;;Outcasts;3a;27
+Scour;A;;;3;U;;;;;Unleash three times. The player with the most expensive card in hand discards their three most expensive cards in hand.;;Outcasts;4;24
+Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;Outcasts;4;25
+;;;;;;;;;;;;;;
+# Nemesis-specific cards;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Provoker;M;5;;1;Rageborne;;;;;Gravehold suffers damage equal to the number of Fury tokens Rageborne has.;"""I nearly wasted a freshly forged chopper on one of these things."" - Reeve, Breach Mage Elite";Aeon's End;;262
+Cleave;A;;;1;Rageborne;;;;;Rageborne Strikes.;Thraxir was breach commander for as long as most could remember. To honor him, to this very day no man or woman has been elected to the post in his stead.;Aeon's End;;263
+Unrelenting Ire;A;;;1;Rageborne;;;;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, Unleash two additional times.;"""I reckon its head would look good on a post."" - Reeve, Breach Mage Elite";Aeon's End;;264
+Blood Cry;P;2;;2;Rageborne;;;Lose 4 charges.;;Unleash four times.;The cave walls crumble and quake as it bellows to its kin.;Aeon's End;;265
+Invoke Carnage;P;2;;2;Rageborne;;;Spend 7$.;;Unleash. Any player suffers 1 damage. That player suffers 1 additional damage for each Fury token Rageborne has.;"""There is but a single power among The Nameless that can shatter Gravehold."" - Brama, Breach Mage Elder";Aeon's End;;266
+Scorn;M;9;;2;Rageborne;;;;;Gravehold suffers 3 damage.#OR#Unleash twice.;"""Part of me almost admires the craftmanship of this horrible thing."" - Adelheim, Breach Mage Weaponsmith";Aeon's End;;267
+Avatar of Wrath;M;16;;3;Rageborne;;;;;Rageborne Strikes.;Many a mage found their end in the gullet of this beast.;Aeon's End;;268
+Onslaught;A;;;3;Rageborne;;;;;Unleash three times. The players collectively discard cards in hand equal to the number of Fury tokens Rageborne has.;Even its shadow leaves a wake of carnage, smoke, and screams.;Aeon's End;;269
+Rolling Death;P;2;;3;Rageborne;;;Spend 8$.;;Rageborne Strikes twice.;"""Its breath rasped as it turned the black rocks red. And those who could, ran."" - Nerva, Survivor";Aeon's End;;270
+Convoke;T;;;0;Rageborne;;;;;Any player suffers 4 damage.;"""No other thing, in our world or theirs, has been so violent as this beast."" - Brama, Breach Mage Elder";Aeon's End;;271
+Devastate;T;;;0;Rageborne;;;;;Gravehold suffers 5 damage.;"""Anger is born in fire."" - Z'hana, Breach Mage Renegade";Aeon's End;;272
+Eviscerate;T;;;0;Rageborne;;;;;The player with the lowest life suffers 2 damage.;"""The breach commander Thraxir was split in twain with a single blow, his armor twisted and glowing like a brand. I have never seen such a thing before or since."" - Mist, Breach Mage Dagger Captain";Aeon's End;;273
+Frenzy;T;;;0;Rageborne;;;;;The player with the most opened breaches suffers 3 damage.;"""All great armies have a warrior that is feared above all others. We call theirs Rageborne."" - Mist, Breach Mage Dagger Captain";Aeon's End;;274
+Raze;T;;;0;Rageborne;;;;;Gravehold suffers 3 damage. Any player suffers 1 damage.;"""The fire spread from the old barracks to the south wall in a moment, the ancient stone hissing and turning black as the beast strode through the city."" - Nerva, Survivor";Aeon's End;;275
+Seize;T;;;0;Rageborne;;;;;The players collectively discard the two most expensive prepped spells.;"""How this cave has not long ago collapsed is a wonder and a mercy."" - Nerva, Survivor";Aeon's End;;276
+;;;;;;;;;;;;;;
+Broodwomb;M;5;;1;Carapace Queen;;If there is at least one husk in play, prevent all damage dealt to this minion.;;;Place a husk in play.;It is the husk-mother, spewing multitudes through the void into Gravehold.;Aeon's End;;226
+Endless Throng;A;;;1;Carapace Queen;;;;;Carapace Queen Swarms.;"""The Queen, she is the worst of their foul lot, for her young are without number."" - Mist, Breach Mage Dagger Captain";Aeon's End;;227
+Hatch;A;;;1;Carapace Queen;;;;;Place a husk into play for each turn order card in the turn order discard pile.;The Queen wears her offspring like some writhing armor.;Aeon's End;;228
+Blot the Sun;P;2;;2;Carapace Queen;;;Lose 4 charges.;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""Were we still in The World That Was, these wretched things would envelop the very sky."" - Malastar, Breach Mage Mentor";Aeon's End;;229
+Foul Multitudes;P;3;;2;Carapace Queen;;Husks have 2 life. Damaged husks heal to full life at the end of each turn.;;Unleash.;Carapace Queen Swarms.;It took the survivors of Gravehold half-a-moon to shovel up the dead husks and carry them into the depths, where they now lie in piles high enough to touch the tops of the cave vaults.;Aeon's End;;230
+Infest;A;;;2;Carapace Queen;;;;;Carapace Queen Swarms twice.#OR#Any player suffers 4 damage.;"""Husks are easy enough to dispatch... one on one, that is."" - Lash, Breach Mage Scout";Aeon's End;;231
+Legion Beacon;P;2;;3;Carapace Queen;;;;Unleash twice.;Discard half of the husks in play, rounded up. Gravehold suffers 2 damage for each husks discarded this way. Carapace Queen Swarms.;Gravehold knows when the Queen is near, for the claxon call of her legions echoes throughout the cave.;Aeon's End;;232
+Maggot Engine;M;0;;3;Carapace Queen;;;;Unleash three times. Then, set this minion's life equal to twice the number of husks in play.;Carapace Queen Swarms.;"""Which end is the head?"" - Nym, Breach Apprentice";Aeon's End;;233
+Spawn;A;;;3;Carapace Queen;;;;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""The sound of the things, skittering across the cave walls, is loud enough to drown our screams."" - Nerva, Survivor";Aeon's End;;234
+;;;;;;;;;;;;;;
+Cryptid;M;6;;1;Umbra Titan;;;;;The player with the most expensive prepped spell discards that spell.#OR#Umbra Titan loses one nemesis token.;"""The beasts of this cave seem to revere The Titan as though it were some ancient god."" - Mazahaedron, Henge Mystic";War Eternal;;266
+Grubber;M;5;;1;Umbra Titan;;;;;If the nemesis has two turn order cards in the turn order discard pile, Umbra Titan loses one nemesis token. Otherwise, Gravehold suffers 2 damage.;"""Kick it, stab it, burn it... the thing just keeps grinning."" - Sparrow, Breach Mage Soldier";War Eternal;;267
+Seismic Roar;P;3;;1;Umbra Titan;;;Spend 6$.;;Umbra Titan loses two nemesis tokens.;"""I roared as it bore through the rock. And Gravehold shuddered like those within its walls."" - Nerva, Survivor";War Eternal;;268
+Maul;A;;;2;Umbra Titan;;;;;The players collectively destroy the two most expensive prepped spells.#OR#Umbra Titan loses two nemesis tokens.;;War Eternal;;269
+Tombfright;M;8;;2;Umbra Titan;;;;;If Umbra Titan has 5 or more nemesis tokens, it loses a nemesis token. Otherwise, Gravehold suffers 3 damage.;"""With two heads, it's twice as eager to make a meal of a mage."" - Sparrow, Breach Mage Soldier";War Eternal;;270
+Vault Behemoth;M;9;;2;Umbra Titan;;;;;Any player suffers 2 damage. If this minion has 8 or less life, Umbra Titan loses one nemesis token.;The air rasping in its massive lungs is enough to burst your eardrums.;War Eternal;;271
+Crumble;A;;;3;Umbra Titan;;;;;Umbra Titan loses three nemesis tokens.#OR#Unleash. Place the most recently discarded minion in the nemesis discard pile back into play.;;War Eternal;;272
+Demi-Ancient;M;18;;3;Umbra Titan;;;;;Umbra Titan loses one nemesis token.;"""In the time before ours, their kind thrived in the tumult of the fledgling world. Now, they seek a new home among The Nameless."" - Mazahaedron, Henge Mystic";War Eternal;;273
+Yawning Black;P;2;;3;Umbra Titan;;;Spend 8$.;;Any player suffers 6 damage.#OR#Umbra Titan loses three nemesis tokens.;The Titan hides beneath the skin of the cave, emerging only to strike.;War Eternal;;274
+;;;;;;;;;;;;;;
+Corrupting Chitterer;M;6;;1;Experiment 153;;;;;Move maw tokens on two different tracks one space forward.;;Outcasts;1c;22
+Bound;A;;;1;Experiment 153;;;;;Any player gains two Cursed Shards from the Curse deck and places them on top of their deck.#OR#Move 1 maw token three spaces forward.;;Outcasts;1c;23
+Cascading Casualties;P;2;;1;Experiment 153;;;Spend 5$.;;Move the maw token farthest from the start two spaces forward. If this causes an effect to resolve on the track, resolve that effect one additional time.;;Outcasts;1c;24
+Lunging Jaws;A;;;2;Experiment 153;;;;;Move any maw token four spaces forward.;;Outcasts;1c;12
+Scaled Flesh;P;3;;2;Experiment 153;;;;;Unleash twice.#Set this card next tot he Growth Mat. For the rest of the game, players must deal 4 damage instead of 3 to move a maw token back.;;Outcasts;1c;14
+Aural Carnivore;M;10;;2;Experiment 153;;Reduce to 0 all damage dealt to maws.;;;Any player suffers 2 damage.;;Outcasts;1c;16
+Divide and Devour;A;;;3;Experiment 153;;;;;Unleash. Move any maw token three spaces forward. Move any maw token one space back.;;Outcasts;1c;6
+Vein Worms;M;16;;3;Experiment 153;;;;;Move any maw token three spaces forward.;;Outcasts;1c;8
+Restless Maws;P;2;;3;Experiment 153;;;Spend 8$.;;Unleash twice. The maw with the lowest life gains 10 life.;;Outcasts;1c;11

@@ -15,6 +15,28 @@ nemesis_cards = {}
 player_mats = {}
 nemesis_mats = {}
 
+waves = {
+    "Aeon's End": 1,
+    "The Nameless": 1,
+    "The Depths": 1,
+    "War Eternal": 2,
+    "The Void": 2,
+    "The Outer Dark": 2,
+    "Legacy": 3,
+    "Buried Secrets": 3,
+    "The New Age": 4,
+    "The Ancients": 4,
+    "Shattered Dreams": 4,
+    "Into the Wild": 4,
+    "Outcasts": 5,
+    "The Southern Village": 5,
+    "Return to Gravehold": 5,
+    "Dice Tower": 2,
+    "Legacy (Kickstarter Exclusive)": 3,
+    "The New Age (Kickstarter Exclusive)": 4,
+    "Outcasts (Kickstarter Exclusive)": 5,
+}
+
 ctypes = {
     "G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
     "T1": "Level 1 Treasure", "T2": "Level 2 Treasure", "T3": "Level 3 Treasure",
@@ -27,7 +49,7 @@ def load():
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
         content = csv.reader(player_file, dialect="excel", delimiter=";")
-        for name, ctype, cost, code, special, text, flavour, starter, wave, box, deck, start, end in content:
+        for name, ctype, cost, code, special, text, flavour, starter, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
             special = special.replace("#", "\n").replace("!", config.prefix)
@@ -38,7 +60,7 @@ def load():
                 raise ValueError(f"duplicate value {casefolded_name}")
             player_cards[casefolded_name] = {
                 "name": name, "type": ctype, "cost": int(cost), "code": code,
-                "special": special, "text": text, "flavour": flavour, "wave": int(wave),
+                "special": special, "text": text, "flavour": flavour,
                 "starter": starter, "box": box, "deck": deck, "start": int(start), "end": int(end)
             }
 
@@ -47,7 +69,7 @@ def load():
     nemesis_cards.clear()
     with open("nemesis_cards.csv", newline="") as nemesis_file:
         content = csv.reader(nemesis_file, dialect="excel", delimiter=";")
-        for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, wave, box, deck, num in content:
+        for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, num in content:
             if not name or name.startswith("#"):
                 continue
             special = special.replace("#", "\n").replace("!", config.prefix)
@@ -60,7 +82,7 @@ def load():
                 "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
                 "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
                 "code": code, "special": special, "discard": discard, "immediate": immediate,
-                "effect": effect, "flavour": flavour, "wave": int(wave), "box": box, "deck": deck, "number": int(num)
+                "effect": effect, "flavour": flavour, "box": box, "deck": deck, "number": int(num)
             }
 
     print("Nemesis cards loaded")
@@ -68,7 +90,7 @@ def load():
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
         content = csv.reader(nmats_file, dialect="excel", delimiter=";")
-        for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, wave, box, deck, cards in content:
+        for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, deck, cards in content:
             if not name or name.startswith("#"):
                 continue
             setup = setup.replace("#", "\n")
@@ -83,7 +105,7 @@ def load():
                 "name": name, "hp": int(hp), "difficulty": diff, "unleash": unleash,
                 "setup": setup, "additional_rules": add_r, "flavour": flavour,
                 "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
-                "side": side, "wave": int(wave), "box": box, "battle": int(battle),
+                "side": side, "box": box, "battle": int(battle),
                 "deck": deck, "cards": cards.split(",")
             }
 
@@ -147,7 +169,7 @@ def player_card(name: str) -> List[str]:
     if c['starter']:
         values.append(f"Starter card for {c['starter']}")
         values.append("")
-    values.append(f"From {c['box']} (Wave {c['wave']})")
+    values.append(f"From {c['box']} (Wave {waves[c['box']]})")
 
     if c['deck']:
         values.append(f"Deck {c['deck']}, {c['start']}-{c['end']}")
@@ -201,7 +223,7 @@ def nemesis_card(name: str) -> List[str]:
     if c['flavour']:
         values.append(f"{c['flavour']}\n")
 
-    values.append(f"From {c['box']} (Wave {c['wave']})")
+    values.append(f"From {c['box']} (Wave {waves[c['box']]})")
     if c['deck']:
         values.append(f"Deck {c['deck']}, Card {c['number']}")
     else:
@@ -230,7 +252,7 @@ def nemesis_mat(name: str) -> List[str]:
 
     values.extend(["", "* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
 
-    values.extend([f"From {c['box']} (Wave {c['wave']})"])
+    values.extend([f"From {c['box']} (Wave {waves[c['box']]})"])
 
     if c['deck']:
         values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {', '.join(c['cards'])}")
