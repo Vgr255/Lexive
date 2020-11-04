@@ -53,7 +53,7 @@ def load():
             special = special.replace("#", "\n").replace("!", config.prefix)
             effect = effect.replace("#", "\n")
             flavour = flavour.replace("#", "\n")
-            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
+            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "").replace("-", "")
             if casefolded_name in nemesis_cards:
                 raise ValueError(f"duplicate value {casefolded_name}")
             nemesis_cards[casefolded_name] = {
@@ -68,10 +68,11 @@ def load():
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
         content = csv.reader(nmats_file, dialect="excel", delimiter=";")
-        for name, hp, diff, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, wave, box, deck, start, end in content:
+        for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, wave, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
             setup = setup.replace("#", "\n")
+            unleash = unleash.replace("#", "\n")
             add_r = add_r.replace("#", "\n")
             flavour = flavour.replace("#", "\n")
             side = side.replace("#", "\n")
@@ -79,11 +80,11 @@ def load():
             if casefolded_name in nemesis_mats:
                 raise ValueError(f"duplicate value {casefolded_name}")
             nemesis_mats[casefolded_name] = {
-                "name": name, "hp": hp, "difficulty": diff, "unleash": unleash,
+                "name": name, "hp": int(hp), "difficulty": diff, "unleash": unleash,
                 "setup": setup, "additional_rules": add_r, "flavour": flavour,
                 "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
                 "side": side, "wave": int(wave), "box": box, "deck": deck,
-                "start": int(start), "end": int(end)
+                "battle": int(battle), "start": int(start), "end": int(end)
             }
 
     print("Nemesis mats loaded")
@@ -112,7 +113,9 @@ class Lexive(commands.Bot):
 
             values, possible = get_card(content)
             if possible == 1:
-                await message.channel.send("\n".join(values))
+                msgs = "\n".join(values).split(r"\NEWLINE/")
+                for msg in msgs:
+                    await message.channel.send(msg)
                 return
             elif possible > 1:
                 await message.channel.send(f"Ambiguous value. Possible matches: {', '.join(values)}")
@@ -166,6 +169,13 @@ def nemesis_card(name: str) -> List[str]:
         values.append(f"Fully-Evolved Legacy Basic Nemesis suitable as Upgraded Basic (Tier {c['tier']})")
     else: # Nemesis-specific card
         values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
+    if c['type'] == "M":
+        hp = c['tokens_hp']
+        if not hp:
+            hp = "*"
+        values.append(f"Health: {hp}")
+        if c['shield']:
+            values.append(f"Shield tokens: {c['shield']}")
 
     values.append("")
 
@@ -181,9 +191,6 @@ def nemesis_card(name: str) -> List[str]:
         values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
     elif c['type'] == "M":
-        values.append(f"Health: {c['tokens_hp']}")
-        if c['shield']:
-            values.append(f"Shield tokens: {c['shield']}")
         values.append(f"PERSISTENT: {c['effect']}")
 
     else:
@@ -209,8 +216,11 @@ def player_mat(name: str) -> List[str]:
 
 def nemesis_mat(name: str) -> List[str]:
     c = nemesis_mats[name]
-    values = ["```", f"{c['name']}", f"Health: {c['hp']}", f"Difficulty rating: {c['difficulty']}", "",
-              f"SETUP: {c['setup']}", "", f"UNLEASH: {c['unleash']}", "", "* INCREASED DIFFICULTY *"]
+    hp = c['hp']
+    if not hp:
+        hp = "*"
+    values = ["```", f"{c['name']}", f"Health: {hp}", f"Difficulty rating: {c['difficulty']}", f"Battle: {c['battle']}", 
+              "", f"SETUP: {c['setup']}", "", f"UNLEASH: {c['unleash']}", "", "* INCREASED DIFFICULTY *"]
     if c['id_setup']:
         values.append(f"SETUP: {c['id_setup']}")
     if c['id_unleash']:
@@ -220,17 +230,18 @@ def nemesis_mat(name: str) -> List[str]:
 
     values.extend(["", "* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
 
-    if c['side']: # side mat
-        values.append(f"{c['side']}\n")
-
-    values.extend([f"{c['flavour']}", "", f"From {c['box']} (Wave {c['wave']})"])
+    values.extend([f"From {c['box']} (Wave {c['wave']})"])
 
     if c['deck']:
         values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {c['start']}-{c['end']}")
     else:
         values.append(f"Cards used with this nemesis: {c['start']}-{c['end']}")
 
-    values.append("```")
+    values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
+
+    if c['side']: # side mat
+        values.append(r"\NEWLINE/```")
+        values.append(f"{c['side']}```")
 
     return values
 
@@ -242,7 +253,7 @@ def get_card(name: str) -> Tuple[Optional[list], int]:
     for x in ("@", "#"): # ignore what's after
         if x in name:
             name = name[:name.index(x)]
-    arg = name.lower().replace(" ", "").replace("'", "").replace(",", "")
+    arg = name.lower().replace(" ", "").replace("'", "").replace(",", "").replace("-", "")
     matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys() | player_mats.keys() | nemesis_mats.keys())
     if len(matches) == 1:
         if matches[0] in player_cards:
@@ -287,7 +298,8 @@ async def info(ctx, *args):
     else:
         to_send = f"No content found matching {' '.join(args)}"
 
-    await ctx.send(to_send)
+    for msg in to_send.split(r"\NEWLINE/"):
+      await ctx.send(msg)
 
 @cmd
 async def link(ctx):
