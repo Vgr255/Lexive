@@ -106,7 +106,7 @@ def load():
                 "setup": setup, "additional_rules": add_r, "flavour": flavour,
                 "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
                 "side": side, "box": box, "battle": int(battle),
-                "deck": deck, "cards": cards.split(",")
+                "deck": deck, "cards": [int(x) for x in cards.split(",")]
             }
 
     print("Nemesis mats loaded")
@@ -264,7 +264,7 @@ def nemesis_mat(name: str) -> List[str]:
     values.extend([f"From {c['box']} (Wave {waves[c['box']]})"])
 
     if c['deck']:
-        values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {', '.join(c['cards'])}")
+        values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {', '.join(str(x) for x in c['cards'])}")
     else:
         values.append(f"Cards used with this nemesis: {', '.join(c['cards'])}")
 
@@ -330,7 +330,14 @@ async def info(ctx, *args):
         to_send = f"No content found matching {' '.join(args)}"
 
     for msg in to_send.split(r"\NEWLINE/"):
-      await ctx.send(msg)
+        await ctx.send(msg)
+
+#@cmd
+async def search(ctx, *arg):
+    to_search = " ".join(arg).lower()
+    possible = set()
+    for pcard in player_cards:
+        pass # todo
 
 @cmd
 async def link(ctx):
