@@ -296,3 +296,71 @@ Humming Shell;R;7;;;Destroy up to two cards in hand or discard pile.#OR#Gain 2 c
 Cursed Shard;G;0;;;Gain 1$. Place this on top of your deck.#OR#Spend 2$ to destroy this.;Starts the game in the Curse deck.;;Outcasts;1c;33;36
 Cursed Manacles;R;0;;;Gain 1 charges. Suffer 1 damage.#OR#Discard two prepped spells to destroy this.;Starts the game in the Curse deck.;;Outcasts;1c;38;39
 Cursed Bolt;S;0;;;Cast: Deal 1 damage. Place this on top of your deck.#OR#Cast: Deal 1 damage. Discard two cards in hand. If you do, destroy this.;Starts the game in the Curse deck.;;Outcasts;1c;40;42
+;;;;;;;;;;;
+# Starter cards;;;;;;;;;;;
+;;;;;;;;;;;
+Amethyst Shard;G;0;;;Gain 1$. Any ally may draw a card and then discard a card in hand.;;Adelheim;Aeon's End;;;0
+Buried Light;S;0;;;Cast: Deal 1 damage. Gain 1$.;;Brama;Aeon's End;;;0
+Moonstone Shard;G;0;;;Gain 1$. Gain an additional 1$ that can only be used to gain a gem.;;Jian;Aeon's End;;;0
+Emerald Shard;G;0;;;Gain 1$.#OR#Any player gains 1 life.;;Kadir;Aeon's End;;;0
+Quartz Shard;G;0;;;Gain 1$. Reveal the top card of the turn order deck. You may place that card on the bottom or the top of the turn order deck. If you revealed a player turn order card, gain an additional 1$.;;Lash;Aeon's End;;;0
+Garnet Shard;G;0;;;Gain 1$.#OR#Cast any player's prepped spell.;;Mist;Aeon's End;;;0
+Tourmaline Shard;G;0;;;Gain 1$. Any ally may suffer 1 damage. If they do, they destroy a card in hand.;;Phaedraxa;Aeon's End;;;0
+Flare;S;0;;;"Cast: Reveal the top card of the turn order dec,; and then place it back on top of the turn order deck. If you revealed a player turn order card, deal 3 damage. Otherwise, deal 1 damage.";;Xaxos;Aeon's End;;;0
+Sparkling Meteorite;G;0;;;Gain 1$.#OR# Gain 3$ that can only be used to focus or open a breach.;;Sahala;The New Age;;;0
+Tidal Surge;S;0;;;Cast: Gain 1 charge.;;Gygar;The New Age;;;0
+Tidal Surge;S;0;;;Cast: Gain 1 charge.;;Gygar;The New Age;;;0
+Lucky Coin;G;0;;;Gain 1$. You may lose 1 charge. If you do, gain 2 additional$.;;Soskel;The New Age;;;0
+Gift Of Spirit;S;0;;;Cast: Deal 1 damage.#OR#Cast: Any ally draws a card.;;Taqren;The New Age;;;0
+Furnacium;R;0;;;Gain 1$. Discard up to three spells in hand. Gain 1$ for each spell discarded this way. You may place this on top of your deck.;;Talix;The New Age;;;0
+Furnacium;R;0;;;Gain 1$. Discard up to three spells in hand. Gain 1$ for each spell discarded this way. You may place this on top of your deck.;;Talix;The New Age;;;0
+Planar Pocket;G;0;;;Gain 1$. Gain an additional 2$ that can only be used to gain a relic.;;Rhia;The New Age;;;0
+Aetherscope;G;0;;;Gain 1$.#OR#Any ally may lose 1 charge. If they do, gain 2 charges.;;Claudia;The New Age;;;0
+Heart Forge;G;0;;;Gain 1$.#OR#Destroy a Spark or Crystal in hand. Gain a card of the same type from the Forged deck and place it into your hand.;;Lost;The New Age;;;0
+Oblivion Shard;G;0;;;Gain 2$ that cannot be used to gain a relic or spell.;;Dezmodia;War Eternal;;;0
+Torch;S;0;;;Cast: Deal 1 damage.#OR#Cast: Focus any player's breach.;;Garu;War Eternal;;;0
+Shattered Geode;G;0;;;Gain 1$. You may place the top card of any ally's discard pile into your hand.;;Gex;War Eternal;;;0
+Worldheart Shard;G;0;;;Gain 1$.#OR#Gain 2$ that can only be used to gain a card. Place the next card you gain this turn on top of any ally's discard pile.;;Mazahaedron;War Eternal;;;0
+Amethyst Paragon;G;0;;;Gain 1$. Any ally may prep a spell in hand to their opened or closed breach(es).;;Mist;War Eternal;;;0
+Extinguish;S;0;;;Cast: Deal 1 damage. If this damage causes a minion from the nemesis deck to be discarded, Quilius gains a Trophy token.;;Quilius;War Eternal;;;0
+Extinguish;S;0;;;Cast: Deal 1 damage. If this damage causes a minion from the nemesis deck to be discarded, Quilius gains a Trophy token.;;Quilius;War Eternal;;;0
+Coal Shard;G;0;;;If you have 2 life or less, destroy this. Otherwise, gain 3$, gain 1 charge, and suffer 2 damage.;;Ulgimor;War Eternal;;;0
+Illuminate;S;0;;While prepped, when you focus or open one of your breaches during your turn, deal 1 damage.;Cast: Deal 1 damage.;;Yan Magda;War Eternal;;;0
+Entwined Amethyst;G;0;;;Gain 1$. When you discard this during an ally's turn, you gain 1 charge.;;Ilya;Outcasts;;;0
+Entwined Amethyst;G;0;;;Gain 1$. When you discard this during an ally's turn, you gain 1 charge.;;Ilya;Outcasts;;;0
+Trulite Of Force;G;0;;;Gain 1$. Any ally may discard a card in hand. If they do, gain 1$ that can only be used to gain a spell or to focus or open a breach.;;Ilya;Outcasts;;;0
+Trulite Of Force;G;0;;;Gain 1$. Any ally may discard a card in hand. If they do, gain 1$ that can only be used to gain a spell or to focus or open a breach.;;Ilya;Outcasts;;;0
+Entwined Amethyst;G;0;;;Gain 1$. When you discard this during an ally's turn, you gain 1 charge.;;Kel;Outcasts;;;0
+Entwined Amethyst;G;0;;;Gain 1$. When you discard this during an ally's turn, you gain 1 charge.;;Kel;Outcasts;;;0
+Trulite Of Energy;G;0;;;Gain 1$.Any ally may discard a card in hand. If they do, gain 1$ that can only be used to gain a gem or relic.;;Kel;Outcasts;;;0
+Trulite Of Energy;G;0;;;Gain 1$.Any ally may discard a card in hand. If they do, gain 1$ that can only be used to gain a gem or relic.;;Kel;Outcasts;;;0
+Glyph Carver;G;0;;;Gain 1$.#OR#Place 1 glyph token on top of any card in the supply.;;Z'hana;Outcasts;;;0
+Glyph Carver;G;0;;;Gain 1$.#OR#Place 1 glyph token on top of any card in the supply.;;Z'hana;Outcasts;;;0
+Esoteric Amplifier;G;0;;;Gain 1$. You may suffer 1 damage.;;Taqren;Outcasts;;;0
+Call Of The Void;S;0;;While prepped, the first time you play a gem or relic that costs 1$ or more each turn, play that card twice and then return it to the supply.;Cast: Deal 1 damage.;;Qu;Outcasts;;;0
+Nameless Siphon;G;0;;;Gain 1$.#OR#Any ally may discard a card in hand. If they do, focus one of your breaches.;;Thraxir;Outcasts;;;0
+Swirling Darkness;S;0;;This may be prepped to closed breaches.;Cast: Focus the breach this was cast from.;;Dezmodia;Outcasts;;;0
+Convergence;S;0;;While prepped, when you play a gem or relic that costs 3$ or more, gain 1 charge.;Cast: Deal 1 damage.;;Arachnos;Outcasts;;;0
+Cinder;S;0;;;Cast: Deal 1 damage.#OR#Cast: Gain 2$.;;Nym;The Depths;;;0
+Obsidian Shard;G;0;;;Gain 1$. You may suffer 1 damage. If you do, gain an additional 2$.;;Reeve;The Depths;;;0
+Eternal Ember;S;0;;;Cast: Deal 1 damage.#OR#Cast: Cast one of your prepped spells without discarding it.;;Z'hana;The Depths;;;0
+Verdant Emerald;G;0;;;Gain 1$.#OR#Gain a Rose Thorn from the Rose Thorn deck. Place that card on top of any player's discard pile.;;Inco;Into The Wild;;;0
+Verdant Emerald;G;0;;;Gain 1$.#OR#Gain a Rose Thorn from the Rose Thorn deck. Place that card on top of any player's discard pile.;;Inco;Into The Wild;;;0
+Rip, Help!;R;0;;;Gain 1 charge.;;Razra;Into The Wild;;;0
+Rip, Help!;R;0;;;Gain 1 charge.;;Razra;Into The Wild;;;0
+Immolate;S;0;;While prepped, when you suffer 1 damage, gain 1 charge.;Cast: Deal 1 damage.;;Malastar;The Nameless;;;0
+Twin Opal;G;0;;;Gain 1$. You may cast a spell in hand.;;Indira;Outer Dark;;;0
+Twin Opal;G;0;;;Gain 1$. You may cast a spell in hand.;;Indira;Outer Dark;;;0
+Void Shard;G;0;;;Gain 1$. Gain an additional 1$ that can only be used to focus or open a breach.;;Remnant;Outer Dark;;;0
+Mystic Orb;G;0;;;Gain 1 charge. Cast a spell in your hand. Return that spell to its supply pile, if able. You may lose 1 charge to gain a spell from any supply pile that costs less than the cast spell.;;Nook;Shattered Dreams;;;0
+Mystic Orb;G;0;;;Gain 1 charge. Cast a spell in your hand. Return that spell to its supply pile, if able. You may lose 1 charge to gain a spell from any supply pile that costs less than the cast spell.;;Nook;Shattered Dreams;;;0
+Mazra's Studies;S;0;;;Cast: Deal 1 damage.#OR#Cast: Focus your III breach.;;Mazra;The Ancients;;;0
+Mazra's Studies;S;0;;;Cast: Deal 1 damage.#OR#Cast: Focus your III breach.;;Mazra;The Ancients;;;0
+Change Form;R;0;;;Qu flips over the Form token.;;Qu;The Ancients;;;0
+Melded Radite;G;0;;;Gain 0$. You may cast any player's prepped spell.;;Qu;The Ancients;;;0
+Smolder;S;0;;This spell may be prepped to a closed breach without focusing it.;Cast: Deal 1 damage.;;Sparrow;The Void;;;0
+Pyre;S;0;;;Cast: Deal 1 damage. Any ally may discard a card in hand. If they do, deal 2 additional damage.;;Xaxos;The Void;;;0
+Shower Of Coals;S;0;;;Ohat Mode: Cast: Suffer 1 damage and gain 2$.#Ulgimor Mode: Cast: Deal 3 damage.;;Ohat and Ulgimor;Return To Gravehold;;;0
+Invigorate;S;0;;;Cast: Deal 1 damage.#OR#Cast: Return a spell in your discard pile to your hand.;;Cairna;Return To Gravehold;;;0
+Sun Shard;G;0;;;Gain 1$.#OR#Gain 3$ that can only be used to open a breach.;;Lucien;The Southern Village;;;0
+Fossilized Rose;S;0;;;Cast: Discard a card in hand. If you do, gain a spell that costs 5$ or less from any supply pile.#OR#Cast: Deal 1 damage.;;Reth;The Southern Village;;;0
