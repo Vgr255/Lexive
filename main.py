@@ -144,7 +144,7 @@ class Lexive(commands.Bot):
                 return # these commands supersede cards
 
             values = get_card(content)
-            if values[0] is None: # too many values
+            if values and values[0] is None: # too many values
                 await message.channel.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
                 return
             elif values:
@@ -191,7 +191,9 @@ def player_card(name: str) -> List[str]:
         elif c['deck']:
             prefix += f"-{c['deck']}-"
 
-        if c['end']:
+        if c['starter'] and c['end']:
+            values.append(f"Cards {prefix}{c['start']} and {prefix}{c['end']}")
+        elif c['end']:
             values.append(f"Cards {prefix}{c['start']}-{prefix}{c['end']}")
         else:
             values.append(f"Card {prefix}{c['start']}")
@@ -309,17 +311,12 @@ def get_card(name: str) -> Optional[List[str]]:
     if len(matches) > config.max_dupe:
         values.append(None)
         for x in matches:
-            name = ""
-            if x in player_cards:
-                name = player_cards[x]["name"]
-            if x in nemesis_cards:
-                name = nemesis_cards[x]["name"]
-            if x in player_mats:
-                name = player_mats[x]["name"]
-            if x in nemesis_mats:
-                name = nemesis_mats[x]["name"]
-            if name and name not in values:
-                values.append(name)
+            for d in (player_cards, nemesis_cards, player_mats, nemesis_mats):
+                if x in d:
+                    for n in d[x]:
+                        if n["name"] not in values:
+                            values.append(n["name"])
+
         return values
     for x in matches:
         if x in player_cards:
@@ -356,7 +353,7 @@ def complete_match(string: str, matches: Iterable) -> list:
 @cmd
 async def info(ctx, *args):
     values = get_card("".join(args))
-    if values[0] is None: # too many values
+    if values and values[0] is None: # too many values
         to_send = f"Ambiguous value. Possible matches: {', '.join(values[1:])}"
     elif not args:
         to_send = "No argument provided."
