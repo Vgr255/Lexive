@@ -7,6 +7,17 @@ from discord.ext import commands
 
 import config
 
+# the following characters will be stripped from the csv names when stored
+# and also ignored from messages (so that they are optional)
+# this is a sequence of 1-length strings
+_casefold_str = " ',:-()"
+# this character will be replaced by a newline when sent to the discord
+# this is a str
+_newline_str = "#"
+# this character will be replaced by the prefix from the config
+# this is a str
+_prefix_str = "!"
+
 VERSION = "0.1"
 AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
@@ -46,6 +57,18 @@ ctypes = {
     "T": "Strike",
 }
 
+def casefold(x: str) -> str:
+    x = x.lower()
+    for c in _casefold_str:
+        x = x.replace(c, "")
+    return x
+
+def expand(x: str, *, prefix=False) -> str:
+    x = x.replace(_newline_str, "\n")
+    if prefix:
+        x = x.replace(_prefix_str, config.prefix)
+    return x
+
 def load():
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
@@ -53,14 +76,11 @@ def load():
         for name, ctype, cost, code, special, text, flavour, starter, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
-            special = special.replace("#", "\n").replace("!", config.prefix)
-            text = text.replace("#", "\n")
-            flavour = flavour.replace("#", "\n")
-            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
-            player_cards[casefolded_name].append({
+            player_cards[casefold(name)].append({
                 "name": name, "type": ctype, "cost": int(cost), "code": code,
-                "special": special, "text": text, "flavour": flavour,
-                "starter": starter, "box": box, "deck": deck, "start": int(start), "end": int(end)
+                "special": expand(special, prefix=True), "text": expand(text),
+                "flavour": expand(flavour), "starter": starter, "box": box,
+                "deck": deck, "start": int(start), "end": int(end)
             })
 
     print("Player cards loaded")
@@ -71,15 +91,12 @@ def load():
         for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, num in content:
             if not name or name.startswith("#"):
                 continue
-            special = special.replace("#", "\n").replace("!", config.prefix)
-            effect = effect.replace("#", "\n")
-            flavour = flavour.replace("#", "\n")
-            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "").replace("-", "")
-            nemesis_cards[casefolded_name].append({
+            nemesis_cards[casefold(name)].append({
                 "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
                 "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
-                "code": code, "special": special, "discard": discard, "immediate": immediate,
-                "effect": effect, "flavour": flavour, "box": box, "deck": deck, "number": int(num)
+                "code": code, "special": expand(special, prefix=True), "discard": expand(discard),
+                "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
+                "box": box, "deck": deck, "number": int(num)
             })
 
     print("Nemesis cards loaded")
@@ -90,17 +107,11 @@ def load():
         for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, deck, cards in content:
             if not name or name.startswith("#"):
                 continue
-            setup = setup.replace("#", "\n")
-            unleash = unleash.replace("#", "\n")
-            add_r = add_r.replace("#", "\n")
-            flavour = flavour.replace("#", "\n")
-            side = side.replace("#", "\n")
-            casefolded_name = name.lower().replace(" ", "").replace("'", "").replace(",", "")
-            nemesis_mats[casefolded_name].append({
-                "name": name, "hp": int(hp), "difficulty": diff, "unleash": unleash,
-                "setup": setup, "additional_rules": add_r, "flavour": flavour,
+            nemesis_mats[casefold(name)].append({
+                "name": name, "hp": int(hp), "difficulty": diff, "unleash": expand(unleash),
+                "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
                 "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
-                "side": side, "box": box, "battle": int(battle),
+                "side": expand(side), "box": box, "battle": int(battle),
                 "deck": deck, "cards": [int(x) for x in cards.split(",")]
             })
 
@@ -292,7 +303,7 @@ def get_card(name: str) -> Optional[List[str]]:
     for x in ("@", "#"): # ignore what's after
         if x in name:
             name = name[:name.index(x)]
-    arg = name.lower().replace(" ", "").replace("'", "").replace(",", "").replace("-", "")
+    arg = casefold(name)
     matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys() | player_mats.keys() | nemesis_mats.keys())
     values = []
     if len(matches) > config.max_dupe:
