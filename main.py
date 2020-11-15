@@ -350,7 +350,7 @@ def complete_match(string: str, matches: Iterable) -> list:
             possible_matches.add(possible)
     return sorted(possible_matches)
 
-@cmd
+@bot.command()
 async def info(ctx, *args):
     values = get_card("".join(args))
     if values and values[0] is None: # too many values
@@ -391,7 +391,8 @@ async def echo(ctx):
     "For example, you cast a spell with Echo that has a Cast effect of \"Deal 2 damage\". " +
     "That spell was prepped to a breach that has the following two effects: \"Deals +1 damage\" " +
     "and \"Gravehold gains 1 life\". You will resolve the following: \"Deal 3 damage. Gravehold gains 1 life\" " +
-    "then \"Deal 3 damage. Gravehold gains 1 life\"```")
+    "then \"Deal 3 damage. Gravehold gains 1 life\". Additionally, both instances of damage may be " +
+    "directed to different targets.```")
 
 @cmd
 async def wandering(ctx):
@@ -400,13 +401,81 @@ async def wandering(ctx):
     "player may spend aether ($) to deal an equal amount of damage to minions of this type.```")
 
 @cmd
+async def dual(ctx):
+    await ctx.send("```This spell must be prepped to two adjacent breaches so that this touches both breaches. " +
+    "This fully occupies both breaches. If one or both of these breaches have an additional effect, " +
+    "such as additional damage of gaining life, then the spell prepped to these breaches gains the " +
+    "additional effect(s) of all of the breaches it is prepped to.```")
+
+@cmd
+async def attach(ctx):
+    await ctx.send("```Some relics allow you to Attach them to a breach. When you attach " +
+    "a relic to a breach, place that relic underneath that breach token. You cannot " +
+    "a relic to a breach that already has a relic attached to it. Attached relics are " +
+    "not discarded at the end of the turn. If an attached relic is discarded, it is " +
+    "placed in the discard pile of the player whose breach it was attached to. " +
+    "If a breach with a relic attached to it is destroyed, the attached relic " +
+    "is discarded. If an effect does not otherwise allow for it, you may not " +
+    "choose to discard an attached relic (for example to make room for a " +
+    "better-suited relic).```")
+
+@cmd
+async def focus(ctx):
+    await ctx.send("""```
+* Focusing a breach *
+- You can focus one of your closed breaches by paying the focus cost shown near \
+the center of that breach token.
+- When you focus a breach, rotate the breach token 90° clockwise. You may prep a \
+spell to the focused breach this turn.
+- Breaches may be focused any number of times per turn. Any number of breaches may \
+be focused per turn. You may focus a breach without prepping a spell to it.
+- A Breach that has been rotated to that the yellow quadrant is at the top can be \
+opened by an effect that would otherwise focus this breach.
+
+Some effects allow players to focus another mage's breach. \
+You may not focus another mage's breach by spending aether.
+
+* Opening a breach *
+- You can open one of your closed breaches by paying the open cost currently indicated \
+on the top of that breach token. The open cost decreases each time you focus the breach.
+- When you open a breach, flip the breach to the opened side. Opened breaches stay \
+opened for the rest of the game. A spell can be prepped to a breach on the \
+turn that breach is opened and any subsequent turn.
+```""")
+
+@bot.command()
+async def unique(ctx):
+    await ctx.send("```The unique mechanics that I know about are as follow. " +
+    f"You may prefix them with {config.prefix} to ask me about them.\n- " +
+    "\n- ".join(cmds) + "\n```")
+
+@bot.command()
 async def reload(ctx):
     if await ctx.bot.is_owner(ctx.author):
         print("\nReloading content")
         load()
         await ctx.send("Reloaded data.")
 
-@cmd
+@bot.command()
+async def issues(ctx):
+    aid = ctx.bot.get_user(author_id)
+    mention = ""
+    if aid is not None:
+        mention = f"Report all other issues to {aid.mention}."
+    content = """* Known issues *
+
+- Starter cards do not currently have their proper card number;
+- Treasures are not implemented yet;
+- Nemeses and mages are not all in yet (they will be added gradually);
+- Some cards with identical names will send a similar message multiple times;
+- Legacy specific content is not currently implemented;
+- Upgraded player cards (Lost, Mazra, Razra) are not currently implemented.
+
+""" + mention
+
+    await ctx.send(content)
+
+@bot.command()
 async def whoami(ctx):
     author = AUTHOR
     aid = ctx.bot.get_user(author_id)
@@ -415,12 +484,17 @@ async def whoami(ctx):
         author += f" ({aid.mention})"
         mention = f" You may also ask or tell {aid.mention} directly."
     await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
-    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit pull requests " +
-    f"and bug reports.{mention}" +
-    "\nI am a utility bot for all Aeon's End content. You can ask me about any card by doing " +
-    f"`{config.prefix}<card name>` in any channel on this server. I also know " +
-    "about some unique mechanics, and autocomplete is supported for cards. "+
-    "Legacy-specific content is not currently implemented and will arrive in v0.2")
+    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit " +
+    f"pull requests and bug reports.{mention}" +
+    "\nI am a utility bot for all Aeon's End content. You can ask me about anything by doing " +
+    f"`{config.prefix}<name>` in any channel on this server. I also know " +
+    "about some unique mechanics, and autocomplete is supported. Type " +
+    f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
+    "for a list of unique mechanics I know about.")
+
+@bot.command() # for the meme
+async def ae6(ctx):
+    await ctx.send("Someday, hopefully.")
 
 print("Bot loaded. Starting")
 
