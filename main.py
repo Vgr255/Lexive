@@ -10,7 +10,7 @@ import config
 # the following characters will be stripped from the csv names when stored
 # and also ignored from messages (so that they are optional)
 # this is a sequence of 1-length strings
-_casefold_str = " ',:-()"
+_casefold_str = " ',:-!()"
 # this character will be replaced by a newline when sent to the discord
 # this is a str
 _newline_str = "#"
@@ -260,10 +260,10 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"{c['flavour']}\n")
 
         values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
+        prefix = waves[c['box']][0]
         if c['deck']:
-            values.append(f"Deck {c['deck']}, Card {c['number']}")
-        else:
-            values.append(f"Card {c['number']}")
+            prefix = f"{prefix}-{c['deck']}-"
+        values.append(f"Card {prefix}{c['number']}")
 
         values.append("```")
 
@@ -297,7 +297,7 @@ def nemesis_mat(name: str) -> List[str]:
         if c['deck']:
             values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {', '.join(str(x) for x in c['cards'])}")
         else:
-            values.append(f"Cards used with this nemesis: {', '.join(c['cards'])}")
+            values.append(f"Cards used with this nemesis: {', '.join(str(x) for x in c['cards'])}")
 
         values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
 
