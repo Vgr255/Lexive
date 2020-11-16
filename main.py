@@ -57,6 +57,10 @@ ctypes = {
     "T": "Strike",
 }
 
+def log(*x: Tuple[str], level:str="use") -> None:
+    # probably gonna log to a file at some point
+    print(*x)
+
 def casefold(x: str) -> str:
     x = x.lower()
     for c in _casefold_str:
@@ -83,7 +87,7 @@ def load():
                 "deck": deck, "start": int(start), "end": int(end)
             })
 
-    print("Player cards loaded")
+    log("Player cards loaded", level="local")
 
     nemesis_cards.clear()
     with open("nemesis_cards.csv", newline="") as nemesis_file:
@@ -99,7 +103,7 @@ def load():
                 "box": box, "deck": deck, "number": int(num)
             })
 
-    print("Nemesis cards loaded")
+    log("Nemesis cards loaded", level="local")
 
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
@@ -115,11 +119,11 @@ def load():
                 "deck": deck, "cards": [int(x) for x in cards.split(",")]
             })
 
-    print("Nemesis mats loaded")
+    log("Nemesis mats loaded", level="local")
 
-    print("Loading complete")
+    log("Loading complete", level="local")
 
-print("Loading content")
+log("Loading content", level="local")
 
 load()
 
@@ -144,6 +148,7 @@ class Lexive(commands.Bot):
                 return # these commands supersede cards
 
             values = get_card(content)
+            log("REQ:", content)
             if values and values[0] is None: # too many values
                 await message.channel.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
                 return
@@ -160,10 +165,15 @@ bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensiti
 cmds = {}
 
 def cmd(func: Callable) -> Callable:
+    """Wrapper for unique argless commands."""
     if func.__name__ in cmds:
         raise ValueError(f"duplicate function name {func.__name__}")
-    cmds[func.__name__] = func
-    return bot.command()(func)
+    async def wrapper(ctx):
+        log(f"CMD: {func.__name__}")
+        return await func(ctx)
+
+    cmds[func.__name__] = wrapper
+    return bot.command(name=func.__name__)(wrapper)
 
 def player_card(name: str) -> List[str]:
     card = player_cards[name]
