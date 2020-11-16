@@ -453,6 +453,57 @@ opened for the rest of the game. A spell can be prepped to a breach on the \
 turn that breach is opened and any subsequent turn.
 ```""")
 
+@cmd
+async def order(ctx):
+    await ctx.send("""```
+Resolution order of spell-casting
+
+Step 1: Move the spell to its new destination, as indicated by the following, in order:
+
+Here, "applicable" refers to effects written on the spell being cast, or on the \
+spell which casts this spell, or on the gem or relic which casts this spell, \
+or to a relic attached to a breach from where the spell is cast.
+
+- The spell remains in place, if applicable. Move to Step 2.
+  * Any spell that remains in place may be cast again as part of the same \
+casting phase or another player's main phase.
+- The spell moves to anywhere that is not a player's hand, discard, or the \
+supply, if applicable. Move to Step 2.
+- The spell moves to any player's hand, if applicable. Move to Step 2.
+  * For purposes of tracking and resolution of card effects, the spell entering \
+the player's hand is considered a new spell.
+- The spell returns to the supply, if applicable and possible. Move to Step 2.
+- The spell is discarded to any player's discard pile, if applicable. Move to Step 2.
+- The spell is discarded to the discard pile of the mage who had the spell prepped.
+```""")
+
+    await ctx.send("""```
+Step 2: Resolve the cast effects of the spell, as indicated by the following, in order:
+
+- Resolve the cast effects from top to bottom, in the written order.
+- If the spell natively deals damage (with an effect similar to "Deal 1 Damage"), all \
+effects that add damage (with an effect similar to "On Cast: Deal +1 Damage") to \
+the spell resolution are added. This includes bonus damage from an opened breach \
+that the spell is prepped to, an attached relic to a breach this spell was prepped \
+to, or a gem, relic, or spell which casts this spell, and includes breaches that \
+were opened by the same spell, as long as the effect which opens the breach is \
+listed before the damage effect on the card. This also includes damage that the \
+spell itself gains for fulfilling certain conditions.
+  * Additional damage cannot stack multiple times per instance of damage. This \
+means that damage gained from the spell itself does NOT gain bonus damage from a \
+breach it is prepped to, a relic attached to a breach it is prepped to, or a gem, \
+relic, or spell which casts this spell.
+- If the spell deals multiple instances of damage, additional damage is applied \
+separately for each instance of damage.
+- If the spell says to repeat the Cast effects, return to the beginning of Step 2.
+- If the spell does not natively deal damage (without an effect similar to "Deal \
+1 Damage"), but is affected by one or multiple effects that add damage (as \
+described above), calculate the total additional damage and deal it as one \
+instance to a target.
+- If the spell benefits from additional effects which do not deal damage, such as \
+gaining aether or life, resolve those effects now.
+```""")
+
 @bot.command()
 async def unique(ctx):
     await ctx.send("```The unique mechanics that I know about are as follow. " +
@@ -497,10 +548,14 @@ async def whoami(ctx):
     "My code is available at <https://github.com/Vgr255/Lexive> where you can submit " +
     f"pull requests and bug reports.{mention}" +
     "\nI am a utility bot for all Aeon's End content. You can ask me about anything by doing " +
-    f"`{config.prefix}<name>` in any channel on this server. I also know " +
-    "about some unique mechanics, and autocomplete is supported. Type " +
+    f"`{config.prefix}<name>` in any channel on this server, or in private message with me. " +
+    "I also know about some unique mechanics, and autocomplete is supported. Type " +
     f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
     "for a list of unique mechanics I know about.")
+
+@bot.command()
+async def faq(ctx):
+    await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
 
 @bot.command() # for the meme
 async def ae6(ctx):
