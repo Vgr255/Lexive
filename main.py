@@ -1,4 +1,4 @@
-from typing import Optional, Tuple, Iterable, Callable, List
+from typing import Optional, Tuple, Iterable, Callable, List, Dict
 from collections import defaultdict
 
 import discord
@@ -27,6 +27,8 @@ nemesis_cards = defaultdict(list)
 player_mats = defaultdict(list)
 nemesis_mats = defaultdict(list)
 
+cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
+
 waves = {
     "Aeon's End": ("AE", 1),
     "The Nameless": ("N", 1),
@@ -51,11 +53,23 @@ waves = {
 
 ctypes = {
     "G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
-    "T1": "Level 1 Treasure", "T2": "Level 2 Treasure", "T3": "Level 3 Treasure",
-    "P": "Power", "M": "Minion", "A": "Attack", "C": "Curse",
-    # Nemesis-specific stuff
-    "T": "Strike",
+    "TG": "Treasured Gem", "TS": "Treasured Spell", "T2": "Level 2 Treasure",
+    "T3": "Level 3 Treasure", "P": "Power", "M": "Minion", "A": "Attack",
+    "C": "Curse", "T": "Strike",
 }
+
+ability_types = {
+    "P": "during any player's main phase",
+    "M": "during your main phase",
+}
+
+breaches = (
+    "Open",
+    "Facing up",
+    "Facing left",
+    "Facing down",
+    "Facing right",
+)
 
 def log(*x: Tuple[str], level:str="use") -> None:
     # probably gonna log to a file at some point
@@ -74,18 +88,31 @@ def expand(x: str, *, prefix=False) -> str:
     return x
 
 def load():
+    cards_num.clear()
+    for name, (prefix, wave) in waves.items():
+        if prefix not in cards_num:
+            cards_num[prefix] = {}
+
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
         content = csv.reader(player_file, dialect="excel", delimiter=";")
         for name, ctype, cost, code, special, text, flavour, starter, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
+            start = int(start)
+            end = int(end)
             player_cards[casefold(name)].append({
                 "name": name, "type": ctype, "cost": int(cost), "code": code,
                 "special": expand(special, prefix=True), "text": expand(text),
                 "flavour": expand(flavour), "starter": starter, "box": box,
-                "deck": deck, "start": int(start), "end": int(end)
+                "deck": deck, "start": start, "end": end
             })
+            nums = [start]
+            if end:
+                nums = range(start, end+1)
+            wave = waves[box][0]
+            for num in nums:
+                cards_num[wave][num] = ("P", name)
 
     log("Player cards loaded", level="local")
 
@@ -102,8 +129,30 @@ def load():
                 "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
                 "box": box, "deck": deck, "number": int(num)
             })
+            cards_num[waves[box][0]][int(num)] = ("N", name)
 
     log("Nemesis cards loaded", level="local")
+
+    player_mats.clear()
+    with open("player_mats.csv", newline="") as pmats_file:
+        content = csv.reader(pmats_file, dialect="excel", delimiter=";")
+        for name, title, rating, aname, charges, atype, code, ability, special, breaches, hand, deck, b1, b2, b3, b4, flavour, box in content:
+            if not name or name.startswith("#"):
+                continue
+            adict = {"name": aname, "charges": int(charges), "type": atype, "effect": expand(ability), "code": code}
+            blist = []
+            for pos, breach in zip(breaches.split(","), (b1, b2, b3, b4)):
+                pos = int(pos)
+                if not breach: # just a regular breach
+                    breach = None
+                blist.append((pos, breach))
+            player_mats[casefold(name)].append({
+                "name": name, "title": title, "rating": rating, "ability": adict, "breaches": blist,
+                "hand": hand.split(","), "deck": deck.split(","), "flavour": expand(flavour),
+                "special": expand(special), "box": box
+            })
+
+    log("Player mats loaded", level="local")
 
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
@@ -121,11 +170,11 @@ def load():
 
     log("Nemesis mats loaded", level="local")
 
-    log("Loading complete", level="local")
-
 log("Loading content", level="local")
 
 load()
+
+log("Loading complete", level="local")
 
 activity = discord.Activity(
     name=f"{config.prefix}whoami",
@@ -139,11 +188,12 @@ class Lexive(commands.Bot):
     async def on_message(self, message):
         if message.author == self.user:
             return
-        if message.content.startswith(config.prefix):
+        if message.content.startswith(config.prefix) or isinstance(message.channel, discord.DMChannel):
             content = message.content.lstrip(config.prefix)
             if not content:
                 return
             if content.lower() in cmds:
+                log("CMD:", content)
                 await super().on_message(message)
                 return # these commands supersede cards
 
@@ -165,15 +215,10 @@ bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensiti
 cmds = {}
 
 def cmd(func: Callable) -> Callable:
-    """Wrapper for unique argless commands."""
     if func.__name__ in cmds:
         raise ValueError(f"duplicate function name {func.__name__}")
-    async def wrapper(ctx):
-        log(f"CMD: {func.__name__}")
-        return await func(ctx)
-
-    cmds[func.__name__] = wrapper
-    return bot.command(name=func.__name__)(wrapper)
+    cmds[func.__name__] = func
+    return bot.command()(func)
 
 def player_card(name: str) -> List[str]:
     card = player_cards[name]
@@ -181,14 +226,14 @@ def player_card(name: str) -> List[str]:
     for c in card:
         if values: # second pass-through or more, make it different messages
             values.append(r"\NEWLINE/")
-        values.extend(["```", f"{c['name']}", "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""])
+        values.extend(["```", c['name'], "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""])
         if c['special']:
             values.append(f"** {c['special']} **")
             values.append("")
-        values.append(f"{c['text']}")
+        values.append(c['text'])
         values.append("")
         if c['flavour']:
-            values.append(f"{c['flavour']}")
+            values.append(c['flavour'])
             values.append("")
         if c['starter']:
             values.append(f"Starter card for {c['starter']}")
@@ -218,7 +263,7 @@ def nemesis_card(name: str) -> List[str]:
     for c in card:
         if values:
             values.append(r"\NEWLINE/")
-        values.extend(["```", f"{c['name']}", "", f"Type: {ctypes[c['type']]}"])
+        values.extend(["```", c['name'], "", f"Type: {ctypes[c['type']]}"])
         if c['category'] == "B":
             values.append(f"Basic Nemesis (Tier {c['tier']})")
         elif c['category'] == "U":
@@ -252,7 +297,7 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"PERSISTENT: {c['effect']}")
 
         else:
-            values.append(f"{c['effect']}")
+            values.append(c['effect'])
 
         values.append("")
 
@@ -270,7 +315,69 @@ def nemesis_card(name: str) -> List[str]:
     return values
 
 def player_mat(name: str) -> List[str]:
-    return ["Not implemented"]
+    mat = player_mats[name]
+    values = []
+    for c in mat:
+        if values:
+            values.append(r"\NEWLINE/")
+        values.extend(["```", c['name'], c['title'], f"Complexity rating: {c['rating']}", "", "Starting breach positions:", ""])
+
+        bconv = ("I", "II", "III", "IV")
+        for x in range(4):
+            pos, special = c['breaches'][x]
+            if pos == 9: # no breach
+                values.append(f"(No breach {bconv[x]})")
+                continue
+            if special is None:
+                special = f"Breach {bconv[x]}"
+            values.append(f"{special} - {breaches[pos]}")
+
+        values.append("")
+        hand = []
+        deck = []
+        for orig, new in zip((c["hand"], c["deck"]), (hand, deck)):
+            for x in orig:
+                if x.isdigit(): # don't try to understand this line
+                    x = cards_num[waves[c['box']][0]][int(x)][1]
+                elif x == "C":
+                    x = "Crystal"
+                elif x == "S":
+                    x = "Spark"
+                else:
+                    x = f"ERROR: Unrecognized card {x}"
+                new.append(x)
+        hand_readable = []
+        deck_readable = []
+        for orig, new in zip((hand, deck), (hand_readable, deck_readable)):
+            for x in orig:
+                num = 0
+                if new and new[-1][3:] == x:
+                    num = int(new[-1][0])
+                    del new[-1]
+                num += 1
+                x = f"{num}x {x}"
+                new.append(x)
+
+        values.append(f"Starting hand: {', '.join(hand_readable)}")
+        values.append(f"Starting deck: {', '.join(deck_readable)}")
+        values.append("")
+
+        values.append(f"Ability: {c['ability']['name']}")
+        values.append(f"Charges needed: {c['ability']['charges']}")
+        values.append(f"Activate {ability_types[c['ability']['type']]}:")
+        values.append(c['ability']['effect'])
+        values.append("")
+
+        if c['special']:
+            values.append(c['special'])
+            values.append("")
+
+        values.append(c['flavour'])
+        values.append("")
+        values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
+        values.append("```")
+
+    return values
 
 def nemesis_mat(name: str) -> List[str]:
     mat = nemesis_mats[name]
@@ -375,13 +482,6 @@ async def info(ctx, *args):
     for msg in to_send.split(r"\NEWLINE/"):
         await ctx.send(msg)
 
-#@cmd
-async def search(ctx, *arg):
-    to_search = " ".join(arg).lower()
-    possible = set()
-    for pcard in player_cards:
-        pass # todo
-
 @cmd
 async def link(ctx):
     await ctx.send("```Two spells with Link may be prepped to the same breach.```")
@@ -455,33 +555,35 @@ turn that breach is opened and any subsequent turn.
 
 @cmd
 async def order(ctx):
-    await ctx.send("""```
-Resolution order of spell-casting
-
-Step 1: Move the spell to its new destination, as indicated by the following, in order:
+    await ctx.send("""**- Resolution order of spell-casting -**
+```
+Step 1: Move the spell to its new destination, as indicated by the following, \
+with each step taking precedence over the ones below:
 
 Here, "applicable" refers to effects written on the spell being cast, or on the \
 spell which casts this spell, or on the gem or relic which casts this spell, \
 or to a relic attached to a breach from where the spell is cast.
 
-- The spell remains in place, if applicable. Move to Step 2.
-  * Any spell that remains in place may be cast again as part of the same \
+1.1   - The spell is destroyed and removed from play, if applicable. Move to Step 2.
+1.2   - The spell remains in place, if applicable. Move to Step 2.
+1.2.1 - Any spell that remains in place may be cast again as part of the same \
 casting phase or another player's main phase.
-- The spell moves to anywhere that is not a player's hand, discard, or the \
+1.3   - The spell moves to anywhere that is not a player's hand, discard, or the \
 supply, if applicable. Move to Step 2.
-- The spell moves to any player's hand, if applicable. Move to Step 2.
-  * For purposes of tracking and resolution of card effects, the spell entering \
+1.4   - The spell moves to any player's hand, if applicable. Move to Step 2.
+1.4.1 - For purposes of tracking and resolution of card effects, the spell entering \
 the player's hand is considered a new spell.
-- The spell returns to the supply, if applicable and possible. Move to Step 2.
-- The spell is discarded to any player's discard pile, if applicable. Move to Step 2.
-- The spell is discarded to the discard pile of the mage who had the spell prepped.
+1.5   - The spell returns to the supply, if applicable and possible. Move to Step 2.
+1.6   - The spell is discarded to any player's discard pile, if applicable. Move to Step 2.
+1.7   - The spell is discarded to the discard pile of the mage who had the spell prepped.
 ```""")
 
     await ctx.send("""```
 Step 2: Resolve the cast effects of the spell, as indicated by the following, in order:
 
-- Resolve the cast effects from top to bottom, in the written order.
-- If the spell natively deals damage (with an effect similar to "Deal 1 Damage"), all \
+2.1   - Resolve the cast effects from top to bottom, in the written order. Win or \
+loss conditions trigger as soon as their conditions are met, if relevant.
+2.2   - If the spell natively deals damage (with an effect similar to "Deal 1 Damage"), all \
 effects that add damage (with an effect similar to "On Cast: Deal +1 Damage") to \
 the spell resolution are added. This includes bonus damage from an opened breach \
 that the spell is prepped to, an attached relic to a breach this spell was prepped \
@@ -489,19 +591,19 @@ to, or a gem, relic, or spell which casts this spell, and includes breaches that
 were opened by the same spell, as long as the effect which opens the breach is \
 listed before the damage effect on the card. This also includes damage that the \
 spell itself gains for fulfilling certain conditions.
-  * Additional damage cannot stack multiple times per instance of damage. This \
+2.2.1 - Additional damage cannot stack multiple times per instance of damage. This \
 means that damage gained from the spell itself does NOT gain bonus damage from a \
 breach it is prepped to, a relic attached to a breach it is prepped to, or a gem, \
 relic, or spell which casts this spell.
-- If the spell deals multiple instances of damage, additional damage is applied \
+2.2.2 - If the spell deals multiple instances of damage, additional damage is applied \
 separately for each instance of damage.
-- If the spell says to repeat the Cast effects, return to the beginning of Step 2.
-- If the spell does not natively deal damage (without an effect similar to "Deal \
+2.3   - If the spell does not natively deal damage (without an effect similar to "Deal \
 1 Damage"), but is affected by one or multiple effects that add damage (as \
 described above), calculate the total additional damage and deal it as one \
 instance to a target.
-- If the spell benefits from additional effects which do not deal damage, such as \
+2.4   - If the spell benefits from additional effects which do not deal damage, such as \
 gaining aether or life, resolve those effects now.
+2.5   - If the spell says to repeat the Cast effects, repeat Steps 2.2 to 2.4 once.
 ```""")
 
 @bot.command()
@@ -525,12 +627,11 @@ async def issues(ctx):
         mention = f"Report all other issues to {aid.mention}."
     content = """* Known issues *
 
-- Starter cards do not currently have their proper card number;
 - Treasures are not implemented yet;
 - Nemeses and mages are not all in yet (they will be added gradually);
-- Some cards with identical names will send a similar message multiple times;
+- Entwined Amethyst will send a similar message twice;
 - Legacy specific content is not currently implemented;
-- Upgraded player cards (Lost, Mazra, Razra) are not currently implemented.
+- The Outcast's abilities are not currently implemented.
 
 """ + mention
 
