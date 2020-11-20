@@ -62,6 +62,7 @@ ability_types = {
     "P": "during any player's main phase",
     "M": "during your main phase",
     "N": "during the nemesis draw phase",
+    "T": "immediately after a turn order card is drawn",
 }
 
 breaches = (
@@ -728,10 +729,6 @@ async def whoami(ctx):
 @bot.command()
 async def faq(ctx):
     await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
-
-@bot.command() # for the meme
-async def ae6(ctx):
-    await ctx.send("Someday, hopefully.")
 
 print("Bot loaded. Starting")
 
