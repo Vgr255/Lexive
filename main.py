@@ -469,11 +469,16 @@ def complete_match(string: str, matches: Iterable) -> list:
 
 @bot.command()
 async def info(ctx, *args):
-    values = get_card("".join(args))
+    arg = "".join(args)
+    if not arg:
+        await ctx.send("No argument provided.")
+        return
+    if not arg.isalpha() and arg.isalnum(): # has numbers and no special characters
+        await ctx.send(f"Number detected. Did you want `{config.prefix}card` instead?")
+        return
+    values = get_card(arg)
     if values and values[0] is None: # too many values
         to_send = f"Ambiguous value. Possible matches: {', '.join(values[1:])}"
-    elif not args:
-        to_send = "No argument provided."
     elif not values:
         to_send = f"No content found matching {' '.join(args)}"
     else:
@@ -481,6 +486,40 @@ async def info(ctx, *args):
 
     for msg in to_send.split(r"\NEWLINE/"):
         await ctx.send(msg)
+
+@bot.command()
+async def card(ctx, *args):
+    arg = casefold("".join(args)).upper()
+    if arg.isdigit():
+        await ctx.send("No prefix supplied.")
+        return
+    index = 0
+    for i, x in enumerate(arg):
+        if x.isdigit():
+            index = i
+            break
+    if not index:
+        await ctx.send(f"No number found. Did you want `{config.prefix}info` instead?")
+        return
+    prefix, num = arg[:index], arg[index:]
+    if prefix not in cards_num:
+        await ctx.send(f"Prefix {prefix} is unrecognized")
+        return
+    num = int(num)
+    values = cards_num[prefix]
+    if num not in values:
+        await ctx.send(f"Card {num} is unknown")
+        return
+
+    ctype, name = values[num]
+    if ctype == "P":
+        ctype = "a player card"
+    elif ctype == "N":
+        ctype = "a nemesis card"
+    else:
+        ctype = "an unknown card type"
+
+    await ctx.send(f"Card {prefix}{num} is {ctype}: {name}")
 
 @cmd
 async def link(ctx):
@@ -625,13 +664,14 @@ async def issues(ctx):
     mention = ""
     if aid is not None:
         mention = f"Report all other issues to {aid.mention}."
-    content = """* Known issues *
+    content = """* Known issues and to-do list *
 
-- Treasures are not implemented yet;
+- Treasures 2 and 3 are not implemented yet;
 - Nemeses and mages are not all in yet (they will be added gradually);
 - Entwined Amethyst will send a similar message twice;
 - Legacy specific content is not currently implemented;
-- The Outcast's abilities are not currently implemented.
+- The Outcast's abilities are not currently implemented;
+- !card doesn't return a block of text yet.
 
 """ + mention
 
