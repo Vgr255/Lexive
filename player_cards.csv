@@ -26,7 +26,7 @@ Ignite;S;4;;;Cast: Deal 2 damage. Any ally gains 1 charge.;"""We are but one fli
 Lava Tendril;S;4;;While prepped, at the end of your casting phase, deal 1 damage.;Cast: Deal 3 damage.;"""My turn!"" - Nym, Breach Apprentice";;Aeon's End;;174;178
 Oblivion Swell;S;5;;While prepped, once per turn during your main phase, you may gain 1$.;Cast: Deal 2 damage. You may discard a gem. If you do, deal additional damage equal to its cost.;Many folk have made their fortune harvesting gems. The very breaches through which The Nameless come bestow the stones with strange properties.;;Aeon's End;;179;183
 Phoenix Flame;S;3;;;Cast: Deal 2 damage. You may lose 1 charge to deal 2 additional damage.#Rule clarification: You may not lose more than one charge to deal further additional damage.;"""In The World That Was, there were great birds, born of fire and ash. They were thought to be immortal, and yet none now remain."" - Malastar, Breach Mage Mentor";;Aeon's End;;184;188
-Planar Insight;S;6;;;Cast: Deal 2 damage. Deal 1 additional damage for each of your opened breaches.;"""She may no longer speak, but she sees much."" - Brama, Breach Mage Elder";;Aeon's End;;189;193
+Planar Insight;S;6;;;Cast: Deal 2 damage. Deal 1 additional damage for each of your opened breaches.#Rule clarification: The player who casts the spell, not the one who has it prepped (if different), counts their own opened breaches.;"""She may no longer speak, but she sees much."" - Brama, Breach Mage Elder";;Aeon's End;;189;193
 Spectral Echo;S;3;;;Cast: Deal 2 damage. You may destroy a card in hand.;"""Clear your mind, child. Drink in the void."" - Xaxos, Breach Mage Adept";;Aeon's End;;194;198
 Wildfire Whip;S;6;;While prepped, during your main phase, you may spend 2$ to cast any player's prepped spell.;Cast: Deal 4 damage.;"""Sometimes a little motivation is needed for dire situations."" - Z'hana, Breach Mage Renegade";;Aeon's End;;199;203
 ;;;;;;;;;;;
@@ -365,3 +365,47 @@ Shower Of Coals;S;0;;;Ohat Mode: Cast: Suffer 1 damage and gain 2$.#Ulgimor Mode
 Invigorate;S;0;;;Cast: Deal 1 damage.#OR#Cast: Return a spell in your discard pile to your hand.;"""Let's give some life to these old stones!"" - Cairna";Cairna;Return to Gravehold;;16;0
 Sun Shard;G;0;;;Gain 1$.#OR#Gain 3$ that can only be used to open a breach.;"""Maintaining these breaches on my own requires an intense amount of concentration. Please, be quiet, and let me focus."" - Lucien";Lucien;The Southern Village;;55;0
 Fossilized Rose;S;0;;;Cast: Discard a card in hand. If you do, gain a spell that costs 5$ or less from any supply pile.#OR#Cast: Deal 1 damage.;"""This rose is a reminder of someone I'd rather forget. If it wasn't so useful, I'd have left it behind years ago."" - Reth";Reth;The Southern Village;;56;0
+;;;;;;;;;;;
+# Treasures level 1;;;;;;;;;;;
+;;;;;;;;;;;
+Nym's Vision;TS;0;;;Cast: Deal 1 damage. Reveal the top card of the nemesis deck. If you revealed an attack, gain 2$.;;;The New Age (Kickstarter Exclusive);;51;0
+Reeve's Raven Shard;TG;0;;;Gain 1$. You may discard a card in hand. If you do, gain an additional 1$.;;;The New Age (Kickstarter Exclusive);;52;0
+Kadir's Emerald Shard;TG;0;;;Gain 1$.#OR#Any player gains 1 life.;;;The New Age;1d;4;0
+Jian's Moonstone Shard;TG;0;;;Gain 1$. Gain an additional 1$ that can only be used to gain a gem.;;;The New Age;END;59;0
+Lash's Quartz Shard;TG;0;;;Gain 1$. Reveal the top card of the turn order deck. You may place that card on the bottom or the top of the turn order deck. If you revealed a player turn order card, gain an additional 1$.;;;The New Age;END;60;0
+Z'hana's Fleeting Ember;TS;0;;;Cast: Deal 1 damage.#OR#Cast: Cast one of your prepped spells that costs 4$ or less without discarding it.;;;The Ancients;;62;0
+Brama's Buried Light;TS;0;D=1,A=1;;Cast: Deal 1 damage. Gain 1$.;;;The New Age;1d;2;0
+Malastar's Immolate;TS;0;;While prepped, when you suffer damage, gain 1 charge.;Cast: Deal 1 damage.;;;Into the Wild;;21;0
+Adelheim's Amethyst Shard;TG;0;;;Gain 1$. Any ally may draw a card and then discard a card in hand.;;;The New Age;END;57;0
+Phaedraxa's Tourmaline Shard;TG;0;;;Gain 1$. Any ally may suffer 1 damage. If they do, they destroy a card in hand.;;;Shattered Dreams;;70;0
+Mist's Garnet Shard;TG;0;;;Gain 1$.#OR#Cast any player's prepped spell.;;;The New Age;1d;5;0
+Xaxos's Flare;TS;0;;;Cast: Reveal the top card of the turn order deck, and then place it back on top of the turn order deck. If you revealed a player turn order card, deal 3 damage. Otherwise, deal 1 damage.;;;The New Age;END;61;0
+Sparrow's Aid;TS;0;;;Cast: Deal 1 damage. Any ally may prep a spell in hand to their opened or closed breach(es).;;;The New Age (Kickstarter Exclusive);;50;0
+Gex's Shattered Geode;TG;0;;;Gain 1$. You may place the top of any ally's discard pile into your hand.;;;The New Age;END;58;0
+Yan Magda's Illuminate;TS;0;;While prepped, when you focus or open one of your breaches during your turn, deal 1 damage.;Cast: Deal 1 damage.;;;Into the Wild;;23;0
+Quilius's Erasure;TS;0;;;Cast: Deal 1 damage. If this damages a minion, deal 1 additional damage.;;;The Ancients;;61;0
+Garu's Torch;TS;0;;;Cast: Deal 1 damage.#OR#Cast: Focus any player's breach.;;;The New Age;1d;3;0
+Dezmodia's Oblivion Shard;TG;0;;;Gain 2$ that cannot be used to gain a relic or spell.;;;Into the Wild;;19;0
+Ulgimor's Coal Fragment;TG;0;;;Gain 2$ and suffer 1 damage.#OR#Gain 1 life.;;;Into the Wild;;73;0
+Remnant's Void Shard;TG;0;;;Gain 1$. Gain an additional 1$ that can only be used to focus or open a breach.;;;The Ancients;;60;0
+Xaxos's Pyre;TS;0;;;Cast: Deal 1 damage. Any ally may discard a card in hand. If they do, deal 2 additional damage.;;;The New Age;1d;6;0
+Indira's Lone Opal;TG;0;;;Gain 1$. You may cast a spell in hand that costs 4$ or less.;;;Into the Wild;;20;0
+Mist's Amethyst Paragon;TG;0;;;Gain 1$. Any ally may prep a spell in hand to their opened or closed breach(es).#Rule clarification: If it is a closed breach, it does not need to have been focused this turn.;;;Into the Wild;;22;0
+Mazahaedron's Worldheart Shard;TG;0;;;Gain 1$.#OR#Gain 2$ that can only be used to gain a card. Place the next card you gain this turn on top of any ally's discard pile.;;;Shattered Dreams;;69;0
+Razra's Training Whistle;TG;0;;;Gain 1$.#OR#Gain 1 charge.;;;Outcasts;1d;34;0
+Sahala's Black Meteorite;TG;0;;;Gain 1$.#OR#Gain 3$ that can only be used to focus or open your IV breach.;;;Outcasts (Kickstarter Exclusive);;110;0
+Rhia's Planar Pocket;TG;0;;;Gain 1$. Gain an additional 1$ that can only be used to gain a relic.;;;Outcasts;1d;32;0
+Talix's Everburn;TG;0;;;Gain 1$. Discard up to three spells in hand. Gain 1$ for each spell discarded this way.;;;Outcasts;1d;33;0
+Claudia's Aetherscope;TG;0;;;Gain 1$.#OR#Any ally may lose 1 charge. If they do, gain 2 charges.;;;Return to Gravehold;;18;0
+Lost's Forged Spark;TS;0;;When the game starts, add a Crystal to your discard pile.;Cast: Deal 2 damage.;;;Outcasts;1d;35;0
+Lost's Forged Crystal;TG;0;;When the game starts, add a Crystal to your discard pile.;Gain 2$.;;;The Southern Village;;58;0
+Qu's Void Radite;TG;0;;;Gain 1$. You may cast any player's prepped spell. That spell deals 1 less damage, minion 1.;;;Return to Gravehold;;20;0
+Soskel's Lucky Coin;TG;0;;;Gain 1$. You may lose 1 charge. If you do, gain an additional 2$.;;;Return to Gravehold;;19;0
+Nook's Mystic Flourish;TG;0;;;Gain 1$. Cast a spell in your hand. If that spell costs 1$ or more, return that spell to its supply pile, gain a spell from any supply pile that costs less than the cast spell, and gain 1 charge.;;;Outcasts (Kickstarter Exclusive);;111;0
+Inco's Spreading Emerald;TG;0;;;Gain 1$.#OR#The next time you gain a card that costs 3$ or less this turn, any ally gains a copy of that card from the supply.;;;The Southern Village;;57;0
+Gygar's Tsunami;TS;0;;;Cast: Deal 1 damage. You may lose 1 charge. If you do, deal 3 additional damage.;;;Return to Gravehold;;22;0
+Taqren's Gift of Spirit;TS;0;;;Cast: Deal 1 damage.#OR#Cast: Any ally draws a card.;;;Return to Gravehold;;21;0
+Mazra's Thesis;TS;0;;;Cast: Deal 1 damage. Focus any player's III breach.;;;Outcasts;1d;36;0
+;;;;;;;;;;;
+Crystal;G;0;A=1;;Gain 1$.;;;Aeon's End;;0;0
+Spark;S;0;D=1;;Cast: Deal 1 damage.;;;War Eternal;;0;0

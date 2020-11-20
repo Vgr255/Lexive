@@ -61,6 +61,7 @@ ctypes = {
 ability_types = {
     "P": "during any player's main phase",
     "M": "during your main phase",
+    "N": "during the nemesis draw phase",
 }
 
 breaches = (
@@ -111,8 +112,12 @@ def load():
             if end:
                 nums = range(start, end+1)
             wave = waves[box][0]
+            if not deck:
+                deck = None
+            if deck not in cards_num[wave]:
+                cards_num[wave][deck] = {}
             for num in nums:
-                cards_num[wave][num] = ("P", name)
+                cards_num[wave][deck][num] = ("P", name)
 
     log("Player cards loaded", level="local")
 
@@ -129,7 +134,12 @@ def load():
                 "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
                 "box": box, "deck": deck, "number": int(num)
             })
-            cards_num[waves[box][0]][int(num)] = ("N", name)
+            wave = waves[box][0]
+            if not deck:
+                deck = None
+            if deck not in cards_num[wave]:
+                cards_num[wave][deck] = {}
+            cards_num[wave][deck][int(num)] = ("N", name)
 
     log("Nemesis cards loaded", level="local")
 
@@ -333,12 +343,15 @@ def player_mat(name: str) -> List[str]:
             values.append(f"{special} - {breaches[pos]}")
 
         values.append("")
+        wave = waves[c['box']][0]
         hand = []
         deck = []
         for orig, new in zip((c["hand"], c["deck"]), (hand, deck)):
             for x in orig:
-                if x.isdigit(): # don't try to understand this line
-                    x = cards_num[waves[c['box']][0]][int(x)][1]
+                if x.isdigit():
+                    x = cards_num[wave][None][int(x)][1]
+                elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit():
+                    x = cards_num[wave][x[:2]][int(x[2:])][1]
                 elif x == "C":
                     x = "Crystal"
                 elif x == "S":
@@ -401,10 +414,13 @@ def nemesis_mat(name: str) -> List[str]:
 
         values.extend([f"From {c['box']} (Wave {waves[c['box']][1]})"])
 
-        if c['deck']:
-            values.append(f"Cards used with this nemesis: Deck {c['deck']}, Cards {', '.join(str(x) for x in c['cards'])}")
-        else:
-            values.append(f"Cards used with this nemesis: {', '.join(str(x) for x in c['cards'])}")
+        prefix = waves[c['box']][0]
+        if c['deck'] and prefix:
+            prefix = f"{prefix}-{c['deck']}-"
+        elif c['deck']:
+            prefix = c['deck']
+        cards = [f"{prefix}{x}" for x in c['cards']]
+        values.append(f"Cards used with this nemesis: {', '.join(cards)}")
 
         values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
 
@@ -502,24 +518,37 @@ async def card(ctx, *args):
         await ctx.send(f"No number found. Did you want `{config.prefix}info` instead?")
         return
     prefix, num = arg[:index], arg[index:]
+    deck = None
+    if ("I" in prefix or prefix == "V") and "T" not in prefix: # Legacy and not Into the Wild
+        deck = prefix
+        prefix = None
+    if not num.isdigit(): # probably has a deck in it, like 1a
+        if num[0].isdigit() and num[1].isalpha() and num[2:].isdigit():
+            deck, num = num[:2], num[2:]
     if prefix not in cards_num:
         await ctx.send(f"Prefix {prefix} is unrecognized")
         return
-    num = int(num)
     values = cards_num[prefix]
-    if num not in values:
+    # this is a hack
+    if deck and len(deck) == 2 and deck[1] in "ABCD":
+        deck = deck[0] + deck[1].lower()
+    if deck not in values:
+        await ctx.send(f"Deck {deck} not recognized")
+        return
+    num = int(num)
+    if num not in values[deck]:
         await ctx.send(f"Card {num} is unknown")
         return
 
-    ctype, name = values[num]
+    ctype, name = values[deck][num]
     if ctype == "P":
-        ctype = "a player card"
+        ctype = "Player card"
     elif ctype == "N":
-        ctype = "a nemesis card"
+        ctype = "Nemesis card"
     else:
-        ctype = "an unknown card type"
+        ctype = "Unknown card type"
 
-    await ctx.send(f"Card {prefix}{num} is {ctype}: {name}")
+    await ctx.send(f"{name} ({ctype})")
 
 @cmd
 async def link(ctx):
@@ -599,21 +628,23 @@ async def order(ctx):
 Step 1: Move the spell to its new destination, as indicated by the following, \
 with each step taking precedence over the ones below:
 
+Once you find a matching condition, move to Step 2.
+
 Here, "applicable" refers to effects written on the spell being cast, or on the \
 spell which casts this spell, or on the gem or relic which casts this spell, \
 or to a relic attached to a breach from where the spell is cast.
 
-1.1   - The spell is destroyed and removed from play, if applicable. Move to Step 2.
-1.2   - The spell remains in place, if applicable. Move to Step 2.
+1.1   - The spell is destroyed and removed from play, if applicable.
+1.2   - The spell remains in place, if applicable.
 1.2.1 - Any spell that remains in place may be cast again as part of the same \
 casting phase or another player's main phase.
 1.3   - The spell moves to anywhere that is not a player's hand, discard, or the \
-supply, if applicable. Move to Step 2.
-1.4   - The spell moves to any player's hand, if applicable. Move to Step 2.
+supply, if applicable.
+1.4   - The spell moves to any player's hand, if applicable.
 1.4.1 - For purposes of tracking and resolution of card effects, the spell entering \
 the player's hand is considered a new spell.
-1.5   - The spell returns to the supply, if applicable and possible. Move to Step 2.
-1.6   - The spell is discarded to any player's discard pile, if applicable. Move to Step 2.
+1.5   - The spell returns to the supply, if applicable and possible.
+1.6   - The spell is discarded to any player's discard pile, if applicable.
 1.7   - The spell is discarded to the discard pile of the mage who had the spell prepped.
 ```""")
 
