@@ -43,7 +43,7 @@ waves = {
     "Shattered Dreams": ("SD", 4),
     "Into the Wild": ("ITW", 4),
     "Outcasts": ("O", 5),
-    "The Southern Village": ("SV", 5),
+    "Southern Village": ("SV", 5),
     "Return to Gravehold": ("RTG", 5),
     "Dice Tower": ("P", 2),
     "Legacy (Kickstarter Exclusive)": ("P", 3),

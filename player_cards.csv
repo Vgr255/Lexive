@@ -258,16 +258,16 @@ Hasted Intellect;S;6;;While prepped, when you gain a card, you may place that ca
 Swarm of Flame;S;6;;;Cast: Deal 5 damage. You may cast any player's prepped spell that costs 5$ or less.;;;Outcasts;END;44;48
 Dizzying Burst;S;8;;;Cast: Deal 6 damage. Reveal the turn order deck. Return it in any order.;"""If magic alone can disorient them, it means their lens of the world may be as imperfect as ours."" - Lexive, Arcane Theorist";;Outcasts;END;49;53
 ;;;;;;;;;;;
-Quickening Qitite;G;3;;;Gain 2$. You may discard a card in hand. If you do, focus any player's II breach.;;;The Southern Village;;1;7
-Jeweled Urup;G;5;;;Gain 3$.#OR#If this is the second time you have played Jeweled Urup this turn, you may destroy this. If you do, gain a card from any supply pile that costs 7$ or less.;;;The Southern Village;;8;14
-Cat's Eye;R;1;;You cannot gain this card if you have gained another card this turn. You cannot gain any other cards the turn you gain this.;Gain 1 charge. You may destroy this. If you do, gain 1$.;;;The Southern Village;;15;19
-Volt Replicator;R;4;;;Any ally gains a card that costs 5$ or less. If there are two or fewer Volt Replicators in the supply, you may destroy this. If you do, place the gained card into that ally's hand instead.;;;The Southern Village;;20;24
-Energized Conduit;R;7;;;Attach this to any player's breach. When a spell is cast from this breach, the player who cast that spell gains 1 charge.;;;The Southern Village;;25;29
-Flame Jab;S;1;;;Cast: Deal 2 damage to a minion. You may destroy this. If you do, gain 1$.;;;The Southern Village;;30;34
-Gathering Winds;S;3;;;Cast: Deal 2 damage. If there are six or more other cards in your discard pile, focus any player's breach.;;;The Southern Village;;35;39
-Cinder Shower;S;5;;While prepped, when you gain a card, deal 1 damage.;Cast: Deal 3 damage.;;;The Southern Village;;40;44
-Reaper's Flame;S;7;;While prepped, once per turn when you cast another spell, you may gain a card that costs 5$ or less from any supply pile.;Cast: Deal 5 damage.;;;The Southern Village;;45;49
-Erasure of Mind;S;7;;;Cast: Destroy a card in hand that costs 3$ or more. If you do, deal 10 damage.#OR#Cast: Deal 5 damage. Reveal the top two cards of your deck and place any number on top of your discard pile.;;;The Southern Village;;50;54
+Quickening Qitite;G;3;;;Gain 2$. You may discard a card in hand. If you do, focus any player's II breach.;;;Southern Village;;1;7
+Jeweled Urup;G;5;;;Gain 3$.#OR#If this is the second time you have played Jeweled Urup this turn, you may destroy this. If you do, gain a card from any supply pile that costs 7$ or less.;;;Southern Village;;8;14
+Cat's Eye;R;1;;You cannot gain this card if you have gained another card this turn. You cannot gain any other cards the turn you gain this.;Gain 1 charge. You may destroy this. If you do, gain 1$.;;;Southern Village;;15;19
+Volt Replicator;R;4;;;Any ally gains a card that costs 5$ or less. If there are two or fewer Volt Replicators in the supply, you may destroy this. If you do, place the gained card into that ally's hand instead.;;;Southern Village;;20;24
+Energized Conduit;R;7;;;Attach this to any player's breach. When a spell is cast from this breach, the player who cast that spell gains 1 charge.;;;Southern Village;;25;29
+Flame Jab;S;1;;;Cast: Deal 2 damage to a minion. You may destroy this. If you do, gain 1$.;;;Southern Village;;30;34
+Gathering Winds;S;3;;;Cast: Deal 2 damage. If there are six or more other cards in your discard pile, focus any player's breach.;;;Southern Village;;35;39
+Cinder Shower;S;5;;While prepped, when you gain a card, deal 1 damage.;Cast: Deal 3 damage.;;;Southern Village;;40;44
+Reaper's Flame;S;7;;While prepped, once per turn when you cast another spell, you may gain a card that costs 5$ or less from any supply pile.;Cast: Deal 5 damage.;;;Southern Village;;45;49
+Erasure of Mind;S;7;;;Cast: Destroy a card in hand that costs 3$ or more. If you do, deal 10 damage.#OR#Cast: Deal 5 damage. Reveal the top two cards of your deck and place any number on top of your discard pile.;;;Southern Village;;50;54
 ;;;;;;;;;;;
 Glass-Eyed Oracle;R;1;;;Gain 1$.#OR#Destroy this and any number of copies of this card in hand. You may gain a card with cost up to three times the number of copies destroyed;;;Return to Gravehold;;1;5
 Cleanse;S;4;;;Cast: Deal 3 damage. If you have 3 or less life, gain 1 life.;;;Return to Gravehold;;6;10
@@ -366,8 +366,8 @@ Swirling Darkness;S;0;;This may be prepped to closed breaches.;Cast: Focus the b
 Convergence;S;0;;While prepped, when you play a gem or relic that costs 3$ or more, gain 1 charge. This charge may not be given to Xaxos: Outcast.;Cast: Deal 1 damage.;"""It's always been my talent to see potential in the ordinary."" - Arachnos";Arachnos;Outcasts;END;57;0
 Invigorate;S;0;;;Cast: Deal 1 damage.#OR#Cast: Return a spell in your discard pile to your hand.;"""Let's give some life to these old stones!"" - Cairna";Cairna;Return to Gravehold;;16;0
 Shower Of Coals;S;0;;;Ohat Mode: Cast: Suffer 1 damage and gain 2$.#Ulgimor Mode: Cast: Deal 3 damage.;"""At least now when people call me two-faced I'll know what they mean."" - Ohat";Ohat and Ulgimor;Return to Gravehold;;17;0
-Sun Shard;G;0;;;Gain 1$.#OR#Gain 3$ that can only be used to open a breach.;"""Maintaining these breaches on my own requires an intense amount of concentration. Please, be quiet, and let me focus."" - Lucien";Lucien;The Southern Village;;55;0
-Fossilized Rose;S;0;;;Cast: Discard a card in hand. If you do, gain a spell that costs 5$ or less from any supply pile.#OR#Cast: Deal 1 damage.;"""This rose is a reminder of someone I'd rather forget. If it wasn't so useful, I'd have left it behind years ago."" - Reth";Reth;The Southern Village;;56;0
+Sun Shard;G;0;;;Gain 1$.#OR#Gain 3$ that can only be used to open a breach.;"""Maintaining these breaches on my own requires an intense amount of concentration. Please, be quiet, and let me focus."" - Lucien";Lucien;Southern Village;;55;0
+Fossilized Rose;S;0;;;Cast: Discard a card in hand. If you do, gain a spell that costs 5$ or less from any supply pile.#OR#Cast: Deal 1 damage.;"""This rose is a reminder of someone I'd rather forget. If it wasn't so useful, I'd have left it behind years ago."" - Reth";Reth;Southern Village;;56;0
 ;;;;;;;;;;;
 # Treasures level 1;;;;;;;;;;;
 ;;;;;;;;;;;
@@ -401,11 +401,11 @@ Rhia's Planar Pocket;TG;0;;;Gain 1$. Gain an additional 1$ that can only be used
 Talix's Everburn;TG;0;;;Gain 1$. Discard up to three spells in hand. Gain 1$ for each spell discarded this way.;;;Outcasts;1d;33;0
 Claudia's Aetherscope;TG;0;;;Gain 1$.#OR#Any ally may lose 1 charge. If they do, gain 2 charges.;;;Return to Gravehold;;18;0
 Lost's Forged Spark;TS;0;;When the game starts, add a Crystal to your discard pile.;Cast: Deal 2 damage.;;;Outcasts;1d;35;0
-Lost's Forged Crystal;TG;0;;When the game starts, add a Crystal to your discard pile.;Gain 2$.;;;The Southern Village;;58;0
+Lost's Forged Crystal;TG;0;;When the game starts, add a Crystal to your discard pile.;Gain 2$.;;;Southern Village;;58;0
 Qu's Void Radite;TG;0;;;Gain 1$. You may cast any player's prepped spell. That spell deals 1 less damage, minion 1.;;;Return to Gravehold;;20;0
 Soskel's Lucky Coin;TG;0;;;Gain 1$. You may lose 1 charge. If you do, gain an additional 2$.;;;Return to Gravehold;;19;0
 Nook's Mystic Flourish;TG;0;;;Gain 1$. Cast a spell in your hand. If that spell costs 1$ or more, return that spell to its supply pile, gain a spell from any supply pile that costs less than the cast spell, and gain 1 charge.;;;Outcasts (Kickstarter Exclusive);;111;0
-Inco's Spreading Emerald;TG;0;;;Gain 1$.#OR#The next time you gain a card that costs 3$ or less this turn, any ally gains a copy of that card from the supply.;;;The Southern Village;;57;0
+Inco's Spreading Emerald;TG;0;;;Gain 1$.#OR#The next time you gain a card that costs 3$ or less this turn, any ally gains a copy of that card from the supply.;;;Southern Village;;57;0
 Gygar's Tsunami;TS;0;;;Cast: Deal 1 damage. You may lose 1 charge. If you do, deal 3 additional damage.;;;Return to Gravehold;;22;0
 Taqren's Gift of Spirit;TS;0;;;Cast: Deal 1 damage.#OR#Cast: Any ally draws a card.;;;Return to Gravehold;;21;0
 Mazra's Thesis;TS;0;;;Cast: Deal 1 damage. Focus any player's III breach.;;;Outcasts;1d;36;0
