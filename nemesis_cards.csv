@@ -174,13 +174,13 @@ Curse of Rot;C;;;0;B;;;;;When this is in your hand, immediately either:#Discard 
 ;;;;;;;;;;;;;;
 # Upgraded tier 1 basics;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
-Waylay;A;;;1;E;;;;;Unleash twice. Gravehold suffers 1 damage for each player turn order card in the turn order discard pile.;;Legacy;Evolve;9
-Skybound Leviathan;M;9;;1;E;;;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;Legacy;Evolve;33
-Disrupt;A;;;1;E;;;;;Unleash. [The player with the most charges/Any player] suffers 4 damage and gains 2 charges.;;Legacy;Evolve;35
-Paralyze;A;;;1;E;;;;;Unleash. The player with the lowest life suffers 2 damage.;;Legacy;Evolve;37
-Calamitous Bane;P;3;;1;E;;;[Any player] discard a card in hand that costs 3$ or more during their turn.;;Unleash. Any player suffers 3 damage. The players collectively discard three cards in hand.;;Legacy;Evolve;49
-Unforeseen Collapse;P;2;;1;E;;;;;Unleash twice. [Any player] discards their most expensive prepped spell.;;Legacy;Evolve;53
-Spine Reaper;M;2;4;1;E;;;;;Unleash. Any player suffers 2 damage.;;Legacy;Evolve;55
+Waylay;A;;;1;E;;;;;Unleash twice. Gravehold suffers 1 damage for each player turn order card in the turn order discard pile.;;Legacy;E;9
+Skybound Leviathan;M;9;;1;E;;;;;Gravehold suffers 2 damage. Any player discards a card in hand.;;Legacy;E;33
+Disrupt;A;;;1;E;;;;;Unleash. [The player with the most charges/Any player] suffers 4 damage and gains 2 charges.;;Legacy;E;35
+Paralyze;A;;;1;E;;;;;Unleash. The player with the lowest life suffers 2 damage.;;Legacy;E;37
+Calamitous Bane;P;3;;1;E;;;[Any player] discard a card in hand that costs 3$ or more during their turn.;;Unleash. Any player suffers 3 damage. The players collectively discard three cards in hand.;;Legacy;E;49
+Unforeseen Collapse;P;2;;1;E;;;;;Unleash twice. [Any player] discards their most expensive prepped spell.;;Legacy;E;53
+Spine Reaper;M;2;4;1;E;;;;;Unleash. Any player suffers 2 damage.;;Legacy;E;55
 ;;;;;;;;;;;;;;
 Wreck;A;;;1;U;;;;;Unleash twice. Gravehold suffers 1 damage.;;The New Age;2a;2
 Hissing Acid;P;3;;1;U;;;Spend 6$.;;Reveal the top card of the turn order deck. If it's a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.;;The New Age;3a;2
@@ -244,22 +244,6 @@ Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;Outcasts;4;2
 ;;;;;;;;;;;;;;
 # Nemesis-specific cards;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
-Provoker;M;5;;1;Rageborne;;;;;Gravehold suffers damage equal to the number of Fury tokens Rageborne has.;"""I nearly wasted a freshly forged chopper on one of these things."" - Reeve, Breach Mage Elite";Aeon's End;;262
-Cleave;A;;;1;Rageborne;;;;;Rageborne Strikes.;Thraxir was breach commander for as long as most could remember. To honor him, to this very day no man or woman has been elected to the post in his stead.;Aeon's End;;263
-Unrelenting Ire;A;;;1;Rageborne;;;;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, Unleash two additional times.;"""I reckon its head would look good on a post."" - Reeve, Breach Mage Elite";Aeon's End;;264
-Blood Cry;P;2;;2;Rageborne;;;Lose 4 charges.;;Unleash four times.;The cave walls crumble and quake as it bellows to its kin.;Aeon's End;;265
-Invoke Carnage;P;2;;2;Rageborne;;;Spend 7$.;;Unleash. Any player suffers 1 damage. That player suffers 1 additional damage for each Fury token Rageborne has.;"""There is but a single power among The Nameless that can shatter Gravehold."" - Brama, Breach Mage Elder";Aeon's End;;266
-Scorn;M;9;;2;Rageborne;;;;;Gravehold suffers 3 damage.#OR#Unleash twice.;"""Part of me almost admires the craftmanship of this horrible thing."" - Adelheim, Breach Mage Weaponsmith";Aeon's End;;267
-Avatar of Wrath;M;16;;3;Rageborne;;;;;Rageborne Strikes.;Many a mage found their end in the gullet of this beast.;Aeon's End;;268
-Onslaught;A;;;3;Rageborne;;;;;Unleash three times. The players collectively discard cards in hand equal to the number of Fury tokens Rageborne has.;Even its shadow leaves a wake of carnage, smoke, and screams.;Aeon's End;;269
-Rolling Death;P;2;;3;Rageborne;;;Spend 8$.;;Rageborne Strikes twice.;"""Its breath rasped as it turned the black rocks red. And those who could, ran."" - Nerva, Survivor";Aeon's End;;270
-Convoke;T;;;0;Rageborne;;;;;Any player suffers 4 damage.;"""No other thing, in our world or theirs, has been so violent as this beast."" - Brama, Breach Mage Elder";Aeon's End;;271
-Devastate;T;;;0;Rageborne;;;;;Gravehold suffers 5 damage.;"""Anger is born in fire."" - Z'hana, Breach Mage Renegade";Aeon's End;;272
-Eviscerate;T;;;0;Rageborne;;;;;The player with the lowest life suffers 2 damage.;"""The breach commander Thraxir was split in twain with a single blow, his armor twisted and glowing like a brand. I have never seen such a thing before or since."" - Mist, Breach Mage Dagger Captain";Aeon's End;;273
-Frenzy;T;;;0;Rageborne;;;;;The player with the most opened breaches suffers 3 damage.;"""All great armies have a warrior that is feared above all others. We call theirs Rageborne."" - Mist, Breach Mage Dagger Captain";Aeon's End;;274
-Raze;T;;;0;Rageborne;;;;;Gravehold suffers 3 damage. Any player suffers 1 damage.;"""The fire spread from the old barracks to the south wall in a moment, the ancient stone hissing and turning black as the beast strode through the city."" - Nerva, Survivor";Aeon's End;;275
-Seize;T;;;0;Rageborne;;;;;The players collectively discard the two most expensive prepped spells.;"""How this cave has not long ago collapsed is a wonder and a mercy."" - Nerva, Survivor";Aeon's End;;276
-;;;;;;;;;;;;;;
 Broodwomb;M;5;;1;Carapace Queen;;If there is at least one husk in play, prevent all damage dealt to this minion.;;;Place a husk in play.;It is the husk-mother, spewing multitudes through the void into Gravehold.;Aeon's End;;226
 Endless Throng;A;;;1;Carapace Queen;;;;;Carapace Queen Swarms.;"""The Queen, she is the worst of their foul lot, for her young are without number."" - Mist, Breach Mage Dagger Captain";Aeon's End;;227
 Hatch;A;;;1;Carapace Queen;;;;;Place a husk into play for each turn order card in the turn order discard pile.;The Queen wears her offspring like some writhing armor.;Aeon's End;;228
@@ -269,6 +253,108 @@ Infest;A;;;2;Carapace Queen;;;;;Carapace Queen Swarms twice.#OR#Any player suffe
 Legion Beacon;P;2;;3;Carapace Queen;;;;Unleash twice.;Discard half of the husks in play, rounded up. Gravehold suffers 2 damage for each husks discarded this way. Carapace Queen Swarms.;Gravehold knows when the Queen is near, for the claxon call of her legions echoes throughout the cave.;Aeon's End;;232
 Maggot Engine;M;0;;3;Carapace Queen;;;;Unleash three times. Then, set this minion's life equal to twice the number of husks in play.;Carapace Queen Swarms.;"""Which end is the head?"" - Nym, Breach Apprentice";Aeon's End;;233
 Spawn;A;;;3;Carapace Queen;;;;;Carapace Queen Swarms. Unleash. Carapace Queen Swarms.;"""The sound of the things, skittering across the cave walls, is loud enough to drown our screams."" - Nerva, Survivor";Aeon's End;;234
+;;;;;;;;;;;;;;
+Burden;A;;;1;Crooked Mask;;;;;The players collectively gain two corruptions and place them on top of their decks. Any player focuses a breach.;"""It's the only thing that smiles more than me."" - Lash, Breach Mage Scout";Aeon's End;;235
+Corrupter;M;6;;1;Crooked Mask;;When this minion suffers damage, the player who dealt that damage gains a corruption and places it on top of their deck.;;;Gravehold suffers 1 damage.;The Corrupters are but a shadow of the Crooked Mask, bringing madness to all that have endured its pollution.;Aeon's End;;236
+Tempt;A;;;1;Crooked Mask;;;;;The player with the most Crystals in hand discards all of their Crystals, suffers 3 damage, and gains a card from any supply pile that costs 4$ or less.;There is a dust that fills the air when a hole is torn through the wall of the world. For some it is just that, dust. But for others, it warps the mind and grants strange power.;Aeon's End;;237
+Pain Sower;M;11;;2;Crooked Mask;;;;;Any player suffers 2 damage. A different player focuses a breach.;"""Even its beasts seem to delight in lunacy."" - Brama, Breach Mage Elder";Aeon's End;;238
+Twisting Madness;P;2;;2;Crooked Mask;;;Discard four cards in hand and draw one card.;;Gravehold gains 3 life. Crooked Mask gains 13 life.;"""Is it laughing at us?"" - Nym, Breach Apprentice";Aeon's End;;239
+Vex;A;;;2;Crooked Mask;;;;;Discard the top two cards of the nemesis deck. For each tier 3 nemesis card discarded this way, Gravehold suffers 4 damage.;"""It is one thing to swing a sword or beckon flame from the void. But it is another act indeed to fight blinding madness from within."" - Brama, Breach Mage Elder";Aeon's End;;240
+Afflict;A;;;3;Crooked Mask;;;;;Two different players each gain two corruptions and place them on top of their decks. Each of those player gains 1 life.;"""It was as if a whisper echoed behind my eyes, tempting me to stray into the raw abyss,"" - Xaxos, Breach Mage Adept";Aeon's End;;241
+Bedlam Sage;M;14;;3;Crooked Mask;;;;;Gravehold gains 2 life. The player with the most life suffers 3 damage.;"""Employing a complex stratagem against such an unpredictable foe is beyond foolish. Instinct is our only and best weapon."" - Mist, Breach Mage Dagger Captain";Aeon's End;;242
+Ruin Priest;M;17;;3;Crooked Mask;;;;;Any player discards three non-corruption cards. That player gains three corruptions and places them into their hand.;"""In the dark, there is a light. And in madness, there is reason."" - Xaxos, Breach Mage Adept";Aeon's End;;243
+Blind Abandon;N;;;0;Crooked Mask;;;;;Suffer 1 damage. You may destroy a non-corruption card in hand. Destroy this.;"""Our lives matter not in the end. We are mere fodder to these beings, an inconvenient obstacle, no more. What matters is that we take them with us when we go back to oblivion."" - Z'hana, Breach Mage Renegade";Aeon's End;;244
+Contagion;N;;;0;Crooked Mask;;;;;Suffer 1 damage. Return any card that costs 0$ in your discard pile to your hand. Destroy this.;The Crooked Mask brings a sickness that spreads, like black wings, across a mage's mind.;Aeon's End;;245
+Delirium Veil;N;;;0;Crooked Mask;;;;;Gravehold suffers 2 damage. Focus a breach. Destroy this.;The Crooked Mask grants a power too vast to be contained.;Aeon's End;;246
+Dire Wisdom;N;;;0;Crooked Mask;;;;;Gain a spell from any spell supply pile. Gain three corruptions and place them on top of your deck. Destroy this.;The Crooked Mask enhances magical abilities even as it scatters the wits.;Aeon's End;;247
+Endless Hunger;N;;;0;Crooked Mask;;;;;Gravehold suffers 3 damage. Gain 2 life. Destroy this.;The Crooked Mask bestows an empty greed that cannot be slaked.;Aeon's End;;248
+Fever of War;N;;;0;Crooked Mask;;;;;Suffer 1 damage. Deal 2 damage. Destroy this.;The Crooked Mask preaches pain as a virtue.;Aeon's End;;249
+Grim Sight;N;;;0;Crooked Mask;;;;;Gravehold suffers 2 damage. Reveal the top card of your deck. You may destroy it. Destroy this.;The Crooked Mask guides all toward oblivion.;Aeon's End;;250
+Insatiable Avarice;N;;;0;Crooked Mask;;;;;Suffer 2 damage. Gain a gem from the least expensive supply pile and place it into your hand. Destroy this.;The Crooked Mask blesses the covetous.;Aeon's End;;251
+Lust for Power;N;;;0;Crooked Mask;;;;;Suffer 1 damage. Gain 1 charge. Destroy this.;The Crooked Mask venerates those who wield destruction.;Aeon's End;;252
+Nothingness;N;;;0;Crooked Mask;;;;;Discard two non-corruption cards. Suffers 2 damage. Shuffle any player's turn order card into the turn order deck. Destroy this.;The Crooked Mask shackles the self.;Aeon's End;;253
+Reckless Might;N;;;0;Crooked Mask;;;;;Gain a relic from any relic supply pile and place it on top of your deck. Suffer damage equal to half its cost, rounded up. Destroy this.;The Crooked Mask consumes our fear of extermination.;Aeon's End;;254
+;;;;;;;;;;;;;;
+Gorge;A;;;1;Prince of Gluttons;;;;;Devour two cards from the second most expensive gem supply pile. Any player suffers 2 damage.;"""So much of our history was lost in the first Purge. Aeons of knowledge, art, and culture erased. It has been so very long that we know not even the true name of The World That Was."" - Brama, Breach Mage Elder";Aeon's End;;255
+Lobotomize;A;;;1;Prince of Gluttons;;;;;Any player suffers 3 damage.#OR#Devour three spells from any spell supply pile.;"""I saw the woman's eyes empty and everything she was fall away into nothing."" - Nerva, Survivor";Aeon's End;;256
+Thought Biter;M;6;;1;Prince of Gluttons;;;;;Any player suffers 2 damage.#OR#Devour two relics from the least expensive relic supply pile.;"""Is it eating the cave wall?"" - Nym, Breach Apprentice";Aeon's End;;257
+Cerephage;M;7;;2;Prince of Gluttons;;;;;Devour cards equal to this minion's life from one supply pile. Then, this minion suffers 2 damage.;"""Quickly. Before our heads are hollow."" - Adelheim, Breach Mage Weaponsmith";Aeon's End;;258
+Godfeeders;M;8;;2;Prince of Gluttons;;;;;Gravehold suffers 3 damage. Devour a gem from the most expensive gem supply pile.;The Prince exploits these creatures to both mend its wounds and sate its hunger.;Aeon's End;;259
+Mindguzzler;M;0;;2;Prince of Gluttons;;;;Set this minion's life equal to 8 plus the number of empty supply piles.;Unleash.;;Aeon's End;;260
+Digest;A;;;3;Prince of Gluttons;;;;;Unleash three times.#OR#Any player suffers damage equal to the number of empty supply piles.;The Prince feasts on the memories of those left in Gravehold, consuming their very histories.;Aeon's End;;261
+Memory Eater;M;16;;3;Prince of Gluttons;;;;;The player with the lowest life suffers damage equal to the number of empty supply piles.;"""Sometimes I think it a blessing to have forgotten so much of my past."" - Phaedraxa, Breach Mage Seer";Aeon's End;;262
+Vile Feast;P;2;;3;Prince of Gluttons;;;Spend 8$.;;Gravehold suffers 2 damage for each empty supply pile.;"""It aims to make us forget what is at stake."" - Malastar, Breach Mage Mentor";Aeon's End;;263
+;;;;;;;;;;;;;;
+Cleave;A;;;1;Rageborne;;;;;Rageborne Strikes.;Thraxir was breach commander for as long as most could remember. To honor him, to this very day no man or woman has been elected to the post in his stead.;Aeon's End;;264
+Provoker;M;5;;1;Rageborne;;;;;Gravehold suffers damage equal to the number of Fury tokens Rageborne has.;"""I nearly wasted a freshly forged chopper on one of these things."" - Reeve, Breach Mage Elite";Aeon's End;;265
+Unrelenting Ire;A;;;1;Rageborne;;;;;Unleash. If there are two nemesis turn order cards in the turn order discard pile, Unleash two additional times.;"""I reckon its head would look good on a post."" - Reeve, Breach Mage Elite";Aeon's End;;266
+Blood Cry;P;2;;2;Rageborne;;;Lose 4 charges.;;Unleash four times.;The cave walls crumble and quake as it bellows to its kin.;Aeon's End;;267
+Invoke Carnage;P;2;;2;Rageborne;;;Spend 7$.;;Unleash. Any player suffers 1 damage. That player suffers 1 additional damage for each Fury token Rageborne has.;"""There is but a single power among The Nameless that can shatter Gravehold."" - Brama, Breach Mage Elder";Aeon's End;;268
+Scorn;M;9;;2;Rageborne;;;;;Gravehold suffers 3 damage.#OR#Unleash twice.;"""Part of me almost admires the craftmanship of this horrible thing."" - Adelheim, Breach Mage Weaponsmith";Aeon's End;;269
+Avatar of Wrath;M;16;;3;Rageborne;;;;;Rageborne Strikes.;Many a mage found their end in the gullet of this beast.;Aeon's End;;270
+Onslaught;A;;;3;Rageborne;;;;;Unleash three times. The players collectively discard cards in hand equal to the number of Fury tokens Rageborne has.;Even its shadow leaves a wake of carnage, smoke, and screams.;Aeon's End;;271
+Rolling Death;P;2;;3;Rageborne;;;Spend 8$.;;Rageborne Strikes twice.;"""Its breath rasped as it turned the black rocks red. And those who could, ran."" - Nerva, Survivor";Aeon's End;;272
+Convoke;T;;;0;Rageborne;;;;;Any player suffers 4 damage.;"""No other thing, in our world or theirs, has been so violent as this beast."" - Brama, Breach Mage Elder";Aeon's End;;273
+Devastate;T;;;0;Rageborne;;;;;Gravehold suffers 5 damage.;"""Anger is born in fire."" - Z'hana, Breach Mage Renegade";Aeon's End;;274
+Eviscerate;T;;;0;Rageborne;;;;;The player with the lowest life suffers 2 damage.;"""The breach commander Thraxir was split in twain with a single blow, his armor twisted and glowing like a brand. I have never seen such a thing before or since."" - Mist, Breach Mage Dagger Captain";Aeon's End;;275
+Frenzy;T;;;0;Rageborne;;;;;The player with the most opened breaches suffers 3 damage.;"""All great armies have a warrior that is feared above all others. We call theirs Rageborne."" - Mist, Breach Mage Dagger Captain";Aeon's End;;276
+Raze;T;;;0;Rageborne;;;;;Gravehold suffers 3 damage. Any player suffers 1 damage.;"""The fire spread from the old barracks to the south wall in a moment, the ancient stone hissing and turning black as the beast strode through the city."" - Nerva, Survivor";Aeon's End;;277
+Seize;T;;;0;Rageborne;;;;;The players collectively discard the two most expensive prepped spells.;"""How this cave has not long ago collapsed is a wonder and a mercy."" - Nerva, Survivor";Aeon's End;;278
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
 Cryptid;M;6;;1;Umbra Titan;;;;;The player with the most expensive prepped spell discards that spell.#OR#Umbra Titan loses one nemesis token.;"""The beasts of this cave seem to revere The Titan as though it were some ancient god."" - Mazahaedron, Henge Mystic";War Eternal;;266
 Grubber;M;5;;1;Umbra Titan;;;;;If the nemesis has two turn order cards in the turn order discard pile, Umbra Titan loses one nemesis token. Otherwise, Gravehold suffers 2 damage.;"""Kick it, stab it, burn it... the thing just keeps grinning."" - Sparrow, Breach Mage Soldier";War Eternal;;267

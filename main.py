@@ -57,7 +57,7 @@ ctypes = {
     "G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
     "TG": "Treasured Gem", "TS": "Treasured Spell", "T2": "Level 2 Treasure",
     "T3": "Level 3 Treasure", "P": "Power", "M": "Minion", "A": "Attack",
-    "C": "Curse", "T": "Strike",
+    "C": "Curse", "N": "Corruption", "T": "Strike",
 }
 
 ability_types = {
@@ -422,7 +422,7 @@ def nemesis_mat(name: str) -> List[str]:
     if not hp:
         hp = "*"
     values = ["```", f"{c['name']}", f"Health: {hp}", f"Difficulty rating: {c['difficulty']}", f"Battle: {c['battle']}", 
-              "", f"SETUP: {c['setup']}", "", f"UNLEASH: {c['unleash']}", "", "* INCREASED DIFFICULTY *"]
+              "", "SETUP:", c['setup'], "", "UNLEASH:", c['unleash'], "", "* INCREASED DIFFICULTY *"]
     if c['id_setup']:
         values.append(f"SETUP: {c['id_setup']}")
     if c['id_unleash']:
