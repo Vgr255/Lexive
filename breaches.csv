@@ -11,3 +11,17 @@ Celestial Breach;4;4;7;10;13;Once Opened: On Cast: Deal +2 Damage.;Sahala
 Ancient Breach;1;0;0;0;0;Up to 10 Surge tokens can be placed on the Ancient Breach. When a spell is cast from this breach, that spell deals 1 additional damage for each Surge token placed on that breach.;Gygar
 Defender Breach;4;4;7;10;13;Once Opened: On Cast: Gravehold gains 1 life.;Taqren (NA)
 Research Breach;3;3;5;7;9;Once Opened: On Cast: Gain 1 charge.;Mazra
+;;;;;;;
+Forged Breach;1;1;2;3;4;When you open this, gain a card that costs 4$ or less from any supply pile.;Thraxir
+Honed Breach;2;2;3;4;5;When you open this, gain a spell that costs 5$ or less from any supply pile.;Thraxir
+Refined Breach;3;3;5;7;9;When you open this, shuffle your turn order card into the turn order deck.;Thraxir
+Serrated Breach;4;4;7;10;13;When you open this, gain a spell from any supply pile.;Thraxir
+;;;;;;;
+Void Breach;4;4;7;10;13;Once Opened: On Cast: Deal +1 Damage.#Any number of spells may be prepped to an opened Void Breach.;Dezmodia (O)
+Essence Breach;4;4;7;10;13;Once Opened: On Cast: Gain 1 life.;Ohat and Ulgimor
+;;;;;;;
+Channel Breach;2;2;0;0;0;Once Opened: On Cast: Gain +2$. Once a spell cast from this breach has finished resolving, return this breach to its starting position.;Lucien
+Tide Breach;3;4;0;0;0;Once Opened: On Cast: Destroy a card in hand or discard pile. Once a spell cast from this breach has finished resolving, return this breach to its starting position.;Lucien
+Flood Breach;4;5;0;0;0;Once Opened: On Cast: Deal +3 Damage. Once a spell cast from this breach has finished resolving, return this breach to its starting position.;Lucien
+;;;;;;;
+Unbound Breach;3;3;5;7;9;Once Opened: Any number of spells with the same name may be prepped to this.#On Cast: Each spell does +1 additional damage for each other spell prepped to this breach.;Reth

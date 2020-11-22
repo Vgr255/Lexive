@@ -67,7 +67,8 @@ ability_types = {
     "T": "immediately after a turn order card is drawn",
     "C": "during your casting phase",
     "A": "during any ally's main phase",
-    "D": "during your casting or main phase",
+    "Y": "during your casting or main phase",
+    "D": "at the end of your draw phase",
 }
 
 breaches_orientation = (
@@ -169,7 +170,7 @@ def load():
             player_mats[casefold(name)] = {
                 "name": name, "title": title, "rating": rating, "ability": adict, "breaches": blist,
                 "hand": hand.split(","), "deck": deck.split(","), "flavour": expand(flavour),
-                "special": expand(special), "box": box
+                "special": expand(special, prefix=True), "box": box
             }
 
     log("Player mats loaded", level="local")
