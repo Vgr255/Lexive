@@ -1,0 +1,13 @@
+# Name;Position;Focus cost / open from up;Open from left;Open from down;Open from right;Additional effect;Used with
+;;;;;;;
+Breach I;1;0;0;0;0;;
+Breach II;2;2;3;4;5;;
+Breach III;3;3;5;7;9;Once Opened: On Cast: Deal +1 Damage.;
+Breach IV;4;4;7;10;13;Once Opened: On Cast: Deal +1 Damage.;
+;;;;;;;
+Sigil Breach;1;0;0;0;0;On Cast: Deal +2 Damage.;Dezmodia (WE)
+Aether Breach;2;2;3;4;5;Once Opened: On Cast: Gain +1$.;Remnant
+Celestial Breach;4;4;7;10;13;Once Opened: On Cast: Deal +2 Damage.;Sahala
+Ancient Breach;1;0;0;0;0;Up to 10 Surge tokens can be placed on the Ancient Breach. When a spell is cast from this breach, that spell deals 1 additional damage for each Surge token placed on that breach.;Gygar
+Defender Breach;4;4;7;10;13;Once Opened: On Cast: Gravehold gains 1 life.;Taqren (NA)
+Research Breach;3;3;5;7;9;Once Opened: On Cast: Gain 1 charge.;Mazra

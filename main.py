@@ -24,8 +24,10 @@ author_id = 320646088723791874
 
 player_cards = defaultdict(list)
 nemesis_cards = defaultdict(list)
-player_mats = defaultdict(list)
-nemesis_mats = defaultdict(list)
+player_mats = {}
+nemesis_mats = {}
+
+breach_values = {}
 
 cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
 
@@ -63,15 +65,22 @@ ability_types = {
     "M": "during your main phase",
     "N": "during the nemesis draw phase",
     "T": "immediately after a turn order card is drawn",
+    "C": "during your casting phase",
+    "A": "during any ally's main phase",
+    "D": "during your casting or main phase",
 }
 
-breaches = (
+breaches_orientation = (
     "Open",
     "Facing up",
     "Facing left",
     "Facing down",
     "Facing right",
 )
+
+# Breach opening cost formula:
+# ((position-1)*number of focuses needed to open)+1
+# (position*number of focuses)-number of focuses+1
 
 def log(*x: Tuple[str], level:str="use") -> None:
     # probably gonna log to a file at some point
@@ -157,29 +166,43 @@ def load():
                 if not breach: # just a regular breach
                     breach = None
                 blist.append((pos, breach))
-            player_mats[casefold(name)].append({
+            player_mats[casefold(name)] = {
                 "name": name, "title": title, "rating": rating, "ability": adict, "breaches": blist,
                 "hand": hand.split(","), "deck": deck.split(","), "flavour": expand(flavour),
                 "special": expand(special), "box": box
-            })
+            }
 
     log("Player mats loaded", level="local")
 
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
         content = csv.reader(nmats_file, dialect="excel", delimiter=";")
-        for name, hp, diff, battle, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, deck, cards in content:
+        for name, hp, diff, battle, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, deck, cards in content:
             if not name or name.startswith("#"):
                 continue
-            nemesis_mats[casefold(name)].append({
+            nemesis_mats[casefold(name)] = {
                 "name": name, "hp": int(hp), "difficulty": diff, "unleash": expand(unleash),
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
-                "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
+                "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
                 "side": expand(side), "box": box, "battle": int(battle),
-                "deck": deck, "cards": [int(x) for x in cards.split(",")]
-            })
+                "deck": (deck or None), "cards": [int(x) for x in cards.split(",")]
+            }
 
     log("Nemesis mats loaded", level="local")
+
+    breach_values.clear()
+    with open("breaches.csv", newline="") as breach_file:
+        content = csv.reader(breach_file, dialect="excel", delimiter=";")
+        for name, pos, focus, left, down, right, effect, mage in content:
+            if not name or name.startswith("#"):
+                continue
+            breach_values[casefold(name)] = {
+                "name": name, "position": int(pos), "focus": int(focus),
+                "left": int(left), "down": int(down), "right": int(right),
+                "effect": expand(effect), "mage": mage
+            }
+
+    log("Breaches loaded", level="local")
 
 log("Loading content", level="local")
 
@@ -327,108 +350,127 @@ def nemesis_card(name: str) -> List[str]:
     return values
 
 def player_mat(name: str) -> List[str]:
-    mat = player_mats[name]
-    values = []
-    for c in mat:
-        if values:
-            values.append(r"\NEWLINE/")
-        values.extend(["```", c['name'], c['title'], f"Complexity rating: {c['rating']}", "", "Starting breach positions:", ""])
+    c = player_mats[name]
+    values = ["```", c['name'], c['title'], f"Complexity rating: {c['rating']}", "", "Starting breach positions:", ""]
 
-        bconv = ("I", "II", "III", "IV")
-        for x in range(4):
-            pos, special = c['breaches'][x]
-            if pos == 9: # no breach
-                values.append(f"(No breach {bconv[x]})")
-                continue
-            if special is None:
-                special = f"Breach {bconv[x]}"
-            values.append(f"{special} - {breaches[pos]}")
+    bconv = ("I", "II", "III", "IV")
+    for x in range(4):
+        pos, special = c['breaches'][x]
+        if pos == 9: # no breach
+            values.append(f"(No breach {bconv[x]})")
+            continue
+        if special is None:
+            special = f"Breach {bconv[x]}"
+        values.append(f"{config.prefix}{special} - {breaches_orientation[pos]}")
 
+    values.append("")
+    wave = waves[c['box']][0]
+    hand = []
+    deck = []
+    for orig, new in zip((c["hand"], c["deck"]), (hand, deck)):
+        for x in orig:
+            if x.isdigit():
+                x = cards_num[wave][None][int(x)][1]
+            elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit():
+                x = cards_num[wave][x[:2]][int(x[2:])][1]
+            elif x[:3] == "END" and x[3:].isdigit():
+                x = cards_num[wave]["END"][int(x[3:])][1]
+            elif x == "C":
+                x = "Crystal"
+            elif x == "S":
+                x = "Spark"
+            else:
+                x = f"ERROR: Unrecognized card {x}"
+            new.append(x)
+    hand_readable = []
+    deck_readable = []
+    for orig, new in zip((hand, deck), (hand_readable, deck_readable)):
+        for x in orig:
+            num = 0
+            if new and new[-1][3:] == x:
+                num = int(new[-1][0])
+                del new[-1]
+            num += 1
+            x = f"{num}x {x}"
+            new.append(x)
+
+    values.append(f"Starting hand: {', '.join(hand_readable)}")
+    values.append(f"Starting deck: {', '.join(deck_readable)}")
+    values.append("")
+
+    values.append(f"Ability: {c['ability']['name']}")
+    values.append(f"Charges needed: {c['ability']['charges']}")
+    values.append(f"Activate {ability_types[c['ability']['type']]}:")
+    values.append(c['ability']['effect'])
+    values.append("")
+
+    if c['special']:
+        values.append(c['special'])
         values.append("")
-        wave = waves[c['box']][0]
-        hand = []
-        deck = []
-        for orig, new in zip((c["hand"], c["deck"]), (hand, deck)):
-            for x in orig:
-                if x.isdigit():
-                    x = cards_num[wave][None][int(x)][1]
-                elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit():
-                    x = cards_num[wave][x[:2]][int(x[2:])][1]
-                elif x == "C":
-                    x = "Crystal"
-                elif x == "S":
-                    x = "Spark"
-                else:
-                    x = f"ERROR: Unrecognized card {x}"
-                new.append(x)
-        hand_readable = []
-        deck_readable = []
-        for orig, new in zip((hand, deck), (hand_readable, deck_readable)):
-            for x in orig:
-                num = 0
-                if new and new[-1][3:] == x:
-                    num = int(new[-1][0])
-                    del new[-1]
-                num += 1
-                x = f"{num}x {x}"
-                new.append(x)
 
-        values.append(f"Starting hand: {', '.join(hand_readable)}")
-        values.append(f"Starting deck: {', '.join(deck_readable)}")
-        values.append("")
-
-        values.append(f"Ability: {c['ability']['name']}")
-        values.append(f"Charges needed: {c['ability']['charges']}")
-        values.append(f"Activate {ability_types[c['ability']['type']]}:")
-        values.append(c['ability']['effect'])
-        values.append("")
-
-        if c['special']:
-            values.append(c['special'])
-            values.append("")
-
-        values.append(c['flavour'])
-        values.append("")
-        values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
-        values.append("```")
+    values.append(c['flavour'])
+    values.append("")
+    values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
+    values.append("```")
 
     return values
 
 def nemesis_mat(name: str) -> List[str]:
-    mat = nemesis_mats[name]
-    values = []
-    for c in mat:
-        if values:
-            values.append(r"\NEWLINE/")
-        hp = c['hp']
-        if not hp:
-            hp = "*"
-        values.extend(["```", f"{c['name']}", f"Health: {hp}", f"Difficulty rating: {c['difficulty']}", f"Battle: {c['battle']}", 
-                       "", f"SETUP: {c['setup']}", "", f"UNLEASH: {c['unleash']}", "", "* INCREASED DIFFICULTY *"])
-        if c['id_setup']:
-            values.append(f"SETUP: {c['id_setup']}")
-        if c['id_unleash']:
-            values.append(f"UNLEASH: {c['id_unleash']}")
-        if c['id_rules']:
-            values.append(f"RULES: {c['id_rules']}")
+    c = nemesis_mats[name]
+    hp = c['hp']
+    if not hp:
+        hp = "*"
+    values = ["```", f"{c['name']}", f"Health: {hp}", f"Difficulty rating: {c['difficulty']}", f"Battle: {c['battle']}", 
+              "", f"SETUP: {c['setup']}", "", f"UNLEASH: {c['unleash']}", "", "* INCREASED DIFFICULTY *"]
+    if c['id_setup']:
+        values.append(f"SETUP: {c['id_setup']}")
+    if c['id_unleash']:
+        values.append(f"UNLEASH: {c['id_unleash']}")
+    if c['id_rules']:
+        values.append(f"RULES: {c['id_rules']}")
 
-        values.extend(["", "* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
+    values.extend(["", "* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
 
-        values.extend([f"From {c['box']} (Wave {waves[c['box']][1]})"])
+    if c['extra']:
+        values.extend(["Additional expedition rules:", c['extra'], ""])
 
-        prefix = waves[c['box']][0]
-        if c['deck'] and prefix:
-            prefix = f"{prefix}-{c['deck']}-"
-        elif c['deck']:
-            prefix = c['deck']
-        cards = [f"{prefix}{x}" for x in c['cards']]
-        values.append(f"Cards used with this nemesis: {', '.join(cards)}")
+    values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
 
-        values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
+    cards = cards_num[waves[c['box']][0]][c['deck']]
 
-        if c['side']: # side mat
-            values.append(r"\NEWLINE/```")
-            values.append(f"{c['side']}```")
+    values.append(f"Cards used with this nemesis: {', '.join(cards[int(x)][1] for x in c['cards'])}")
+
+    values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
+
+    if c['side']: # side mat
+        values.append(r"\NEWLINE/```")
+        values.append(f"{c['side']}```")
+
+    return values
+
+def get_breach(name: str) -> List[str]:
+    c = breach_values[name]
+    values = ["```", c['name'], f"Position: {c['position']}", ""]
+    if c['focus']:
+        values.append(f"Focus cost: {c['focus']}")
+        values.append(f"Opening cost from UP   : {c['focus']}")
+    if c['left']:
+        values.append(f"Opening cost from LEFT : {c['left']}")
+    if c['down']:
+        values.append(f"Opening cost from DOWN : {c['down']}")
+    if c['right']:
+        values.append(f"Opening cost from RIGHT: {c['right']}")
+    if c['focus']:
+        values.append("")
+
+    if c['effect']:
+        values.append(c['effect'])
+
+    if c['mage']:
+        values.append("") # if we have a mage, there is an effect
+        values.append(f"Used with {c['mage']} (From {player_mats[casefold(c['mage'])]['box']})")
+
+    values.append("```")
 
     return values
 
@@ -441,12 +483,12 @@ def get_card(name: str) -> Optional[List[str]]:
         if x in name:
             name = name[:name.index(x)]
     arg = casefold(name)
-    matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys() | player_mats.keys() | nemesis_mats.keys())
+    matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys() | player_mats.keys() | nemesis_mats.keys() | breach_values.keys())
     values = []
     if len(matches) > config.max_dupe:
         values.append(None)
         for x in matches:
-            for d in (player_cards, nemesis_cards, player_mats, nemesis_mats):
+            for d in (player_cards, nemesis_cards, player_mats, nemesis_mats, breach_values):
                 if x in d:
                     for n in d[x]:
                         if n["name"] not in values:
@@ -462,18 +504,20 @@ def get_card(name: str) -> Optional[List[str]]:
             values.append(player_mat(x))
         if x in nemesis_mats:
             values.append(nemesis_mat(x))
+        if x in breach_values:
+            values.append(get_breach(x))
 
     if not values:
         return None
 
     ret = []
+    if mention is not None:
+        ret.append(mention)
     for x in values:
         if ret:
             ret.append(r"\NEWLINE/")
         ret.extend(x)
 
-    if mention is not None:
-        ret.insert(0, mention)
     return ret
 
 def complete_match(string: str, matches: Iterable) -> list:
