@@ -330,7 +330,8 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
         elif c['type'] == "M":
-            values.append(f"PERSISTENT: {c['effect']}")
+            if c['effect']: # not all minions have a Persistent effect
+                values.append(f"PERSISTENT: {c['effect']}")
 
         else:
             values.append(c['effect'])
@@ -439,7 +440,7 @@ def nemesis_mat(name: str) -> List[str]:
 
     cards = cards_num[waves[c['box']][0]][c['deck']]
 
-    values.append(f"Cards used with this nemesis: {', '.join(cards[int(x)][1] for x in c['cards'])}")
+    values.append(f"Cards used with this nemesis: {', '.join(cards[x][1] for x in c['cards'])}")
 
     values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
 

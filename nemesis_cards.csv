@@ -244,6 +244,8 @@ Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;Outcasts;4;2
 ;;;;;;;;;;;;;;
 # Nemesis-specific cards;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
+# Aeon's End / Wave 1 nemeses;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
 Broodwomb;M;5;;1;Carapace Queen;;If there is at least one husk in play, prevent all damage dealt to this minion.;;;Place a husk in play.;It is the husk-mother, spewing multitudes through the void into Gravehold.;Aeon's End;;226
 Endless Throng;A;;;1;Carapace Queen;;;;;Carapace Queen Swarms.;"""The Queen, she is the worst of their foul lot, for her young are without number."" - Mist, Breach Mage Dagger Captain";Aeon's End;;227
 Hatch;A;;;1;Carapace Queen;;;;;Place a husk into play for each turn order card in the turn order discard pile.;The Queen wears her offspring like some writhing armor.;Aeon's End;;228
@@ -301,27 +303,27 @@ Frenzy;T;;;0;Rageborne;;;;;The player with the most opened breaches suffers 3 da
 Raze;T;;;0;Rageborne;;;;;Gravehold suffers 3 damage. Any player suffers 1 damage.;"""The fire spread from the old barracks to the south wall in a moment, the ancient stone hissing and turning black as the beast strode through the city."" - Nerva, Survivor";Aeon's End;;277
 Seize;T;;;0;Rageborne;;;;;The players collectively discard the two most expensive prepped spells.;"""How this cave has not long ago collapsed is a wonder and a mercy."" - Nerva, Survivor";Aeon's End;;278
 ;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
+Crushing Masses;P;2;;1;Horde-Crone;;;;;If there are no troggs in play, Unleash twice. Otherwise, Gravehold suffers 2 damage for each trogg in play.;"""If only they knew they were our forefathers, perhaps they would relent."" - Brama, Breach Mage Elder";The Depths;;46
+Night Raid;A;;;1;Horde-Crone;;;;;Unleash twice. Then, discard a trogg in play.;"""They wait until we slumber, slithering through the caves without a sound."" - Ohat, Dirt Merchant";The Depths;;47
+Overwhelm;A;;;1;Horde-Crone;;;;;Unleash. The players collectively discard gems equal to the number of troggs in play.;In The World That Was, there were myths of ancients, now lost to us, that walked the primordial wastes. They built Gravehold as a sanctuary from the chaos. The elders called them troggs.;The Depths;;48
+Horde Hybrid;M;7;;2;Horde-Crone;;;;Unleash. This minion becomes a trogg of the type that has the most of its type in play. When this is discarded, place it in Horde-Crone's discard pile.;;;The Depths;;49
+Rabid Hysteria;P;2;;2;Horde-Crone;;;;Unleash twice.;Any player suffers 1 damage for each trogg in play.;"""They're rather making a mess of this home they want so badly."" - Lash, Breach Mage Scout";The Depths;;50
+Servitude to Evil;P;2;;2;Horde-Crone;;;Spend 7$.;;Unleash four times. Then, discard two troggs in play.;"""One need only look in their hollow eyes to know their aim."" - Adelheim, Breach Mage Weaponsmith";The Depths;;51
+Besiege;A;;;3;Horde-Crone;;;;;Unleash twice. If there are three or fewer troggs in play, Unleash again until there are four troggs in play.;The Horde-Crone has stirred the lost tribes from the bones of memory with a new, single-minded purpose: to reclaim Gravehold.;The Depths;;52
+Underworld Totem;M;12;;3;Horde-Crone;;When a player deals damage, that player must deal damage to a trogg if there are any troggs in play.;;Unleash twice.;Unleash twice.;The Troggs wandered the caves for aeons. Deep within the rock and shadow, they found their deity sleeping.;The Depths;;53
+Wreak Havoc;A;;;3;Horde-Crone;;;;;Unleash twice. Resolve the effect of each of the troggs placed into play by this card one additional time.;"""As long as they bleed..."" - Reeve, Breach Mage Elite";The Depths;;54
+Orp;M;2;;0;Horde-Crone;;#2 Orps: Gravehold suffers 2 damage.#3 Orps: Gravehold suffers 3 damage.#4 Orps: Gravehold suffers 5 damage. Discard all Orps.#;;;;;The Depths;;55
+# Orp;M;2;;0;Horde-Crone;;#2 Orps: Gravehold suffers 2 damage.#3 Orps: Gravehold suffers 3 damage.#4 Orps: Gravehold suffers 5 damage. Discard all Orps.#;;;;;The Depths;;56
+# Orp;M;2;;0;Horde-Crone;;#2 Orps: Gravehold suffers 2 damage.#3 Orps: Gravehold suffers 3 damage.#4 Orps: Gravehold suffers 5 damage. Discard all Orps.#;;;;;The Depths;;57
+# Orp;M;2;;0;Horde-Crone;;#2 Orps: Gravehold suffers 2 damage.#3 Orps: Gravehold suffers 3 damage.#4 Orps: Gravehold suffers 5 damage. Discard all Orps.#;;;;;The Depths;;58
+Yud;M;2;;0;Horde-Crone;;#2 Yuds: Any player suffers 2 damage.#3 Yuds: Any player suffers 3 damage.#4 Yuds: The player with the lowest life suffers 4 damage. Discard all Yuds.#;;;;;The Depths;;59
+# Yud;M;2;;0;Horde-Crone;;#2 Yuds: Any player suffers 2 damage.#3 Yuds: Any player suffers 3 damage.#4 Yuds: The player with the lowest life suffers 4 damage. Discard all Yuds.#;;;;;The Depths;;60
+# Yud;M;2;;0;Horde-Crone;;#2 Yuds: Any player suffers 2 damage.#3 Yuds: Any player suffers 3 damage.#4 Yuds: The player with the lowest life suffers 4 damage. Discard all Yuds.#;;;;;The Depths;;61
+# Yud;M;2;;0;Horde-Crone;;#2 Yuds: Any player suffers 2 damage.#3 Yuds: Any player suffers 3 damage.#4 Yuds: The player with the lowest life suffers 4 damage. Discard all Yuds.#;;;;;The Depths;;62
+Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damage.#3 Zoms: Any player discards 3 cards.#4 Zoms: Gravehold suffers 1 damage for each trogg in play. Discard all Zoms.#;;;;;The Depths;;63
+# Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damage.#3 Zoms: Any player discards 3 cards.#4 Zoms: Gravehold suffers 1 damage for each trogg in play. Discard all Zoms.#;;;;;The Depths;;64
+# Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damage.#3 Zoms: Any player discards 3 cards.#4 Zoms: Gravehold suffers 1 damage for each trogg in play. Discard all Zoms.#;;;;;The Depths;;65
+# Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damage.#3 Zoms: Any player discards 3 cards.#4 Zoms: Gravehold suffers 1 damage for each trogg in play. Discard all Zoms.#;;;;;The Depths;;66
 ;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
