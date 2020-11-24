@@ -26,8 +26,16 @@ player_cards = defaultdict(list)
 nemesis_cards = defaultdict(list)
 player_mats = defaultdict(list)
 nemesis_mats = defaultdict(list)
-
 breach_values = defaultdict(list)
+treasure_values = defaultdict(list)
+
+content_dicts = []
+
+def sync(d):
+    def wrapper(func):
+        content_dicts.append((func, d))
+        return func
+    return wrapper
 
 cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
 
@@ -83,9 +91,9 @@ breaches_orientation = (
 # ((position-1)*number of focuses needed to open)+1
 # (position*number of focuses)-number of focuses+1
 
-def log(*x: Tuple[str], level:str="use") -> None:
+def log(*x: Tuple[str], level:str="use", **kwargs) -> None:
     # probably gonna log to a file at some point
-    print(*x)
+    print(*x, **kwargs)
 
 def casefold(x: str) -> str:
     x = x.lower()
@@ -93,8 +101,11 @@ def casefold(x: str) -> str:
         x = x.replace(c, "")
     return x
 
-def expand(x: str, *, prefix=False) -> str:
-    x = x.replace(_newline_str, "\n")
+def expand(x: str, *, flavour=False, prefix=False) -> str:
+    replace_by = "\n"
+    if flavour: # make newlines twice as big
+        replace_by = "\n\n"
+    x = x.replace(_newline_str, replace_by)
     if prefix:
         x = x.replace(_prefix_str, config.prefix)
     return x
@@ -205,6 +216,25 @@ def load():
 
     log("Breaches loaded", level="local")
 
+    treasure_values.clear()
+    with open("treasures.csv", newline="") as treasure_file:
+        content = csv.reader(treasure_file, dialect="excel", delimiter=";")
+        for name, ttype, code, effect, flavour, box, deck, number in content:
+            if not name or name.startswith("#"):
+                continue
+            treasure_values[casefold(name)].append({
+                "name": name, "type": ttype, "code": code, "effect": expand(effect),
+                "flavour": expand(flavour), "box": box, "deck": deck, "number": int(number)
+            })
+            wave = waves[box][0]
+            if not deck:
+                deck = None
+            if deck not in cards_num[wave]:
+                cards_num[wave][deck] = {}
+            cards_num[wave][deck][int(number)] = ("T", name)
+
+    log("Treasures loaded", level="local")
+
 log("Loading content", level="local")
 
 load()
@@ -256,6 +286,7 @@ def cmd(func: Callable) -> Callable:
     cmds[name] = func
     return bot.command(name=name)(func)
 
+@sync(player_cards)
 def player_card(name: str) -> List[str]:
     card = player_cards[name]
     values = []
@@ -293,6 +324,7 @@ def player_card(name: str) -> List[str]:
 
     return values
 
+@sync(nemesis_cards)
 def nemesis_card(name: str) -> List[str]:
     card = nemesis_cards[name]
     values = []
@@ -351,6 +383,7 @@ def nemesis_card(name: str) -> List[str]:
 
     return values
 
+@sync(player_mats)
 def player_mat(name: str) -> List[str]:
     mat = player_mats[name]
     values = []
@@ -421,6 +454,7 @@ def player_mat(name: str) -> List[str]:
 
     return values
 
+@sync(nemesis_mats)
 def nemesis_mat(name: str) -> List[str]:
     mat = nemesis_mats[name]
     values = []
@@ -458,6 +492,7 @@ def nemesis_mat(name: str) -> List[str]:
 
     return values
 
+@sync(breach_values)
 def get_breach(name: str) -> List[str]:
     b = breach_values[name]
     values = []
@@ -488,6 +523,28 @@ def get_breach(name: str) -> List[str]:
 
     return values
 
+@sync(treasure_values)
+def get_treasure(name: str) -> List[str]:
+    t = treasure_values[name]
+    values = []
+    for c in t:
+        if values:
+            values.append(r"\NEWLINE/")
+        values.extend(["```", c['name'], f"Type: {ctypes[c['type']]}", "", c['effect'], ""])
+
+        if c['flavour']:
+            values.append(c['flavour'])
+            values.append("")
+
+        values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
+        prefix = waves[c['box']][0]
+        if c['deck']:
+            prefix = f"{prefix}-{c['deck']}-"
+        values.append(f"Card {prefix}{c['number']}")
+        values.append("```")
+
+    return values
+
 def get_card(name: str) -> Optional[List[str]]:
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
@@ -497,12 +554,15 @@ def get_card(name: str) -> Optional[List[str]]:
         if x in name:
             name = name[:name.index(x)]
     arg = casefold(name)
-    matches = complete_match(arg, player_cards.keys() | nemesis_cards.keys() | player_mats.keys() | nemesis_mats.keys() | breach_values.keys())
+    possible = set()
+    for func, mapping in content_dicts:
+        possible.update(mapping.keys())
+    matches = complete_match(arg, possible)
     values = []
     if len(matches) > config.max_dupe:
         values.append(None)
         for x in matches:
-            for d in (player_cards, nemesis_cards, player_mats, nemesis_mats, breach_values):
+            for func, d in content_dicts:
                 if x in d:
                     for n in d[x]:
                         if n["name"] not in values:
@@ -510,16 +570,9 @@ def get_card(name: str) -> Optional[List[str]]:
 
         return values
     for x in matches:
-        if x in player_cards:
-            values.append(player_card(x))
-        if x in nemesis_cards:
-            values.append(nemesis_card(x))
-        if x in player_mats:
-            values.append(player_mat(x))
-        if x in nemesis_mats:
-            values.append(nemesis_mat(x))
-        if x in breach_values:
-            values.append(get_breach(x))
+        for func, mapping in content_dicts:
+            if x in mapping:
+                values.append(func(x))
 
     if not values:
         return None
@@ -605,6 +658,8 @@ async def card(ctx, *args):
         ctype = "Player card"
     elif ctype == "N":
         ctype = "Nemesis card"
+    elif ctype == "T":
+        ctype = "Treasure card"
     else:
         ctype = "Unknown card type"
 
