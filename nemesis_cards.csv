@@ -325,25 +325,25 @@ Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damag
 # Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damage.#3 Zoms: Any player discards 3 cards.#4 Zoms: Gravehold suffers 1 damage for each trogg in play. Discard all Zoms.#;;;;;The Depths;;65
 # Zom;M;2;;0;Horde-Crone;;#2 Zoms: The player with the lowest life suffers 1 damage.#3 Zoms: Any player discards 3 cards.#4 Zoms: Gravehold suffers 1 damage for each trogg in play. Discard all Zoms.#;;;;;The Depths;;66
 ;;;;;;;;;;;;;;
+Creeping Viridian;P;3;;1;Blight Lord;;;Spend 7$.;;Any player gains a Tainted Jade and places it in their hand. Advance the Tainted Track.;"""Just outside the city walls there are men and women, frozen in green horror, like monuments to the Blight Lord's coming."" - Z'hana, Breach Mage Renegade";The Nameless;;39
+Shard Spitter;M;5;;1;Blight Lord;;;;;Gravehold suffers 2 damage. Any player gains a Tainted Jade and places it on top of their deck.;"""Renny Mumbast lost both eyes to these wretched things. So now, when the warning bells sound the Blight Lord's call, we wear goggles."" - Mist, Breach Mage Dagger Captain";The Nameless;;40
+Vitrify;A;;;1;Blight Lord;;;;;The players collectively gain two Tainted Jades and place them into their hands.;The elders of Gravehold thought it wise to pave the streets of the dirt market in tumbled breach glass.;The Nameless;;41
+Dread Plinth;P;2;;2;Blight Lord;;;Spend 8$.;;Advance the Tainted Track twice.;"""If it just touches your arm, count yourself lucky. Just chop the limb off before it's too late."" - Reeve, Breach Mage Elite";The Nameless;;42
+Ossify;A;;;2;Blight Lord;;;;;The players collectively gain three Tainted Jades and place them on top of their decks.;The Blight Lord's touch is enough to crystallize anything, living or otherwise.;The Nameless;;43
+Verdigra;M;9;;2;Blight Lord;;;;;Any player suffers 3 damage. If this minion has 8 or less life, advance the Tainted Track.;"""It's great that they shatter so easily, but not so much when they explode."" - Lash, Breach Mage Scout";The Nameless;;44
+Glittering Doom;P;2;;3;Blight Lord;;;Spend 8$.;;Any player discards three cards in hand and then gains three Tainted Jades and places them into their hand.;"""Malastar is convinced The Nameless seek to change us and then harvest us for some soul purpose."" - Brama, Breach Mage Elder";The Nameless;;45
+Petrify;A;;;3;Blight Lord;;;;;Advance the Tainted Track twice.#OR#Gravehold suffers 8 damage.;"""The elders say all worlds are born of dust. Perhaps it is fitting that we return to such."" - Xaxos, Breach Mage Adept";The Nameless;;46
+Slag Horror;M;18;;3;Blight Lord;;;;;Any player gains two Tainted Jades. Advance the Tainted Track.;"The Nameless bring with them legions of monstrosities. But the Blight Lord's favorites are the ones he breathes to life from the cave walls."" - Kadir, Breach Mage Delver";The Nameless;;47
 ;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
+Blinking Terror;M;6;;1;Wayward One;;This minion is aligned to III.;;;Any player loses 1 charge or suffers 2 damage.;The Wayward One is a shepherd of sorts, guiding an army of lost horrors.;The Nameless;;56
+Irradiate;A;;;1;Wayward One;;;;;Any player suffers 2 damage. Any player discards a misaligned prepped spell.;After the Wayward One had wandered back through the breach, the survivors of Gravehold were afflicted with strange maladies. One poor boy seemed to shift out of the world, only to return, screaming, hours later.;The Nameless;;57
+Quantum Maze;P;2;;1;Wayward One;;;;;If any player has an aligned spell, a player with an aligned spell suffers 5 damage.;"""It is the Void and everything within it."" - Brama, Breach Mage Elder";The Nameless;;58
+Feedback Coil;P;2;;2;Wayward One;;;Spend 7$.;;The player with the most misaligned prepped spells suffers 3 damage and discards two cards.;"""It seems trapped between their world and ours, not quite belonging to either."" - Xaxos, Breach Mage Adept";The Nameless;;59
+Fractured Nebula;P;2;;2;Wayward One;;;;;Shift Wayward One to IV. Gravehold suffers 8 damage. The players may collectively discard up to 2 aligned spells. For each spell discarded this way, prevent 4 of that damage.;"""Within its twisted form, I saw the ragged teeth of infinity."" - Xaxos, Breach Mage Adept";The Nameless;;60
+Warper;M;9;;2;Wayward One;;This minion is aligned to IV. When a player deals damage, that player must deal damage to this minion.;;;;"""How is this thing still alive?"" - Nym, Breach Apprentice";The Nameless;;61
+Aether Flux;P;2;;3;Wayward One;;;;;If any player has two or more misaligned spells, a player with or more misaligned prepped spells suffers 7 damage.;"""It is a being lost in agony as much as it is a monster."" - Xaxos, Breach Mage Adept";The Nameless;;62
+Netherspawn;M;15;;3;Wayward One;;This minion is aligned to II. Prevent all damage dealt to Wayward One.;;;Any player destroys a breach. Gravehold suffers 4 damage.;The Wayward One differs from the others in many ways, but its odd beasts are lethal nonetheless.;The Nameless;;63
+Shunt;A;;;3;Wayward One;;;;;Any player suffers 5 damage.#OR#The player with the most prepped spells destroys all of their prepped spells.;There are charred bones fused with the cave floor, all that is left from those it has touched.;The Nameless;;64
 ;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;

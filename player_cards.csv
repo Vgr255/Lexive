@@ -412,3 +412,7 @@ Mazra's Thesis;TS;0;;;Cast: Deal 1 damage. Focus any player's III breach.;;;Outc
 ;;;;;;;;;;;
 Crystal;G;0;A=1;;Gain 1$.;;;Aeon's End;;0;0
 Spark;S;0;D=1;;Cast: Deal 1 damage.;;;War Eternal;;0;0
+;;;;;;;;;;;
+# Nemesis cards that go into players' decks;;;;;;;;;;;
+;;;;;;;;;;;
+Tainted Jade;G;0;;Use this only when playing with Blight Lord.;Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.;"""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger";;The Nameless;;48;55
