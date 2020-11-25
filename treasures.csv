@@ -10,27 +10,26 @@ Thorned Whip;T2;;When a player opens a breach, that player deals 2 damage.;"""Li
 Cleansing Amulet;T2;;After a player finishes resolving their ability, any player may destroy a card in hand.;"""Then, I destroy what is unnecessary. First, I channel."" - Nook";The New Age;END;63
 Core of Rage;T2;;At the start of the game, set this next to a spell or relic supply pile. When a player gains a card from that supply pile, they deal 2 damage.;"""I read about Rageborne in the archives. We have grown much since then."" - Mazra";The New Age;END;64
 Glutton's Tooth;T2;;When the last card in a supply pile is gained or destroyed, any player deals 6 damage.;"""Does holding this make anyone else feel hungry?"" - Razra";The New Age;END;65
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
-;T2;;;;;;
+Petrified Witch Finger;T2;;When the last card in a supply pile is gained or destroyed, any player gains 3 charges.;"""What a powerful artifact! An entire flood inside one tiny finger."" - Gygar";The Ancients;;63
+Wayward Scraps;T2;;Once per turn during any player's main phase, that player may spend 4$ to focus each player's IV breach.;"""Our true strength is not in treasures, but in numbers."" - Gygar";The Ancients;;64
+Blighted Root Clump;T2;;When the last card in a supply pile is gained or destroyed, any player gains 3 life.;"""It resembles a root, yes, but it is unnatural. The forest rejects is."" - Inco";The Ancients;;65
+Fractured Shell;T2;;At the start of the game, set this next to a supply pile that costs 4$ or more. When a player gains a card from that supply pile, that player gains a charge.;"""All mages are connected. We draw from the same source of power."" - Sahala";Shattered Dreams;;71
+Crone's Amulet;T2;;When a player opens a breach, that player may destroy a card in hand.;"""Focus your energy. Clarify. Use only what is vital."" - Taqren";Into the Wild;;27
+The Broken Mask;T2;;After a player finishes resolving their ability, any ally gains a charge.;"""One for you, one for me!"" - Claudia";Into the Wild;;28
+Eye of the Maelstrom;T2;;At the start of the game, set this next to a supply pile that costs 4$ or more. When a player gains a card from that supply pile, that player gains 1 life.;"""What once took everything from us now gives back."" - Taqren";Into the Wild;;29
+Edible Fungus Chunks;T2;;When a player gains life, they gain an additional 1 life.;"""You definitely said edible, right Inco?"" - Talix";Into the Wild;;30
+Well of Despair;T2;;When a player deals 6 or more damage to the nemesis with a single spell, add a power token to this card. At the start of the nemesis turn, the nemesis suffers damage equal to the number of tokens on this card.;"""Like the Void itself, all-consuming and inevitable."" - Qu";Into the Wild;;31
+Umbral Horn of War;T2;;At the start of the game, set this next to a spell supply pile that costs 6$ or more. Those spells deal 2 additional damage when cast.;"""This one packs a punch!"" - Rhia";Into the Wild;;74
+;;;;;;;
+Broken Tooth;T2;;When a player opens a breach, any ally draws a card.;"""Even a chipped off piece of a Nameless can create enormous power."" - Xaxos";Outcasts;2b;30
+Rejuvenating Diamond;T2;;When Gravehold gains life, Gravehold gains an additional 1 life.;"""The aether of energy and the aether of life are actually one and the same! We are the world we live in."" - Ilya";Outcasts;2b;31
+Poison Heart;T2;;At the start of the game, set this next to a spell supply pile that costs 5$ or less. Those spells deal 1 additional damage when cast.;"""An infection can fell a beast just as surely as any knife."" - Kel";Outcasts;2b;32
+Energized Husk;T2;;After a player finishes resolving their ability, any ally draws a card.;"""I'm beginning to grasp the importance of teamwork."" - Ohat";Return to Gravehold;;23
+Sparking Shards;T2;;At the start of the game, set this next to a gem supply pile. When a player gains a card from that supply pile, that player gains 1 charge.;"""Minerals are a girl's best friend."" - Cairna";Return to Gravehold;;24
+Sigil Pendant;T2;;Once per turn during any player's main phase, that player may spend 3$ to have each player gain a charge.;"""Focus. Breathe. Expand your mind."" - Lucien";Return to Gravehold;;25
+Onyx Elixir;T2;;At the start of the game, set this next to a supply pile that costs 7$ or more. When a player gains a card from that supply pile, that player gains 2 life.;"""It doesn't look tasty, but the effects are hard to ignore."" - Reth";Southern Village;;59
+Ashen Rib;T2;;Once per turn after a player plays their second relic, any ally draws a card.;"""Void essence and aether are two sides of the same coin. Each impacts the other. I am living proof."" - Qu";Southern Village;;60
+;;;;;;;
+Wraith's Essence;T2;;When a player becomes exhausted, do not resolve any on-exhaust effects. The players do not lose when all players are exhausted.;"""I wonder, sometimes. Can I truly die?"" - Lost";The New Age (Kickstarter Exclusive);;53
+Ritual Staff;T2;;When a player gains a card that costs 7$ or more, add a power token to this card. At the start of the nemesis turn, if the nemesis has exactly one turn order card in the turn order discard pile, the nemesis suffers damage equal to the number of tokens on this card.;"""I am not so old yet that I cannot stand up for humanity."" - Z'hana";Outcasts (Kickstarter Exclusive);;112
+Crown of Fangs;T2;;At the start of the game, set this next to a spell or supply pile that costs 6$ or more. These cards cost players 1$ less to gain.;"""Experience is the most importance factor in a battle, but I would never turn my back on a powerful tool."" - Taqren";Outcasts (Kickstarter Exclusive);;113

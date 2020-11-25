@@ -1014,10 +1014,10 @@ async def issues(ctx):
         mention = f"Report all other issues to {aid.mention}."
     content = """* Known issues and to-do list *
 
-- Treasures 2 and 3 are not implemented yet;
-- Nemeses and mages are not all in yet (they will be added gradually);
+- Treasures 2 and 3 are not fully implemented yet;
+- Nemeses are not all in yet (they will be added gradually);
 - Entwined Amethyst will send a similar message twice;
-- Legacy specific content is not currently implemented;
+- Legacy-specific content is not currently implemented;
 - The Outcast's abilities are not currently implemented;
 - !card doesn't return a block of text yet.
 
