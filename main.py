@@ -447,10 +447,13 @@ def player_mat(name: str) -> List[str]:
             values.append(c['special'])
             values.append("")
 
-        values.append(c['flavour'])
-        values.append("")
         values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
         values.append("```")
+
+        if c['flavour']:
+            values.append(r"\NEWLINE/```")
+            values.append(c['flavour'])
+            values.append("```")
 
     return values
 
