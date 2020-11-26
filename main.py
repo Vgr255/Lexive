@@ -63,8 +63,8 @@ waves = {
 
 ctypes = {
     "G": "Gem", "R": "Relic", "S": "Spell", "O": "Xaxos: Outcast Ability",
-    "TG": "Treasured Gem", "TS": "Treasured Spell", "T2": "Level 2 Treasure",
-    "T3": "Level 3 Treasure", "P": "Power", "M": "Minion", "A": "Attack",
+    "TG": "Treasured Gem", "TS": "Treasured Spell", "T2": "Treasure Level 2",
+    "T3": "Treasure Level 3", "P": "Power", "M": "Minion", "A": "Attack",
     "C": "Curse", "N": "Corruption", "T": "Strike",
 }
 
@@ -1027,6 +1027,10 @@ async def issues(ctx):
 """ + mention
 
     await ctx.send(content)
+
+@bot.command()
+async def github(ctx):
+    await ctx.send("https://github.com/Vgr255/Lexive")
 
 @bot.command()
 async def whoami(ctx):
