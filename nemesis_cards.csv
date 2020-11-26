@@ -244,7 +244,7 @@ Blackened Stars;P;2;;3;U;;;Spend 9$.;;Any player suffers 7 damage.;;Outcasts;4;2
 ;;;;;;;;;;;;;;
 # Nemesis-specific cards;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
-# Aeon's End / Wave 1 nemeses;;;;;;;;;;;;;;
+# Aeon's End / Wave 1 nemesis cards;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
 Broodwomb;M;5;;1;Carapace Queen;;If there is at least one husk in play, prevent all damage dealt to this minion.;;;Place a husk in play.;It is the husk-mother, spewing multitudes through the void into Gravehold.;Aeon's End;;226
 Endless Throng;A;;;1;Carapace Queen;;;;;Carapace Queen Swarms.;"""The Queen, she is the worst of their foul lot, for her young are without number."" - Mist, Breach Mage Dagger Captain";Aeon's End;;227
@@ -345,18 +345,46 @@ Aether Flux;P;2;;3;Wayward One;;;;;If any player has two or more misaligned spel
 Netherspawn;M;15;;3;Wayward One;;This minion is aligned to II. Prevent all damage dealt to Wayward One.;;;Any player destroys a breach. Gravehold suffers 4 damage.;The Wayward One differs from the others in many ways, but its odd beasts are lethal nonetheless.;The Nameless;;63
 Shunt;A;;;3;Wayward One;;;;;Any player suffers 5 damage.#OR#The player with the most prepped spells destroys all of their prepped spells.;There are charred bones fused with the cave floor, all that is left from those it has touched.;The Nameless;;64
 ;;;;;;;;;;;;;;
+# War Eternal / Wave 2 nemesis cards;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
+Deep Abomination;M;6;;1;Gate Witch;;;;;Each Player suffers 1 damage for each turn order card that player has in the turn order discard pile.;It is said that each abomination is but the same creature from across all worlds twisted into a single form.;War Eternal;;230
+Hasten;A;;;1;Gate Witch;;;;;Any player suffers damage equal to the number of nemesis tokens Gate Witch has. Unleash. Place this card on the bottom of the nemesis deck.;"""Time is The Witch's domain, the one thing we have so little left."" - Gex, Breach Mage Adviser";War Eternal;;231
+Temporal Nimbus;P;3;;1;Gate Witch;;;Spend 6$.;;Unleash. Gate Witch draws an additional card during the nemesis draw phase this turn.;;War Eternal;;232
+Nether Spiral;P;3;;2;Gate Witch;;;Spend 7$.;;Choose any player's turn order card in the turn order discard pile. Shuffle the rest of the turn order cards into the turn order deck.;"""Within the void, there are infinite spirals of worlds. Some are unborn, others are thriving. But there is a dead light in some that have been claimed by The Nameless."" - Yan Magda, Enlightened Exile";War Eternal;;233
+Paradox Beast;M;8;;2;Gate Witch;;;;;Gravehold suffers damage equal to the number of nemesis tokens Gate Witch has.;"""It moves between time and space, too quick for the eye and harder yet to strike."" - Remnant, Aethereal Entity";War Eternal;;234
+Portal Wretch;M;8;;2;Gate Witch;;When this minion is discarded from play, shuffle a nemesis turn order card into the turn order deck.;;;The player with the most charges suffers 2 damage.;;War Eternal;;235
+Distort;A;;;3;Gate Witch;;;;;Unleash. Reveal the top card of the turn order deck. If a player turn order card is revealed, discard it. Otherwise, Gravehold suffers 5 damage. Place this card on the bottom of the nemesis deck.;"""Being pushed out of time is a painful ordeal even for me."" - Remnant, Aethereal Entity";War Eternal;;236
+Infinite Enmity;P;2;;3;Gate Witch;;;Spend 8$.;;Unleash until Gate Witch has six nemesis tokens. Place this card on the bottom of the nemesis deck.;"""Countless times we have won. And countless more we have lost."" - Mazahaedron, Henge Mystic";War Eternal;;237
+Rift Scourge;M;13;;3;Gate Witch;;When this minion is discarded from play or the nemesis deck, place it on the bottom of the nemesis deck.;;;Any player suffers 4 damage.;"""It lives outside of time and therefore cannot be slain."" - Garu, Oathsworn Protector";War Eternal;;238
 ;;;;;;;;;;;;;;
+Beseech;A;;;1;Hollow Crown;;;;;Place the acolyte in play with the lowest life on the bottom of the acolyte deck. Draw an acolyte. Unleash.;The Hollow Crown gestured to the acolyte, who removed its mask and walked into the blinding light within the breach.;War Eternal;;239
+Enslave;A;;;1;Hollow Crown;;;;;Resolve the Blood Magic effect of each acolyte in play without those acolytes suffering damage from their Blood Magic effects.;It has but one weapon: blind obedience.;War Eternal;;240
+Thronewatch;M;6;;1;Hollow Crown;;;;;Resolve the Blood Magic effect of the acolyte with the lowest life. That acolyte suffers 1 additional damage.;;War Eternal;;241
+Ascend;A;;;2;Hollow Crown;;;;;Unleash. The acolyte with the lowest life gains 10 life. Resolve that acolyte's Blood Magic effect.;"""Perhaps it is not our doom, Brama. Perhaps it is our very maker."" - Xaxos, Voidbringer";War Eternal;;242
+Infernal Domain;P;2;;2;Hollow Crown;;;Spend 8$.;;Draw an acolyte. Resolve the Blood Magic effect of each acolute in play without those acolytes suffering damage from their Blood Magic effects.;;War Eternal;;243
+Reign;A;;;2;Hollow Crown;;;;;Resolve the Blood Magic effect of the acolyte with the most life. That acolyte suffers 6 additional damage. Unleash twice.;As it passed through the city, men and women dropped to their knees faithfully, their eyes heavy with tears of awe.;War Eternal;;244
+Dominate;A;;;3;Hollow Crown;;;;;Resolve the Blood Magic effect of each acolyte in play without those acolytes suffering damage from their Blood Magic effects. Repeat this one additional time.;"""Behind their masks is nothing, youngling. They have made their choice."" - Gex, Breach Mage Adviser";War Eternal;;245
+Nameless Faith;P;1;;3;Hollow Crown;;;Spend 8$.;;Shuffle the two most recently discarded acolytes in the acolyte discard into the acolyte deck. Resolve the Blood Magic effect of each acolyte in play without those acolytes suffering damage from their Blood Magic effects.;;War Eternal;;246
+Viscera Bride;M;18;;3;Hollow Crown;;;;;The acolyte with the lowest life gains 10 life. Resolve that acolyte's Blood Magic effect twice.;"""All kinds must have a queen."" - Dezmodia, Voidborn Prodigy";War Eternal;;247
+Bezu;Y;11;;0;Hollow Crown;;;;;Gravehold and this minion suffer 1 damage for each spell prepped by the player with the most prepped spells.;"""We find wisdom in their great cruelty""";War Eternal;;248
+Edryss Tragg;Y;11;;0;Hollow Crown;;;;;Any player suffers 2 damage. Then, if that player has 5 life or less, this minion suffers 2 damage.;"""We become that which is most feared.""";War Eternal;;249
+Holadran;Y;11;;0;Hollow Crown;;;;;Two different players each suffer 1 damage.;"""We renounce our existence behind each mask.""";War Eternal;;250
+Kurgax;Y;11;;0;Hollow Crown;;;;;Gravehold suffers 1 damage. Any player suffers 1 damage.;"""We hunger to be nothing.""";War Eternal;;251
+Lurzan;Y;11;;0;Hollow Crown;;;;;The player with the lowest life suffers 1 damage.;"""We cull the weak to feed the worthy.""";War Eternal;;252
+Mord;Y;11;;0;Hollow Crown;;;;;Gravehold suffers 3 damage.#OR#Any player loses 1 charge, Gravehold suffers 1 damage, and this minion suffers 1 damage.;"""We wipe the sister-words from our tongues to taste oblivion.""";War Eternal;;253
+Nhavkalas;Y;11;;0;Hollow Crown;;;;;Gravehold suffers 3 damage. This minion suffers 1 damage.;"""We cast aside the haven that has become our shackle.""";War Eternal;;254
+Ren-Goda;Y;11;;0;Hollow Crown;;;;;Any player suffers 2 damage.#OR#Any player suffers 1 damage and discards their most expensive card in hand.;"""We honor the void in blood.""";War Eternal;;255
+Solara;Y;11;;0;Hollow Crown;;;;;Any player discards 2 cards in hand. This minion suffers 3 damage.;"""We wield the breach in reverance to those from beyond it.""";War Eternal;;256
 ;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;
+Dusk Spawn;M;5;;1;Magus of Cloaks;;When this minion is dealt damage, Magus of Cleaks gains one nemesis token.;;;Any player loses 1 charge or suffers 2 damage.;"""It is shadow, given form and cruelty."" - Mazahaedron, Henge Mystic";War Eternal;;257
+Rising Dark;P;3;;1;Magus of Cloaks;;When Magus of Cloaks is dealt damage, discard this.;;;Unleash. Any player suffers 3 damage. Any player destroys a prepped spell that costs 0$.;"""Worlds are born and die in dark."" - Yan Magda, Enlightened Exile";War Eternal;;258
+Twilight Empire;P;3;;1;Magus of Cloaks;;;;;Gravehold suffers damage equal to the number of nemesis tokens Magus of Cloaks has. Then, Magus of Cloaks gains one nemesis token.;;War Eternal;;259
+Ashen Haruspex;M;5;;2;Magus of Cloaks;;When this minion is dealt damage, prevent 2 of that damage.;;;Any player suffers damage equal to half the number of nemesis tokens Magus of Cloaks has, rounded up.;"""If any among us can kill the dark itself, it is Quilius."" - Garu, Oathsworn Protector";War Eternal;;260
+Black Solstice;P;2;;2;Magus of Cloaks;;When Magus of Cloaks is dealt damage, discard this.;;;Unleash twice. Any player suffers 3 damage and discards a prepped spell.;"""I could not tell if Ulgimor was afraid or simply angry. Can a shadow feel such things?"" - Ohat, Dirt Merchant";War Eternal;;261
+Enshroud;A;;;2;Magus of Cloaks;;;;;Magus of Cloaks gains four nemesis tokens. The players collectively destroy two prepped spells that cost 0$.;"""The shadows rose and swallowed what little light there was."" - Ohat, Dirt Merchant";War Eternal;;262
+Eclipse;A;;;3;Magus of Cloaks;;;;;Magus of Cloaks gains five nemesis tokens. The player with the most expensive prepped spell destroys that spell and suffers 2 damage.;"""We live in darkness, but they thrive in it."" - Mist, Voidwalker";War Eternal;;263
+Shadow's Reach;P;9;;3;Magus of Cloaks;;;;Magus of Cloaks gains four nemesis tokens.;Magus of Cloaks reaches its final form. Humanity is wiped out. The players lose the game.;"""What little light we have shall be smothered in the end."" - Nerva, Survivor";War Eternal;;264
+Veil Daughter;M;11;;3;Magus of Cloaks;;When this minion is dealt damage, reduce that damage by the number of nemesis tokens Magus of Cloaks has.;;;The player with the most charges suffers 4 damage.;"""Where Ulgimor is merely a beast of shadow, the Veil Daughter is a darkling goddess."" - Dezmodia, Voidborn Prodigy";War Eternal;;265
 ;;;;;;;;;;;;;;
 Cryptid;M;6;;1;Umbra Titan;;;;;The player with the most expensive prepped spell discards that spell.#OR#Umbra Titan loses one nemesis token.;"""The beasts of this cave seem to revere The Titan as though it were some ancient god."" - Mazahaedron, Henge Mystic";War Eternal;;266
 Grubber;M;5;;1;Umbra Titan;;;;;If the nemesis has two turn order cards in the turn order discard pile, Umbra Titan loses one nemesis token. Otherwise, Gravehold suffers 2 damage.;"""Kick it, stab it, burn it... the thing just keeps grinning."" - Sparrow, Breach Mage Soldier";War Eternal;;267
@@ -367,6 +395,49 @@ Vault Behemoth;M;9;;2;Umbra Titan;;;;;Any player suffers 2 damage. If this minio
 Crumble;A;;;3;Umbra Titan;;;;;Umbra Titan loses three nemesis tokens.#OR#Unleash. Place the most recently discarded minion in the nemesis discard pile back into play.;;War Eternal;;272
 Demi-Ancient;M;18;;3;Umbra Titan;;;;;Umbra Titan loses one nemesis token.;"""In the time before ours, their kind thrived in the tumult of the fledgling world. Now, they seek a new home among The Nameless."" - Mazahaedron, Henge Mystic";War Eternal;;273
 Yawning Black;P;2;;3;Umbra Titan;;;Spend 8$.;;Any player suffers 6 damage.#OR#Umbra Titan loses three nemesis tokens.;The Titan hides beneath the skin of the cave, emerging only to strike.;War Eternal;;274
+;;;;;;;;;;;;;;
+Fellblade;M;6;;1;Knight of Shackles;;;;;Gravehold suffers 3 damage.#OR#Knight of Shackles focuses its breach II.;"""Dirt is precious here, so we bury our dead in the darkness of The Depths. Or so we thought..."" - Ohat, Dirt Merchant";The Void;;45
+March on Gravehold;P;2;;1;Knight of Shackles;;;Lose 4 charges.;;If Knight of Shackles's breach I is open, any player suffers 4 damage. Otherwise, Unleash twice.;;The Void;;46
+Siege;A;;;1;Knight of Shackles;;;;;Unleash twice. Any player focuses their breach III.;"""Only a breach mage would know Gravehold so well."" - Gex, Breach Mage Adviser";The Void;;47
+Chainsworn;M;10;;2;Knight of Shackles;;;;Knight of Shackles focuses its breach III.;Any player suffers 1 damage. That player suffers 1 additional damage for each opened breach Knight of Shackles has.;It strode confidently among the dead upon its blighted steed, the glow of the breach radiating from it as they sieged the city.;The Void;;48
+Engine of War;P;2;;2;Knight of Shackles;;;Discard three prepped spells.;;Any player suffers 1 damage. That player suffers 2 additional damage for each opened breach Knight of Shackles has. Unleash.;"""If Thraxir can become one of them, so can I."" - Xaxos, Voidbringer";The Void;;49
+Rout;A;;;2;Knight of Shackles;;;;;If Knight of Shackles's breach I is open, Gravehold suffers 6 damage. Otherwise, Knight of Shackles opens its breach I.;"""Mist refuses to see Thraxir within this thing, but it's quite clear to the rest of us."" - Gex, Breach Mage Adviser";The Void;;50
+Deathless Legion;M;18;;3;Knight of Shackles;;Players cannot rotate Knight of Shackles's breaches.;;;Gravehold suffers 1 damage. Gravehold suffers 1 additional damage for each opened breach Knight of Shackles has.;;The Void;;51
+End of All;P;2;;3;Knight of Shackles;;;Destroy three cards in hand that each cost 3$ or more.;;Knight of Shackles opens its closed breach with the lowest focus cost.;Thraxir was once a breach mage commander, torn asunder by the one called Rageborne. Now he is a harbinger for The Nameless, the end of all.;The Void;;52
+Invade;A;;;3;Knight of Shackles;;;;;If Knight of Shackles's breach II is closed, Knight of Shackles opens that breach. Otherwise, for each opened breach Knight of Shackles has, place the most recently discarded power card into player with the number of power tokens indicated on the card.;;The Void;;53
+;;;;;;;;;;;;;;
+;;;;1;Maiden of Thorns;;;;;;;The Void;;54
+;;;;1;Maiden of Thorns;;;;;;;The Void;;55
+;;;;1;Maiden of Thorns;;;;;;;The Void;;56
+;;;;2;Maiden of Thorns;;;;;;;The Void;;57
+;;;;2;Maiden of Thorns;;;;;;;The Void;;58
+;;;;2;Maiden of Thorns;;;;;;;The Void;;59
+;;;;3;Maiden of Thorns;;;;;;;The Void;;60
+;;;;3;Maiden of Thorns;;;;;;;The Void;;61
+;;;;3;Maiden of Thorns;;;;;;;The Void;;62
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;
 Corrupting Chitterer;M;6;;1;Experiment 153;;;;;Move maw tokens on two different tracks one space forward.;;Outcasts;1c;22
 Bound;A;;;1;Experiment 153;;;;;Any player gains two Cursed Shards from the Curse deck and places them on top of their deck.#OR#Move 1 maw token three spaces forward.;;Outcasts;1c;23
