@@ -153,22 +153,31 @@ def load():
     nemesis_cards.clear()
     with open("nemesis_cards.csv", newline="") as nemesis_file:
         content = csv.reader(nemesis_file, dialect="excel", delimiter=";")
-        for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, num in content:
+        for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
+            start = int(start)
+            if end:
+                end = int(end)
+            else:
+                end = 0
             nemesis_cards[casefold(name)].append({
                 "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
                 "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
                 "code": code, "special": expand(special, prefix=True), "discard": expand(discard),
                 "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
-                "box": box, "deck": deck, "number": int(num)
+                "box": box, "deck": deck, "start": start, "end": end
             })
+            nums = [start]
+            if end:
+                nums = range(start, end+1)
             wave = waves[box][0]
             if not deck:
                 deck = None
             if deck not in cards_num[wave]:
                 cards_num[wave][deck] = {}
-            cards_num[wave][deck][int(num)] = ("N", name)
+            for num in nums:
+                cards_num[wave][deck][num] = ("N", name)
 
     log("Nemesis cards loaded", level="local")
 
@@ -387,7 +396,10 @@ def nemesis_card(name: str) -> List[str]:
         prefix = waves[c['box']][0]
         if c['deck']:
             prefix = f"{prefix}-{c['deck']}-"
-        values.append(f"Card {prefix}{c['number']}")
+        if c['end']:
+            values.append(f"Cards {prefix}{c['start']}-{prefix}{c['end']}")
+        else:
+            values.append(f"Card {prefix}{c['start']}")
 
         values.append("```")
 
