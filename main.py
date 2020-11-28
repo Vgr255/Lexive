@@ -72,7 +72,7 @@ ctypes = {
     # Outcasts content
     "O": "Xaxos: Outcast Ability", "C": "Curse",
     # Nemesis-specific types
-    "N": "Corruption", "T": "Strike", "Y": "Minion-Acolyte",
+    "N": "Corruption", "K": "Strike", "Y": "Minion-Acolyte",
 }
 
 ability_types = {
@@ -387,7 +387,8 @@ def nemesis_card(name: str) -> List[str]:
         else:
             values.append(c['effect'])
 
-        values.append("")
+        if c['effect']:
+            values.append("")
 
         if c['flavour']:
             values.append(f"{c['flavour']}\n")
