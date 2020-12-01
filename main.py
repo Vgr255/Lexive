@@ -274,6 +274,7 @@ class Lexive(commands.Bot):
             if not content:
                 return
             if content.lower() in cmds:
+                message.content = config.prefix + content
                 log("CMD:", content)
                 await super().on_message(message)
                 return # these commands supersede cards
