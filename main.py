@@ -138,8 +138,10 @@ def load():
                 "deck": deck, "start": start, "end": end
             })
             nums = [start]
-            if end:
+            if end and not starter:
                 nums = range(start, end+1)
+            elif end and starter:
+                nums = [start, end]
             wave = waves[box][0]
             if not deck:
                 deck = None
@@ -544,7 +546,8 @@ def get_breach(name: str) -> List[str]:
 
         if c['mage']:
             values.append("") # if we have a mage, there is an effect
-            values.append(f"Used with {c['mage']} (From {player_mats[casefold(c['mage'])]['box']})")
+            # FIXME: [0] is "wrong", but technically mages should never overlap because if they do they have suffixes
+            values.append(f"Used with {c['mage']} (From {player_mats[casefold(c['mage'])][0]['box']})")
 
         values.append("```")
 
