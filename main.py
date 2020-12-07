@@ -546,7 +546,7 @@ def get_breach(name: str) -> List[str]:
 
         if c['mage']:
             values.append("") # if we have a mage, there is an effect
-            # FIXME: [0] is "wrong", but technically mages should never overlap because if they do they have suffixes
+            # [0] is "wrong", but technically mages should never overlap because if they do they have suffixes
             values.append(f"Used with {c['mage']} (From {player_mats[casefold(c['mage'])][0]['box']})")
 
         values.append("```")
@@ -1079,6 +1079,35 @@ async def whoami(ctx):
 @bot.command()
 async def faq(ctx):
     await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
+
+@bot.command()
+async def outcasts(ctx):
+    await ctx.send("""Known issues with the first Outcasts printing (from the Kickstarter):
+
+- Ilya's Deck: Stop Deck 1b contains the wrong starter cards for Ilya. Her starting hand and \
+deck should both include two Sparks. The final two cards of the End deck are Sparks and can \
+be used without spoiling any other content. IBC has confirmed this was an error. The missing \
+cards will be provided to backers of the AE6 Kickstarter, and there will be a TBD alternate \
+method of getting replacement cards for Outcast backers that don't plan to back AE6. \
+IBC has provided Print and Play Sparks as a short term solution.
+- Envelope 1b is mislabeled. It should read Envelope 1d. IBC has confirmed this was an error.
+- The battle 3 nemesis has inconsistent special rules between the nemesis mat and its reminder \
+card. Nick Little has confirmed that the Nemesis mat is correct. IBC has provided a Print and \
+Play replacement as a short term solution.
+
+There have been a few typos identified in the rulebook:
+- In the contents list on page 2, it should state that 40 life tokens with value 1 are included rather than 35.
+- In the contents list on page 3, it should state that 10 stop decks are included rather than 11.
+- In the contents list on page 3, it should state that 24 card dividers are included rather than 39.
+- In the player setup graphic on page 9, the incorrect order is shown for Kel's starting deck. \
+The Crystals should be on the top of her deck, and the Trulite of Energy should be on the bottom.
+
+There are no card dividers for the Xaxos: Outcast abilities and the Curse decks. IBC has provided \
+a Print and Play alternative, and have stated that they may include them in a future Kickstarter.
+
+Thread: <https://boardgamegeek.com/thread/2499061/outcasts-errata> (maintained by Will)
+
+""")
 
 print("Bot loaded. Starting")
 
