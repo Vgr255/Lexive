@@ -207,7 +207,7 @@ def load():
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
         content = csv.reader(nmats_file, dialect="excel", delimiter=";")
-        for name, hp, diff, battle, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, deck, cards in content:
+        for name, hp, diff, battle, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, cards in content:
             if not name or name.startswith("#"):
                 continue
             nemesis_mats[casefold(name)].append({
@@ -215,7 +215,7 @@ def load():
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
                 "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
                 "side": expand(side), "box": box, "battle": int(battle),
-                "deck": (deck or None), "cards": [int(x) for x in cards.split(",")]
+                "cards": cards.split(",")
             })
 
     log("Nemesis mats loaded", level="local")
@@ -508,10 +508,39 @@ def nemesis_mat(name: str) -> List[str]:
             values.extend(["Additional expedition rules:", c['extra'], ""])
 
         values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
+        values.append("")
 
-        cards = cards_num[waves[c['box']][0]][c['deck']]
+        largest = 0
+        box = cards_num[waves[c['box']][0]]
 
-        values.append(f"Cards used with this nemesis: {', '.join(cards[x][1] for x in c['cards'])}")
+        cards = []
+        for x in c["cards"]:
+            if x.isdigit():
+                deck = None
+                num = int(x)
+            elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit(): # regular non-Legacy stuff
+                deck = x[:2]
+                num = int(x[2:])
+            else: # Legacy stuff
+                for d in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "END"):
+                    if x.startswith(d) and x[len(d):].isdigit():
+                        deck = d
+                        num = int(x[len(d):])
+
+            ctype, card = box[deck][num]
+
+            if ctype == "N":
+                content = nemesis_cards[casefold(card)][0]
+                cards.append((f"(Tier {content['tier']} {{0}}) {card}", ctypes[content['type']]))
+            elif ctype == "P":
+                content = player_cards[casefold(card)][0]
+                cards.append((f"({content['cost']}-Cost {{0}}) {card}", ctypes[content['type']]))
+            largest = max(largest, len(ctypes[content["type"]]))
+
+        cards = [text.format(t.ljust(largest)) for text, t in cards]
+
+        values.append("Cards used with this nemesis:")
+        values.extend(cards)
 
         values.append(f"```\\NEWLINE/```\n{c['flavour']}```")
 
@@ -1044,11 +1073,9 @@ async def issues(ctx):
         mention = f"Report all other issues to {aid.mention}."
     content = """* Known issues and to-do list *
 
-- Treasures 2 and 3 are not fully implemented yet;
 - Nemeses are not all in yet (they will be added gradually);
 - Entwined Amethyst will send a similar message twice;
-- Legacy-specific content is not currently implemented;
-- The Outcast's abilities are not currently implemented;
+- Not all Legacy-specific content is implemented;
 - !card doesn't return a block of text yet.
 
 """ + mention
@@ -1104,6 +1131,10 @@ The Crystals should be on the top of her deck, and the Trulite of Energy should 
 
 There are no card dividers for the Xaxos: Outcast abilities and the Curse decks. IBC has provided \
 a Print and Play alternative, and have stated that they may include them in a future Kickstarter.
+
+Wave 4 expansion "The Ancients"'s punchboard for Mazra's Research breach and Qu's Form token \
+is not pre-punched. This affects all content printed alongside Outcasts's Kickstarter. IBC \
+is working on reprinting them and sending them out to all backers.
 
 Thread: <https://boardgamegeek.com/thread/2499061/outcasts-errata> (maintained by Will)
 
