@@ -523,9 +523,12 @@ def nemesis_mat(name: str) -> List[str]:
                 num = int(x[2:])
             else: # Legacy stuff
                 for d in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "END"):
-                    if x.startswith(d) and x[len(d):].isdigit():
+                    if x.upper().startswith(d) and x[len(d):].isdigit():
                         deck = d
                         num = int(x[len(d):])
+                        break
+                else:
+                    raise ValueError(f"Unknown card {x} for {name}")
 
             ctype, card = box[deck][num]
 
