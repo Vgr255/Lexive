@@ -366,7 +366,10 @@ def nemesis_card(name: str) -> List[str]:
                 hp = "*"
             values.append(f"Health: {hp}")
             if c['shield']:
-                values.append(f"Shield tokens: {c['shield']}")
+                shields = c['shield']
+                if shields == -1:
+                    shields = "*"
+                values.append(f"Shield tokens: {shields}")
 
         values.append("")
 
