@@ -495,15 +495,19 @@ def nemesis_mat(name: str) -> List[str]:
         if not hp:
             hp = "*"
         values.extend(["```", f"{c['name']}", f"Health: {hp}", f"Difficulty rating: {c['difficulty']}", f"Battle: {c['battle']}", 
-                       "", "SETUP:", c['setup'], "", "UNLEASH:", c['unleash'], "", "* INCREASED DIFFICULTY *"])
-        if c['id_setup']:
-            values.append(f"SETUP: {c['id_setup']}")
-        if c['id_unleash']:
-            values.append(f"UNLEASH: {c['id_unleash']}")
-        if c['id_rules']:
-            values.append(f"RULES: {c['id_rules']}")
+                       "", "SETUP:", c['setup'], "", "UNLEASH:", c['unleash'], ""])
 
-        values.extend(["", "* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
+        if c['id_setup'] or c['id_unleash'] or c['id_rules']:
+            values.append("* INCREASED DIFFICULTY *")
+            if c['id_setup']:
+                values.append(f"SETUP: {c['id_setup']}")
+            if c['id_unleash']:
+                values.append(f"UNLEASH: {c['id_unleash']}")
+            if c['id_rules']:
+                values.append(f"RULES: {c['id_rules']}")
+            values.append("")
+
+        values.extend(["* ADDITIONAL RULES *", f"{c['additional_rules']}", ""])
 
         if c['extra']:
             values.extend(["Additional expedition rules:", c['extra'], ""])
