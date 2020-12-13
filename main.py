@@ -73,6 +73,7 @@ ctypes = {
     "O": "Xaxos: Outcast Ability", "C": "Curse",
     # Nemesis-specific types
     "N": "Corruption", "K": "Strike", "Y": "Minion-Acolyte",
+    "D": "Minion-Pod",
 }
 
 ability_types = {
@@ -359,7 +360,7 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"Fully-Evolved Legacy Basic Nemesis suitable as Upgraded Basic (Tier {c['tier']})")
         else: # Nemesis-specific card
             values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
-        if c['type'] in ("M", "Y"):
+        if c['type'] in ("M", "Y", "D"):
             hp = c['tokens_hp']
             if not hp:
                 hp = "*"
@@ -380,7 +381,7 @@ def nemesis_card(name: str) -> List[str]:
                 values.append(f"TO DISCARD: {c['discard']}\n")
             values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
-        elif c['type'] == "M":
+        elif c['type'] in ("M", "D"):
             if c['effect']: # not all minions have a Persistent effect
                 values.append(f"PERSISTENT: {c['effect']}")
 
