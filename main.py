@@ -402,7 +402,12 @@ def nemesis_card(name: str) -> List[str]:
 
         values.append(f"From {c['box']} (Wave {waves[c['box']][1]})")
         prefix = waves[c['box']][0]
-        if c['deck']:
+        if not prefix:
+            if c['deck']:
+                prefix = f"{c['deck']}-"
+            else:
+                prefix = ""
+        elif c['deck']:
             prefix = f"{prefix}-{c['deck']}-"
         if c['end']:
             values.append(f"Cards {prefix}{c['start']}-{prefix}{c['end']}")
