@@ -488,25 +488,20 @@ Nightmare;M;17;;3;Deathmind;;;;;Discard a Bridge token adjacent to the first pil
 Brain Wipe;A;;;3;Deathmind;;;;;If there are four or more Bridge tokens in play, Unleash four times. Otherwise, any player suffers 5 damage.;;Legacy;VI;10;
 Thoughtful Sacrifice;P;2;;3;Deathmind;;;Discard two Bridge tokens in play.;;Gravehold suffers 8 damage.;;Legacy;VI;11;
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Draining Beacon;B;2;;0;Maelstrom: Risen;;;;Any player suffers 1 damage.;;;Legacy;VII;3;4
+Misery Beacon;B;2;;0;Maelstrom: Risen;;;;Any player discards a card in hand.;;;Legacy;VII;5;6
+Grave Beacon;B;1;;0;Maelstrom: Risen;;;;The player with the lowest life suffers 1 damage.;;;Legacy;VII;7;8
+Guardian Beacon;B;2;1;0;Maelstrom: Risen;;;;;;;Legacy;VII;9;10
+Protective Beacon;B;3;;0;Maelstrom: Risen;;;;;;;Legacy;VII;11;12
+Whipping Wires;M;7;;1;Maelstrom: Risen;;;;;If this is the Assault turn, any player suffers 2 damage. Otherwise, Unleash.;;Legacy;VII;13;
+Slice;P;3;;1;Maelstrom: Risen;;;;;The player with the most expensive card in hand degrades that card and suffers 3 damage.;;Legacy;VII;14;
+Venomous Coil;P;3;;1;Maelstrom: Risen;;;Spend 6$.;;Unleash twice. Then, any player suffers damage equal to the number of beacons in play.;;Legacy;VII;15;
+Blight;A;;;2;Maelstrom: Risen;;;;;Unleash twice. The player with the most cards in hand that cost 2$ or more discards all of those cards and draws that many cards.;;Legacy;VII;16;
+Bladius (M:R);M;14;;2;Maelstrom: Risen;;;;;The player with the fewest opened breaches suffers 2 damage.;;Legacy;END;84;
+Ferocious Assault;P;3;;2;Maelstrom: Risen;;;Spend 8$.;;Unleash. Set this card next to the nemesis mat. For the rest of this game, both nemesis turn order cards are Assault turn order cards.#(This cannot be removed once resolved.);;Legacy;VII;18;
+Cracking Earth;P;2;;3;Maelstrom: Risen;;;If the Assault turn order card is in the turn order discard pile, spend 8$. Otherwise, spend 10$.;;The player with the lowest life suffers 3 damage. A different player suffers 4 damage.;;Legacy;VII;19;
+Beast of Blades;M;17;;3;Maelstrom: Risen;;;;;Unleash. Any player suffers damage equal to the number of beacons in play.;;Legacy;VII;20;
+Erupt;A;;;3;Maelstrom: Risen;;;;;Unleash twice. The player with the most prepped spells returns those spells to their hand and then destroys three cards in hand.;;Legacy;VII;21;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
