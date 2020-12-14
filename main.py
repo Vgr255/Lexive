@@ -10,7 +10,7 @@ import config
 # the following characters will be stripped from the csv names when stored
 # and also ignored from messages (so that they are optional)
 # this is a sequence of 1-length strings
-_casefold_str = " ',:-!()"
+_casefold_str = " ',:-!()[]"
 # this character will be replaced by a newline when sent to the discord
 # this is a str
 _newline_str = "#"
@@ -73,7 +73,7 @@ ctypes = {
     "O": "Xaxos: Outcast Ability", "C": "Curse",
     # Nemesis-specific types
     "N": "Corruption", "K": "Strike", "Y": "Minion-Acolyte",
-    "D": "Minion-Pod", "B": "Minion-Beacon",
+    "D": "Minion-Pod", "B": "Minion-Beacon", "X": "Xaxos: Ascended Spell",
 }
 
 ability_types = {
@@ -555,7 +555,8 @@ def nemesis_mat(name: str) -> List[str]:
 
         cards = [text.format(t.ljust(largest)) for text, t in cards]
 
-        values.append("Cards used with this nemesis:")
+        values.append(r"```\NEWLINE/```")
+        values.append("Cards used with this nemesis:\n")
         values.extend(cards)
 
         values.append(f"```\\NEWLINE/```\n{c['flavour']}```")

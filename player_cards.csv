@@ -416,3 +416,13 @@ Spark;S;0;D=1;;Cast: Deal 1 damage.;;;War Eternal;;0;0
 # Nemesis cards that go into players' decks;;;;;;;;;;;
 ;;;;;;;;;;;
 Tainted Jade;G;0;;Use this only when playing with Blight Lord.;Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.;"""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger";;The Nameless;;48;55
+;;;;;;;;;;;
+[X:A] Flare;X;3;;;Cast: Gravehold suffers 1 damage. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage.;;;Legacy;VIII;25;26
+[X:A] Gravity Node;X;3;;;Cast: Any player suffers 2 damage and discards a card in hand.;;;Legacy;VIII;27;28
+[X:A] Incinerating Fist;X;3;;;Cast: Gravehold suffers 3 damage.;;;Legacy;VIII;29;30
+[X:A] Breach Communion;X;4;;;Cast: The player with the most pulse tokens loses 1 pulse token and suffers 3 damage.;;;Legacy;VIII;31;0
+[X:A] Pyromancy;X;4;;;Cast: The players collectively discard two cards in hand. Gravehold suffers 3 damage.;;;Legacy;VIII;32;0
+[X:A] Sparking Siphon;X;4;;;Cast: Any player loses 1 pulse token and suffers 2 damage. If 1 pulse token was lost this way, Xaxos: Ascended gains 3 life.;;;Legacy;VIII;33;0
+[X:A] Breach Collision;X;5;;;Cast: Gravehold suffers 5 damage.;;;Legacy;VIII;34;0
+[X:A] Monstrous Inferno;X;5;;;Cast: The players collectively suffer 7 damage.;;;Legacy;VIII;35;0
+[X:A] Pyro Geist;X;5;;;Cast: Any player suffers 2 damage. A different player suffers 3 damage.;;;Legacy;VIII;36;0
