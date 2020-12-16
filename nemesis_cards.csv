@@ -525,16 +525,16 @@ Egg Burst;P;1;;3;Maggoth;;;Destroy four cards in hand.;;Place three flies into p
 Savage Spawner;M;17;;3;Maggoth;;;;;Place two flies into play.;;The New Age;1c;7;
 Vivify;A;;;3;Maggoth;;;;;If there are seven or less total flies and maggots, place five flies into play. Otherwise, any player suffers 4 damage and discards their most expensive prepped spell.;;The New Age;1c;5;
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Bolster;A;;;1;Arachnos;;;;;Arachnos gains one nemesis token.#OR#Unleash. Any player suffers 3 damage.;;The New Age;2a;19;
+The Chanters;M;4;;1;Arachnos;;;;;Arachnos gains one nemesis token.;;The New Age;2a;20;
+Breach Stabilizer;P;2;;1;Arachnos;;;Spend 5$.;;Unleash. Arachnos gains one nemesis token.;;The New Age;2a;21;
+Unveil;A;;;2;Arachnos;;;;;Gravehold suffers 5 damage.#OR#Arachnos gains two nemesis tokens.;;The New Age;2a;22;
+Flame Acolyte;M;8;;2;Arachnos;;;;;If Arachnos has three or less nemesis tokens, Arachnos gains one nemesis token. Otherwise, any player suffers 3 damage.;;The New Age;2a;23;
+Empower Ritual;P;3;;2;Arachnos;;;Spend 7$.;;Arachnos gains one nemesis token. Gravehold suffers 4 damage.;;The New Age;2a;24;
+Terminate;A;;;3;Arachnos;;;;;If Arachnos has four or less nemesis tokens, Arachnos gains three nemesis tokens. Otherwise, Unleash three times.;;The New Age;2a;25;
+Ritual Guardian;M;15;;3;Arachnos;;;;;Arachnos gains one nemesis token. Unleash.;;The New Age;2a;26;
+The End;P;4;;3;Arachnos;;;;Arachnos gains 15 life.;The ritual is complete.;;The New Age;2a;27;
+World Devourer;W;0;;0;Arachnos;;;;Set this minion's life equal to the current life of Arachnos plus:#Tier 0: 5#Tier 1: 10#Tier 2: 10#Tier 3:15#Tier 4: 20#Tier 5: 20#Tier 6: 25#Tier 7: 30#Tier 8: 38#Tier 9+:40;At the start of each nemesis turn: Gravehold suffers G damage. Any player suffers P damage. The player with the lowest life suffers L damage.##Tier 0: G=3, P=3, L=0#Tier 1: G=3, P=3, L=0#Tier 2: G=4, P=3, L=0#Tier 3: G=4, P=4, L=0#Tier 4: G=4, P=4, L=0#Tier 5: G=5, P=4, L=0#Tier 6: G=5, P=0, L=4#Tier 7: G=5, P=0, L=4#Tier 8: G=5, P=0, L=4#Tier 9+: G=5, P=0, L=4;;The New Age;2a;9;18
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;

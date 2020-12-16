@@ -74,6 +74,7 @@ ctypes = {
     # Nemesis-specific types
     "N": "Corruption", "K": "Strike", "Y": "Minion-Acolyte",
     "D": "Minion-Pod", "B": "Minion-Beacon", "X": "Xaxos: Ascended Spell",
+    "W": "Minion-Nemesis",
 }
 
 ability_types = {
@@ -360,7 +361,7 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"Fully-Evolved Legacy Basic Nemesis suitable as Upgraded Basic (Tier {c['tier']})")
         else: # Nemesis-specific card
             values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
-        if c['type'] in ("M", "Y", "D", "B"):
+        if c['type'] in ("M", "Y", "D", "B", "W"):
             hp = c['tokens_hp']
             if not hp:
                 hp = "*"
