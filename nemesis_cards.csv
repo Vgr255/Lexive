@@ -357,15 +357,15 @@ Reign;A;;;2;Hollow Crown;;;;;Resolve the Blood Magic effect of the acolyte with 
 Dominate;A;;;3;Hollow Crown;;;;;Resolve the Blood Magic effect of each acolyte in play without those acolytes suffering damage from their Blood Magic effects. Repeat this one additional time.;"""Behind their masks is nothing, youngling. They have made their choice."" - Gex, Breach Mage Adviser";War Eternal;;245;
 Nameless Faith;P;1;;3;Hollow Crown;;;Spend 8$.;;Shuffle the two most recently discarded acolytes in the acolyte discard into the acolyte deck. Resolve the Blood Magic effect of each acolyte in play without those acolytes suffering damage from their Blood Magic effects.;;War Eternal;;246;
 Viscera Bride;M;18;;3;Hollow Crown;;;;;The acolyte with the lowest life gains 10 life. Resolve that acolyte's Blood Magic effect twice.;"""All kinds must have a queen."" - Dezmodia, Voidborn Prodigy";War Eternal;;247;
-Bezu;Y;11;;0;Hollow Crown;;;;;Gravehold and this minion suffer 1 damage for each spell prepped by the player with the most prepped spells.;"""We find wisdom in their great cruelty""";War Eternal;;248;
-Edryss Tragg;Y;11;;0;Hollow Crown;;;;;Any player suffers 2 damage. Then, if that player has 5 life or less, this minion suffers 2 damage.;"""We become that which is most feared.""";War Eternal;;249;
-Holadran;Y;11;;0;Hollow Crown;;;;;Two different players each suffer 1 damage.;"""We renounce our existence behind each mask.""";War Eternal;;250;
-Kurgax;Y;11;;0;Hollow Crown;;;;;Gravehold suffers 1 damage. Any player suffers 1 damage.;"""We hunger to be nothing.""";War Eternal;;251;
-Lurzan;Y;11;;0;Hollow Crown;;;;;The player with the lowest life suffers 1 damage.;"""We cull the weak to feed the worthy.""";War Eternal;;252;
-Mord;Y;11;;0;Hollow Crown;;;;;Gravehold suffers 3 damage.#OR#Any player loses 1 charge, Gravehold suffers 1 damage, and this minion suffers 1 damage.;"""We wipe the sister-words from our tongues to taste oblivion.""";War Eternal;;253;
-Nhavkalas;Y;11;;0;Hollow Crown;;;;;Gravehold suffers 3 damage. This minion suffers 1 damage.;"""We cast aside the haven that has become our shackle.""";War Eternal;;254;
-Ren-Goda;Y;11;;0;Hollow Crown;;;;;Any player suffers 2 damage.#OR#Any player suffers 1 damage and discards their most expensive card in hand.;"""We honor the void in blood.""";War Eternal;;255;
-Solara;Y;11;;0;Hollow Crown;;;;;Any player discards 2 cards in hand. This minion suffers 3 damage.;"""We wield the breach in reverance to those from beyond it.""";War Eternal;;256;
+Bezu;MA;11;;0;Hollow Crown;;;;;Gravehold and this minion suffer 1 damage for each spell prepped by the player with the most prepped spells.;"""We find wisdom in their great cruelty""";War Eternal;;248;
+Edryss Tragg;MA;11;;0;Hollow Crown;;;;;Any player suffers 2 damage. Then, if that player has 5 life or less, this minion suffers 2 damage.;"""We become that which is most feared.""";War Eternal;;249;
+Holadran;MA;11;;0;Hollow Crown;;;;;Two different players each suffer 1 damage.;"""We renounce our existence behind each mask.""";War Eternal;;250;
+Kurgax;MA;11;;0;Hollow Crown;;;;;Gravehold suffers 1 damage. Any player suffers 1 damage.;"""We hunger to be nothing.""";War Eternal;;251;
+Lurzan;MA;11;;0;Hollow Crown;;;;;The player with the lowest life suffers 1 damage.;"""We cull the weak to feed the worthy.""";War Eternal;;252;
+Mord;MA;11;;0;Hollow Crown;;;;;Gravehold suffers 3 damage.#OR#Any player loses 1 charge, Gravehold suffers 1 damage, and this minion suffers 1 damage.;"""We wipe the sister-words from our tongues to taste oblivion.""";War Eternal;;253;
+Nhavkalas;MA;11;;0;Hollow Crown;;;;;Gravehold suffers 3 damage. This minion suffers 1 damage.;"""We cast aside the haven that has become our shackle.""";War Eternal;;254;
+Ren-Goda;MA;11;;0;Hollow Crown;;;;;Any player suffers 2 damage.#OR#Any player suffers 1 damage and discards their most expensive card in hand.;"""We honor the void in blood.""";War Eternal;;255;
+Solara;MA;11;;0;Hollow Crown;;;;;Any player discards 2 cards in hand. This minion suffers 3 damage.;"""We wield the breach in reverance to those from beyond it.""";War Eternal;;256;
 ;;;;;;;;;;;;;;;
 Dusk Spawn;M;5;;1;Magus of Cloaks;;When this minion is dealt damage, Magus of Cleaks gains one nemesis token.;;;Any player loses 1 charge or suffers 2 damage.;"""It is shadow, given form and cruelty."" - Mazahaedron, Henge Mystic";War Eternal;;257;
 Rising Dark;P;3;;1;Magus of Cloaks;;When Magus of Cloaks is dealt damage, discard this.;;;Unleash. Any player suffers 3 damage. Any player destroys a prepped spell that costs 0$.;"""Worlds are born and die in dark."" - Yan Magda, Enlightened Exile";War Eternal;;258;
@@ -440,13 +440,13 @@ Flying Guillotine;P;2;;3;Bladius;;;Spend 8$.;;Gravehold suffers 6 damage.;;Legac
 Iron Charger;M;13;;3;Bladius;;;;;Any player destroys a prepped spell and discards a card in hand.;;Legacy;II;28;
 ;;;;;;;;;;;;;;;
 Breeding Chamber;M;0;;0;Spawning Horror;;This minion can never have less than 1 life. This minion has no maximum life.;;;;;Legacy;III;6;
-Crystalline Pod;D;7;;0;Spawning Horror;;;;;Any player discards a card in hand.;;Legacy;III;7;
-Electric Pod;D;6;;0;Spawning Horror;;;;;Gravehold suffers 2 damage.;;Legacy;END;78;
-Frozen Pod;D;4;1;0;Spawning Horror;;;;;The player with the lowest life suffers 1 damage.;;Legacy;III;9;
-Volcanic Pod;D;5;2;0;Spawning Horror;;;;;Gravehold suffers 1 damage.;;Legacy;III;10;
-Marrow Pod;D;5;;0;Spawning Horror;;;;;Breeding Chamber gains 2 life.;;Legacy;III;11;
-Spiked Pod;D;4;2;0;Spawning Horror;;;;;Any player suffers 2 damage.;;Legacy;III;12;
-Acidic Pod;D;6;;0;Spawning Horror;;;;;The player with the fewest opened breaches suffers 2 damage.;;Legacy;III;13;
+Crystalline Pod;MP;7;;0;Spawning Horror;;;;;Any player discards a card in hand.;;Legacy;III;7;
+Electric Pod;MP;6;;0;Spawning Horror;;;;;Gravehold suffers 2 damage.;;Legacy;END;78;
+Frozen Pod;MP;4;1;0;Spawning Horror;;;;;The player with the lowest life suffers 1 damage.;;Legacy;III;9;
+Volcanic Pod;MP;5;2;0;Spawning Horror;;;;;Gravehold suffers 1 damage.;;Legacy;III;10;
+Marrow Pod;MP;5;;0;Spawning Horror;;;;;Breeding Chamber gains 2 life.;;Legacy;III;11;
+Spiked Pod;MP;4;2;0;Spawning Horror;;;;;Any player suffers 2 damage.;;Legacy;III;12;
+Acidic Pod;MP;6;;0;Spawning Horror;;;;;The player with the fewest opened breaches suffers 2 damage.;;Legacy;III;13;
 Amplify Energy;P;3;;1;Spawning Horror;;;Spend 6$.;;Resolve the persistent effect of the pod with the most life three times.#OR#Breeding Chamber gains 5 life.;;Legacy;III;14;
 Unearth;A;;;1;Spawning Horror;;;;;If there are no pods in play, Breeding Chamber gains 5 life. Otherwise, Gravehold suffers 4 damage.;;Legacy;III;15;
 Construct;A;;;1;Spawning Horror;;;;;Draw a card from the pod deck and place it into play. Then, set that minion's life to 2. (This does not affect shield tokens.);;Legacy;III;16;
@@ -488,11 +488,11 @@ Nightmare;M;17;;3;Deathmind;;;;;Discard a Bridge token adjacent to the first pil
 Brain Wipe;A;;;3;Deathmind;;;;;If there are four or more Bridge tokens in play, Unleash four times. Otherwise, any player suffers 5 damage.;;Legacy;VI;10;
 Thoughtful Sacrifice;P;2;;3;Deathmind;;;Discard two Bridge tokens in play.;;Gravehold suffers 8 damage.;;Legacy;VI;11;
 ;;;;;;;;;;;;;;;
-Draining Beacon;B;2;;0;Maelstrom: Risen;;;;Any player suffers 1 damage.;;;Legacy;VII;3;4
-Misery Beacon;B;2;;0;Maelstrom: Risen;;;;Any player discards a card in hand.;;;Legacy;VII;5;6
-Grave Beacon;B;1;;0;Maelstrom: Risen;;;;The player with the lowest life suffers 1 damage.;;;Legacy;VII;7;8
-Guardian Beacon;B;2;1;0;Maelstrom: Risen;;;;;;;Legacy;VII;9;10
-Protective Beacon;B;3;;0;Maelstrom: Risen;;;;;;;Legacy;VII;11;12
+Draining Beacon;MB;2;;0;Maelstrom: Risen;;;;Any player suffers 1 damage.;;;Legacy;VII;3;4
+Misery Beacon;MB;2;;0;Maelstrom: Risen;;;;Any player discards a card in hand.;;;Legacy;VII;5;6
+Grave Beacon;MB;1;;0;Maelstrom: Risen;;;;The player with the lowest life suffers 1 damage.;;;Legacy;VII;7;8
+Guardian Beacon;MB;2;1;0;Maelstrom: Risen;;;;;;;Legacy;VII;9;10
+Protective Beacon;MB;3;;0;Maelstrom: Risen;;;;;;;Legacy;VII;11;12
 Whipping Wires;M;7;;1;Maelstrom: Risen;;;;;If this is the Assault turn, any player suffers 2 damage. Otherwise, Unleash.;;Legacy;VII;13;
 Slice;P;3;;1;Maelstrom: Risen;;;;;The player with the most expensive card in hand degrades that card and suffers 3 damage.;;Legacy;VII;14;
 Venomous Coil;P;3;;1;Maelstrom: Risen;;;Spend 6$.;;Unleash twice. Then, any player suffers damage equal to the number of beacons in play.;;Legacy;VII;15;
@@ -534,7 +534,7 @@ Empower Ritual;P;3;;2;Arachnos;;;Spend 7$.;;Arachnos gains one nemesis token. Gr
 Terminate;A;;;3;Arachnos;;;;;If Arachnos has four or less nemesis tokens, Arachnos gains three nemesis tokens. Otherwise, Unleash three times.;;The New Age;2a;25;
 Ritual Guardian;M;15;;3;Arachnos;;;;;Arachnos gains one nemesis token. Unleash.;;The New Age;2a;26;
 The End;P;4;;3;Arachnos;;;;Arachnos gains 15 life.;The ritual is complete.;;The New Age;2a;27;
-World Devourer;W;0;;0;Arachnos;;;;Set this minion's life equal to the current life of Arachnos plus:#Tier 0: 5#Tier 1: 10#Tier 2: 10#Tier 3:15#Tier 4: 20#Tier 5: 20#Tier 6: 25#Tier 7: 30#Tier 8: 38#Tier 9+:40;At the start of each nemesis turn: Gravehold suffers G damage. Any player suffers P damage. The player with the lowest life suffers L damage.##Tier 0: G=3, P=3, L=0#Tier 1: G=3, P=3, L=0#Tier 2: G=4, P=3, L=0#Tier 3: G=4, P=4, L=0#Tier 4: G=4, P=4, L=0#Tier 5: G=5, P=4, L=0#Tier 6: G=5, P=0, L=4#Tier 7: G=5, P=0, L=4#Tier 8: G=5, P=0, L=4#Tier 9+: G=5, P=0, L=4;;The New Age;2a;9;18
+World Devourer;MN;0;;0;Arachnos;;;;Set this minion's life equal to the current life of Arachnos plus:#Tier 0: 5#Tier 1: 10#Tier 2: 10#Tier 3: 15#Tier 4: 20#Tier 5: 20#Tier 6: 25#Tier 7: 30#Tier 8: 38#Tier 9+: 40;Gravehold suffers G damage. Any player suffers P damage. The player with the lowest life suffers L damage.##Tier 0: G=3, P=3, L=0#Tier 1: G=3, P=3, L=0#Tier 2: G=4, P=3, L=0#Tier 3: G=4, P=4, L=0#Tier 4: G=4, P=4, L=0#Tier 5: G=5, P=4, L=0#Tier 6: G=5, P=0, L=4#Tier 7: G=5, P=0, L=4#Tier 8: G=5, P=0, L=4#Tier 9+: G=5, P=0, L=4;;The New Age;2a;9;18
 ;;;;;;;;;;;;;;;
 Age Siphon;A;;;1;Ageless Walker;;;;;Any player exiles a spell in their hand or discard pile. Gravehold suffers 2 damage.;;The New Age;3a;10;
 Enveloping Ooze;M;5;;1;Ageless Walker;;;;;Gravehold suffers 2 damage. Any player discards the top card of their deck.;;The New Age;3a;11;
@@ -551,12 +551,12 @@ Dodge;A;;;1;Fenrix;;;;;Unleash. Return any player's Position token on a minion t
 Crazed Whelps;P;3;;1;Fenrix;;;;;Place two claws into play. Set the life of those minions to 2. Do not resolve these minions' PERSISTENT effects this turn.;;The New Age;4;12;
 Rally the Pack;P;2;;1;Fenrix;;;;;If there are no claws in play, Unleash twice. Otherwise, Unleash, any player suffers 3 damage, and places their Position token on a claw.;;The New Age;4;13;
 Obscure;A;;;2;Fenrix;;Players cannot place Position tokens on claws this turn.;;;Unleash twice. The player with the most expensive prepped spell places that spell on top of their deck.;;The New Age;4;14;
-Hunting Claw;L;8;;2;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion. When this minion is discarded, place it in Fenrix's discard pile.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;15;
+Hunting Claw;MC;8;;2;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion. When this minion is discarded, place it in Fenrix's discard pile.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;15;
 Spring of Fury;P;3;;2;Fenrix;;;Spend 7$.;;Unleash twice. Place this next to the nemesis mat. For the rest of the game, when a claw is placed into play, place it into play with 1 additional life.;;The New Age;4;16;
 Lacerate;A;;;3;Fenrix;;;;;If there are two or less claws in play, Unleash three times. Otherwise, resolve the persistent effect of each claw in play.;;The New Age;4;17;
 Molten Alpha;M;15;;3;Fenrix;;;;Place each player's Position token on this minion.;Gravehold suffers 4 damage.;;The New Age;4;18;
 Aether Blizzard;P;2;;3;Fenrix;;;Destroy three cards in hand that cost 3$ or more.;;Unleash three times. Return one player's Position token on a minion to that player. Players cannot place Position tokens on claws this turn.;;The New Age;4;19;
-Rending Claw;L;5;;0;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;6;10
+Rending Claw;MC;5;;0;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;6;10
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;

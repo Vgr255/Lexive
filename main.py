@@ -72,9 +72,10 @@ ctypes = {
     # Outcasts content
     "O": "Xaxos: Outcast Ability", "C": "Curse",
     # Nemesis-specific types
-    "N": "Corruption", "K": "Strike", "Y": "Minion-Acolyte",
-    "D": "Minion-Pod", "B": "Minion-Beacon", "X": "Xaxos: Ascended Spell",
-    "W": "Minion-Nemesis", "L": "Minion-Claw",
+    "N": "Corruption", "K": "Strike", "X": "Xaxos: Ascended Spell",
+    # Minion types
+    "MA": "Minion-Acolyte", "MP": "Minion-Pod", "MB": "Minion-Beacon",
+    "MN": "Minion-Nemesis", "MC": "Minion-Claw",
 }
 
 ability_types = {
@@ -361,7 +362,7 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"Fully-Evolved Legacy Basic Nemesis suitable as Upgraded Basic (Tier {c['tier']})")
         else: # Nemesis-specific card
             values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
-        if c['type'] in ("M", "Y", "D", "B", "W", "L"):
+        if c['type'].startswith("M"):
             hp = c['tokens_hp']
             if not hp:
                 hp = "*"
@@ -385,12 +386,12 @@ def nemesis_card(name: str) -> List[str]:
                 values.append(f"TO DISCARD: {c['discard']}\n")
             values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
-        elif c['type'] in ("M", "D", "B", "L"):
+        elif c['type'] == "MA":
+            values.append(f"BLOOD MAGIC: {c['effect']}")
+
+        elif c['type'].startswith("M"):
             if c['effect']: # not all minions have a Persistent effect
                 values.append(f"PERSISTENT: {c['effect']}")
-
-        elif c['type'] == "Y":
-            values.append(f"BLOOD MAGIC: {c['effect']}")
 
         else:
             values.append(c['effect'])
