@@ -536,17 +536,16 @@ Ritual Guardian;M;15;;3;Arachnos;;;;;Arachnos gains one nemesis token. Unleash.;
 The End;P;4;;3;Arachnos;;;;Arachnos gains 15 life.;The ritual is complete.;;The New Age;2a;27;
 World Devourer;W;0;;0;Arachnos;;;;Set this minion's life equal to the current life of Arachnos plus:#Tier 0: 5#Tier 1: 10#Tier 2: 10#Tier 3:15#Tier 4: 20#Tier 5: 20#Tier 6: 25#Tier 7: 30#Tier 8: 38#Tier 9+:40;At the start of each nemesis turn: Gravehold suffers G damage. Any player suffers P damage. The player with the lowest life suffers L damage.##Tier 0: G=3, P=3, L=0#Tier 1: G=3, P=3, L=0#Tier 2: G=4, P=3, L=0#Tier 3: G=4, P=4, L=0#Tier 4: G=4, P=4, L=0#Tier 5: G=5, P=4, L=0#Tier 6: G=5, P=0, L=4#Tier 7: G=5, P=0, L=4#Tier 8: G=5, P=0, L=4#Tier 9+: G=5, P=0, L=4;;The New Age;2a;9;18
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Age Siphon;A;;;1;Ageless Walker;;;;;Any player exiles a spell in their hand or discard pile. Gravehold suffers 2 damage.;;The New Age;3a;10;
+Enveloping Ooze;M;5;;1;Ageless Walker;;;;;Gravehold suffers 2 damage. Any player discards the top card of their deck.;;The New Age;3a;11;
+Temporal Leap;P;3;;1;Ageless Walker;;;;;The players collectively exile two cards in hand.;;The New Age;3a;12;
+Timeless Serpent;M;12;;2;Ageless Walker;;;;Any player exiles one card in hand.;Any player discards their most expensive card in hand.;;The New Age;3a;13;
+Burden of Knowledge;P;3;;2;Ageless Walker;;;;;The players collectively exile two cards in hand or discard pile that cost 2$ or more.;;The New Age;3a;14;
+Rush of Madness;P;3;;2;Ageless Walker;;;Spend 7$.;;Unleash twice. Exile a card from the most expensive supply pile. Gravehold suffers 4 damage.;;The New Age;3a;15;
+Siege of Dust;P;1;;3;Ageless Walker;;;;;Unleash. If the top card of the exiled pile costs more than 0$, Gravehold suffers 4 damage. Otherwise, Gravehold suffers 8 damage.;;The New Age;3a;16;
+Forget;A;;;3;Ageless Walker;;;;;Any player exiles two cards in hand and draws two cards. Gravehold suffers 5 damage.;;The New Age;3a;17;
+Spire of Bone;M;16;;3;Ageless Walker;;;;Destroy all of the cards in the exiled pile.;Any player exiles a card in hand and draws a card. Gravehold suffers 2 damage.;;The New Age;3a;18;
+Curse of Aging;C;;;0;Ageless Walker;;This cannot be destroyed or exiled.;;;When this is in your hand, after you finish drawing cards, immediately suffer 1 damage and draw a card. Then, discard this card.;;The New Age;3a;6;9
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
