@@ -426,3 +426,5 @@ Tainted Jade;G;0;;Use this only when playing with Blight Lord.;Gain 2$. Suffer 1
 [X:A] Breach Collision;X;5;;;Cast: Gravehold suffers 5 damage.;;;Legacy;VIII;34;0
 [X:A] Monstrous Inferno;X;5;;;Cast: The players collectively suffer 7 damage.;;;Legacy;VIII;35;0
 [X:A] Pyro Geist;X;5;;;Cast: Any player suffers 2 damage. A different player suffers 3 damage.;;;Legacy;VIII;36;0
+;;;;;;;;;;;
+Cracked Onyx;G;0;;Use this only when playing with The Wailing.#When this is destroyed, return it to its supply pile.;Gain 1$.#OR#Return this and up to one Cracked Onyx in your discard pile to its supply pile.;;;Shattered Dreams;;74;93
