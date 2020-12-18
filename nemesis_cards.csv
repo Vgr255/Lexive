@@ -547,16 +547,16 @@ Forget;A;;;3;Ageless Walker;;;;;Any player exiles two cards in hand and draws tw
 Spire of Bone;M;16;;3;Ageless Walker;;;;Destroy all of the cards in the exiled pile.;Any player exiles a card in hand and draws a card. Gravehold suffers 2 damage.;;The New Age;3a;18;
 Curse of Aging;C;;;0;Ageless Walker;;This cannot be destroyed or exiled.;;;When this is in your hand, after you finish drawing cards, immediately suffer 1 damage and draw a card. Then, discard this card.;;The New Age;3a;6;9
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Dodge;A;;;1;Fenrix;;;;;Unleash. Return any player's Position token on a minion to that player.#OR#Unleash. Any player suffers 2 damage and discards a card in hand.;;The New Age;4;11;
+Crazed Whelps;P;3;;1;Fenrix;;;;;Place two claws into play. Set the life of those minions to 2. Do not resolve these minions' PERSISTENT effects this turn.;;The New Age;4;12;
+Rally the Pack;P;2;;1;Fenrix;;;;;If there are no claws in play, Unleash twice. Otherwise, Unleash, any player suffers 3 damage, and places their Position token on a claw.;;The New Age;4;13;
+Obscure;A;;;2;Fenrix;;Players cannot place Position tokens on claws this turn.;;;Unleash twice. The player with the most expensive prepped spell places that spell on top of their deck.;;The New Age;4;14;
+Hunting Claw;L;8;;2;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion. When this minion is discarded, place it in Fenrix's discard pile.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;15;
+Spring of Fury;P;3;;2;Fenrix;;;Spend 7$.;;Unleash twice. Place this next to the nemesis mat. For the rest of the game, when a claw is placed into play, place it into play with 1 additional life.;;The New Age;4;16;
+Lacerate;A;;;3;Fenrix;;;;;If there are two or less claws in play, Unleash three times. Otherwise, resolve the persistent effect of each claw in play.;;The New Age;4;17;
+Molten Alpha;M;15;;3;Fenrix;;;;Place each player's Position token on this minion.;Gravehold suffers 4 damage.;;The New Age;4;18;
+Aether Blizzard;P;2;;3;Fenrix;;;Destroy three cards in hand that cost 3$ or more.;;Unleash three times. Return one player's Position token on a minion to that player. Players cannot place Position tokens on claws this turn.;;The New Age;4;19;
+Rending Claw;L;5;;0;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;6;10
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;

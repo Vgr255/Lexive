@@ -74,7 +74,7 @@ ctypes = {
     # Nemesis-specific types
     "N": "Corruption", "K": "Strike", "Y": "Minion-Acolyte",
     "D": "Minion-Pod", "B": "Minion-Beacon", "X": "Xaxos: Ascended Spell",
-    "W": "Minion-Nemesis",
+    "W": "Minion-Nemesis", "L": "Minion-Claw",
 }
 
 ability_types = {
@@ -361,7 +361,7 @@ def nemesis_card(name: str) -> List[str]:
             values.append(f"Fully-Evolved Legacy Basic Nemesis suitable as Upgraded Basic (Tier {c['tier']})")
         else: # Nemesis-specific card
             values.append(f"Nemesis card for {c['category']} (Tier {c['tier']})")
-        if c['type'] in ("M", "Y", "D", "B", "W"):
+        if c['type'] in ("M", "Y", "D", "B", "W", "L"):
             hp = c['tokens_hp']
             if not hp:
                 hp = "*"
@@ -385,7 +385,7 @@ def nemesis_card(name: str) -> List[str]:
                 values.append(f"TO DISCARD: {c['discard']}\n")
             values.append(f"POWER {c['tokens_hp']}: {c['effect']}")
 
-        elif c['type'] in ("M", "D", "B"):
+        elif c['type'] in ("M", "D", "B", "L"):
             if c['effect']: # not all minions have a Persistent effect
                 values.append(f"PERSISTENT: {c['effect']}")
 
@@ -529,7 +529,10 @@ def nemesis_mat(name: str) -> List[str]:
 
         cards = []
         for x in c["cards"]:
-            if x.isdigit():
+            if x.isdigit() and x[0] == "4":
+                deck = "4"
+                num = int(x[1:])
+            elif x.isdigit():
                 deck = None
                 num = int(x)
             elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit(): # regular non-Legacy stuff
