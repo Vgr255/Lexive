@@ -558,16 +558,16 @@ Molten Alpha;M;15;;3;Fenrix;;;;Place each player's Position token on this minion
 Aether Blizzard;P;2;;3;Fenrix;;;Destroy three cards in hand that cost 3$ or more.;;Unleash three times. Return one player's Position token on a minion to that player. Players cannot place Position tokens on claws this turn.;;The New Age;4;19;
 Rending Claw;MC;5;;0;Fenrix;;Prevent all damage dealt to this minion by players without a Position token on this minion.;;Any player may place a Position token on this minion.;Any player with a Position token on this claw suffers 2 damage.#OR#Gravehold suffers 2 damage.;;The New Age;4;6;10
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Energizing Archon;M;4;;1;The Wanderer;;When this minion suffers damage, any pylon gains 1 life.;;;Gravehold suffers 2 damage.;;The Ancients;;74;
+Channeled Focus;P;3;;1;The Wanderer;;;;;If a pylon in play has 5 or less life, Gravehold suffers 3 damage. Otherwise, Gravehold suffers 6 damage.;;The Ancients;;75;
+Regenerative Light;P;3;;1;The Wanderer;;;;;The pylons collectively gain 5 life.#OR#Discard the top card of the nemesis deck.;;The Ancients;;76;
+Blazing Archon;M;10;;2;The Wanderer;;;;;Gravehold suffers 1 damage. Any pylon gains 2 life.;;The Ancients;;77;
+Shield Archon;M;12;;2;The Wanderer;;Prevent all damage dealt to pylons.;;;Any player discards their most expensive gem in hand.;;The Ancients;;78;
+Protective Aura;P;3;;2;The Wanderer;;;Discard two prepped spells that each cost 4$ or more.;;Gravehold suffers 4 damage. Place this next to the nemesis mat. For the rest of the game, when a player spends $ to deal damage to The Wanderer, reduce that damage by 1.;;The Ancients;;79;
+Revive;A;;;3;The Wanderer;;;;;Unleash. Gravehold suffers 4 damage. Place a Dampening Pylon in the pylon discard pile into play.;;The Ancients;;80;
+Meteor Pylon;MD;22;;3;The Wanderer;;When a player spends $ to deal damage to The Wanderer, reduce that damage by 3.;;;Gravehold suffers 3 damage.;;The Ancients;;81;
+Animate;A;;;3;The Wanderer;;;;;Unleash twice. Place a Dampening Pylon in the pylon discard pile into play. The player with the most expensive gem in hand discards all gems in hand.;;The Ancients;;82;
+Dampening Pylon;MD;10;;0;The Wanderer;;When a player spends $ to deal damage to The Wanderer, reduce that damage by 1.##When a player causes this minion to be discarded, that player gains 2$.;;;;;The Ancients;;70;73
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;

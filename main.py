@@ -75,7 +75,7 @@ ctypes = {
     "N": "Corruption", "K": "Strike", "X": "Xaxos: Ascended Spell",
     # Minion types
     "MA": "Minion-Acolyte", "MP": "Minion-Pod", "MB": "Minion-Beacon",
-    "MN": "Minion-Nemesis", "MC": "Minion-Claw",
+    "MN": "Minion-Nemesis", "MC": "Minion-Claw", "MD": "Minion-Pylon",
 }
 
 ability_types = {
@@ -530,8 +530,8 @@ def nemesis_mat(name: str) -> List[str]:
 
         cards = []
         for x in c["cards"]:
-            if x.isdigit() and x[0] == "4":
-                deck = "4"
+            if x.isdigit() and x[0] in box:
+                deck = x[0]
                 num = int(x[1:])
             elif x.isdigit():
                 deck = None
