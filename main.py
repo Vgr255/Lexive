@@ -774,6 +774,9 @@ async def box(ctx, *args):
             result.extend([f"```\\NEWLINE/```", f"Deck: {deck}", ""])
             count = len(deck) + 12
         for num, (ctype, card) in cards_num[prefix][deck].items():
+            if count >= 1900:
+                result.append("```\\NEWLINE/```")
+                count = 3
             ind = c[ctype][casefold(card)]
             for d in ind:
                 result.append(f"- {card} ({ctypes[d['type']]}) ({num})")
