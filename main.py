@@ -746,6 +746,44 @@ async def card(ctx, *args):
 
     await ctx.send(f"{name} ({ctype})")
 
+@bot.command()
+async def box(ctx, *args):
+    arg = "".join(args)
+    arg = casefold(arg)
+    mapping = {casefold(x): x for x in waves}
+    values = complete_match(arg, mapping)
+    if len(values) > 1:
+        await ctx.send(f"Ambiguous value. Possible matches: {', '.join(values)}")
+        return
+    if not values:
+        await ctx.send("No match found")
+        return
+
+    box = mapping[values[0]]
+    prefix = waves[box][0]
+    
+    result = ["```", f"Cards from {box}:", ""]
+    count = len(" ".join(result))
+    c = {"P": player_cards, "N": nemesis_cards, "T": treasure_values}
+
+    for deck in cards_num[prefix]:
+        if count >= 1900:
+            result.append("```\\NEWLINE/```")
+            count = 3
+        if deck:
+            result.extend([f"```\\NEWLINE/```", f"Deck: {deck}", ""])
+            count = len(deck) + 12
+        for num, (ctype, card) in cards_num[prefix][deck].items():
+            ind = c[ctype][casefold(card)]
+            for d in ind:
+                result.append(f"- {card} ({ctypes[d['type']]}) ({num})")
+                count += len(result[-1])
+
+    result.append("```")
+
+    for line in "\n".join(result).split("\\NEWLINE/"):
+        await ctx.send(line)
+
 # unique mechanics begin
 
 @cmd
@@ -837,9 +875,9 @@ async def destroy(ctx):
 
 @cmd
 async def dual(ctx):
-    await ctx.send("```\nSome spells must be prepped to two adjacent breaches so that this touches both breaches. " +
+    await ctx.send("```\nSome spells must be prepped to two adjacent breaches so that it touches both breaches. " +
     "This fully occupies both breaches. If one or both of these breaches have an additional effect, " +
-    "such as additional damage of gaining life, then the spell prepped to these breaches gains the " +
+    "such as additional damage or gaining life, then the spell prepped to these breaches gains the " +
     "additional effect(s) of all of the breaches it is prepped to.\n```")
 
 @cmd
@@ -1076,7 +1114,7 @@ async def wandering(ctx):
 
 @bot.command()
 async def unique(ctx):
-    await ctx.send("```The unique mechanics that I know about are as follow. " +
+    await ctx.send("```\nThe unique mechanics that I know about are as follow. " +
     f"You may prefix them with {config.prefix} to ask me about them.\n- " +
     "\n- ".join(cmds) + "\n```")
 
