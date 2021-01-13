@@ -73,6 +73,7 @@ ctypes = {
     "O": "Xaxos: Outcast Ability", "C": "Curse",
     # Nemesis-specific types
     "N": "Corruption", "K": "Strike", "X": "Xaxos: Ascended Spell",
+    "B": "Bramble", "E": "Reminder",
     # Minion types
     "MA": "Minion-Acolyte", "MP": "Minion-Pod", "MB": "Minion-Beacon",
     "MN": "Minion-Nemesis", "MC": "Minion-Claw", "MD": "Minion-Pylon",

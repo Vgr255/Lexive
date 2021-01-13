@@ -209,7 +209,7 @@ Olivinite;G;3;;;Gain 2$.#OR#Deal 1 damage to a minion.;"""Break off a chunk and 
 Cache Glass;G;4;;;Gain 2$. If there is a Cache Glass in your discard pile, you may destroy a card in your discard pile.;"""Numerous facets, reflecting into countless possibilities."" - Lexive, Arcane Theorist";;Shattered Dreams;;10;16
 Reflective Conduit;R;3;;;Attach this to any player's breach. When a spell is cast from this breach, the player who cast that spell may return it to their hand instead of discarding it. If they do, discard this.;"""Slice it like this. Now expand and make it two."" - Qu";;Shattered Dreams;;17;21
 Will Weaver;R;7;;;Gain 2 charges. After the next time you activate your ability this turn, deal 3 damage.;"""It makes me uncomfortable, hurts my head, but it flows with power."" - Talix";;Shattered Dreams;;22;26
-Breache Seeker;S;5;;!Echo;Cast: Deal 1 damage. Focus any ally's breach.;"""Cut through the aether, bring me the Void!"" - Mazra";;Shattered Dreams;;27;31
+Breach Seeker;S;5;;!Echo;Cast: Deal 1 damage. Focus any ally's breach.;"""Cut through the aether, bring me the Void!"" - Mazra";;Shattered Dreams;;27;31
 Crescendo Ray;S;4;;;Cast: Deal 3 damage. Gain 1$ for each other spell you have prepped.;"""Do not challenge me."" - Soskel";;Shattered Dreams;;32;36
 Storm Vapors;S;4;;;Cast: Deal 3 damage. If there is another Storm Vapors in any player's discard pile, focus any player's breach.;"""Mazra told me where to go, but I was the one to bring it back."" - Razra";;Shattered Dreams;;37;41
 Mantra of Strength;S;3;;;Cast: Any player focuses their closed breach with the highest focus cost. Deal 1 damage. You may destroy this. If you do, deal 2 additional damage.;"""Three hundred reps, every day. Be the water."" - Gygar";;Shattered Dreams;;42;46

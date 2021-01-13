@@ -583,18 +583,19 @@ Shatter (2 players);P;8;;0;The Wailing;;Use this version of Shatter for a 2-play
 Shatter (3 players);P;10;;0;The Wailing;;Use this version of Shatter for a 3-player game.;;;For each nemesis token The Wailing has, Gravehold suffers 9 damage. Then, The Wailing gains one nemesis token.##Do not discard this card from play. Instead, add 8 power tokens to this card.;;Shattered Dreams;;96;
 Shatter (4 players);P;13;;0;The Wailing;;Use this version of Shatter for a 4-player game.;;;For each nemesis token The Wailing has, Gravehold suffers 9 damage. Then, The Wailing gains one nemesis token.##Do not discard this card from play. Instead, add 11 power tokens to this card.;;Shattered Dreams;;97;
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Bramble Reminder;E;;;0;Necroswarm;;Leave this reminder card in play.;;;At the start of the nemesis turn, the brambles rush Gravehold:##If there is at least one bramble in play, draw a bramble movement card, and move each bramble that many spaces toward Gravehold. Otherwise, Unleash.;;Into the Wild;;53;
+Brambles Rush 1;B;;;0;Necroswarm;;;;;The brambles move one space toward Gravehold.;;Into the Wild;;54;56
+Brambles Rush 2;B;;;0;Necroswarm;;;;;The brambles move two spaces toward Gravehold.;;Into the Wild;;57;59
+Brambles Rush 0;B;;;0;Necroswarm;;;;;The brambles do not move toward Gravehold.;;Into the Wild;;60;
+Regroup;A;;;1;Necroswarm;;;;;Unleash twice. Move brambles at locations 2 and 3 to location 4.;;Into the Wild;;61;
+Scorched Advance;A;;;1;Necroswarm;;;;;Place a bramble into play at location 3. Any player suffers 2 damage.;;Into the Wild;;62;
+March of Horror;P;2;;1;Necroswarm;;;Spend 5$.;;Unleash. Move each bramble one space toward Gravehold. Any player suffers 3 damage.;;Into the Wild;;63;
+Frenzied Army;M;10;;2;Necroswarm;;;;Place all Brambles Rush 2 cards in the bramble movement discard pile on top of the bramble movement deck.;Any player suffers 3 damage.;;Into the Wild;;64;
+Sprawling Swamp;P;2;;2;Necroswarm;;;;;Unleash twice. Set this next to the Bramble Invasion Track. For the rest of the game, when a bramble enters play, it moves one space toward Gravehold.;;Into the Wild;;65;
+To The Walls;P;3;;2;Necroswarm;;;;;Unleash twice. The brambles rush Gravehold. Any player suffers 2 damage.;;Into the Wild;;66;
+Mob;A;;;3;Necroswarm;;;;;Any player suffers 2 damage. Place a bramble into play at locations 1, 2, and 3.;;Into the Wild;;67;
+Entwined General;M;15;;3;Necroswarm;;When a bramble is placed into play, it immediately moves one space toward Gravehold.;;;Unleash. Any player suffers 3 damage.;;Into the Wild;;68;
+Rapid Germination;P;2;;3;Necroswarm;;;;;Unleash twice. Move all brambles to location 2.;;Into the Wild;;69;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
