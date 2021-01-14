@@ -609,18 +609,18 @@ Aether Drain;A;;;3;Thief of Dreams;;;;;Unleash twice. The player with the most e
 Eternal Dreamer;M;17;;3;Thief of Dreams;;Cards on the Dream Mat cannot be destroyed.;;;Gravehold suffers 4 damage.;;Outcasts;2a;10;
 Siphon Memories;A;;;3;Thief of Dreams;;;;;The players collectively place three cards in hand that cost 1$ or more on top of the Dream deck. Then, Unleash three times.;;Outcasts;2a;11;
 ;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
+Thrall Reminder;E;;;0;Risen Thrall;;Leave this reminder card in play.;;;At the start of the nemesis turn, if there are 1/2/3/4+ Soldiers of Rot in play, Gravehold suffers 1/1/2/4 damage.#At the start of the nemesis turn, if there are 1/2/3/4+ Shambling Infantry in play, any player suffers 1/1/2/3 damage.;;Outcasts;3a;2;
+Shambling Infantry;MT;4;;0;Risen Thrall;;During any player's main phase, that player may spend 2$ to flip this over to check if it is an illusion.;;;;;Outcasts;3a;3;8
+Solider of Rot;MT;4;;0;Risen Thrall;;During any player's main phase, that player may spend 2$ to flip this over to check if it is an illusion.;;;;;Outcasts;3a;9;14
+Imbue;A;;;1;Risen Thrall;;;;;Place a thrall into play. Give it an additional 2 life.;;Outcasts;3a;15;
+Vampiric Thrall;A;;;1;Risen Thrall;;;;;Unleash twice. Flip over a thrall in play.;;Outcasts;3a;16;
+Engulfing Hordes;P;2;;1;Risen Thrall;;When a player or Gravehold suffers damage at the beginning of the nemesis turn, that player or Gravehold suffers 1 additional damage.;;;Any player discards a card in hand and gains a Cursed Shard.;;Outcasts;3a;17;
+Twisting Deceit;A;;;2;Risen Thrall;;;;;Shuffle the thrall discard pile into the thrall deck. Unleash twice.;;Outcasts;3a;18;
+Thrall Hybrid;MT;11;;2;Risen Thrall;;This minion counts as both a Solider of Rot and a Shambling Infantry. This minion is real.;;;;;Outcasts;3a;19;
+Spiralling Illusion;P;3;;2;Risen Thrall;;It costs 3$ to flip over thralls instead of 2$.;;Unleash.;Any player discards three cards in hand.;;Outcasts;3a;20;
+Undying Force;A;;;3;Risen Thrall;;;;;Place two thralls into play. Those thralls gain an additional 3 life.;;Outcasts;3a;21;
+Distortion Smoke;M;13;;3;Risen Thrall;;Reduce to 0 all damage dealt to thralls.;;;Unleash twice.;;Outcasts;3a;22;
+Cutting Image;P;2;;3;Risen Thrall;;When a player flips over a thrall, that player suffers 2 damage.;;;Unleash three times.;;Outcasts;3a;23;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;

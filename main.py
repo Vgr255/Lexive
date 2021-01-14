@@ -77,6 +77,7 @@ ctypes = {
     # Minion types
     "MA": "Minion-Acolyte", "MP": "Minion-Pod", "MB": "Minion-Beacon",
     "MN": "Minion-Nemesis", "MC": "Minion-Claw", "MD": "Minion-Pylon",
+    "MT": "Minion-Thrall",
 }
 
 ability_types = {
