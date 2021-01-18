@@ -3,6 +3,7 @@ from collections import defaultdict
 
 import discord
 import csv
+import os
 from discord.ext import commands
 
 import config
@@ -22,6 +23,7 @@ VERSION = "0.1"
 AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
 
+assets = {}
 player_cards = defaultdict(list)
 nemesis_cards = defaultdict(list)
 player_mats = defaultdict(list)
@@ -127,6 +129,12 @@ def load():
     for name, (prefix, wave) in waves.items():
         if prefix not in cards_num:
             cards_num[prefix] = {}
+
+    assets.clear()
+    for filename in os.listdir("assets"):
+        assets[casefold(filename.split(".")[0])] = filename
+
+    log("Assets indexed", level="local")
 
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
@@ -286,7 +294,7 @@ class Lexive(commands.Bot):
                 await super().on_message(message)
                 return # these commands supersede cards
 
-            values = get_card(content)
+            values, asset = get_card(content)
             log("REQ:", content)
             if values and values[0] is None: # too many values
                 await message.channel.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
@@ -295,6 +303,9 @@ class Lexive(commands.Bot):
                 msgs = "\n".join(values).split(r"\NEWLINE/")
                 for msg in msgs:
                     await message.channel.send(msg)
+                for ass in asset:
+                    with open(os.path.join("assets", ass), mode="rb") as a:
+                        await message.channel.send(file=discord.File(a))
                 return
 
         await super().on_message(message)
@@ -628,7 +639,7 @@ def get_treasure(name: str) -> List[str]:
 
     return values
 
-def get_card(name: str) -> Optional[List[str]]:
+def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
         index = name.index("<@!")
@@ -636,6 +647,7 @@ def get_card(name: str) -> Optional[List[str]]:
     for x in ("@", "#"): # ignore what's after
         if x in name:
             name = name[:name.index(x)]
+    ass = []
     arg = casefold(name)
     possible = set()
     for func, mapping in content_dicts:
@@ -651,14 +663,16 @@ def get_card(name: str) -> Optional[List[str]]:
                         if n["name"] not in values:
                             values.append(n["name"])
 
-        return values
+        return values, ass
     for x in matches:
         for func, mapping in content_dicts:
             if x in mapping:
                 values.append(func(x))
+        if x in assets:
+            ass.append(assets[x])
 
     if not values:
-        return None
+        return None, ass
 
     ret = []
     if mention is not None:
@@ -668,7 +682,7 @@ def get_card(name: str) -> Optional[List[str]]:
             ret.append(r"\NEWLINE/")
         ret.extend(x)
 
-    return ret
+    return ret, ass
 
 def complete_match(string: str, matches: Iterable) -> list:
     possible_matches = set()
@@ -688,7 +702,7 @@ async def info(ctx, *args):
     if not arg.isalpha() and arg.isalnum(): # has numbers and no special characters
         await ctx.send(f"Number detected. Did you want `{config.prefix}card` instead?")
         return
-    values = get_card(arg)
+    values, asset = get_card(arg)
     if values and values[0] is None: # too many values
         to_send = f"Ambiguous value. Possible matches: {', '.join(values[1:])}"
     elif not values:
@@ -698,6 +712,9 @@ async def info(ctx, *args):
 
     for msg in to_send.split(r"\NEWLINE/"):
         await ctx.send(msg)
+    for ass in asset:
+        with open(os.path.join("assets", ass), mode="rb") as a:
+            await ctx.send(file=discord.File(a))
 
 @bot.command()
 async def card(ctx, *args):
@@ -1166,7 +1183,7 @@ async def whoami(ctx):
     f"`{config.prefix}<name>` in any channel on this server, or in private message with me. " +
     "I also know about some unique mechanics, and autocomplete is supported. Type " +
     f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
-    "for a list of unique mechanics I know about.")
+    "for a list of unique mechanics I know about.\nArt by Amaple")
 
 @bot.command()
 async def faq(ctx):
