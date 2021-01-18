@@ -1,0 +1,28 @@
+TITLE
+**- Resolution order of spell-casting -**
+
+Step 1: Move the spell to its new destination, as indicated by the following, with each step taking precedence over the ones below:
+{newline}
+Once you find a matching condition, move to Step 2.
+{newline}
+Here, "applicable" refers to effects written on the spell being cast, or on the spell which casts this spell, or on the gem or relic which casts this spell, or to a relic attached to a breach from where the spell is cast.
+{newline}
+1.1   - The spell is destroyed and removed from play, if applicable.
+1.2   - The spell remains in place, if applicable.
+1.2.1 - Any spell that remains in place may be cast again as part of the same casting phase or another player's main phase.
+1.3   - The spell moves to anywhere that is not a player's hand, discard, or the supply, if applicable.
+1.4   - The spell moves to any player's hand, if applicable.
+1.4.1 - For purposes of tracking and resolution of card effects, the spell entering the player's hand is considered a new spell.
+1.5   - The spell returns to the supply, if applicable and possible.
+1.6   - The spell is discarded to any player's discard pile, if applicable.
+1.7   - The spell is discarded to the discard pile of the mage who had the spell prepped.
+
+Step 2: Resolve the cast effects of the spell, as indicated by the following, in order:
+{newline}
+2.1   - Resolve the cast effects from top to bottom, in the written order. Win or loss conditions trigger as soon as their conditions are met, if relevant.
+2.2   - If the spell natively deals damage (with an effect similar to "Deal 1 Damage"), all effects that add damage (with an effect similar to "On Cast: Deal +1 Damage") to the spell resolution are added. This includes bonus damage from an opened breach that the spell is prepped to, an attached relic to a breach this spell was prepped to, or a gem, relic, or spell which casts this spell, and includes breaches that were opened by the same spell, as long as the effect which opens the breach is listed before the damage effect on the card. This also includes damage that the spell itself gains for fulfilling certain conditions.
+2.2.1 - Additional damage cannot stack multiple times per instance of damage. This means that damage gained from the spell itself does NOT gain bonus damage from a breach it is prepped to, a relic attached to a breach it is prepped to, or a gem, relic, or spell which casts this spell.
+2.2.2 - If the spell deals multiple instances of damage, additional damage is applied separately for each instance of damage.
+2.3   - If the spell does not natively deal damage (without an effect similar to "Deal 1 Damage"), but is affected by one or multiple effects that add damage (as described above), calculate the total additional damage and deal it as one instance to a target.
+2.4   - If the spell benefits from additional effects which do not deal damage, such as gaining aether or life, resolve those effects now.
+2.5   - If the spell says to repeat the Cast effects, repeat Steps 2.2 to 2.4 once.

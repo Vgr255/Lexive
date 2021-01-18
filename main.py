@@ -24,6 +24,7 @@ AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
 
 assets = {}
+mechanics = {}
 player_cards = defaultdict(list)
 nemesis_cards = defaultdict(list)
 player_mats = defaultdict(list)
@@ -135,6 +136,15 @@ def load():
         assets[casefold(filename.split(".")[0])] = filename
 
     log("Assets indexed", level="local")
+
+    mechanics.clear()
+    for filename in os.listdir("unique"):
+        if not filename.endswith(".lexive"):
+            continue
+        with open(os.path.join("unique", filename), "rt") as unique_file:
+            mechanics[filename[:-7]] = unique_file.readlines()
+
+    log("Mechanics loaded", level="local")
 
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
@@ -288,11 +298,6 @@ class Lexive(commands.Bot):
             content = message.content.lstrip(config.prefix)
             if not content:
                 return
-            if content.lower() in cmds:
-                message.content = config.prefix + content
-                log("CMD:", content)
-                await super().on_message(message)
-                return # these commands supersede cards
 
             values, asset = get_card(content)
             log("REQ:", content)
@@ -312,14 +317,49 @@ class Lexive(commands.Bot):
 
 bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True, activity=activity)
 
-cmds = {}
+@sync(mechanics)
+def unique_handler(name: str) -> List[str]:
+    mechanic = mechanics[name]
+    values = []
+    if len(mechanic) == 1: # most common occurence
+        values.append("```")
+        values.append(mechanic[0].rstrip("\n").format(prefix=config.prefix))
+        values.append("```")
 
-def cmd(func: Callable) -> Callable:
-    name = func.__name__.lstrip("_").replace("_", "-")
-    if name in cmds:
-        raise ValueError(f"duplicate function name {name}")
-    cmds[name] = func
-    return bot.command(name=name)(func)
+    else: # manually go through
+        def preformat(x: str) -> str:
+            return x.format(prefix=config.prefix, newline="")
+
+        is_title = False
+        continuing = False
+        for current in mechanic:
+            current = current.rstrip("\n")
+            if not current:
+                if continuing:
+                    values.append("```")
+                    continuing = False
+                continue
+            if current == "TITLE":
+                is_title = True
+                continue
+            if is_title:
+                values.append(preformat(current))
+                is_title = False
+                continue
+            if continuing:
+                values.append(preformat(current))
+                continue
+
+            if values:
+                values.append(r"\NEWLINE/")
+            values.append("```")
+            values.append(preformat(current))
+            continuing = True
+
+        if continuing:
+            values.append("```")
+
+    return values
 
 @sync(player_cards)
 def player_card(name: str) -> List[str]:
@@ -806,339 +846,11 @@ async def box(ctx, *args):
     for line in "\n".join(result).split("\\NEWLINE/"):
         await ctx.send(line)
 
-# unique mechanics begin
-
-@cmd
-async def adjacent(ctx):
-    await ctx.send("```\nSome spells may refer to adjacent breaches. Breaches are " +
-    "adjacent to the one or two breaches directly next to them physically. As such, " +
-    "I is adjacent to II, II is adjacent to I and III, III is adjacent to II and IV, " +
-    "and IV is adjacent to III.\n```")
-
-@cmd
-async def aether(ctx):
-    await ctx.send("```\nAether ($) can be gained during a player's turn by playing gems, " +
-    "relics, by casting spells, or by using their or another player's ability, if " +
-    "applicable. Aether may be gained even if it is not spent. Any aether gained on " +
-    "a turn that is not spent is lost. Aether does not accumulate over turns, nor " +
-    "can it be given to other players.\n```")
-
-@cmd
-async def ally(ctx):
-    await ctx.send("```\nAn ally refers to any player other than you. If you are playing " +
-    "true solo with one mage, you are your own ally.\n```")
-
-@cmd
-async def attach(ctx):
-    await ctx.send("```\nSome relics allow you to Attach them to a breach. When you attach " +
-    "a relic to a breach, place that relic underneath that breach token. You cannot " +
-    "attach a relic to a breach that already has a relic attached to it. Attached relics " +
-    "are not discarded at the end of the turn. If an attached relic is discarded, it is " +
-    "placed in the discard pile of the player whose breach it was attached to. " +
-    "If a breach with a relic attached to it is destroyed, the attached relic " +
-    "is discarded. If an effect does not otherwise allow for it, you may not " +
-    "choose to discard an attached relic (for example to make room for a " +
-    "better-suited relic).\n```")
-
-@cmd
-async def attack(ctx):
-    await ctx.send("```\nAttack cards are one of three types of nemesis cards. When " +
-    "an attack card is drawn, their effect is resolved immediately and then discarded " +
-    "in the nemesis discard pile.\n```")
-
-@cmd
-async def banish(ctx):
-    await ctx.send("```\nWhen a card is banished, place it in the banished section of the game box. " +
-    "Banished cards will not be used again during the current campaign or expedition. During an " +
-    "expedition, if you lose a battle, you may reorganize your market using the most-recently " +
-    "banished market cards.\n```")
-
-@cmd
-async def barracks(ctx):
-    await ctx.send("```\nBetween games, the Barracks is where players store all of the content " +
-    "they have access to for the current expedition. This includes player cards, player mats, " +
-    "and treasures, including those not currently being used in any given battle.\n```")
-
-@cmd
-async def charge(ctx):
-    await ctx.send("```\nEvery mage (with the exception of the starting mages in Legacy) " +
-    "possesses an ability written on their mat, with space for 4 to 6 charge tokens under it. " +
-    "During any player's main phase, that player may spend 2$ to gain a charge. " +
-    "They cannot choose to pay aether to give charges to their allies. When a player " +
-    "gains a charge, they take a charge token and place it on their player mat, beneath " +
-    "the ability description. No player may have more charges than their ability " +
-    "requires (4, 5, or 6). When a player has all of their charges, they may use their " +
-    "ability at the appropriate time -- the phase in which it can be used is written " +
-    "just below the ability name; this is typically during that same player's main phase. " +
-    "When using their ability, the mage first loses all of their charges, and then " +
-    "resolves the effect.\n```")
-
-@cmd
-async def curse(ctx):
-    await ctx.send("```\nOutcasts introduces the Curse deck. This is a deck of cards that is " +
-    "placed faceup near the nemesis deck. Cards in the nemesis deck may refer to cards in " +
-    "the Curse deck. When a player is told to gain a card from the Curse deck, they search " +
-    "for that specific card and then gain it. The Curse deck is not a supply pile. When " +
-    "a card from the Curse deck is destroyed, do not return it to the Curse deck.\n```")
-
-@cmd
-async def degrade(ctx):
-    await ctx.send("```\nWhen a nemesis card forces a player to degrade a card, that player must " +
-    "first destroy a card that costs 2$ or more. Then, that player MAY gain a card of the same " +
-    "type from any supply pile which costs less than the cost of the destroyed card and place it " +
-    "into their hand. If a player cannot degrade a card, that player suffers 2 damage.\n```")
-
-@cmd
-async def destroy(ctx):
-    await ctx.send("```\nCards which are destroyed are permanently removed from the game and are " +
-    "not used or interacted with in any way once they are destroyed. Destroyed cards do not return " +
-    f"to the supply. Unlike {config.prefix}banish, a destroyed card returns to its supply pile or " +
-    "player hand or deck at the end of each game.\n```")
-
-@cmd
-async def dual(ctx):
-    await ctx.send("```\nSome spells must be prepped to two adjacent breaches so that it touches both breaches. " +
-    "This fully occupies both breaches. If one or both of these breaches have an additional effect, " +
-    "such as additional damage or gaining life, then the spell prepped to these breaches gains the " +
-    "additional effect(s) of all of the breaches it is prepped to.\n```")
-
-@cmd
-async def echo(ctx):
-    await ctx.send("```\nWhen you cast a spell with Echo, resolve that Cast effect twice. " +
-    "Any additional effects granted for casting the spell are added to both resolutions of the spell. " +
-    "For example, you cast a spell with Echo that has a Cast effect of \"Deal 2 damage\". " +
-    "That spell was prepped to a breach that has the following two effects: \"Deals +1 damage\" " +
-    "and \"Gravehold gains 1 life\". You will resolve the following: \"Deal 3 damage. Gravehold gains 1 life\" " +
-    "then \"Deal 3 damage. Gravehold gains 1 life\". Additionally, both instances of damage may be " +
-    "directed to different targets.\n```")
-
-@cmd
-async def exhaust(ctx):
-    await ctx.send("```\nIf a player's life is reduced to 0, that player is exhausted. " +
-    "When a player becomes exhausted, resolve the following effects in order:\n" +
-    "1 - Resolve the nemesis's Unleash effect twice. If a player becomes exhausted " +
-    "during the nemesis Unleash effect, finish resolving the Unleash effect before that " +
-    "player resolves the effects of becoming exhausted.\n" +
-    "2 - The exhausted player destroys one of their breaches, discarding any spell " +
-    "prepped in that breach, or relic attached to the breach. Destroyed breaches " +
-    "can be returned to the box -- there is no way to regain a destroyed breach. " +
-    "The remaining breaches stay in their current positions.\n" +
-    "3 - The exhausted player discards all of their charge tokens.\n" +
-    "The exhausted player continues to participate in the game as usual with the " +
-    "following exceptions:\n" +
-    "- Exhausted players cannot gain life.\n" +
-    "- When an effect deals damage to the player with the lowest life, it always " +
-    "deals that damage to the non-exhausted player with the lowest current life.\n" +
-    "- When an exhausted player suffers damage, instead deal twice that amount of " +
-    "damage to Gravehold. This includes excess damage when a player initially " +
-    "becomes exhausted.\n" +
-    "If all players become exhausted, the game ends immediately and the players " +
-    "lose. If you are playing solo with one mage, you do not lose the game when you " +
-    "are exhausted. Instead, you lose the game when Gravehold has 0 life.\n```")
-
-@cmd
-async def focus(ctx):
-    await ctx.send("""```
-* Focusing a breach *
-- You can focus one of your closed breaches by paying the focus cost shown near \
-the center of that breach token.
-- When you focus a breach, rotate the breach token 90° clockwise. You may prep a \
-spell to the focused breach this turn.
-- Breaches may be focused any number of times per turn. Any number of breaches may \
-be focused per turn. You may focus a breach without prepping a spell to it.
-- A Breach that has been rotated to that the yellow quadrant is at the top can be \
-opened by an effect that would otherwise focus this breach.
-
-Some effects allow players to focus another mage's breach. \
-You may not focus another mage's breach by spending aether.
-
-* Opening a breach *
-- You can open one of your closed breaches by paying the open cost currently indicated \
-on the top of that breach token. The open cost decreases each time you focus the breach.
-- When you open a breach, flip the breach to the opened side. Opened breaches stay \
-opened for the rest of the game. A spell can be prepped to a breach on the \
-turn that breach is opened and any subsequent turn.
-```""")
-
-@cmd
-async def gem(ctx):
-    await ctx.send("```\nGems are the primary way of gaining aether ($). Spending aether " +
-    "is how you gain new cards, focus and open breaches, gain charges, and a few " +
-    "other things. Each gem supply pile contains 7 cards.\n```")
-
-@cmd
-async def link(ctx):
-    await ctx.send("```\nSome spells have the Link ability. You may prep two spells " +
-    "with Link to the same breach. When you cast one of these spells, you do not " +
-    "have to cast any other spell prepped in this breach.\n```")
-
-@cmd
-async def minion(ctx):
-    await ctx.send("```\nMinions are one of three types of nemesis cards. When a " +
-    "minion is drawn, it is put into play with their starting life. If a minion " +
-    "has a number of shield tokens on its card, it gains that many shield tokens. " +
-    "When a minion enters play, immediately resolve its \"IMMEDIATELY:\" effect, " +
-    "if applicable. Do not resolve its \"PERSISTENT:\" effect this turn. When " +
-    "the nemesis takes its turn, resolve each minion's \"PERSISTENT:\" effect " +
-    "in order from oldest to newest. When the life of a minion reaches 0, it " +
-    "is immediatedly discarded.\n```")
-
-@cmd
-async def _or(ctx):
-    await ctx.send("```\nWhen a card gives two options separated by an \"OR\", you may " +
-    "choose either option. If you cannot fully resolve one of the options, you must " +
-    "choose an effect which you can fully resolve. If you cannot fully resolve either " +
-    "effect, you must choose the one which you can resolve the most.\n```")
-
-@cmd
-async def order(ctx):
-    await ctx.send("""**- Resolution order of spell-casting -**
-```
-Step 1: Move the spell to its new destination, as indicated by the following, \
-with each step taking precedence over the ones below:
-
-Once you find a matching condition, move to Step 2.
-
-Here, "applicable" refers to effects written on the spell being cast, or on the \
-spell which casts this spell, or on the gem or relic which casts this spell, \
-or to a relic attached to a breach from where the spell is cast.
-
-1.1   - The spell is destroyed and removed from play, if applicable.
-1.2   - The spell remains in place, if applicable.
-1.2.1 - Any spell that remains in place may be cast again as part of the same \
-casting phase or another player's main phase.
-1.3   - The spell moves to anywhere that is not a player's hand, discard, or the \
-supply, if applicable.
-1.4   - The spell moves to any player's hand, if applicable.
-1.4.1 - For purposes of tracking and resolution of card effects, the spell entering \
-the player's hand is considered a new spell.
-1.5   - The spell returns to the supply, if applicable and possible.
-1.6   - The spell is discarded to any player's discard pile, if applicable.
-1.7   - The spell is discarded to the discard pile of the mage who had the spell prepped.
-```""")
-
-    await ctx.send("""```
-Step 2: Resolve the cast effects of the spell, as indicated by the following, in order:
-
-2.1   - Resolve the cast effects from top to bottom, in the written order. Win or \
-loss conditions trigger as soon as their conditions are met, if relevant.
-2.2   - If the spell natively deals damage (with an effect similar to "Deal 1 Damage"), all \
-effects that add damage (with an effect similar to "On Cast: Deal +1 Damage") to \
-the spell resolution are added. This includes bonus damage from an opened breach \
-that the spell is prepped to, an attached relic to a breach this spell was prepped \
-to, or a gem, relic, or spell which casts this spell, and includes breaches that \
-were opened by the same spell, as long as the effect which opens the breach is \
-listed before the damage effect on the card. This also includes damage that the \
-spell itself gains for fulfilling certain conditions.
-2.2.1 - Additional damage cannot stack multiple times per instance of damage. This \
-means that damage gained from the spell itself does NOT gain bonus damage from a \
-breach it is prepped to, a relic attached to a breach it is prepped to, or a gem, \
-relic, or spell which casts this spell.
-2.2.2 - If the spell deals multiple instances of damage, additional damage is applied \
-separately for each instance of damage.
-2.3   - If the spell does not natively deal damage (without an effect similar to "Deal \
-1 Damage"), but is affected by one or multiple effects that add damage (as \
-described above), calculate the total additional damage and deal it as one \
-instance to a target.
-2.4   - If the spell benefits from additional effects which do not deal damage, such as \
-gaining aether or life, resolve those effects now.
-2.5   - If the spell says to repeat the Cast effects, repeat Steps 2.2 to 2.4 once.
-```""")
-
-@cmd
-async def power(ctx):
-    await ctx.send("```\nPower cards are one of three types of nemesis cards. All " +
-    "power cards have \"POWER: N\" on them. When a power card enters play, place " +
-    "N power tokens on it. If it has an \"IMMEDIATELY:\" effect, resolve that now. " +
-    "Unless discarded, power cards stay in play for N nemesis turns before resolving. " +
-    "During the nemesis main phase, remove 1 power token from each power card in play, " +
-    "from oldest to newest. When a power card has no power tokens left, resolve its " +
-    "effect and then discard it. Only resolve a power card's \"POWER: N\" effect " +
-    "when the last power token is removed. Some power cards also have a \"TO DISCARD:\" " +
-    "text on them. This represents something that must be done (typically spending aether) " +
-    "during any player's main phase to discard the power card. When resolving a " +
-    "\"TO DISCARD:\" effect, the player must fully resolve the entire effect. " +
-    "If a power card is discarded this way, its effect is not resolved.\n```")
-
-@cmd
-async def pulse(ctx):
-    await ctx.send("```\nPulse tokens are used with certain player cards from Legacy, " +
-    "starting in deck V and later, as well as some cards from the Buried Secrets " +
-    "expansion. Cards may make a player gain or lose Pulse tokens as part of their " +
-    "effects. Each player may not have more than 5 Pulse token at any time - any " +
-    "Pulse tokens gained beyong 5 are lost. Pulse tokens are carried over from " +
-    "turn to turn.\n```")
-
-@cmd
-async def relic(ctx):
-    await ctx.send("```\nRelics have a wide variety of effects and are resolved " +
-    "as soon as they are played. Each relic supply pile contains 5 cards.\n```")
-
-@cmd
-async def revealing(ctx):
-    await ctx.send("```\nWhenever you reveal a card from the top of any deck, return it " +
-    "to the top of that deck. If you reveal more than one card, return them in any " +
-    "order you choose, unless the effect states otherwise.\n```")
-
-@cmd
-async def shield(ctx):
-    await ctx.send("```\nShield tokens are used with certain minions from Legacy, " +
-    "starting in deck III and later, as well as some minions from the Buried " +
-    "Secrets expansion. The number of shield tokens a minion starts with is " +
-    "indicated by a number on the left of the card. When a minion with at least " +
-    "one shield token is dealt any amount of damage, remove a single shield " +
-    "token from the minion, instead of removing any life tokens. Remove only one " +
-    "shield token each time an instance of damage is dealt to the minion, " +
-    "regardless of the amount of damage that would otherwise be dealt.\n```")
-
-@cmd
-async def silence(ctx):
-    await ctx.send("```\nWhen a minion is silenced, place a silence token on it. " +
-    "During the next nemesis turn, remove this token and ignore the persistent " +
-    "effect of that minion. You may not silence a minion that has a silence " +
-    "token on it. Silence does not prevent minion effects written on the card " +
-    "that are not after the Persistent keyword.\n```")
-
-@cmd
-async def spell(ctx):
-    await ctx.send("```\nSpells are the primary source of damage to the nemesis and its " +
-    "minions. They must be prepped to a breach on a turn in order to be cast on a " +
-    "later turn. Some spells have a \"While prepped\" effect, which can only be used " +
-    "once per turn. Each spell supply pile contains 5 cards.\n```")
-
-@cmd
-async def tier(ctx):
-    await ctx.send("```\nSome effects refer to the nemesis tier. The nemesis tier is the " +
-    "highest number in the tier section (at the bottom right) of any nemesis card in the " +
-    "nemesis discard pile or in play. This is typically the tier of the last card drawn " +
-    "from the nemesis deck.\n```")
-
-@cmd
-async def todiscard(ctx):
-    await ctx.send("```\nSome nemesis power cards have a \"TO DISCARD:\" effect on them. " +
-    "During a player's main phase, that player may resolve the text following \"TO DISCARD:\" " +
-    "to discard that power card from play. If a player discards a power card this way, " +
-    "that power has no effect.\n```")
-
-@cmd
-async def unleash(ctx):
-    await ctx.send("```\nEach nemesis has a unique Unleash ability written on their mat, " +
-    "which may be modified if playing with the Increased Difficulty rules. When a " +
-    "nemesis card uses the Unleash keyword, refer to the effect listed on the nemesis mat.\n```")
-
-@cmd
-async def wandering(ctx):
-    await ctx.send("```\nSome minions have Wandering. This means that all damage dealt to them " +
-    "by abilities and cards is reduced to 1. However, during any player's main phase, that " +
-    "player may spend aether ($) to deal an equal amount of damage to minions of this type.\n```")
-
-# unique mechanics end
-
 @bot.command()
 async def unique(ctx):
     await ctx.send("```\nThe unique mechanics that I know about are as follow. " +
     f"You may prefix them with {config.prefix} to ask me about them.\n- " +
-    "\n- ".join(cmds) + "\n```")
+    "\n- ".join(mechanics) + "\n```")
 
 @bot.command()
 async def reload(ctx):

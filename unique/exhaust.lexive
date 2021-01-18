@@ -1,0 +1,10 @@
+If a player's life is reduced to 0, that player is exhausted. When a player becomes exhausted, resolve the following effects in order:
+1 - Resolve the nemesis's Unleash effect twice. If a player becomes exhausted during the nemesis Unleash effect, finish resolving the Unleash effect before that player resolves the effects of becoming exhausted.
+2 - The exhausted player destroys one of their breaches, discarding any spell prepped in that breach, or relic attached to the breach. Destroyed breaches can be returned to the box -- there is no way to regain a destroyed breach. The remaining breaches stay in their current positions.
+3 - The exhausted player discards all of their charge tokens.
+{newline}
+The exhausted player continues to participate in the game as usual with the following exceptions:
+- Exhausted players cannot gain life.
+- When an effect deals damage to the player with the lowest life, it always deals that damage to the non-exhausted player with the lowest current life.
+- When an exhausted player suffers damage, instead deal twice that amount of damage to Gravehold. This includes excess damage when a player initially becomes exhausted.
+If all players become exhausted, the game ends immediately and the players lose. If you are playing solo with one mage, you do not lose the game when you are exhausted. Instead, you lose the game when Gravehold has 0 life.
