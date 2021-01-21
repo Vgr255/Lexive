@@ -914,9 +914,9 @@ IBC has provided Print and Play Sparks as a short term solution.
 - Envelope 1b is mislabeled. It should read Envelope 1d. IBC has confirmed this was an error.
 - The battle 3 nemesis has inconsistent special rules between the nemesis mat and its reminder \
 card. Nick Little has confirmed that the Nemesis mat is correct. IBC has provided a Print and \
-Play replacement as a short term solution.
+Play replacement as a short term solution.""")
 
-There have been a few typos identified in the rulebook:
+    await ctx.send("""There have been a few typos identified in the rulebook:
 - In the contents list on page 2, it should state that 40 life tokens with value 1 are included rather than 35.
 - In the contents list on page 3, it should state that 10 stop decks are included rather than 11.
 - In the contents list on page 3, it should state that 24 card dividers are included rather than 39.
