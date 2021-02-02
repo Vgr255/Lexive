@@ -19,7 +19,7 @@ _newline_str = "#"
 # this is a str
 _prefix_str = "!"
 
-VERSION = "0.1"
+VERSION = "0.2"
 AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
 
