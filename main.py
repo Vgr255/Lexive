@@ -80,7 +80,7 @@ ctypes = {
     # Minion types
     "MA": "Minion-Acolyte", "MP": "Minion-Pod", "MB": "Minion-Beacon",
     "MN": "Minion-Nemesis", "MC": "Minion-Claw", "MD": "Minion-Pylon",
-    "MT": "Minion-Thrall",
+    "MT": "Minion-Thrall", "ME": "Minion-Ember",
 }
 
 ability_types = {
@@ -867,7 +867,6 @@ async def issues(ctx):
         mention = f"Report all other issues to {aid.mention}."
     content = """* Known issues and to-do list *
 
-- Nemeses are not all in yet (they will be added gradually);
 - Entwined Amethyst will send a similar message twice;
 - Not all Legacy-specific content is implemented;
 - !card doesn't return a block of text yet.
