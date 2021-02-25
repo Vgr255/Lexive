@@ -48,7 +48,7 @@ waves = {
     "The Depths": ("D", 1),
     "War Eternal": ("W", 2),
     "The Void": ("V", 2),
-    "The Outer Dark": ("O", 2),
+    "The Outer Dark": ("OD", 2),
     "Legacy": (None, 3),
     "Buried Secrets": ("BS", 3),
     "The New Age": ("NA", 4),
