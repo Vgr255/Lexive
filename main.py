@@ -826,18 +826,21 @@ async def box(ctx, *args):
     c = {"P": player_cards, "N": nemesis_cards, "T": treasure_values}
 
     for deck in cards_num[prefix]:
-        if count >= 1900:
+        if count >= 1800:
             result.append("```\\NEWLINE/```")
             count = 3
         if deck:
             result.extend([f"```\\NEWLINE/```", f"Deck: {deck}", ""])
             count = len(deck) + 12
         for num, (ctype, card) in cards_num[prefix][deck].items():
-            if count >= 1900:
+            if count >= 1800:
                 result.append("```\\NEWLINE/```")
                 count = 3
             ind = c[ctype][casefold(card)]
             for d in ind:
+                if count >= 1800:
+                    result.append("```\\NEWLINE/```")
+                    count = 3
                 result.append(f"- {card} ({ctypes[d['type']]}) ({num})")
                 count += len(result[-1])
 
