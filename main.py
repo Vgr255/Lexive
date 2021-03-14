@@ -117,6 +117,8 @@ def casefold(x: str) -> str:
     return x
 
 def expand(x: str, *, flavour=False, prefix=False) -> str:
+    if x.startswith(">>>"):
+        x = x[3:]
     replace_by = "\n"
     if flavour: # make newlines twice as big
         replace_by = "\n\n"
