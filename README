@@ -1,3 +1,3 @@
-To run this bot, you need to create a config.py file with the command prefix as `prefix` (str), the OAuth token as `token` (str) and the Owner ID as `owner` (int)
+To run this bot, you need to create a config.py file with the command prefix as `prefix` (str), the OAuth token as `token` (str) and the Owner ID as `owner` (int). Also set `max_dupes` to 2.
 
-You need to install the discord.py module form PyPi. This is being developed on Python 3.8, but may work on 3.7 or 3.6. It will not work below 3.6.
+You need to install the discord.py module from PyPI. This is being developed on Python 3.8, but may work on 3.7 or 3.6. It will not work below 3.6.
