@@ -663,7 +663,7 @@ Falling City;A;;;2;Fortress;;;;;The players collectively destroy two prepped Spa
 Plated in Stone;P;3;;2;Fortress;;;;;Unleash. Any player suffers 2 damage. For the rest of the game, when Fortress moves to the 3p start space, he gains an additional rubble token.;;Return to Gravehold;;79;
 Scavenging Squill;M;11;;2;Fortress;;;;;Fortress gains 1 rubble token.#OR#Any player suffers 2 damage.;;Return to Gravehold;;80;
 Armored Scalebane;M;16;;3;Fortress;;When a player deals damage to this minion, Fortress gains 1 rubble token.;;;Any player suffers 3 damage.;;Return to Gravehold;;81;
-Cloister;A;;;3;Fortress;;;;;If Fortress has no rubble tokens, move the Fortress token to the 3p start space on the Fortress Track and then Fortress gains 3 rubble tokens. Otherwise, Fortress gains 5 rubble tokens.;;Return to Gravehold;;82;
+Cloister;A;;;3;Fortress;;;;;If Fortress has no rubble tokens, move the Fortress token to the 3p start space on the Fortress Track and then Fortress gains 3 *additional* rubble tokens. Otherwise, Fortress gains 5 rubble tokens.;;Return to Gravehold;;82;
 Scuttling Strike;P;2;;3;Fortress;;;Spend 8$.;;Unleash until Fortress is one space away from dealing damage to Gravehold.;;Return to Gravehold;;83;
 ;;;;;;;;;;;;;;;
 The Burning Kor Player Aid - Movement Rules;E;;;0;The Burning Kor;;Two spaces are adjacent if they are orthogonally touching.;;;- Once per turn, during any player's casting or main phase, that player may move their mage token to an adjacent space for free.#- During any player's casting or main phase, that player may discard a card to move their mage token to an adjacent space.#- M;;Southern Village;;63;64
