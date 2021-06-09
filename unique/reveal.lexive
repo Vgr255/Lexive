@@ -1,1 +1,2 @@
 Whenever you reveal a card from the top of any deck, return it to the top of that deck. If you reveal more than one card, return them in any order you choose, unless the effect states otherwise.
+If the deck is empty when you would reveal a card from it, reassemble the deck as if to draw a new card from it, then proceed to reveal.
