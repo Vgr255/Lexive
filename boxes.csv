@@ -1,21 +1,21 @@
-Name;Shorthand;Wave
+Shorthand;Name;Wave
 ;;
-Aeon's End;AE;1
-The Nameless;N;1
-The Depths;D;1
-War Eternal;W;2
-The Void;V;2
-The Outer Dark;OD;2
-Legacy;;3
-Buried Secrets;BS;3
-New Age;NA;4
-The Ancients;TA;4
-Shattered Dreams;SD;4
-Into the Wild;ITW;4
-Outcasts;O;5
-Southern Village;SV;5
-Return to Gravehold;RTG;5
-Dice Tower;P;2
-Legacy (Kickstarter Exclusive);P;3
-The New Age (Kickstarter Exclusive);P;4
-Outcasts (Kickstarter Exclusive);P;5
+AE;Aeon's End;1
+N;The Nameless;1
+D;The Depths;1
+W;War Eternal;2
+V;The Void;2
+OD;The Outer Dark;2
+;Legacy;3
+BS;Buried Secrets;3
+NA;The New Age;4
+TA;The Ancients;4
+SD;Shattered Dreams;4
+ITW;Into the Wild;4
+O;Outcasts;5
+SV;Southern Village;5
+RTG;Return to Gravehold;5
+P;Dice Tower;2
+P;Legacy (Kickstarter Exclusive);3
+P;The New Age (Kickstarter Exclusive);4
+P;Outcasts (Kickstarter Exclusive);5
