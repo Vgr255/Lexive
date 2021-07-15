@@ -106,7 +106,7 @@ breaches_orientation = (
 # ((position-1)*number of focuses needed to open)+1
 # (position*number of focuses)-number of focuses+1
 
-def log(*x: Tuple[str], level:str="use", **kwargs) -> None:
+def log(*x: str, level:str="use", **kwargs) -> None:
     # probably gonna log to a file at some point
     print(*x, **kwargs)
 
@@ -219,7 +219,7 @@ def load():
             adict = {"name": aname, "charges": int(charges), "type": atype, "effect": expand(ability), "code": code}
             blist = []
             for pos, breach in zip(breaches.split(","), (b1, b2, b3, b4)):
-                pos = int(pos)
+                pos = int(pos) if pos else 0
                 if not breach: # just a regular breach
                     breach = None
                 blist.append((pos, breach))
