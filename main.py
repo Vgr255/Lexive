@@ -214,6 +214,8 @@ def load():
         for name, title, rating, aname, charges, atype, code, ability, special, breaches, hand, deck, b1, b2, b3, b4, flavour, box in content:
             if not name or name.startswith("#"):
                 continue
+            if not charges:
+                charges = 0
             adict = {"name": aname, "charges": int(charges), "type": atype, "effect": expand(ability), "code": code}
             blist = []
             for pos, breach in zip(breaches.split(","), (b1, b2, b3, b4)):
