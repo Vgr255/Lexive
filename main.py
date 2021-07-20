@@ -25,6 +25,10 @@ author_id = 320646088723791874
 
 assets = {}
 mechanics = {}
+waves = {}
+cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
+ctypes = {}
+ability_types = {}
 player_cards = defaultdict(list)
 nemesis_cards = defaultdict(list)
 player_mats = defaultdict(list)
@@ -39,62 +43,6 @@ def sync(d):
         content_dicts.append((func, d))
         return func
     return wrapper
-
-cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
-
-# TODO: Use the files for the values here
-
-waves = {
-    "Aeon's End": ("AE", 1),
-    "The Nameless": ("N", 1),
-    "The Depths": ("D", 1),
-    "War Eternal": ("W", 2),
-    "The Void": ("V", 2),
-    "The Outer Dark": ("OD", 2),
-    "Legacy": (None, 3),
-    "Buried Secrets": ("BS", 3),
-    "The New Age": ("NA", 4),
-    "The Ancients": ("TA", 4),
-    "Shattered Dreams": ("SD", 4),
-    "Into the Wild": ("ITW", 4),
-    "Outcasts": ("O", 5),
-    "Southern Village": ("SV", 5),
-    "Return to Gravehold": ("RTG", 5),
-    "Dice Tower": ("P", 2),
-    "Legacy (Kickstarter Exclusive)": ("P", 3),
-    "The New Age (Kickstarter Exclusive)": ("P", 4),
-    "Outcasts (Kickstarter Exclusive)": ("P", 5),
-}
-
-ctypes = {
-    # Player cards
-    "G": "Gem", "R": "Relic", "S": "Spell",
-    # Nemesis cards
-    "P": "Power", "M": "Minion", "A": "Attack",
-    # Treasures
-    "TG": "Treasured Gem", "TS": "Treasured Spell",
-    "T2": "Treasure Level 2", "T3": "Treasure Level 3",
-    # Outcasts content
-    "O": "Xaxos: Outcast Ability", "C": "Curse",
-    # Nemesis-specific types
-    "N": "Corruption", "K": "Strike", "X": "Xaxos: Ascended Spell",
-    "B": "Bramble", "T": "Trap", "E": "Reminder",
-    # Minion types
-    "MA": "Minion-Acolyte", "MP": "Minion-Pod", "MB": "Minion-Beacon",
-    "MN": "Minion-Nemesis", "MC": "Minion-Claw", "MD": "Minion-Pylon",
-    "MT": "Minion-Thrall", "ME": "Minion-Ember",
-}
-
-ability_types = {
-    "P": "during any player's main phase",
-    "M": "during your main phase",
-    "N": "during the nemesis draw phase",
-    "T": "immediately after a turn order card is drawn",
-    "C": "during your casting phase",
-    "A": "during any ally's main phase",
-    "Y": "during your casting or main phase",
-    "D": "at the end of your draw phase",
-}
 
 breaches_orientation = (
     "Open",
@@ -156,11 +104,6 @@ def expand(x: str, *, flavour=False, prefix=False) -> str:
     return x
 
 def load():
-    cards_num.clear()
-    for name, (prefix, wave) in waves.items():
-        if prefix not in cards_num:
-            cards_num[prefix] = {}
-
     assets.clear()
     for filename in os.listdir("assets"):
         assets[casefold(filename.split(".")[0])] = filename
@@ -175,6 +118,41 @@ def load():
             mechanics[filename[:-7]] = unique_file.readlines()
 
     log("Mechanics loaded", level="local")
+
+    waves.clear()
+    cards_num.clear()
+    with _open("boxes.csv") as boxes_file:
+        content = csv.reader(boxes_file, dialect="excel")
+        for prefix, name, wave in content:
+            if not name or prefix.startswith("#"):
+                continue
+            if not prefix:
+                prefix = None
+            wave = int(wave)
+            waves[name] = (prefix, wave)
+            cards_num[prefix] = {}
+
+    log("Waves loaded", level="local")
+
+    ctypes.clear()
+    with _open("card_types.csv") as types_file:
+        content = csv.reader(types_file, dialect="excel")
+        for prefix, name in content:
+            if not prefix or prefix.startswith("#"):
+                continue
+            ctypes[prefix] = name
+
+    log("Prefixes loaded", level="local")
+
+    ability_types.clear()
+    with _open("mage_ability_types.csv") as ability_file:
+        content = csv.reader(ability_file, dialect="excel")
+        for shorthand, long in content:
+            if not shorthand or shorthand.startswith("#"):
+                continue
+            ability_types[shorthand] = long
+
+    log("Ability types loaded", level="local")
 
     player_cards.clear()
     with _open("player_cards.csv") as player_file:

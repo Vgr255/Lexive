@@ -1,24 +1,40 @@
-Column1,Column2
-# Shorthand,Name
+# Prefix,Name
+,
+# Player card types,
 ,
 G,Gem
 R,Relic
 S,Spell
+,
+# Nemesis card types,
+,
 P,Power
 M,Minion
 A,Attack
+,
+# Treasures,
+,
 TG,Treasured Gem
 TS,Treasured Spell
 T2,Treasure Level 2
 T3,Treasure Level 3
+,
+# Outcasts content,
+,
 O,Xaxos: Outcast Ability
 C,Curse
+,
+# Nemesis-specific types,
+,
 N,Corruption
 K,Strike
 X,Xaxos: Ascended Spell
 B,Bramble
 T,Trap
 E,Reminder
+,
+# Minion types,
+,
 MA,Minion-Acolyte
 MP,Minion-Pod
 MB,Minion-Beacon
