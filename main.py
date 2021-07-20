@@ -42,6 +42,8 @@ def sync(d):
 
 cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
 
+# TODO: Use the files for the values here
+
 waves = {
     "Aeon's End": ("AE", 1),
     "The Nameless": ("N", 1),
@@ -150,7 +152,7 @@ def load():
 
     player_cards.clear()
     with open("player_cards.csv", newline="") as player_file:
-        content = csv.reader(player_file, dialect="excel", delimiter=";")
+        content = csv.reader(player_file, dialect="excel")
         for name, ctype, cost, code, special, text, flavour, starter, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
@@ -179,7 +181,7 @@ def load():
 
     nemesis_cards.clear()
     with open("nemesis_cards.csv", newline="") as nemesis_file:
-        content = csv.reader(nemesis_file, dialect="excel", delimiter=";")
+        content = csv.reader(nemesis_file, dialect="excel")
         for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, start, end in content:
             if not name or name.startswith("#"):
                 continue
@@ -210,7 +212,7 @@ def load():
 
     player_mats.clear()
     with open("player_mats.csv", newline="") as pmats_file:
-        content = csv.reader(pmats_file, dialect="excel", delimiter=";")
+        content = csv.reader(pmats_file, dialect="excel")
         for name, title, rating, aname, charges, atype, code, ability, special, breaches, hand, deck, b1, b2, b3, b4, flavour, box in content:
             if not name or name.startswith("#"):
                 continue
@@ -233,7 +235,7 @@ def load():
 
     nemesis_mats.clear()
     with open("nemesis_mats.csv", newline="") as nmats_file:
-        content = csv.reader(nmats_file, dialect="excel", delimiter=";")
+        content = csv.reader(nmats_file, dialect="excel")
         for name, hp, diff, battle, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, cards in content:
             if not name or name.startswith("#"):
                 continue
@@ -249,7 +251,7 @@ def load():
 
     breach_values.clear()
     with open("breaches.csv", newline="") as breach_file:
-        content = csv.reader(breach_file, dialect="excel", delimiter=";")
+        content = csv.reader(breach_file, dialect="excel")
         for name, pos, focus, left, down, right, effect, mage in content:
             if not name or name.startswith("#"):
                 continue
@@ -263,7 +265,7 @@ def load():
 
     treasure_values.clear()
     with open("treasures.csv", newline="") as treasure_file:
-        content = csv.reader(treasure_file, dialect="excel", delimiter=";")
+        content = csv.reader(treasure_file, dialect="excel")
         for name, ttype, code, effect, flavour, box, deck, number in content:
             if not name or name.startswith("#"):
                 continue

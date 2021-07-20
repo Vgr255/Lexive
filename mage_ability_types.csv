@@ -1,10 +1,10 @@
-Shorthand;Name
-;
-P;during any player's main phase
-M;during your main phase
-N;during the nemesis draw phase
-T;immediately after a turn order card is drawn
-C;during your casting phase
-A;during any ally's main phase
-Y;during your casting or main phase
-D;at the end of your draw phase
+# Shorthand,Name
+,
+P,during any player's main phase
+M,during your main phase
+N,during the nemesis draw phase
+T,immediately after a turn order card is drawn
+C,during your casting phase
+A,during any ally's main phase
+Y,during your casting or main phase
+D,at the end of your draw phase
