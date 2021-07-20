@@ -108,6 +108,32 @@ breaches_orientation = (
 # ((position-1)*number of focuses needed to open)+1
 # (position*number of focuses)-number of focuses+1
 
+class _open:
+    """Wrapper class to get around weird encoding shenanigans."""
+
+    def __init__(self, filename):
+        self.filename = filename
+        self.file = None
+
+    def __enter__(self):
+        self.file = open(self.filename, "rb")
+        return self
+
+    def __exit__(self, exc, exc_type, exc_value):
+        self.file.close()
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        value = self.file.readline()
+        if not value:
+            raise StopIteration
+        if value.startswith(b"\xef\xbb\xbf"):
+            value = value.lstrip(b"\xef\xbb\xbf")
+        value = value.rstrip()
+        return value.decode("utf-8")
+
 def log(*x: str, level:str="use", **kwargs) -> None:
     # probably gonna log to a file at some point
     print(*x, **kwargs)
@@ -151,7 +177,7 @@ def load():
     log("Mechanics loaded", level="local")
 
     player_cards.clear()
-    with open("player_cards.csv", newline="") as player_file:
+    with _open("player_cards.csv") as player_file:
         content = csv.reader(player_file, dialect="excel")
         for name, ctype, cost, code, special, text, flavour, starter, box, deck, start, end in content:
             if not name or name.startswith("#"):
@@ -180,7 +206,7 @@ def load():
     log("Player cards loaded", level="local")
 
     nemesis_cards.clear()
-    with open("nemesis_cards.csv", newline="") as nemesis_file:
+    with _open("nemesis_cards.csv") as nemesis_file:
         content = csv.reader(nemesis_file, dialect="excel")
         for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, start, end in content:
             if not name or name.startswith("#"):
@@ -211,7 +237,7 @@ def load():
     log("Nemesis cards loaded", level="local")
 
     player_mats.clear()
-    with open("player_mats.csv", newline="") as pmats_file:
+    with _open("player_mats.csv") as pmats_file:
         content = csv.reader(pmats_file, dialect="excel")
         for name, title, rating, aname, charges, atype, code, ability, special, breaches, hand, deck, b1, b2, b3, b4, flavour, box in content:
             if not name or name.startswith("#"):
@@ -234,23 +260,23 @@ def load():
     log("Player mats loaded", level="local")
 
     nemesis_mats.clear()
-    with open("nemesis_mats.csv", newline="") as nmats_file:
+    with _open("nemesis_mats.csv") as nmats_file:
         content = csv.reader(nmats_file, dialect="excel")
-        for name, hp, diff, battle, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, cards in content:
+        for name, hp, diff, battle, code, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, cards in content:
             if not name or name.startswith("#"):
                 continue
             nemesis_mats[casefold(name)].append({
                 "name": name, "hp": int(hp), "difficulty": diff, "unleash": expand(unleash),
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
-                "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u, "id_rules": id_r,
-                "side": expand(side), "box": box, "battle": int(battle),
+                "code": code, "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u,
+                "id_rules": id_r, "side": expand(side), "box": box, "battle": int(battle),
                 "cards": cards.split(",")
             })
 
     log("Nemesis mats loaded", level="local")
 
     breach_values.clear()
-    with open("breaches.csv", newline="") as breach_file:
+    with _open("breaches.csv") as breach_file:
         content = csv.reader(breach_file, dialect="excel")
         for name, pos, focus, left, down, right, effect, mage in content:
             if not name or name.startswith("#"):
@@ -264,7 +290,7 @@ def load():
     log("Breaches loaded", level="local")
 
     treasure_values.clear()
-    with open("treasures.csv", newline="") as treasure_file:
+    with _open("treasures.csv") as treasure_file:
         content = csv.reader(treasure_file, dialect="excel")
         for name, ttype, code, effect, flavour, box, deck, number in content:
             if not name or name.startswith("#"):
