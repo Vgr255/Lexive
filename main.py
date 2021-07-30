@@ -7,6 +7,7 @@ import os
 from discord.ext import commands
 
 import config
+import random
 
 # the following characters will be stripped from the csv names when stored
 # and also ignored from messages (so that they are optional)
@@ -35,6 +36,11 @@ player_mats = defaultdict(list)
 nemesis_mats = defaultdict(list)
 breach_values = defaultdict(list)
 treasure_values = defaultdict(list)
+
+# market cards grouped by type
+market_gems = defaultdict(list)
+market_relics = defaultdict(list)
+market_spells = defaultdict(list)
 
 content_dicts = []
 
@@ -168,6 +174,29 @@ def load():
                 "flavour": expand(flavour), "starter": starter, "box": box,
                 "deck": deck, "start": start, "end": end
             })
+            # if not an unique card put into market dict too
+            if not "unique" in code and not starter:
+                if ctype == 'G':
+                    market_gems[casefold(name)].append({
+                        "name": name, "type": ctype, "cost": int(cost), "code": code,
+                        "special": expand(special, prefix=True), "text": expand(text),
+                        "flavour": expand(flavour), "starter": starter, "box": box,
+                        "deck": deck, "start": start, "end": end
+                    })
+                elif ctype == 'R':
+                    market_relics[casefold(name)].append({
+                        "name": name, "type": ctype, "cost": int(cost), "code": code,
+                        "special": expand(special, prefix=True), "text": expand(text),
+                        "flavour": expand(flavour), "starter": starter, "box": box,
+                        "deck": deck, "start": start, "end": end
+                    })
+                elif ctype == 'S':
+                    market_spells[casefold(name)].append({
+                        "name": name, "type": ctype, "cost": int(cost), "code": code,
+                        "special": expand(special, prefix=True), "text": expand(text),
+                        "flavour": expand(flavour), "starter": starter, "box": box,
+                        "deck": deck, "start": start, "end": end
+                    })
             nums = [start]
             if end and not starter:
                 nums = range(start, end+1)
@@ -308,7 +337,9 @@ class Lexive(commands.Bot):
             content = message.content.lstrip(config.prefix)
             if not content:
                 return
-
+            if str(content).startswith('!random'):
+                await randomize(content, message)
+                return;
             values, asset = get_card(content)
             log("REQ:", content)
             if values and values[0] is None: # too many values
@@ -742,6 +773,168 @@ def complete_match(string: str, matches: Iterable) -> list:
         if possible.startswith(string):
             possible_matches.add(possible)
     return sorted(possible_matches)
+
+
+@bot.command()
+async def randomize(content, message):
+    max_mages = 2
+    max_spells = 4
+    max_gems = 3
+    max_relics = 2
+    min_complexity = 1
+    max_complexity = 11
+    max_set_complexity = 12
+
+    min_rating = 1
+    max_rating = 10
+
+    split_content = content.split()
+    if len(split_content) % 2 < 1:
+        msg = "Wrong argument count arguments are: -p <PlayerCount> \
+-m <GemsRelicsSpells> -minD <minimalNemesisDificulty> -maxD <maximumNemesisDificulty>" \
+
+        log(msg)
+        await message.channel.send(msg)
+        return
+
+    params = {}
+    for i in range(1, len(split_content)-1, 2):
+        params[split_content[i]] = split_content[i+1]
+
+    if "-p" in params:
+        if not isInt(params["-p"]) or not int(params["-p"]) in range(1, 5):
+            msg = "Wrong argument -p must be between 1 and 4 : -p 3"
+            log(msg)
+            await message.channel.send(msg)
+            return
+        max_mages = int(params["-p"])
+
+    if "-m" in params:
+        if not len(params["-m"]) == 3 or not isInt(params["-m"]):
+            msg = "Wrong argument -m must be GRS : -m 324"
+            log(msg)
+            await message.channel.send(msg)
+            return
+        max_gems = int(params["-m"][0])
+        max_relics = int(params["-m"][1])
+        max_spells = int(params["-m"][2])
+
+    if (max_spells + max_gems + max_relics) != 9:
+        msg = "Market wont sum up to 9!"
+        log(msg)
+        await message.channel.send(msg)
+        return
+
+    if "-minD" in params:
+        if not isInt(params["-minD"]) or not int(params["-minD"]) in range(1, 11):
+            msg = "Wrong argument -minD must be between 1 and 10 : -minD 3"
+            log(msg)
+            await message.channel.send(msg)
+            return
+        min_complexity = int(params["-minD"])
+
+    if "-maxD" in params:
+        if not isInt(params["-maxD"]) or not int(params["-maxD"]) in range(1, 11):
+            msg = "Wrong argument -maxD must be between 1 and 10 : -maxD 8"
+            log(msg)
+            await message.channel.send(msg)
+            return
+        max_complexity = int(params["-maxD"])
+
+    if max_complexity < min_complexity:
+        max_complexity = min_complexity+1
+    if min_complexity > max_complexity:
+        min_complexity = max_complexity-1
+    if min_complexity > max_set_complexity:
+        min_complexity = max_set_complexity-1
+
+    #some args should be like: expansion ignored or complexity
+
+   #Random Nemesis
+    msg = "Ok why don't you try out this Challange? \n \n"
+    msg += "You play against: \n"
+    card = []
+    while len(card) == 0:
+        tmp_card = random.choice(list(nemesis_mats.values()))
+        if int(tmp_card[0]['difficulty']) >= min_complexity and int(tmp_card[0]['difficulty']) <= max_complexity :
+            card = tmp_card
+
+    msg += card[0]['name']
+    msg += " (%s)" % card[0]['difficulty']
+
+    #Random Mages
+    mages = []
+    #log(len(player_mats))
+    while len(mages) < max_mages:
+        mage = random.choice(list(player_mats.values()))
+        if mage not in mages:
+            mages.append(mage)
+
+    msg += "\n\n With These Mages:"
+    for addMage in mages:
+        msg += "\n "
+        msg += addMage[0]['name']
+
+    # Random Gems
+    gems = []
+    first_gem = True
+
+    while len(gems) < max_gems:
+        gem = random.choice(list(market_gems.values()))
+        if first_gem:
+            if gem[0]['cost'] > 3:
+                continue
+        if gem not in gems:
+            gems.append(gem)
+            first_gem = False
+
+    msg += "\n\n Market Gems:"
+    for addGem in gems:
+        msg += "\n "
+        msg += addGem[0]['name']
+        msg += " ("
+        msg += str(addGem[0]['cost'])
+        msg += ")"
+        # Random Gems
+
+    relics = []
+    while len(relics) < max_relics:
+        relic = random.choice(list(market_relics.values()))
+#        log(relic)
+        if relic not in relics:
+            relics.append(relic)
+
+    msg += "\n\n Market Relics:"
+    for addRelic in relics:
+        msg += "\n "
+        msg += addRelic[0]['name']
+        msg += " ("
+        msg += str(addRelic[0]['cost'])
+        msg += ")"
+
+    spells = []
+    while len(spells) < max_spells:
+        spell = random.choice(list(market_spells.values()))
+        if spell not in spells:
+            spells.append(spell)
+
+    msg += "\n\n Market Spells:"
+    for addSpell in spells:
+        msg += "\n "
+        msg += addSpell[0]['name']
+        msg += " ("
+        msg += str(addSpell[0]['cost'])
+        msg += ")"
+
+    log(msg)
+    await message.channel.send(msg)
+
+def isInt(value):
+    try:
+        int(value)
+        return True
+    except ValueError:
+        return False
 
 @bot.command()
 async def info(ctx, *args):
