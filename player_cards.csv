@@ -1,4 +1,4 @@
-﻿# Name,Type,Cost,Code,Special,Text,Flavour text,Starter,Box,Deck,Start,End
+# Name,Type,Cost,Code,Special,Text,Flavour text,Starter,Box,Deck,Start,End
 ,,,,,,,,,,,
 # Aeon's End,,,,,,,,,,,
 ,,,,,,,,,,,
@@ -293,23 +293,23 @@ Humming Shell,R,7,,,Destroy up to two cards in hand or discard pile.#OR#Gain 2 c
 ,,,,,,,,,,,
 # Curses,,,,,,,,,,,
 ,,,,,,,,,,,
-Cursed Shard,G,0,,,Gain 1$. Place this on top of your deck.#OR#Spend 2$ to destroy this.,Starts the game in the Curse deck.,Curses,Outcasts,1c,33,36
-Cursed Manacles,R,0,,,Gain 1 charges. Suffer 1 damage.#OR#Discard two prepped spells to destroy this.,Starts the game in the Curse deck.,Curses,Outcasts,1c,38,39
-Cursed Bolt,S,0,,,"Cast: Deal 1 damage. Place this on top of your deck.#OR#Cast: Deal 1 damage. Discard two cards in hand. If you do, destroy this.",Starts the game in the Curse deck.,Curses,Outcasts,1c,40,42
+Cursed Shard,G,0,unique=Curses,,Gain 1$. Place this on top of your deck.#OR#Spend 2$ to destroy this.,Starts the game in the Curse deck.,,Outcasts,1c,33,36
+Cursed Manacles,R,0,unique=Curses,,Gain 1 charges. Suffer 1 damage.#OR#Discard two prepped spells to destroy this.,Starts the game in the Curse deck.,,Outcasts,1c,38,39
+Cursed Bolt,S,0,unique=Curses,,"Cast: Deal 1 damage. Place this on top of your deck.#OR#Cast: Deal 1 damage. Discard two cards in hand. If you do, destroy this.",Starts the game in the Curse deck.,,Outcasts,1c,40,42
 ,,,,,,,,,,,
 # Special unique cards,,,,,,,,,,,
 ,,,,,,,,,,,
-Forged Crystal,G,0,A=2,Use this card only when playing with Lost.,Gain 2$.,"""Refined in the flames."" - Lost",Lost,The New Age,END,9,13
-Forged Spark,S,0,D=2,Use this card only when playing with Lost.,Cast: Deal 2 damage.,"""Fire within fire."" - Lost",Lost,The New Age,END,14,17
-Rose Thorn,S,2,,Use this card only when playing with Inco.,Cast: Deal 2 damage. You may return this to the Rose Thorn deck.,"""One thorn is only a prick, but a field of thorns will be your end."" - Inco",Inco,Into the Wild,,6,15
-"Rip, Fetch!",R,3,,Use this card only when playing with Razra.,Focus your closed breach with the lowest focus cost. You may destroy a card in hand.,"""Help me focus. I need to clear my thoughts."" - Razra",Razra,Into the Wild,,34,35
-"Rip, Go!",R,3,,Use this card only when playing with Razra.,Focus any ally's breach. That ally gains 1 charge.,"""That mage needs our help. C'mon!"" - Razra",Razra,Into the Wild,,36,37
-"Rip, Attack!",R,6,,Use this card only when playing with Razra.,Any ally may prep a spell in hand. Cast up to two spells prepped by any player. Spells cast this way deal 1 additional damage.,"""Don't hold back now!"" - Razra",Razra,Into the Wild,,38,39
-"Rip, Eat!",R,6,,Use this card only when playing with Razra.,Any ally gains 2 charges and may destroy a card in hand.,"""Rip has the unusual property of turning matter or thoughts into pure energy. Fascinating."" - Mazra",Razra,Into the Wild,,40,41
-Mazra's Wisdom,S,3,,Use this card only when playing with Mazra.,Cast: Deal 2 damage. Any ally draws a card.,"""You could learn something from me."" - Mazra",,The Ancients,Mazra,3,4
-Mazra's Arc,S,3,,Use this card only when playing with Mazra.,Cast: Deal 3 damage. Focus your closed breach with the lowest focus cost.,"""The ancients knew two things well. Lightning is one of them."" - Mazra",Mazra,The Ancients,,5,6
-Mazra's Inferno,S,6,,Use this card only when playing with Mazra.,Cast: Deal 6 damage.#OR#Cast: Deal 4 damage. Destroy a card in hand.,"""And fire is the other. Stay down."" - Mazra",Mazra,The Ancients,,7,8
-Mazra's Gift,S,6,,Use this card only when playing with Mazra.,Cast: Deal 4 damage. Any ally gains 1 charge.#OR#Cast: Deal 4 damage. Any ally gains 1 life.,"""For me? Aw, thanks Maz!"" - Razra",Mazra,The Ancients,,9,10
+Forged Crystal,G,0,"A=2,unique=Lost",Use this card only when playing with Lost.,Gain 2$.,"""Refined in the flames."" - Lost",,The New Age,END,9,13
+Forged Spark,S,0,"D=2,unique=Lost",Use this card only when playing with Lost.,Cast: Deal 2 damage.,"""Fire within fire."" - Lost",,The New Age,END,14,17
+Rose Thorn,S,2,unique=Inco,Use this card only when playing with Inco.,Cast: Deal 2 damage. You may return this to the Rose Thorn deck.,"""One thorn is only a prick, but a field of thorns will be your end."" - Inco",,Into the Wild,,6,15
+"Rip, Fetch!",R,3,unique=Razra,Use this card only when playing with Razra.,Focus your closed breach with the lowest focus cost. You may destroy a card in hand.,"""Help me focus. I need to clear my thoughts."" - Razra",,Into the Wild,,34,35
+"Rip, Go!",R,3,unique=Razra,Use this card only when playing with Razra.,Focus any ally's breach. That ally gains 1 charge.,"""That mage needs our help. C'mon!"" - Razra",,Into the Wild,,36,37
+"Rip, Attack!",R,6,unique=Razra,Use this card only when playing with Razra.,Any ally may prep a spell in hand. Cast up to two spells prepped by any player. Spells cast this way deal 1 additional damage.,"""Don't hold back now!"" - Razra",,Into the Wild,,38,39
+"Rip, Eat!",R,6,unique=Razra,Use this card only when playing with Razra.,Any ally gains 2 charges and may destroy a card in hand.,"""Rip has the unusual property of turning matter or thoughts into pure energy. Fascinating."" - Mazra",,Into the Wild,,40,41
+Mazra's Wisdom,S,3,unique=Mazra,Use this card only when playing with Mazra.,Cast: Deal 2 damage. Any ally draws a card.,"""You could learn something from me."" - Mazra",,The Ancients,Mazra,3,4
+Mazra's Arc,S,3,unique=Mazra,Use this card only when playing with Mazra.,Cast: Deal 3 damage. Focus your closed breach with the lowest focus cost.,"""The ancients knew two things well. Lightning is one of them."" - Mazra",,The Ancients,,5,6
+Mazra's Inferno,S,6,unique=Mazra,Use this card only when playing with Mazra.,Cast: Deal 6 damage.#OR#Cast: Deal 4 damage. Destroy a card in hand.,"""And fire is the other. Stay down."" - Mazra",,The Ancients,,7,8
+Mazra's Gift,S,6,unique=Mazra,Use this card only when playing with Mazra.,Cast: Deal 4 damage. Any ally gains 1 charge.#OR#Cast: Deal 4 damage. Any ally gains 1 life.,"""For me? Aw, thanks Maz!"" - Razra",,The Ancients,,9,10
 ,,,,,,,,,,,
 # Starter cards,,,,,,,,,,,
 ,,,,,,,,,,,
@@ -415,18 +415,18 @@ Spark,S,0,D=1,,Cast: Deal 1 damage.,,Starter,War Eternal,,0,0
 ,,,,,,,,,,,
 # Nemesis cards that go into players' decks,,,,,,,,,,,
 ,,,,,,,,,,,
-Tainted Jade,G,0,,Use this only when playing with Blight Lord.,"Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.","""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger",Special,The Nameless,,48,55
+Tainted Jade,G,0,unique=BlightLord,Use this only when playing with Blight Lord.,"Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.","""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger",,The Nameless,,48,55
 ,,,,,,,,,,,
-[X:A] Flare,X,3,,,"Cast: Gravehold suffers 1 damage. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage.",,Special,Legacy,VIII,25,26
-[X:A] Gravity Node,X,3,,,Cast: Any player suffers 2 damage and discards a card in hand.,,Special,Legacy,VIII,27,28
-[X:A] Incinerating Fist,X,3,,,Cast: Gravehold suffers 3 damage.,,Special,Legacy,VIII,29,30
-[X:A] Breach Communion,X,4,,,Cast: The player with the most pulse tokens loses 1 pulse token and suffers 3 damage.,,Special,Legacy,VIII,31,0
-[X:A] Pyromancy,X,4,,,Cast: The players collectively discard two cards in hand. Gravehold suffers 3 damage.,,Special,Legacy,VIII,32,0
-[X:A] Sparking Siphon,X,4,,,"Cast: Any player loses 1 pulse token and suffers 2 damage. If 1 pulse token was lost this way, Xaxos: Ascended gains 3 life.",,Special,Legacy,VIII,33,0
-[X:A] Breach Collision,X,5,,,Cast: Gravehold suffers 5 damage.,,Special,Legacy,VIII,34,0
-[X:A] Monstrous Inferno,X,5,,,Cast: The players collectively suffer 7 damage.,,Special,Legacy,VIII,35,0
-[X:A] Pyro Geist,X,5,,,Cast: Any player suffers 2 damage. A different player suffers 3 damage.,,Special,Legacy,VIII,36,0
+[X:A] Flare,X,3,unique=Xaxos,,"Cast: Gravehold suffers 1 damage. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage.",,,Legacy,VIII,25,26
+[X:A] Gravity Node,X,3,unique=Xaxos,,Cast: Any player suffers 2 damage and discards a card in hand.,,,Legacy,VIII,27,28
+[X:A] Incinerating Fist,X,3,unique=Xaxos,,Cast: Gravehold suffers 3 damage.,,,Legacy,VIII,29,30
+[X:A] Breach Communion,X,4,unique=Xaxos,,Cast: The player with the most pulse tokens loses 1 pulse token and suffers 3 damage.,,,Legacy,VIII,31,0
+[X:A] Pyromancy,X,4,unique=Xaxos,,Cast: The players collectively discard two cards in hand. Gravehold suffers 3 damage.,,,Legacy,VIII,32,0
+[X:A] Sparking Siphon,X,4,unique=Xaxos,,"Cast: Any player loses 1 pulse token and suffers 2 damage. If 1 pulse token was lost this way, Xaxos: Ascended gains 3 life.",,,Legacy,VIII,33,0
+[X:A] Breach Collision,X,5,unique=Xaxos,,Cast: Gravehold suffers 5 damage.,,,Legacy,VIII,34,0
+[X:A] Monstrous Inferno,X,5,unique=Xaxos,,Cast: The players collectively suffer 7 damage.,,,Legacy,VIII,35,0
+[X:A] Pyro Geist,X,5,unique=Xaxos,,Cast: Any player suffers 2 damage. A different player suffers 3 damage.,,,Legacy,VIII,36,0
 ,,,,,,,,,,,
-Cracked Onyx,G,0,,"Use this only when playing with The Wailing.#When this is destroyed, return it to its supply pile.",Gain 1$.#OR#Return this and up to one Cracked Onyx in your discard pile to its supply pile.,,Special,Shattered Dreams,,74,93
+Cracked Onyx,G,0,unique=Wailing,"Use this only when playing with The Wailing.#When this is destroyed, return it to its supply pile.",Gain 1$.#OR#Return this and up to one Cracked Onyx in your discard pile to its supply pile.,,,Shattered Dreams,,74,93
 ,,,,,,,,,,,
-Soulfire,G,3,,Use this card when playing Fountain of Souls.,Gain 1$. The Lantern gains 1 fuel.#OR#Gain 1$. Discard 1 soul.,,Special,Outcasts,4,2,11
+Soulfire,G,3,unique=FountainOfSouls,Use this card when playing Fountain of Souls.,Gain 1$. The Lantern gains 1 fuel.#OR#Gain 1$. Discard 1 soul.,,,Outcasts,4,2,11
