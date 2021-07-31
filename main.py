@@ -278,11 +278,14 @@ def load():
                 "flavour": expand(flavour), "box": box, "deck": deck, "number": int(number)
             })
             wave = waves[box][0]
+            pvalue = "T"
+            if ttype == "O":
+                pvalue = "O"
             if not deck:
                 deck = None
             if deck not in cards_num[wave]:
                 cards_num[wave][deck] = {}
-            cards_num[wave][deck][int(number)] = ("T", name)
+            cards_num[wave][deck][int(number)] = (pvalue, name)
 
     log("Treasures loaded", level="local")
 
@@ -337,8 +340,11 @@ def unique_handler(name: str) -> List[str]:
         values.append("```")
 
     else: # manually go through
+        class _card_internal:
+            def __getitem__(self, item):
+                return _card(item)
         def preformat(x: str) -> str:
-            return x.format(prefix=config.prefix, newline="")
+            return x.format(prefix=config.prefix, newline="", card=_card_internal())
 
         is_title = False
         continuing = False
@@ -768,18 +774,18 @@ async def info(ctx, *args):
 
 @bot.command()
 async def card(ctx, *args):
-    arg = casefold("".join(args)).upper()
+    await ctx.send(_card(casefold("".join(args)).upper(), detailed=True))
+
+def _card(arg: str, *, detailed=False) -> str:
     if arg.isdigit():
-        await ctx.send("No prefix supplied.")
-        return
+        return "No prefix supplied."
     index = 0
     for i, x in enumerate(arg):
         if x.isdigit():
             index = i
             break
     if not index:
-        await ctx.send(f"No number found. Did you want `{config.prefix}info` instead?")
-        return
+        return f"No number found. Did you want `{config.prefix}info` instead?"
     prefix, num = arg[:index], arg[index:]
     deck = None
     if ("I" in prefix or prefix == "V") and "T" not in prefix: # Legacy and not Into the Wild
@@ -789,31 +795,33 @@ async def card(ctx, *args):
         if num[0].isdigit() and num[1].isalpha() and num[2:].isdigit():
             deck, num = num[:2], num[2:]
     if prefix not in cards_num:
-        await ctx.send(f"Prefix {prefix} is unrecognized")
-        return
+        return f"Prefix {prefix} is unrecognized"
     values = cards_num[prefix]
     # this is a hack
     if deck and len(deck) == 2 and deck[1] in "ABCD":
         deck = deck[0] + deck[1].lower()
     if deck not in values:
-        await ctx.send(f"Deck {deck} not recognized")
-        return
+        return f"Deck {deck} not recognized"
     num = int(num)
     if num not in values[deck]:
-        await ctx.send(f"Card {num} is unknown")
-        return
+        return f"Card {num} is unknown"
 
     ctype, name = values[deck][num]
+    if not detailed:
+        return name
+
     if ctype == "P":
         ctype = "Player card"
     elif ctype == "N":
         ctype = "Nemesis card"
     elif ctype == "T":
         ctype = "Treasure card"
+    elif ctype == "O":
+        ctype = "Xaxos: Outcast Ability"
     else:
         ctype = "Unknown card type"
 
-    await ctx.send(f"{name} ({ctype})")
+    return f"{name} ({ctype})"
 
 @bot.command()
 async def box(ctx, *args):
