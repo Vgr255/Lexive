@@ -20,18 +20,18 @@ Xaxos: Outcast is not considered a player for any other purpose.
 
 TITLE
 Xaxos: Outcast's ability cards
-{card[O-1d-02]}
-{card[O-1d-03]}
-{card[O-1d-04]}
-{card[O-1d-05]}
-{card[O-1d-06]}
-{card[O-1d-07]}
+{card[O1d02]}
+{card[O1d03]}
+{card[O1d04]}
+{card[O1d05]}
+{card[O1d06]}
+{card[O1d07]}
 {newline}
-{card[O-2b-33]}
-{card[O-2b-34]}
+{card[O2b33]}
+{card[O2b34]}
 {newline}
-{card[O-3b-33]}
-{card[O-3b-34]}
+{card[O3b33]}
+{card[O3b34]}
 {newline}
 {card[P121]}
 {card[P122]}
