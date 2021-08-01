@@ -720,9 +720,9 @@ _randomizer_args.add_argument("--help", "-h", action="help", default=argparse.SU
 _randomizer_args.add_argument("--player-count", "-p", type=int, default=2, choices=range(1, 5), help="How many mages are going to play")
 
 _randomizer_args.add_argument("--gem-count", "-g", type=int, default=3, choices=range(10), help="How many gems to include in the market")
+_randomizer_args.add_argument("--force-cheap-gem", "-c", action="store_true", help="If set and --gem-count > 0, forces at least one gem costing at most 3")
 _randomizer_args.add_argument("--relic-count", "-r", type=int, default=2, choices=range(10), help="How many relics to include in the market")
 _randomizer_args.add_argument("--spell-count", "-s", type=int, default=4, choices=range(10), help="How many spells to include in the market")
-_randomizer_args.add_argument("--force-low-gem", "-l", action="store_true", help="If set, forces at least one gem costing at most 3")
 
 _randomizer_args.add_argument("--lowest-difficulty", "-d", type=int, default=1, choices=range(11), help="The lowest nemesis difficulty to allow")
 _randomizer_args.add_argument("--highest-difficulty", "-D", type=int, default=10, choices=range(11), help="The highest nemesis difficulty to allow")
@@ -768,7 +768,12 @@ async def random(ctx, *args):
     message.append("")
 
     nemesis = None
+    count = 0
     while nemesis is None:
+        count += 1
+        if count == 1000:
+            await ctx.send("Could not find a matching nemesis")
+            return
         values = _random.choice(list(nemesis_mats.values()))
         value = _random.choice(values)
         if verbose >= 2:
@@ -788,7 +793,12 @@ async def random(ctx, *args):
     message.append(f"Fighting {nemesis['name']} (difficulty {nemesis['difficulty']})")
 
     mages = []
+    count = 0
     while len(mages) < namespace.player_count:
+        count += 1
+        if count == 1000:
+            await ctx.send("Could not find enough mages")
+            return
         values = _random.choice(list(player_mats.values()))
         value = _random.choice(values)
         if value in mages:
@@ -816,7 +826,12 @@ async def random(ctx, *args):
     gems = []
     relics = []
     spells = []
+    count = 0
     while len(gems) < namespace.gem_count or len(relics) < namespace.relic_count or len(spells) < namespace.spell_count:
+        count += 1
+        if count == 5000:
+            await ctx.send("Could not find enough market cards")
+            return
         for value in _random.choice(list(player_cards.values())):
             if value["type"] == "G":
                 if not gems and namespace.force_low_gem and value["cost"] > 3:
@@ -847,6 +862,10 @@ async def random(ctx, *args):
                     continue
                 if value not in spells:
                     spells.append(value)
+
+    gems.sort(key=lambda x: x["cost"])
+    relics.sort(key=lambda x: x["cost"])
+    spells.sort(key=lambda x: x["cost"])
 
     for name, container in (("gems", gems), ("relics", relics), ("spells", spells)):
         message.append("")
