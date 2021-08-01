@@ -702,10 +702,20 @@ def get_treasure(name: str) -> List[str]:
 # Create the randomizer and its parser
 
 class ArgParser(argparse.ArgumentParser):
-    def error(self, message):
+    def print_usage(self, file=None) -> None:
+        super().print_usage(HelperFile())
+    def print_help(self, file=None):
+        super().print_help(HelperFile())
+    def exit(self, status=0, message=None):
         raise RuntimeError(message)
 
-_randomizer_args = ArgParser(prog="random", description="Generate a random market, mages and nemesis", exit_on_error=False)
+class HelperFile:
+    def write(self, content):
+        raise RuntimeError(f"```\n{content}\n```")
+
+_randomizer_args = ArgParser(prog="random", description="Generate a random market, mages and nemesis", add_help=False)
+
+_randomizer_args.add_argument("--help", "-h", action="help", default=argparse.SUPPRESS, help="Prints this help message")
 
 _randomizer_args.add_argument("--player-count", "-p", type=int, default=2, choices=range(1, 5), help="How many mages are going to play")
 
