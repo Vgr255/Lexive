@@ -1,7 +1,9 @@
-from typing import Optional, Tuple, Iterable, Callable, List, Dict
+from typing import Optional, Tuple, Iterable, List, Dict
 from collections import defaultdict
 
+import argparse
 import discord
+import random as _random
 import csv
 import os
 from discord.ext import commands
@@ -19,7 +21,7 @@ _newline_str = "#"
 # this is a str
 _prefix_str = "!"
 
-VERSION = "0.2"
+VERSION = "0.3"
 AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
 
@@ -222,6 +224,8 @@ def load():
                 continue
             if not charges:
                 charges = 0
+            if not rating:
+                rating = 0
             adict = {"name": aname, "charges": int(charges), "type": atype, "effect": expand(ability), "code": code}
             blist = []
             for pos, breach in zip(breaches.split(","), (b1, b2, b3, b4)):
@@ -230,7 +234,7 @@ def load():
                     breach = None
                 blist.append((pos, breach))
             player_mats[casefold(name)].append({
-                "name": name, "title": title, "rating": rating, "ability": adict, "breaches": blist,
+                "name": name, "title": title, "rating": int(rating), "ability": adict, "breaches": blist,
                 "hand": hand.split(","), "deck": deck.split(","), "flavour": expand(flavour),
                 "special": expand(special, prefix=True), "box": box
             })
@@ -244,7 +248,7 @@ def load():
             if not name or name.startswith("#"):
                 continue
             nemesis_mats[casefold(name)].append({
-                "name": name, "hp": int(hp), "difficulty": diff, "unleash": expand(unleash),
+                "name": name, "hp": int(hp), "difficulty": int(diff), "unleash": expand(unleash),
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
                 "code": code, "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u,
                 "id_rules": id_r, "side": expand(side), "box": box, "battle": int(battle),
@@ -695,6 +699,152 @@ def get_treasure(name: str) -> List[str]:
 
     return values
 
+# Create the randomizer and its parser
+
+class ArgParser(argparse.ArgumentParser):
+    def error(self, message):
+        raise RuntimeError(message)
+
+_randomizer_args = ArgParser(prog="random", description="Generate a random market, mages and nemesis", exit_on_error=False)
+
+_randomizer_args.add_argument("--player-count", "-p", type=int, default=2, choices=range(1, 5), help="How many mages are going to play")
+
+_randomizer_args.add_argument("--gem-count", "-g", type=int, default=3, choices=range(10), help="How many gems to include in the market")
+_randomizer_args.add_argument("--relic-count", "-r", type=int, default=2, choices=range(10), help="How many relics to include in the market")
+_randomizer_args.add_argument("--spell-count", "-s", type=int, default=4, choices=range(10), help="How many spells to include in the market")
+_randomizer_args.add_argument("--force-low-gem", "-l", action="store_true", help="If set, forces at least one gem costing at most 3")
+
+_randomizer_args.add_argument("--lowest-difficulty", "-d", type=int, default=1, choices=range(11), help="The lowest nemesis difficulty to allow")
+_randomizer_args.add_argument("--highest-difficulty", "-D", type=int, default=10, choices=range(11), help="The highest nemesis difficulty to allow")
+
+_randomizer_args.add_argument("--minimum-rating", "-m", type=int, default=1, choices=range(11), help="The minimum mage complexity rating to allow")
+_randomizer_args.add_argument("--maximum-rating", "-M", type=int, default=10, choices=range(11), help="The maximum complexity rating to allow")
+
+#_randomizer_args.add_argument("--expedition", "-e", action="store_true", help="If set, will generate an expedition of length specified in --expedition-length")
+#_randomizer_args.add_argument("--expedition-length", "-E", type=int, default=4, choices=range(1, 9), help="How many battles the expedition should be")
+
+#_randomizer_args.add_argument("--boxes", "-b", action="extend", default=waves, choices=waves, help="From which boxes should the content be pulled")
+
+_randomizer_args.add_argument("--verbose", "-v", action="count", default=0, help="Turn on verbose output (up to -vvv)")
+
+def _isin(code: str, *items: str) -> bool:
+    """Temporary hack until the parser is functional."""
+    for item in items:
+        if f"{item}=" in code:
+            return True
+    return False
+
+@bot.command()
+async def random(ctx, *args):
+    # TODO: Add expedition support
+    try:
+        namespace = _randomizer_args.parse_args(args)
+    except (argparse.ArgumentError, RuntimeError) as e:
+        await ctx.send(str(e))
+        return
+
+    verbose = namespace.verbose
+
+    # TODO: Allow users to add and select which boxes they have (probably a SQL db or something)
+
+    if verbose >= 1:
+        await ctx.send(f"Settings: {namespace}")
+
+    message = ["Random battle:", ""]
+
+    # TODO: Add box handling (and make sure that there's enough mages/markets/etc.)
+    boxes = list(waves)
+    message.append("Using ALL released content (currently not configurable, will be in the future)")
+    message.append("")
+
+    nemesis = None
+    while nemesis is None:
+        values = _random.choice(list(nemesis_mats.values()))
+        value = _random.choice(values)
+        if verbose >= 2:
+            await ctx.send(f"Checking {value['name']}")
+        if not (namespace.lowest_difficulty <= value["difficulty"] <= namespace.highest_difficulty):
+            if verbose >= 3:
+                await ctx.send("Difficulty doesn't match")
+            continue
+        if "NOEXP" in value["code"]:
+            continue
+        if value["box"] not in boxes:
+            if verbose >= 3:
+                await ctx.send("Box doesn't match")
+            continue
+        nemesis = value
+
+    message.append(f"Fighting {nemesis['name']} (difficulty {nemesis['difficulty']})")
+
+    mages = []
+    while len(mages) < namespace.player_count:
+        values = _random.choice(list(player_mats.values()))
+        value = _random.choice(values)
+        if value in mages:
+            if verbose >= 3:
+                await ctx.send(f"Found {value['name']} but already in, skipping")
+            continue
+        if verbose >= 2:
+            await ctx.send(f"Checking {value['name']}")
+        if not (namespace.minimum_rating <= value["rating"] <= namespace.maximum_rating):
+            if verbose >= 3:
+                await ctx.send("Complexity rating doesn't match")
+            continue
+        if value["box"] not in boxes:
+            if verbose >= 3:
+                await ctx.send("Box doesn't match")
+            continue
+
+        mages.append(value)
+
+    message.append(f"Using mages {', '.join(m['name'] for m in mages)}")
+
+    # Note: this block below checks the code column in a very hacky way
+    # This is going to be improved when the parser is complete
+
+    gems = []
+    relics = []
+    spells = []
+    while len(gems) < namespace.gem_count or len(relics) < namespace.relic_count or len(spells) < namespace.spell_count:
+        for value in _random.choice(list(player_cards.values())):
+            if value["type"] == "G":
+                if not gems and namespace.force_low_gem and value["cost"] > 3:
+                    continue
+                if len(gems) >= namespace.gem_count:
+                    continue
+                if value["starter"]:
+                    continue
+                if _isin(value["code"], "T", "U", "N"):
+                    continue
+                if value not in gems:
+                    gems.append(value)
+            if value["type"] == "R":
+                if len(relics) >= namespace.relic_count:
+                    continue
+                if value["starter"]:
+                    continue
+                if _isin(value["code"], "T", "U", "N"):
+                    continue
+                if value not in relics:
+                    relics.append(value)
+            if value["type"] == "S":
+                if len(spells) >= namespace.spell_count:
+                    continue
+                if value["starter"]:
+                    continue
+                if _isin(value["code"], "T", "U", "N"):
+                    continue
+                if value not in spells:
+                    spells.append(value)
+
+    for name, container in (("gems", gems), ("relics", relics), ("spells", spells)):
+        message.append("")
+        message.append(f"Market {name}:")
+        message.extend([f"{value['name']} (from {value['box']}, {value['cost']}-cost)" for value in container])
+
+    await ctx.send("\n".join(message))
+
 def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
@@ -710,7 +860,7 @@ def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
         possible.update(mapping.keys())
     matches = complete_match(arg, possible)
     values = []
-    if len(matches) > config.max_dupe:
+    if len(matches) > config.max_dupes:
         values.append(None)
         for x in matches:
             for func, d in content_dicts:
@@ -899,6 +1049,11 @@ async def issues(ctx):
 @bot.command()
 async def github(ctx):
     await ctx.send("https://github.com/Vgr255/Lexive")
+
+@bot.command("eval")
+async def eval_(ctx, *args):
+    if await ctx.bot.is_owner(ctx.author):
+        await ctx.send(eval(" ".join(args)))
 
 @bot.command()
 async def whoami(ctx):

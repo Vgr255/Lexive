@@ -1,11 +1,11 @@
-﻿# Name,Type,Cost,Code,Special,Text,Flavour text,Starter,Box,Deck,Start,End
+# Name,Type,Cost,Code,Special,Text,Flavour text,Starter,Box,Deck,Start,End
 ,,,,,,,,,,,
 # Aeon's End,,,,,,,,,,,
 ,,,,,,,,,,,
 Burning Opal,G,5,,,"Gain 3$. You may discard a card in hand. If you do, any ally draws a card.","""Careful, youngling. You'll be wanting tongs to handle that!"" - Adelheim, Breach Mage Weaponsmith",,Aeon's End,,55,61
 Clouded Sapphire,G,6,,,"Gain 3$. If this is the first time you have played Clouded Sapphire this turn, any ally gains 1 charge.","""They say if you look closely, the shadow of The World That Was is imprisoned within."" - Phaedraxa, Breach Mage Seer",,Aeon's End,,62,68
 Diamond Cluster,G,4,,,"Gain 2$. If this is the second time you have played Diamond Cluster this turn, gain an additional 2$.#Rule clarification: You may not gain the bonus $ more than once per turn.","These gems were once the most precious, the most scarce. Now they line the walls of caves like shimmering fangs.",,Aeon's End,,69,75
-Jade,G,2,A=2,,Gain 2$.,Jade is as common as bone at the mouth of the cave.,,Aeon's End,,76,82
+Jade,G,2,(A=2),,Gain 2$.,Jade is as common as bone at the mouth of the cave.,,Aeon's End,,76,82
 Searing Ruby,G,4,,,Gain 2$. Gain an additional 1$ that can only be used to gain a spell.,"""Some use these to heat and light their hovels against the dark of the cave. Others know that within these gems lies a fire that can be tamed."" - Ghan, Gem Scavenger",,Aeon's End,,83,89
 Sifter's Pearl,G,3,,,Gain 2$. Each player reveals the top card of their deck and either discards it or returns it to the top of their deck.,"""To those who have stepped through the breach, the pearl shows the splinters of time itself."" - Phaedraxa, Breach Mage Seer",,Aeon's End,,90,96
 V'riswood Amber,G,3,,"When you gain this, you may place it on top of your deck.",Gain 2$.,"""Once, the trees of V'riswood towered ancient and beautiful. These polished bits of their amber is all that remains beyond that memory."" - Brama, Breach Mage Elder",,Aeon's End,,97,103
@@ -100,14 +100,14 @@ Scorch,S,5,,,"Cast: Deal 4 damage. If this damage causes a minion from the nemes
 ,,,,,,,,,,,
 # Legacy,,,,,,,,,,,
 ,,,,,,,,,,,
-Ancient Cyanolith,G,3,A=2,,Gain 2$.,The ancients prized this gem for its potential.,,Legacy,Ia,2,8
+Ancient Cyanolith,G,3,(A=2),,Gain 2$.,The ancients prized this gem for its potential.,,Legacy,Ia,2,8
 Branching Radite,G,4,,,"Gain 2$. If you have two or more prepped spells, gain an additional 1$.",One vein of pure radite can power a mage for life.,,Legacy,Ia,9,15
-Gilded Marble,G,6,A=3,,Gain 3$.,Marble is among the most valued materials in Gravehold.,,Legacy,Ia,16,22
+Gilded Marble,G,6,(A=3),,Gain 3$.,Marble is among the most valued materials in Gravehold.,,Legacy,Ia,16,22
 Neural Wreath,R,4,,,Focus any player's breach. Any player may prep a spell in hand.,Connecting to another mind requires precision and exacting concentration.,,Legacy,Ia,23,27
 Ethereal Hand,R,6,,,Any ally draws two cards.,A helping hand can turn the tide of a battle.,,Legacy,Ia,28,32
-Fire Chakram,S,2,D=2,,Cast: Deal 2 damage.,This basic spell is standard in every mage's repertoire.,,Legacy,Ia,33,37
+Fire Chakram,S,2,(D=2),,Cast: Deal 2 damage.,This basic spell is standard in every mage's repertoire.,,Legacy,Ia,33,37
 Warping Haze,S,3,,,"Cast: Deal 2 damage. If you have two or more other prepped spells, deal 1 additiona damage.","The haze feeds on your energy, warping reality and growing in power.",,Legacy,Ia,38,42
-Incinerating Fist,S,4,D=3,,Cast: Deal 3 damage.,This spell is the standard for those who want to fight up close and personal.,,Legacy,Ia,43,47
+Incinerating Fist,S,4,(D=3),,Cast: Deal 3 damage.,This spell is the standard for those who want to fight up close and personal.,,Legacy,Ia,43,47
 Gravity Node,S,5,,,"Cast: Any player discards a card in hand. If they do, deal 4 damage.","Normally, breach mages do not experiment with gravity. These are not normal times.",,Legacy,Ia,48,52
 ,,,,,,,,,,,
 Crumbling Compound,G,5,,,"Gain 2$. You may discard a gem in hand. If you do, gain an additional 2$.","Long ago, Brama discovered that this compound could temporarily drain and transform another gem's essence into raw aether.",,Legacy,Id,2,8
@@ -120,14 +120,14 @@ Starfire Frenzy,S,6,,,"Cast: Deal 4 damage. You may discard a spell in hand. If 
 Force Transfusion,S,4,,,"Cast: Deal 3 damage. If you have 3 or more charges, gain 1 charge.","Learned mages can compound their stored charges, leading to even greater power.",,Legacy,II,14,18
 Brane Knife,R,3,,,Gain 1 charge. Any ally focuses their closed breach with the lowest focus cost.,"Discovered in the ancient tunnels, this knife can slice through reality in a way never before seen.",,Legacy,II,19,23
 ,,,,,,,,,,,
-Soothing Torporene,G,3,(A=2)/S,,Gain 2$.#OR#!Silence a minion.,This newly acquired gem will soothe even the most aggressive minions into a passive sleep.,,Legacy,III,24,30
+Soothing Torporene,G,3,(A=2)/(S),,Gain 2$.#OR#!Silence a minion.,This newly acquired gem will soothe even the most aggressive minions into a passive sleep.,,Legacy,III,24,30
 Void Mill,R,5,,,Focus any player's breach. Two different players may destroy the top card of their discard pile.,"Breaches are like living things -- they hunger, and need to be fed.",,Legacy,III,31,35
 Arcane Salvo,S,5,,"While prepped, once per turn during your main phase, you may place a relic you played this turn or a relic in your discard pile on top of your deck.",Cast: Deal 4 damage.,"Malastar has developed a way to recharge relics quickly, allowing them to be used more often.",,Legacy,III,36,40
 Breach Collision,S,7,,"When you gain this, you may place it on top of any player's discard pile.",Cast: Deal 5 damage. Gravehold gains 1 life.,"When two breaches touch, memories and thoughts collide, often with unexpected results.",,Legacy,III,41,45
 ,,,,,,,,,,,
 Phased Portalite,G,4,,,"Gain 2$. If your III breach is opened, gain an additional 1$.","When broken down, Portalite allows a seasoned breach mage to draw even greater aether from a particular breach.",,Legacy,IV,12,18
 Refined Lumenium,G,5,,,Gain 2$. Any ally draws a card.,"After going through extensive refinement, Lumenium provides a burst of power to allies.",,Legacy,IV,19,25
-Reality Stabilizer,R,6,"C=2,S",,Gain 2 charges. !Silence a minion.,The ability to silence minions might have won us the battle for Gravehold.,,Legacy,IV,26,30
+Reality Stabilizer,R,6,"(C=2,S)",,Gain 2 charges. !Silence a minion.,The ability to silence minions might have won us the battle for Gravehold.,,Legacy,IV,26,30
 Pyro Geist,S,6,,"When you prep this, deal 1 damage.",Cast: Deal 1 damage. Deal 2 damage.#(Effects that modify damage affect both instances of damage this spell deals when cast.),Channeling the swirling flames of the geist takes dedicated practice.,,Legacy,IV,31,35
 ,,,,,,,,,,,
 Conductive Grit,G,3,,,"Gain 2$. Gain 1 pulse token.#OR#You may lose 1 pulse token. If you do, gain 3$.",The grit can be used to regulate and store the electricity that pulses through us all.,,Legacy,V,12,18
@@ -153,7 +153,7 @@ Shining Tetrite,G,6,,,Gain 4$ that cannot be used to gain a card.,"Tetrite was d
 Summonite,G,3,,,Gain 2$.#OR#Gain a Summonite from the supply and place it on top of any ally's discard pile.,"When imbued with the correct frequency of energies, the summonite is able to replicate itself, thus increasing its potential.",,Buried Secrets,,36,42
 Triplite Core,G,4,,,Gain 3$ that can only be used to gain cards.,"Triplite is a fragile crystal, holding unbalanced energies inside. A careful hand is required to use it properly.",,Buried Secrets,,43,49
 Voidium Spike,G,3,,,Gain 2$. Each ally may discard a card in hand. Each ally that does gains 1 charge.,"When driven into the ground, the Voidium Spike acts as a tether, allowing other nearby mages to draw charges from it.",,Buried Secrets,,50,56
-Bottled Star,R,7,C=3,,Gain 3 charges.,"Now that we have access to the stars themselves, our ancient rites allow us to borrow their power, storing it up for a time of great crisis.",,Buried Secrets,,57,61
+Bottled Star,R,7,(C=3),,Gain 3 charges.,"Now that we have access to the stars themselves, our ancient rites allow us to borrow their power, storing it up for a time of great crisis.",,Buried Secrets,,57,61
 Living Gauntlet,R,4,,,Reveal the top card of your deck. You may destroy or discard it. Each ally may draw a card. Each ally that does discards a card in hand.,This gauntlet hungers. Feed its greed and you will be rewarded.,,Buried Secrets,,62,66
 Manifold Container,R,4,,,"Gain 1$. The next time you gain a card this turn, you may also gain a card that costs less than the gained card.","By bending the rules of space and time, this container allows a mage to conserve much of their aether.",,Buried Secrets,,67,71
 Scholar's Opus,R,3,,,"Gain 1 charge. If there are seven or more cards in your discard pile, gain 1 additional charge.",There are many secrets to be found in the dusty stacks of old tomes left behind on the surface by long-dead scholars.,,Buried Secrets,,72,76
@@ -232,7 +232,7 @@ Twisted Fang,S,4,,,"Cast: Deal 3 damage. If this card's supply pile is empty, de
 Lightning Arrow,S,5,,,"Cast: Deal 3 damage. You may discard a card in hand. If you do, Gravehold gains 1 life.",,,Outcasts,1a,43,47
 Tornado of Insight,S,6,,,"Cast: Deal 5 damage. If you have no closed breaches, gain 1 charge.","""A breach has power, even without forcing magic through it."" - Lexive, Arcane Theorist",,Outcasts,1a,48,52
 ,,,,,,,,,,,
-Galvanized Sapphire,G,4,"A=2,O=1",,Gain 2$. Xaxos: Outcast gains 1 charge.,,,Outcasts,1d,8,14
+Galvanized Sapphire,G,4,"(A=2,O=1)",,Gain 2$. Xaxos: Outcast gains 1 charge.,,,Outcasts,1d,8,14
 Vigorous Sunstone,G,5,,"When you gain this, if this is the second card you gained this turn, place this into your hand.",Gain 3$.,,,Outcasts,1d,15,21
 Carnivorous Roox,R,3,,,Gain 1$. You may destroy a card in hand to gain $ equal to its cost.#OR#Destroy this. Focus your closed breach with the lowest focus cost twice.,,,Outcasts,1d,22,26
 Infused Ignition,S,4,,,"Cast: Deal 3 damage. If Xaxos: Outcast has 4 or less charges, he gains 1 charge.",,,Outcasts,1d,27,31
@@ -247,10 +247,10 @@ Reconstituting Circuit,R,3,,,Xaxos: Outcast gains 1 charge. You may destroy a ca
 Unhinged Vortex,R,7,,,"Any ally draws three cards. Then, they discard a card in hand.#OR#You may focus any ally's breach. Any ally may return a card in their discard pile to their hand.",,,Outcasts,3b,14,18
 Radiant Conflux,S,5,,,Cast: Deal 3 damage. Any ally may draw a card and then discard a card in hand.,"""When dealing with magic, you cannot rely on your eyes and ears. You must learn to rely on senses beyond that."" - Lexive, Arcane Theorist",,Outcasts,3b,19,23
 ,,,,,,,,,,,
-Unstable Pyrite,G,2,"A=1,X+2",,"Gain 1$. You may destroy this. If you do, gain an additional 2$.",,,Outcasts,END,2,8
+Unstable Pyrite,G,2,"(A=1,X+2)",,"Gain 1$. You may destroy this. If you do, gain an additional 2$.",,,Outcasts,END,2,8
 Orb of the Deep,R,2,,,Focus your closed breach with the lowest focus cost.#OR#Destroy this. Gain 1 charge.,,,Outcasts,END,9,13
 Rift Dagger,R,3,,,"Gain a card from any other supply pile that costs 3$ or less. You may destroy this to gain a card that costs up to 4$ instead. You may spend 1$. If you do, place that card into your hand.",,,Outcasts,END,14,18
-Bottled Sun,R,6,O=3,,Xaxos: Outcast gains 3 charges.,,,Outcasts,END,19,23
+Bottled Sun,R,6,(O=3),,Xaxos: Outcast gains 3 charges.,,,Outcasts,END,19,23
 Shattering Bolt,S,4,,,"Cast: Deal 2 damage. You may destroy a card in your hand.#OR#Cast: Discard a gem in hand. If you do, deal 4 damage.",,,Outcasts,END,24,28
 Unstable Rift,S,5,,"While prepped, at the end of your casting phase, deal 1 damage and gain 1$.",Cast: Deal 4 damage.,,,Outcasts,END,29,33
 Gathered Will,S,5,,,Cast: Deal 2 damage. You may gain a spell from any supply pile that costs 4$ or less and place it on top of your deck.,,,Outcasts,END,34,38
@@ -293,23 +293,23 @@ Humming Shell,R,7,,,Destroy up to two cards in hand or discard pile.#OR#Gain 2 c
 ,,,,,,,,,,,
 # Curses,,,,,,,,,,,
 ,,,,,,,,,,,
-Cursed Shard,G,0,,,Gain 1$. Place this on top of your deck.#OR#Spend 2$ to destroy this.,Starts the game in the Curse deck.,Curses,Outcasts,1c,33,36
-Cursed Manacles,R,0,,,Gain 1 charges. Suffer 1 damage.#OR#Discard two prepped spells to destroy this.,Starts the game in the Curse deck.,Curses,Outcasts,1c,38,39
-Cursed Bolt,S,0,,,"Cast: Deal 1 damage. Place this on top of your deck.#OR#Cast: Deal 1 damage. Discard two cards in hand. If you do, destroy this.",Starts the game in the Curse deck.,Curses,Outcasts,1c,40,42
+Cursed Shard,G,0,(T=Curse),,Gain 1$. Place this on top of your deck.#OR#Spend 2$ to destroy this.,Starts the game in the Curse deck.,,Outcasts,1c,33,36
+Cursed Manacles,R,0,(T=Curse),,Gain 1 charges. Suffer 1 damage.#OR#Discard two prepped spells to destroy this.,Starts the game in the Curse deck.,,Outcasts,1c,38,39
+Cursed Bolt,S,0,(T=Curse),,"Cast: Deal 1 damage. Place this on top of your deck.#OR#Cast: Deal 1 damage. Discard two cards in hand. If you do, destroy this.",Starts the game in the Curse deck.,,Outcasts,1c,40,42
 ,,,,,,,,,,,
 # Special unique cards,,,,,,,,,,,
 ,,,,,,,,,,,
-Forged Crystal,G,0,A=2,Use this card only when playing with Lost.,Gain 2$.,"""Refined in the flames."" - Lost",Lost,The New Age,END,9,13
-Forged Spark,S,0,D=2,Use this card only when playing with Lost.,Cast: Deal 2 damage.,"""Fire within fire."" - Lost",Lost,The New Age,END,14,17
-Rose Thorn,S,2,,Use this card only when playing with Inco.,Cast: Deal 2 damage. You may return this to the Rose Thorn deck.,"""One thorn is only a prick, but a field of thorns will be your end."" - Inco",Inco,Into the Wild,,6,15
-"Rip, Fetch!",R,3,,Use this card only when playing with Razra.,Focus your closed breach with the lowest focus cost. You may destroy a card in hand.,"""Help me focus. I need to clear my thoughts."" - Razra",Razra,Into the Wild,,34,35
-"Rip, Go!",R,3,,Use this card only when playing with Razra.,Focus any ally's breach. That ally gains 1 charge.,"""That mage needs our help. C'mon!"" - Razra",Razra,Into the Wild,,36,37
-"Rip, Attack!",R,6,,Use this card only when playing with Razra.,Any ally may prep a spell in hand. Cast up to two spells prepped by any player. Spells cast this way deal 1 additional damage.,"""Don't hold back now!"" - Razra",Razra,Into the Wild,,38,39
-"Rip, Eat!",R,6,,Use this card only when playing with Razra.,Any ally gains 2 charges and may destroy a card in hand.,"""Rip has the unusual property of turning matter or thoughts into pure energy. Fascinating."" - Mazra",Razra,Into the Wild,,40,41
-Mazra's Wisdom,S,3,,Use this card only when playing with Mazra.,Cast: Deal 2 damage. Any ally draws a card.,"""You could learn something from me."" - Mazra",,The Ancients,Mazra,3,4
-Mazra's Arc,S,3,,Use this card only when playing with Mazra.,Cast: Deal 3 damage. Focus your closed breach with the lowest focus cost.,"""The ancients knew two things well. Lightning is one of them."" - Mazra",Mazra,The Ancients,,5,6
-Mazra's Inferno,S,6,,Use this card only when playing with Mazra.,Cast: Deal 6 damage.#OR#Cast: Deal 4 damage. Destroy a card in hand.,"""And fire is the other. Stay down."" - Mazra",Mazra,The Ancients,,7,8
-Mazra's Gift,S,6,,Use this card only when playing with Mazra.,Cast: Deal 4 damage. Any ally gains 1 charge.#OR#Cast: Deal 4 damage. Any ally gains 1 life.,"""For me? Aw, thanks Maz!"" - Razra",Mazra,The Ancients,,9,10
+Forged Crystal,G,0,(A=2);(U=Lost),Use this card only when playing with Lost.,Gain 2$.,"""Refined in the flames."" - Lost",,The New Age,END,9,13
+Forged Spark,S,0,(D=2);(U=Lost),Use this card only when playing with Lost.,Cast: Deal 2 damage.,"""Fire within fire."" - Lost",,The New Age,END,14,17
+Rose Thorn,S,2,(U=Inco),Use this card only when playing with Inco.,Cast: Deal 2 damage. You may return this to the Rose Thorn deck.,"""One thorn is only a prick, but a field of thorns will be your end."" - Inco",,Into the Wild,,6,15
+"Rip, Fetch!",R,3,(U=Razra),Use this card only when playing with Razra.,Focus your closed breach with the lowest focus cost. You may destroy a card in hand.,"""Help me focus. I need to clear my thoughts."" - Razra",,Into the Wild,,34,35
+"Rip, Go!",R,3,(U=Razra),Use this card only when playing with Razra.,Focus any ally's breach. That ally gains 1 charge.,"""That mage needs our help. C'mon!"" - Razra",,Into the Wild,,36,37
+"Rip, Attack!",R,6,(U=Razra),Use this card only when playing with Razra.,Any ally may prep a spell in hand. Cast up to two spells prepped by any player. Spells cast this way deal 1 additional damage.,"""Don't hold back now!"" - Razra",,Into the Wild,,38,39
+"Rip, Eat!",R,6,(U=Razra),Use this card only when playing with Razra.,Any ally gains 2 charges and may destroy a card in hand.,"""Rip has the unusual property of turning matter or thoughts into pure energy. Fascinating."" - Mazra",,Into the Wild,,40,41
+Mazra's Wisdom,S,3,(U=Mazra),Use this card only when playing with Mazra.,Cast: Deal 2 damage. Any ally draws a card.,"""You could learn something from me."" - Mazra",,The Ancients,Mazra,3,4
+Mazra's Arc,S,3,(U=Mazra),Use this card only when playing with Mazra.,Cast: Deal 3 damage. Focus your closed breach with the lowest focus cost.,"""The ancients knew two things well. Lightning is one of them."" - Mazra",,The Ancients,,5,6
+Mazra's Inferno,S,6,(U=Mazra),Use this card only when playing with Mazra.,Cast: Deal 6 damage.#OR#Cast: Deal 4 damage. Destroy a card in hand.,"""And fire is the other. Stay down."" - Mazra",,The Ancients,,7,8
+Mazra's Gift,S,6,(U=Mazra),Use this card only when playing with Mazra.,Cast: Deal 4 damage. Any ally gains 1 charge.#OR#Cast: Deal 4 damage. Any ally gains 1 life.,"""For me? Aw, thanks Maz!"" - Razra",,The Ancients,,9,10
 ,,,,,,,,,,,
 # Starter cards,,,,,,,,,,,
 ,,,,,,,,,,,
@@ -340,7 +340,7 @@ Twin Opal,G,0,,,Gain 1$. You may cast a spell in hand.,"""To become a breach mag
 Void Shard,G,0,,,Gain 1$. Gain an additional 1$ that can only be used to focus or open a breach.,"""I do not know what it is or how it came into my possession, only that, like myself, it is drawn to the void."" - Remnant, Aethereal Entity",Remnant,The Outer Dark,,3,0
 ,,,,,,,,,,,
 Sparkling Meteorite,G,0,,,Gain 1$.#OR#Gain 3$ that can only be used to focus or open a breach.,"""I took up my father's power to keep Gravehold safe."" - Sahala",Sahala,The New Age,1b,5,0
-Tidal Surge,S,0,C=1,,Cast: Gain 1 charge.,"""This is nothing. There's greater power still hiding in the depths."" - Gygar",Gygar,The New Age,1b,15,20
+Tidal Surge,S,0,(C=1),,Cast: Gain 1 charge.,"""This is nothing. There's greater power still hiding in the depths."" - Gygar",Gygar,The New Age,1b,15,20
 Gift Of Spirit,S,0,,,Cast: Deal 1 damage.#OR#Cast: Any ally draws a card.,"""Breathe it in, let it invigorate you."" - Taqren",Taqren,The New Age,1b,26,0
 Aetherscope,G,0,,,"Gain 1$.#OR#Any ally may lose 1 charge. If they do, gain 2 charges.","""The greatest power rests in the smallest detail."" - Claudia",Claudia,The New Age,1b,36,0
 Planar Pocket,G,0,,,Gain 1$. Gain an additional 2$ that can only be used to gain a relic.,"""I left it in here somewhere..."" - Rhia",Rhia,The New Age,1d,7,0
@@ -352,7 +352,7 @@ Change Form,R,0,,,Qu flips over the Form token.,"""Let the Void take me."" - Qu"
 Melded Radite,G,0,,,Gain 0$. You may cast any player's prepped spell.,"""So much time in the Void twisted this gem, rendering it useless for most people."" - Qu",Qu,The Ancients,,12,0
 Mystic Orb,R,0,,,"Gain 1 charge. Cast a spell in your hand. Return that spell to its supply pile, if able. You may lose 1 charge to gain a spell from any supply pile that costs less than the cast spell.","""It gets harder and harder to tell this story in the proper order. Give me a second to clear my thoughts."" - Nook (SD-001)#""Give me a second to clear my thoughts. It gets harder and harder to tell this story in the proper order."" - Nook (SD-002)",Nook,Shattered Dreams,,1,2
 Verdant Emerald,G,0,,,Gain 1$.#OR#Gain a Rose Thorn from the Rose Thorn deck. Place that card on top of any player's discard pile.,"""Sprout, my tangle of thorns. Together, we shall protect our new home."" - Inco",Inco,Into the Wild,,4,5
-"Rip, Help!",R,0,C=1,,Gain 1 charge.,"""Good boy. I can use this nicely."" - Razra",Razra,Into the Wild,,32,33
+"Rip, Help!",R,0,(C=1),,Gain 1 charge.,"""Good boy. I can use this nicely."" - Razra",Razra,Into the Wild,,32,33
 ,,,,,,,,,,,
 Entwined Amethyst,G,0,,,"Gain 1$. When you discard this during an ally's turn, you gain 1 charge.","""As it is in love, so it is in magic."" - Ilya",Ilya,Outcasts,1b,4,9
 Trulite Of Force,G,0,,,"Gain 1$. Any ally may discard a card in hand. If they do, gain 1$ that can only be used to gain a spell or to focus or open a breach.","""True power comes when we stand together."" - Ilya",Ilya,Outcasts,1b,5,11
@@ -377,7 +377,7 @@ Kadir's Emerald Shard,TG,0,,,Gain 1$.#OR#Any player gains 1 life.,,,The New Age,
 Jian's Moonstone Shard,TG,0,,,Gain 1$. Gain an additional 1$ that can only be used to gain a gem.,,,The New Age,END,59,0
 Lash's Quartz Shard,TG,0,,,"Gain 1$. Reveal the top card of the turn order deck. You may place that card on the bottom or the top of the turn order deck. If you revealed a player turn order card, gain an additional 1$.",,,The New Age,END,60,0
 Z'hana's Fleeting Ember,TS,0,,,Cast: Deal 1 damage.#OR#Cast: Cast one of your prepped spells that costs 4$ or less without discarding it.,,,The Ancients,,62,0
-Brama's Buried Light,TS,0,"D=1,A=1",,Cast: Deal 1 damage. Gain 1$.,,,The New Age,1d,2,0
+Brama's Buried Light,TS,0,"(D=1,A=1)",,Cast: Deal 1 damage. Gain 1$.,,,The New Age,1d,2,0
 Malastar's Immolate,TS,0,,"While prepped, when you suffer damage, gain 1 charge.",Cast: Deal 1 damage.,,,Into the Wild,,21,0
 Adelheim's Amethyst Shard,TG,0,,,Gain 1$. Any ally may draw a card and then discard a card in hand.,,,The New Age,END,57,0
 Phaedraxa's Tourmaline Shard,TG,0,,,"Gain 1$. Any ally may suffer 1 damage. If they do, they destroy a card in hand.",,,Shattered Dreams,,70,0
@@ -410,23 +410,23 @@ Gygar's Tsunami,TS,0,,,"Cast: Deal 1 damage. You may lose 1 charge. If you do, d
 Taqren's Gift of Spirit,TS,0,,,Cast: Deal 1 damage.#OR#Cast: Any ally draws a card.,,,Return to Gravehold,,21,0
 Mazra's Thesis,TS,0,,,Cast: Deal 1 damage. Focus any player's III breach.,,,Outcasts,1d,36,0
 ,,,,,,,,,,,
-Crystal,G,0,A=1,,Gain 1$.,,Starter,Aeon's End,,0,0
-Spark,S,0,D=1,,Cast: Deal 1 damage.,,Starter,War Eternal,,0,0
+Crystal,G,0,(A=1);(T=Common),,Gain 1$.,,Starter,Aeon's End,,0,0
+Spark,S,0,(D=1);(T=Common),,Cast: Deal 1 damage.,,Starter,War Eternal,,0,0
 ,,,,,,,,,,,
 # Nemesis cards that go into players' decks,,,,,,,,,,,
 ,,,,,,,,,,,
-Tainted Jade,G,0,,Use this only when playing with Blight Lord.,"Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.","""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger",Special,The Nameless,,48,55
+Tainted Jade,G,0,(N=Blight Lord),Use this only when playing with Blight Lord.,"Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.","""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger",Special,The Nameless,,48,55
 ,,,,,,,,,,,
-[X:A] Flare,X,3,,,"Cast: Gravehold suffers 1 damage. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage.",,Special,Legacy,VIII,25,26
-[X:A] Gravity Node,X,3,,,Cast: Any player suffers 2 damage and discards a card in hand.,,Special,Legacy,VIII,27,28
-[X:A] Incinerating Fist,X,3,,,Cast: Gravehold suffers 3 damage.,,Special,Legacy,VIII,29,30
-[X:A] Breach Communion,X,4,,,Cast: The player with the most pulse tokens loses 1 pulse token and suffers 3 damage.,,Special,Legacy,VIII,31,0
-[X:A] Pyromancy,X,4,,,Cast: The players collectively discard two cards in hand. Gravehold suffers 3 damage.,,Special,Legacy,VIII,32,0
-[X:A] Sparking Siphon,X,4,,,"Cast: Any player loses 1 pulse token and suffers 2 damage. If 1 pulse token was lost this way, Xaxos: Ascended gains 3 life.",,Special,Legacy,VIII,33,0
-[X:A] Breach Collision,X,5,,,Cast: Gravehold suffers 5 damage.,,Special,Legacy,VIII,34,0
-[X:A] Monstrous Inferno,X,5,,,Cast: The players collectively suffer 7 damage.,,Special,Legacy,VIII,35,0
-[X:A] Pyro Geist,X,5,,,Cast: Any player suffers 2 damage. A different player suffers 3 damage.,,Special,Legacy,VIII,36,0
+[X:A] Flare,X,3,(N=Xaxos: Ascended),,"Cast: Gravehold suffers 1 damage. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage.",,Special,Legacy,VIII,25,26
+[X:A] Gravity Node,X,3,(N=Xaxos: Ascended),,Cast: Any player suffers 2 damage and discards a card in hand.,,Special,Legacy,VIII,27,28
+[X:A] Incinerating Fist,X,3,(N=Xaxos: Ascended),,Cast: Gravehold suffers 3 damage.,,Special,Legacy,VIII,29,30
+[X:A] Breach Communion,X,4,(N=Xaxos: Ascended),,Cast: The player with the most pulse tokens loses 1 pulse token and suffers 3 damage.,,Special,Legacy,VIII,31,0
+[X:A] Pyromancy,X,4,(N=Xaxos: Ascended),,Cast: The players collectively discard two cards in hand. Gravehold suffers 3 damage.,,Special,Legacy,VIII,32,0
+[X:A] Sparking Siphon,X,4,(N=Xaxos: Ascended),,"Cast: Any player loses 1 pulse token and suffers 2 damage. If 1 pulse token was lost this way, Xaxos: Ascended gains 3 life.",,Special,Legacy,VIII,33,0
+[X:A] Breach Collision,X,5,(N=Xaxos: Ascended),,Cast: Gravehold suffers 5 damage.,,Special,Legacy,VIII,34,0
+[X:A] Monstrous Inferno,X,5,(N=Xaxos: Ascended),,Cast: The players collectively suffer 7 damage.,,Special,Legacy,VIII,35,0
+[X:A] Pyro Geist,X,5,(N=Xaxos: Ascended),,Cast: Any player suffers 2 damage. A different player suffers 3 damage.,,Special,Legacy,VIII,36,0
 ,,,,,,,,,,,
-Cracked Onyx,G,0,,"Use this only when playing with The Wailing.#When this is destroyed, return it to its supply pile.",Gain 1$.#OR#Return this and up to one Cracked Onyx in your discard pile to its supply pile.,,Special,Shattered Dreams,,74,93
+Cracked Onyx,G,0,(N=The Wailing),"Use this only when playing with The Wailing.#When this is destroyed, return it to its supply pile.",Gain 1$.#OR#Return this and up to one Cracked Onyx in your discard pile to its supply pile.,,Special,Shattered Dreams,,74,93
 ,,,,,,,,,,,
-Soulfire,G,3,,Use this card when playing Fountain of Souls.,Gain 1$. The Lantern gains 1 fuel.#OR#Gain 1$. Discard 1 soul.,,Special,Outcasts,4,2,11
+Soulfire,G,3,(N=Fountain of Souls),Use this card when playing Fountain of Souls.,Gain 1$. The Lantern gains 1 fuel.#OR#Gain 1$. Discard 1 soul.,,Special,Outcasts,4,2,11
