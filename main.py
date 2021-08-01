@@ -834,7 +834,7 @@ async def random(ctx, *args):
             return
         for value in _random.choice(list(player_cards.values())):
             if value["type"] == "G":
-                if not gems and namespace.force_low_gem and value["cost"] > 3:
+                if not gems and namespace.force_cheap_gem and value["cost"] > 3:
                     continue
                 if len(gems) >= namespace.gem_count:
                     continue
