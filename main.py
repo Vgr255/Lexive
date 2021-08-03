@@ -39,10 +39,20 @@ breach_values = defaultdict(list)
 treasure_values = defaultdict(list)
 
 content_dicts = []
+cmds = {}
 
 def sync(d):
     def wrapper(func):
         content_dicts.append((func, d))
+        return func
+    return wrapper
+
+def command(name=None):
+    def wrapper(func):
+        nonlocal name
+        if name is None:
+            name = func.__name__
+        cmds[name] = func
         return func
     return wrapper
 
@@ -308,7 +318,7 @@ activity = discord.Activity(
 )
 
 class Lexive(commands.Bot):
-    async def on_message(self, message):
+    async def on_message(self, message: discord.Message):
         if message.author == self.user:
             return
         if message.content.startswith(config.prefix) or isinstance(message.channel, discord.DMChannel):
@@ -316,18 +326,25 @@ class Lexive(commands.Bot):
             if not content:
                 return
 
+            ctx = await self.get_context(message)
+            value = content.split()
+            matches = complete_match(value[0], cmds)
+            if len(matches) == 1:
+                await cmds[matches[0]](ctx, *value[1:])
+                return
+
             values, asset = get_card(content)
             log("REQ:", content)
             if values and values[0] is None: # too many values
-                await message.channel.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
+                await ctx.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
                 return
             elif values:
                 msgs = "\n".join(values).split(r"\NEWLINE/")
                 for msg in msgs:
-                    await message.channel.send(msg)
+                    await ctx.send(msg)
                 for ass in asset:
                     with open(os.path.join("assets", ass), mode="rb") as a:
-                        await message.channel.send(file=discord.File(a))
+                        await ctx.send(file=discord.File(a))
                 return
 
         await super().on_message(message)
@@ -744,7 +761,7 @@ def _isin(code: str, *items: str) -> bool:
             return True
     return False
 
-@bot.command()
+@command()
 async def random(ctx, *args):
     # TODO: Add expedition support
     try:
@@ -928,7 +945,7 @@ def complete_match(string: str, matches: Iterable) -> list:
             possible_matches.add(possible)
     return sorted(possible_matches)
 
-@bot.command()
+@command()
 async def info(ctx, *args):
     arg = "".join(args)
     if not arg:
@@ -951,7 +968,7 @@ async def info(ctx, *args):
         with open(os.path.join("assets", ass), mode="rb") as a:
             await ctx.send(file=discord.File(a))
 
-@bot.command()
+@command()
 async def card(ctx, *args):
     await ctx.send(_card(casefold("".join(args)).upper(), detailed=True))
 
@@ -1002,7 +1019,7 @@ def _card(arg: str, *, detailed=False) -> str:
 
     return f"{name} ({ctype})"
 
-@bot.command()
+@command()
 async def box(ctx, *args):
     arg = "".join(args)
     arg = casefold(arg)
@@ -1046,20 +1063,20 @@ async def box(ctx, *args):
     for line in "\n".join(result).split("\\NEWLINE/"):
         await ctx.send(line)
 
-@bot.command()
+@command()
 async def unique(ctx):
     await ctx.send("```\nThe unique mechanics that I know about are as follow. " +
     f"You may prefix them with {config.prefix} to ask me about them.\n- " +
     "\n- ".join(mechanics) + "\n```")
 
-@bot.command()
+@command()
 async def reload(ctx):
     if await ctx.bot.is_owner(ctx.author):
         print("\nReloading content")
         load()
         await ctx.send("Reloaded data.")
 
-@bot.command()
+@command()
 async def issues(ctx):
     aid = ctx.bot.get_user(author_id)
     mention = ""
@@ -1075,16 +1092,16 @@ async def issues(ctx):
 
     await ctx.send(content)
 
-@bot.command()
+@command()
 async def github(ctx):
     await ctx.send("https://github.com/Vgr255/Lexive")
 
-@bot.command("eval")
+@command("eval")
 async def eval_(ctx, *args):
     if await ctx.bot.is_owner(ctx.author):
         await ctx.send(eval(" ".join(args)))
 
-@bot.command()
+@command()
 async def whoami(ctx):
     author = AUTHOR
     aid = ctx.bot.get_user(author_id)
@@ -1101,11 +1118,11 @@ async def whoami(ctx):
     f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
     "for a list of unique mechanics I know about.\nArt by Amaple")
 
-@bot.command()
+@command()
 async def faq(ctx):
     await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
 
-@bot.command()
+@command()
 async def outcasts(ctx):
     await ctx.send("""Known issues with the first Outcasts printing (from the Kickstarter):
 
