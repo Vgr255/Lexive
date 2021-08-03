@@ -9,6 +9,7 @@ import os
 from discord.ext import commands
 
 import config
+from code_parser import parse, as_text, as_special
 
 # the following characters will be stripped from the csv names when stored
 # and also ignored from messages (so that they are optional)
@@ -175,7 +176,7 @@ def load():
             start = int(start)
             end = int(end)
             player_cards[casefold(name)].append({
-                "name": name, "type": ctype, "cost": int(cost), "code": code,
+                "name": name, "type": ctype, "cost": int(cost), "code": parse(code),
                 "special": expand(special, prefix=True), "text": expand(text),
                 "flavour": expand(flavour), "starter": starter, "box": box,
                 "deck": deck, "start": start, "end": end
@@ -209,7 +210,7 @@ def load():
             nemesis_cards[casefold(name)].append({
                 "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
                 "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
-                "code": code, "special": expand(special, prefix=True), "discard": expand(discard),
+                "code": parse(code), "special": expand(special, prefix=True), "discard": expand(discard),
                 "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
                 "box": box, "deck": deck, "start": start, "end": end
             })
@@ -236,7 +237,7 @@ def load():
                 charges = 0
             if not rating:
                 rating = 0
-            adict = {"name": aname, "charges": int(charges), "type": atype, "effect": expand(ability), "code": code}
+            adict = {"name": aname, "charges": int(charges), "type": atype, "effect": expand(ability), "code": parse(code)}
             blist = []
             for pos, breach in zip(breaches.split(","), (b1, b2, b3, b4)):
                 pos = int(pos) if pos else 0
@@ -260,7 +261,7 @@ def load():
             nemesis_mats[casefold(name)].append({
                 "name": name, "hp": int(hp), "difficulty": int(diff), "unleash": expand(unleash),
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
-                "code": code, "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u,
+                "code": parse(code), "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u,
                 "id_rules": id_r, "side": expand(side), "box": box, "battle": int(battle),
                 "cards": cards.split(",")
             })
@@ -288,7 +289,7 @@ def load():
             if not name or name.startswith("#"):
                 continue
             treasure_values[casefold(name)].append({
-                "name": name, "type": ttype, "code": code, "effect": expand(effect),
+                "name": name, "type": ttype, "code": parse(code), "effect": expand(effect),
                 "flavour": expand(flavour), "box": box, "deck": deck, "number": int(number)
             })
             wave = waves[box][0]
@@ -403,14 +404,25 @@ def player_card(name: str) -> List[str]:
     card = player_cards[name]
     values = []
     for c in card:
+        text_code, special_code = c['code']
+        before, after = as_special(special_code)
         if values: # second pass-through or more, make it different messages
             values.append(r"\NEWLINE/")
         values.extend(["```", c['name'], "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""])
-        if c['special']:
-            values.append(f"** {c['special']} **")
+        if c['special'] or before:
+            if before:
+                values.append(f"** {before} **")
+            else:
+                values.append(f"** {c['special']} **")
             values.append("")
-        values.append(c['text'])
+        if text_code:
+            values.append(as_text(text_code))
+        else:
+            values.append(c['text'])
         values.append("")
+        if after:
+            values.append(after)
+            values.append("")
         if c['flavour']:
             values.append(c['flavour'])
             values.append("")
