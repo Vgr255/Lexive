@@ -1,11 +1,23 @@
-from typing import List, Dict, Tuple
+from typing import Any, List, Dict, Tuple
 
 import config
 
 _parse_list = List[Tuple[str, str]]
 _extra_dict = Dict[str, str]
 
-def _int_internal(x, word, place):
+def parse(code: str, type: str):
+    if type == "P":
+        return parse_player_card(code)
+    return code
+
+def format(code, type: str) -> str:
+    if type == "PE":
+        return format_player_card_effect(code)
+    if type == "PS":
+        return format_player_card_special(code)
+    return ""
+
+def _int_internal(x: str, word, place):
     lower = 0
     upper = 0
     if "-" in x:
@@ -26,7 +38,7 @@ def _int_internal(x, word, place):
         return f"{word} up to {upper} cards in {place}"
     return f"{word} from {lower} to {upper} cards in {place}"
 
-def parse(code: str) -> Tuple[_parse_list, _extra_dict]:
+def parse_player_card(code: str) -> Tuple[_parse_list, _extra_dict]:
     values = []
     extra = {}
     sub, *rest = code.split(";")
@@ -42,7 +54,7 @@ def parse(code: str) -> Tuple[_parse_list, _extra_dict]:
         extra[key] = value
     return values, extra
 
-def as_text(code: _parse_list) -> str:
+def format_player_card_effect(code: _parse_list) -> str:
     """Return a formatted text of the card effect."""
     text = []
     for d in code:
@@ -205,6 +217,6 @@ def as_text(code: _parse_list) -> str:
 
     return "\n".join(text)
 
-def as_special(code: _extra_dict) -> Tuple[str, str]:
+def format_player_card_special(code: _extra_dict) -> Tuple[str, str]:
     """Return a formatted text of the card's special conditions."""
     return '', ''
