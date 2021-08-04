@@ -416,7 +416,7 @@ def player_card(name: str) -> List[str]:
                 values.append(f"** {c['special']} **")
             values.append("")
         if text_code:
-            values.append(as_text(text_code))
+            values.append(as_text(text_code).format(name=c['name']))
         else:
             values.append(c['text'])
         values.append("")
