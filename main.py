@@ -405,7 +405,7 @@ def player_card(name: str) -> List[str]:
     values = []
     for c in card:
         text_code, special_code = c['code']
-        before, after = as_special(special_code)
+        before, after = format(special_code, "PS")
         if values: # second pass-through or more, make it different messages
             values.append(r"\NEWLINE/")
         values.extend(["```", c['name'], "", f"Type: {ctypes[c['type']]}", f"Cost: {c['cost']}", ""])
@@ -416,7 +416,7 @@ def player_card(name: str) -> List[str]:
                 values.append(f"** {c['special']} **")
             values.append("")
         if text_code:
-            values.append(as_text(text_code).format(name=c['name']))
+            values.append(format(text_code, "PE").format(name=c['name']))
         else:
             values.append(c['text'])
         values.append("")
