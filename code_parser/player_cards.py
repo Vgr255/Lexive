@@ -1,10 +1,9 @@
-from typing import Any, List, Dict, Tuple
+from typing import List, Dict, Tuple
 
 import config
 
 _parse_list = List[Tuple[str, str]]
 _extra_dict = Dict[str, str]
-
 
 def _int_internal(x: str, word, place):
     lower = 0
@@ -58,7 +57,7 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "A":
                 form.append(f"gain {value}$")
             if action == "B":
-                form.append(f"gain {value} additional $")
+                form.append(f"gain an additional {value}$")
             if action == "C":
                 form.append(f"gain {value} charge{'s' if int(value) > 1 else ''}")
             if action == "D":
@@ -84,7 +83,7 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "K":
                 form.append(_int_internal(value, "destroy", "hand"))
             if action == "L":
-                form.append(f"{{source}} gains {value} life")
+                form.append(f"{{maybe_source}}gain{{plural3}} {value} life")
             if action == "N":
                 s = f"{value}th"
                 if value == "1":
@@ -98,6 +97,11 @@ def format_player_card_effect(code: _parse_list) -> str:
                 form.append(f"Xaxos: Outcast gains {value} charge{'s' if int(value) > 1 else ''}")
             if action == "P":
                 form.append("cast {target} prepped spell{plural1}")
+            if action == "Q":
+                if value == "1":
+                    form.append("discard a prepped spell")
+                else:
+                    form.append(f"discard {value} prepped spells")
             if action == "R":
                 form.append(f"{{source}} gain{{plural3}} {value} charge{'s' if int(value) > 1 else ''}")
             if action == "S":
@@ -115,6 +119,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                 if value == "A":
                     form.append(x.format(
                         source="any player",
+                        maybe_source="any player ",
                         target="any player's",
                         targ_sing="any player's",
                         card="any card",
@@ -125,6 +130,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                 if value == "B":
                     form.append(x.format(
                         source="any ally",
+                        maybe_source="any ally ",
                         target="any ally's",
                         targ_sing="any ally's",
                         card="a card you played this turn",
@@ -142,6 +148,8 @@ def format_player_card_effect(code: _parse_list) -> str:
                     form.append(f"{x} or less")
                 if value == "M":
                     form.append(f"{x} or more")
+                if value == "N":
+                    form.append(f"if the nemesis tier is 2 or higher, {x}")
                 if value == "O":
                     form.append(f"if all your breaches are opened, {x}")
                 if value == "T":
@@ -151,6 +159,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                 if value == "Y":
                     form.append(x.format(
                         source="you",
+                        maybe_source="",
                         target="one of your",
                         targ_sing="your",
                         card="this",
@@ -159,7 +168,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="",
                         ))
 
-            if action == "%": # further modifiers
+            if action == "%": # further modifiers to &=T
                 x = form.pop(-1)
                 values = []
                 if "G" in value:
