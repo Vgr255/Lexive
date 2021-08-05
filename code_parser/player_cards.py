@@ -68,7 +68,11 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "E":
                 form.append(f"deal {value} additional damage")
             if action == "F":
-                form.append("focus {target} closed breach{plural2}")
+                if not value:
+                    form.append("focus {target} closed breach{plural2}")
+                else:
+                    c = {"1": "I", "2": "II", "3": "III", "4": "IV"}
+                    form.append(f"focus {{target}} {c['value']} breach")
             if action == "G":
                 form.append(f"Gravehold gains {value} life")
             if action == "H":
@@ -109,41 +113,22 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "X":
                 form.append("destroy {card}")
             if action == "Z":
-                form.append("focus {targ_sing} closed breach with the lowest focus cost")
+                if value == "0":
+                    form.append("focus {targ_sing} closed breach with the lowest focus cost")
+                if value == "1":
+                    form.append("{source} focuses their closed breach with the lowest focus cost")
 
             # modifiers to the previous entry
             if action == "&":
                 x = form.pop(-1)
                 if value.isdigit():
                     form.append(f"{x} that costs {value}")
-                if value == "A":
-                    form.append(x.format(
-                        source="any player",
-                        maybe_source="any player ",
-                        target="any player's",
-                        targ_sing="any player's",
-                        card="any card",
-                        plural1="",
-                        plural2="",
-                        plural3="s",
-                        ))
-                if value == "B":
-                    form.append(x.format(
-                        source="any ally",
-                        maybe_source="any ally ",
-                        target="any ally's",
-                        targ_sing="any ally's",
-                        card="a card you played this turn",
-                        plural1="",
-                        plural2="",
-                        plural3="s",
-                        ))
                 if value == "C":
                     form.append(f"Cast: {x[0].upper()}{x[1:]}")
                 if value == "H":
                     form.append(f"{{source}} may {x}")
                 if value == "I":
-                    form.append(f"If you do, {x}")
+                    form.append(f"If {{pronoun}} do, {x}")
                 if value == "L":
                     form.append(f"{x} or less")
                 if value == "M":
@@ -156,17 +141,6 @@ def format_player_card_effect(code: _parse_list) -> str:
                     form.append("that can only be used to")
                 if value == "W":
                     form.append(f"{x} without discarding it")
-                if value == "Y":
-                    form.append(x.format(
-                        source="you",
-                        maybe_source="",
-                        target="one of your",
-                        targ_sing="your",
-                        card="this",
-                        plural1="s",
-                        plural2="es",
-                        plural3="",
-                        ))
 
             if action == "%": # further modifiers to &=T
                 x = form.pop(-1)
@@ -205,6 +179,45 @@ def format_player_card_effect(code: _parse_list) -> str:
                         values.append("a breach")
 
                 form.append(f"{x} {' '.join(values)}")
+
+            if action == "$": # target modifiers
+                x = form.pop(-1)
+                if value == "A":
+                    form.append(x.format(
+                        source="any player",
+                        maybe_source="any player ",
+                        pronoun="they",
+                        target="any player's",
+                        targ_sing="any player's",
+                        card="any card",
+                        plural1="",
+                        plural2="",
+                        plural3="s",
+                        ))
+                if value == "B":
+                    form.append(x.format(
+                        source="any ally",
+                        maybe_source="any ally ",
+                        pronoun="they",
+                        target="any ally's",
+                        targ_sing="any ally's",
+                        card="a card you played this turn",
+                        plural1="",
+                        plural2="",
+                        plural3="s",
+                        ))
+                if value == "Y":
+                    form.append(x.format(
+                        source="you",
+                        maybe_source="",
+                        pronoun="you",
+                        target="one of your",
+                        targ_sing="your",
+                        card="this",
+                        plural1="s",
+                        plural2="es",
+                        plural3="",
+                        ))
 
             if to_append:
                 a = form.pop(-1)
