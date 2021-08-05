@@ -19,12 +19,12 @@ def _int_internal(x: str, word, place):
         lower = upper = int(x)
     if lower == upper:
         if lower == 1:
-            return f"{word} a card in {place}"
-        return f"{word} {lower} cards in {place}"
+            return f"{word} a card in {{place}}"
+        return f"{word} {lower} cards in {{place}}"
 
     if lower == 0:
-        return f"{word} up to {upper} cards in {place}"
-    return f"{word} from {lower} to {upper} cards in {place}"
+        return f"{word} up to {upper} cards in {{place}}"
+    return f"{word} from {lower} to {upper} cards in {{place}}"
 
 def parse_player_card(code: str) -> Tuple[_parse_list, _extra_dict]:
     values = []
@@ -59,7 +59,14 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "B":
                 form.append(f"gain an additional {value}$")
             if action == "C":
-                form.append(f"gain {value} charge{'s' if int(value) > 1 else ''}")
+                if value == "1":
+                    form.append("gain a charge")
+                elif value.isdigit():
+                    form.append(f"gain {value} charges")
+                elif value == "-1":
+                    form.append("lose a charge")
+                else:
+                    form.append(f"lose {value[1:]} charges")
             if action == "D":
                 if form: # might be part of something like "do X, if you do, deal Y damage"
                     form.append(f"deal {value} damage")
@@ -70,6 +77,8 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "F":
                 if not value:
                     form.append("focus {target} closed breach{plural2}")
+                elif value == "0":
+                    form.append("focus {targ_sing} closed breach with the lowest focus cost")
                 else:
                     c = {"1": "I", "2": "II", "3": "III", "4": "IV"}
                     form.append(f"focus {{target}} {c['value']} breach")
@@ -78,14 +87,14 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "H":
                 form.append("cast a spell in hand")
             if action == "I":
-                form.append(_int_internal(value, "discard", "hand"))
+                form.append(_int_internal(value, "discard"))
             if action == "J":
                 if value == "1":
                     form.append("{source} draw{plural3} a card")
                 else:
                     form.append(f"{{source}} draw{{plural3}} {value} cards")
             if action == "K":
-                form.append(_int_internal(value, "destroy", "hand"))
+                form.append(_int_internal(value, "destroy"))
             if action == "L":
                 form.append(f"{{maybe_source}}gain{{plural3}} {value} life")
             if action == "N":
@@ -113,10 +122,13 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "X":
                 form.append("destroy {card}")
             if action == "Z":
-                if value == "0":
-                    form.append("focus {targ_sing} closed breach with the lowest focus cost")
-                if value == "1":
+                if not value:
+                    form.append("{source} focuses one of their closed breaches")
+                elif value == "0":
                     form.append("{source} focuses their closed breach with the lowest focus cost")
+                else:
+                    c = {"1": "I", "2": "II", "3": "III", "4": "IV"}
+                    form.append(f"{{source}} focuses their {c['value']} breach")
 
             # modifiers to the previous entry
             if action == "&":
@@ -181,6 +193,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                 form.append(f"{x} {' '.join(values)}")
 
             if action == "$": # target modifiers
+                # todo: remove the load on individual values and split further
                 x = form.pop(-1)
                 if value == "A":
                     form.append(x.format(
@@ -193,6 +206,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural1="",
                         plural2="",
                         plural3="s",
+                        place="{place}",
                         ))
                 if value == "B":
                     form.append(x.format(
@@ -205,8 +219,9 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural1="",
                         plural2="",
                         plural3="s",
+                        place="{place}",
                         ))
-                if value == "Y":
+                if value == "C":
                     form.append(x.format(
                         source="you",
                         maybe_source="",
@@ -217,7 +232,14 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural1="s",
                         plural2="es",
                         plural3="",
+                        place="{place}",
                         ))
+                if value == "D":
+                    form.append(x.format(place="your discard pile"))
+                if value == "E":
+                    form.append(x.format(place="hand"))
+                if value == "F":
+                    form.append(x.format(place="your hand or discard pile"))
 
             if to_append:
                 a = form.pop(-1)
@@ -230,5 +252,11 @@ def format_player_card_effect(code: _parse_list) -> str:
 
 def format_player_card_special(code: _extra_dict) -> Tuple[str, str]:
     """Return a formatted text of the card's special conditions."""
-    return '', ''
+    text = []
+    for key, value in code.items():
+        if key == "D":
+            text.append(f"{config.prefix}Dual")
+        if key == "L":
+            text.append(f"{config.prefix}Link")
+    return "\n".join(text), ""
 
