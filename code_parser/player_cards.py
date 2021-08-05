@@ -75,13 +75,19 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "E":
                 form.append(f"deal {value} additional damage")
             if action == "F":
-                if not value:
-                    form.append("focus {target} closed breach{plural2}")
-                elif value == "0":
-                    form.append("focus {targ_sing} closed breach with the lowest focus cost")
+                br, _, c = value.partition("+")
+                if c:
+                    if c == "2":
+                        c = " twice"
+                    else:
+                        c = f" {c} times"
+                if not br:
+                    form.append("focus {target} closed breach{plural2}{c}")
+                elif br == "0":
+                    form.append("focus {targ_sing} closed breach with the lowest focus cost{c}")
                 else:
-                    c = {"1": "I", "2": "II", "3": "III", "4": "IV"}
-                    form.append(f"focus {{target}} {c['value']} breach")
+                    a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
+                    form.append(f"focus {{target}} {a[br]} breach{c}")
             if action == "G":
                 form.append(f"Gravehold gains {value} life")
             if action == "H":
@@ -122,13 +128,19 @@ def format_player_card_effect(code: _parse_list) -> str:
             if action == "X":
                 form.append("destroy {card}")
             if action == "Z":
+                br, _, c = value.partition("+")
+                if c:
+                    if c == "2":
+                        c = " twice"
+                    else:
+                        c = f" {c} times"
                 if not value:
-                    form.append("{source} focuses one of their closed breaches")
+                    form.append("{source} focuses one of their closed breaches{c}")
                 elif value == "0":
-                    form.append("{source} focuses their closed breach with the lowest focus cost")
+                    form.append("{source} focuses their closed breach with the lowest focus cost{c}")
                 else:
-                    c = {"1": "I", "2": "II", "3": "III", "4": "IV"}
-                    form.append(f"{{source}} focuses their {c['value']} breach")
+                    a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
+                    form.append(f"{{source}} focuses their {a[br]} breach{c}")
 
             # modifiers to the previous entry
             if action == "&":
