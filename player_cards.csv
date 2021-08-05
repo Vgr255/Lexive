@@ -31,7 +31,7 @@ Spectral Echo,S,3,"D=2,K=1,&=H,$=C,$=E",,Cast: Deal 2 damage. You may destroy a 
 Wildfire Whip,S,6,,"While prepped, during your main phase, you may spend 2$ to cast any player's prepped spell.",Cast: Deal 4 damage.,"""Sometimes a little motivation is needed for dire situations."" - Z'hana, Breach Mage Renegade",,Aeon's End,,199,203
 ,,,,,,,,,,,
 Leeching Agate,G,3,,"When you gain this, gain 1 charge.",Gain 2$.,"""These stones are among the most powerful in the labyrinth of lost caves. They are also the most corrupted."" - Kadir, Breach Mage Delver",,The Nameless,,2,8
-Molten Hammer,R,5,,,Gain 1 charge. You may destroy a card in hand or on top of any player's discard pile.,"""Some tools are meant for making, while others hold a more pernicious look."" - Mist, Dagger Captain",,The Nameless,,9,13
+Molten Hammer,R,5,"C=1,K=1,&=H,$=C,$=G",,Gain 1 charge. You may destroy a card in hand or on top of any player's discard pile.,"""Some tools are meant for making, while others hold a more pernicious look."" - Mist, Dagger Captain",,The Nameless,,9,13
 Temporal Helix,R,7,,,Cast any player's prepped spell without discarding it.,"""Breach mages are never truly in possession of their own minds."" - Brama, Breach Mage Elder",,The Nameless,,14,18
 Blaze,S,4,,"When you gain this, you may place it on top of any player's discard pile.",Cast: Deal 2 damage. Deal 1 additional damage for each other time you have cast Blaze this turn and for each other Blaze you currently have prepped.,,,The Nameless,,19,23
 Radiance,S,8,,,Cast: Deal 5 damage. Each ally draws a card.,"""All of us, together. For apart we are doomed."" - Brama, Breach Mage Elder",,The Nameless,,24,28
@@ -77,7 +77,7 @@ Pyrotechnic Surge,S,4,"D=4,M=1,&=H,$=C;D",!Dual,Cast: Deal 4 damage. You may des
 Reduce to Ash,S,7,,"While prepped, at the start of your casting phase, reveal the top card of your deck. You may destroy the revealed card.",Cast: Deal 4 damage,Whether the shadowkin beast known as Ulgimor resides in that lump of coal or it is some part of Ohat remains a topic of controversy.,,War Eternal,,195,199
 Thoughtform Familiar,S,3,,,Cast: Deal 2 damage. Deal 1 additional damage for each of your other prepped spells.,"""We make nothing. We simply call it forth."" - Yan Magda, Enlightened Exile",,War Eternal,,200,204
 ,,,,,,,,,,,
-Fossilized Scarab,G,3,"A=2/K=1,$=E",,Gain 2$.#OR#Destroy a card in hand.,"""This creature is not dead, youngling. It sleeps. There is no death, only the moment before waking."" - Yan Magda, Enlightened Exile",,The Void,,3,9
+Fossilized Scarab,G,3,"A=2/K=1,$=C,$=E",,Gain 2$.#OR#Destroy a card in hand.,"""This creature is not dead, youngling. It sleeps. There is no death, only the moment before waking."" - Yan Magda, Enlightened Exile",,The Void,,3,9
 Dimensional Key,R,8,,,Any ally draws two cards.#OR#Destroy this. Suffer 1 damage. Place a card in play from the nemesis deck on top of the nemesis deck.,"""The worlds are full of many doors through which one can wander."" - Remnant, Aetherial Entity",,The Void,,10,14
 Eternity Charm,R,3,,,Focus your closed breach with the lowest focus cost. Reveal the top three cards of your deck. You may prep one of the revealed spells.,"""In the void, the stars breathe and expire somehow all at once."" - Mist, Voidwalker",,The Void,,15,19
 Resonate,S,6,,,"Cast: Deal 4 damage. If there are six or more other cards in your discard pile, deal 3 additional damage.","""The others must learn to focus if they wish to survive this."" - Remnant, Aetherial Entity",,The Void,,20,24
@@ -87,13 +87,13 @@ Inner Fire,S,2,"D=1,D=+1,&=N;L",!Link,"Cast: Deal 1 damage. If the nemesis tier 
 Thermal Dart,S,4,,!Link,"Cast: Deal 3 damage. If this is not the first Thermal Dart you have cast this turn, gain 1 charge.","""Become lethal or become lost."" - Sparrow, Breach Mage Soldier",,The Void,,40,44
 ,,,,,,,,,,,
 Alien Element,G,4,,,"Gain 1$. For each of your breaches with a spell prepped to it, gain an additional 1$.","""It matters not what it is, only what it can do."" - Garu, Oathsworn Protector",,The Outer Dark,,4,10
-Haunted Berylite,G,3,"A=2/I=1,$=E,C=2,&=I,$=C",,"Gain 2$.#OR#Discard a card in hand. If you do, gain 2 charges.","""All things end. And each leaves behind a shadow, a skull, a memory."" - Yan Magda, Enlightened Exile",,The Outer Dark,,11,17
+Haunted Berylite,G,3,"A=2/I=1,$=C,$=E,C=2,&=I,$=C",,"Gain 2$.#OR#Discard a card in hand. If you do, gain 2 charges.","""All things end. And each leaves behind a shadow, a skull, a memory."" - Yan Magda, Enlightened Exile",,The Outer Dark,,11,17
 Pain Stone,G,6,"A=3/A=2,D=1",,Gain 3$.#OR#Gain 2$ and deal 1 damage.,"""Pain is the true and only tongue of The Nameless."" - Garu, Oathsworn Protector",,The Outer Dark,,18,24
 Astral Cube,R,5,,,"Return a gem you played this turn to your hand. Reveal the top card of the turn order deck. If you revealed a player's turn order card, that player gains 1 life.","""Riddles within riddles within shapes within black. There is a power here the others refuse to taste."" - Xaxos, Voidbringer",,The Outer Dark,,25,29
 Riddlesphere,R,3,"C=1/C=-2,&=H,$=C,A=5,&=I,$=C",,"Gain 1 charge.#OR#You may lose 2 charges. If you do, gain 5$.","""Behold, the beginning and the end."" - Dezmodia, Voidborn Prodigy",,The Outer Dark,,30,34
 Char,S,8,,,"Cast: Deal 6 damage. If this damage causes a minion to be discarded, any player gains 2 life.","""It is not killing. It is research."" - Xaxos, Voidbringer",,The Outer Dark,,35,39
-Catalyst,S,6,,,"Cast: Deal 2 damage. If you have 2 life or less, deal 5 additional damage.","""What little quiet we have found is drowned out by the screams of the many we have lost."" - Gex, Breach Mage Advisor",,The Outer Dark,,40,44
-Feedback Aura,S,5,,,"Cast: Deal 3 damage. If you have 4 or more charges, deal 3 additional damage.","""The void flows through me now. I am one with nothing."" - Xaxos, Voidbringer",,The Outer Dark,,45,49
+Catalyst,S,6,"D=2,D=+5,&=0-2,$=C",,"Cast: Deal 2 damage. If you have 2 life or less, deal 5 additional damage.","""What little quiet we have found is drowned out by the screams of the many we have lost."" - Gex, Breach Mage Advisor",,The Outer Dark,,40,44
+Feedback Aura,S,5,"D=3,D=+3,&=+4",,"Cast: Deal 3 damage. If you have 4 or more charges, deal 3 additional damage.","""The void flows through me now. I am one with nothing."" - Xaxos, Voidbringer",,The Outer Dark,,45,49
 Nether Conduit,S,7,,,"Cast: Reveal a card in hand that costs 2$ or more. If you do, deal damage equal to the number of cards missing in that card's supply pile. Then, any ally may gain a card from that supply pile.#(Gem supply piles start with 7 cards. Relic and spell supply piles start with 5 cards.)",,,The Outer Dark,,50,54
 Pyromancy,S,7,,,"Cast: Deal 1 damage. Allies may collectively discard up to two cards in hand. For each card discarded this way, deal 3 additional damage.","Even in the black between worlds, fire hungers for light.",,The Outer Dark,,55,59
 Scorch,S,5,,,"Cast: Deal 4 damage. If this damage causes a minion from the nemesis deck to be discarded, any ally gains 2 charges.","""With each beast she marks, Quilius thinks herself closer to enlightenment."" - Yan Magda, Enlightened Exile",,The Outer Dark,,60,64
@@ -104,9 +104,9 @@ Ancient Cyanolith,G,3,A=2,,Gain 2$.,The ancients prized this gem for its potenti
 Branching Radite,G,4,,,"Gain 2$. If you have two or more prepped spells, gain an additional 1$.",One vein of pure radite can power a mage for life.,,Legacy,Ia,9,15
 Gilded Marble,G,6,A=3,,Gain 3$.,Marble is among the most valued materials in Gravehold.,,Legacy,Ia,16,22
 Neural Wreath,R,4,,,Focus any player's breach. Any player may prep a spell in hand.,Connecting to another mind requires precision and exacting concentration.,,Legacy,Ia,23,27
-Ethereal Hand,R,6,,,Any ally draws two cards.,A helping hand can turn the tide of a battle.,,Legacy,Ia,28,32
+Ethereal Hand,R,6,"J=2,$=B",,Any ally draws two cards.,A helping hand can turn the tide of a battle.,,Legacy,Ia,28,32
 Fire Chakram,S,2,D=2,,Cast: Deal 2 damage.,This basic spell is standard in every mage's repertoire.,,Legacy,Ia,33,37
-Warping Haze,S,3,,,"Cast: Deal 2 damage. If you have two or more other prepped spells, deal 1 additiona damage.","The haze feeds on your energy, warping reality and growing in power.",,Legacy,Ia,38,42
+Warping Haze,S,3,,,"Cast: Deal 2 damage. If you have two or more other prepped spells, deal 1 additional damage.","The haze feeds on your energy, warping reality and growing in power.",,Legacy,Ia,38,42
 Incinerating Fist,S,4,D=3,,Cast: Deal 3 damage.,This spell is the standard for those who want to fight up close and personal.,,Legacy,Ia,43,47
 Gravity Node,S,5,,,"Cast: Any player discards a card in hand. If they do, deal 4 damage.","Normally, breach mages do not experiment with gravity. These are not normal times.",,Legacy,Ia,48,52
 ,,,,,,,,,,,

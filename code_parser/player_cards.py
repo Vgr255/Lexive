@@ -5,7 +5,8 @@ import config
 _parse_list = List[Tuple[str, str]]
 _extra_dict = Dict[str, str]
 
-def _int_internal(x: str, word, place):
+def _int_internal(x: str, word):
+    # FIXME: plural3 messes with "any X may"
     lower = 0
     upper = 0
     if "-" in x:
@@ -19,12 +20,12 @@ def _int_internal(x: str, word, place):
         lower = upper = int(x)
     if lower == upper:
         if lower == 1:
-            return f"{word} a card in {{place}}"
-        return f"{word} {lower} cards in {{place}}"
+            return f"{word}{{plural3}} a card in {{place}}"
+        return f"{word}{{plural3}} {lower} cards in {{place}}"
 
     if lower == 0:
-        return f"{word} up to {upper} cards in {{place}}"
-    return f"{word} from {lower} to {upper} cards in {{place}}"
+        return f"{word}{{plural3}} up to {upper} cards in {{place}}"
+    return f"{word}{{plural3}} from {lower} to {upper} cards in {{place}}"
 
 def parse_player_card(code: str) -> Tuple[_parse_list, _extra_dict]:
     values = []
@@ -60,7 +61,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                     add = "an additional "
                     value = value[1:]
                 form.append(f"gain {add}{value}$")
-            if action == "C":
+            elif action == "C":
                 if value == "1":
                     form.append("gain a charge")
                 elif value.isdigit():
@@ -69,7 +70,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                     form.append("lose a charge")
                 else:
                     form.append(f"lose {value[1:]} charges")
-            if action == "D":
+            elif action == "D":
                 add = ""
                 if value[0] == "+":
                     add = " additional"
@@ -78,7 +79,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                     form.append(f"deal {value}{add} damage")
                 else: # but if it's not, we can assume it has a Cast: prefix, and doesn't need &=C
                     form.append(f"Cast: Deal {value}{add} damage")
-            if action == "F":
+            elif action == "F":
                 br, _, c = value.partition("+")
                 if c:
                     if c == "2":
@@ -94,22 +95,22 @@ def format_player_card_effect(code: _parse_list) -> str:
                 else:
                     a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
                     form.append(f"focus {{target}} {a[br]} breach{c}")
-            if action == "G":
+            elif action == "G":
                 form.append(f"Gravehold gains {value} life")
-            if action == "H":
+            elif action == "H":
                 form.append("cast a spell in hand")
-            if action == "I":
+            elif action == "I":
                 form.append(_int_internal(value, "discard"))
-            if action == "J":
+            elif action == "J":
                 if value == "1":
-                    form.append("{source} draw{plural3} a card")
+                    form.append("{maybe_source}draw{plural3} a card")
                 else:
-                    form.append(f"{{source}} draw{{plural3}} {value} cards")
-            if action == "K":
+                    form.append(f"{{maybe_source}}draw{{plural3}} {value} cards")
+            elif action == "K":
                 form.append(_int_internal(value, "destroy"))
-            if action == "L":
+            elif action == "L":
                 form.append(f"{{maybe_source}}gain{{plural3}} {value} life")
-            if action == "N":
+            elif action == "N":
                 s = f"{value}th"
                 if value == "1":
                     s = "first"
@@ -118,22 +119,22 @@ def format_player_card_effect(code: _parse_list) -> str:
                 if value == "3":
                     s = "third"
                 form.append(f"if this is the {s} time you have played {{name}} this turn,")
-            if action == "O":
+            elif action == "O":
                 form.append(f"Xaxos: Outcast gains {value} charge{'s' if int(value) > 1 else ''}")
-            if action == "P":
+            elif action == "P":
                 form.append("cast {target} prepped spell{plural1}")
-            if action == "Q":
+            elif action == "Q":
                 if value == "1":
                     form.append("discard a prepped spell")
                 else:
                     form.append(f"discard {value} prepped spells")
-            if action == "R":
+            elif action == "R":
                 form.append(f"{{source}} gain{{plural3}} {value} charge{'s' if int(value) > 1 else ''}")
-            if action == "S":
+            elif action == "S":
                 form.append(f"{config.prefix}Silence a minion")
-            if action == "X":
+            elif action == "X":
                 form.append("destroy {card}")
-            if action == "Z":
+            elif action == "Z":
                 br, _, c = value.partition("+")
                 if c:
                     if c == "2":
@@ -149,30 +150,51 @@ def format_player_card_effect(code: _parse_list) -> str:
                     form.append(f"{{source}} focuses their {a[br]} breach{c}")
 
             # modifiers to the previous entry
-            if action == "&":
+            elif action == "&":
                 x = form.pop(-1)
                 if value.isdigit():
                     form.append(f"{x} that costs {value}")
-                if value == "C":
+                elif value[0] == "+":
+                    value = value[1:]
+                    form.append(f"if {{pronoun}} have at least {value} charges, {x}")
+                elif value[0] == "-":
+                    value = value[1:]
+                    form.append(f"if {{pronoun}} have {value} charges or less, {x}")
+                elif "-" in value:
+                    lower, _, upper = value.partition("-")
+                    if lower == upper:
+                        if lower == "0":
+                            form.append(f"if {{pronoun}} are exhausted, {x}")
+                        else:
+                            form.append(f"if {{pronoun}} have {lower} life, {x}")
+                    elif lower == "0":
+                        form.append(f"if {{pronoun}} have {upper} life or less, {x}")
+                    elif upper == "0":
+                        form.append(f"if {{pronoun}} have {lower} life or more, {x}")
+                    else:
+                        form.append(f"if {{pronoun}} have from {lower} to {upper} life, {x}")
+                elif value == "C":
                     form.append(f"Cast: {x[0].upper()}{x[1:]}")
-                if value == "H":
+                elif value == "H":
                     form.append(f"{{source}} may {x}")
-                if value == "I":
+                elif value == "I":
                     form.append(f"If {{pronoun}} do, {x}")
-                if value == "L":
+                elif value == "L":
                     form.append(f"{x} or less")
-                if value == "M":
+                elif value == "M":
                     form.append(f"{x} or more")
-                if value == "N":
+                elif value == "N":
                     form.append(f"if the nemesis tier is 2 or higher, {x}")
-                if value == "O":
+                elif value == "O":
                     form.append(f"if all your breaches are opened, {x}")
-                if value == "T":
+                elif value == "T":
                     form.append("that can only be used to")
-                if value == "W":
+                elif value == "W":
                     form.append(f"{x} without discarding it")
+                else:
+                    form.append(f"ERROR: Unrecognized param {value}\nText: {x}")
 
-            if action == "%": # further modifiers to &=T
+            elif action == "%": # further modifiers to &=T
                 x = form.pop(-1)
                 values = []
                 if "G" in value:
@@ -210,7 +232,7 @@ def format_player_card_effect(code: _parse_list) -> str:
 
                 form.append(f"{x} {' '.join(values)}")
 
-            if action == "$": # target modifiers
+            elif action == "$": # target modifiers
                 # todo: remove the load on individual values and split further
                 x = form.pop(-1)
                 if value == "A":
@@ -226,7 +248,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="s",
                         place="{place}",
                         ))
-                if value == "B":
+                elif value == "B":
                     form.append(x.format(
                         source="any ally",
                         maybe_source="any ally ",
@@ -239,7 +261,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="s",
                         place="{place}",
                         ))
-                if value == "C":
+                elif value == "C":
                     form.append(x.format(
                         source="you",
                         maybe_source="",
@@ -252,12 +274,19 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="",
                         place="{place}",
                         ))
-                if value == "D":
+                elif value == "D":
                     form.append(x.format(place="your discard pile"))
-                if value == "E":
+                elif value == "E":
                     form.append(x.format(place="hand"))
-                if value == "F":
+                elif value == "F":
                     form.append(x.format(place="your hand or discard pile"))
+                elif value == "G":
+                    form.append(x.format(place="hand or on top of any player's discard pile"))
+                else:
+                    form.append(f"ERROR: Unrecognized target modifier {value}\nText: {x}")
+
+            else:
+                form.append(f"ERROR: Unrecognized action {action}={value}")
 
             if to_append:
                 a = form.pop(-1)
