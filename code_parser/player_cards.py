@@ -55,9 +55,11 @@ def format_player_card_effect(code: _parse_list) -> str:
                 to_append = True
                 action = action[1:]
             if action == "A":
-                form.append(f"gain {value}$")
-            if action == "B":
-                form.append(f"gain an additional {value}$")
+                add = ""
+                if value[0] == "+":
+                    add = "an additional "
+                    value = value[1:]
+                form.append(f"gain {add}{value}$")
             if action == "C":
                 if value == "1":
                     form.append("gain a charge")
@@ -68,17 +70,21 @@ def format_player_card_effect(code: _parse_list) -> str:
                 else:
                     form.append(f"lose {value[1:]} charges")
             if action == "D":
+                add = ""
+                if value[0] == "+":
+                    add = " additional"
+                    value = value[1:]
                 if form: # might be part of something like "do X, if you do, deal Y damage"
-                    form.append(f"deal {value} damage")
+                    form.append(f"deal {value}{add} damage")
                 else: # but if it's not, we can assume it has a Cast: prefix, and doesn't need &=C
-                    form.append(f"Cast: Deal {value} damage")
-            if action == "E":
-                form.append(f"deal {value} additional damage")
+                    form.append(f"Cast: Deal {value}{add} damage")
             if action == "F":
                 br, _, c = value.partition("+")
                 if c:
                     if c == "2":
                         c = " twice"
+                    elif c == "3":
+                        c = " three times"
                     else:
                         c = f" {c} times"
                 if not br:
