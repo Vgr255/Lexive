@@ -20,12 +20,12 @@ def _int_internal(x: str, word):
         lower = upper = int(x)
     if lower == upper:
         if lower == 1:
-            return f"{word}{{plural3}} a card in {{place}}"
-        return f"{word}{{plural3}} {lower} cards in {{place}}"
+            return f"{word}{{plural3}} {{a_card}} {{place}}"
+        return f"{word}{{plural3}} {lower} cards {{place}}"
 
     if lower == 0:
-        return f"{word}{{plural3}} up to {upper} cards in {{place}}"
-    return f"{word}{{plural3}} from {lower} to {upper} cards in {{place}}"
+        return f"{word}{{plural3}} up to {upper} cards {{place}}"
+    return f"{word}{{plural3}} from {lower} to {upper} cards {{place}}"
 
 def parse_player_card(code: str) -> Tuple[_parse_list, _extra_dict]:
     values = []
@@ -175,6 +175,8 @@ def format_player_card_effect(code: _parse_list) -> str:
                         form.append(f"if {{pronoun}} have from {lower} to {upper} life, {x}")
                 elif value == "C":
                     form.append(f"Cast: {x[0].upper()}{x[1:]}")
+                elif value == "D":
+                    form.append("divided however you choose to the nemesis and any number of minions")
                 elif value == "H":
                     form.append(f"{{source}} may {x}")
                 elif value == "I":
@@ -197,6 +199,8 @@ def format_player_card_effect(code: _parse_list) -> str:
             elif action == "%": # further modifiers to &=T
                 x = form.pop(-1)
                 values = []
+                if "C" in value:
+                    values.append("gain cards")
                 if "G" in value:
                     values.append("gain a gem")
                 if "R" in value:
@@ -246,6 +250,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural1="",
                         plural2="",
                         plural3="s",
+                        a_card="{a_card}",
                         place="{place}",
                         ))
                 elif value == "B":
@@ -259,6 +264,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural1="",
                         plural2="",
                         plural3="s",
+                        a_card="{a_card}",
                         place="{place}",
                         ))
                 elif value == "C":
@@ -272,21 +278,42 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural1="s",
                         plural2="es",
                         plural3="",
+                        a_card="{a_card}",
                         place="{place}",
                         ))
                 elif value == "D":
-                    form.append(x.format(place="your discard pile"))
+                    form.append(x.format(
+                        source="each ally",
+                        maybe_source="each ally ",
+                        pronoun="they",
+                        target="each ally's",
+                        targ_sing="each ally's",
+                        card="any card",
+                        plural1="",
+                        plural2="",
+                        plural3="s",
+                        a_card="{a_card}",
+                        place="{place}",
+                    ))
                 elif value == "E":
-                    form.append(x.format(place="hand"))
+                    form.append(x.format(place1="in hand", place2=""))
                 elif value == "F":
-                    form.append(x.format(place="your hand or discard pile"))
+                    form.append(x.format(place1="in your discard pile", place2="of your discard pile"))
                 elif value == "G":
-                    form.append(x.format(place="hand or on top of any player's discard pile"))
+                    form.append(x.format(place1="in your hand or discard pile", place2=""))
+                elif value == "H":
+                    form.append(x.format(place1="in hand or on top of any player's discard pile", place2=""))
+                elif value == "I":
+                    form.append(x.format(place1="on the top of any player's discard pile", place2="of any player's discard pile"))
+                elif value == "J":
+                    form.append(x.format(a_card="a card", place="{place1}"))
+                elif value == "K":
+                    form.append(x.format(a_card="the top card", place="{place2}"))
                 else:
                     form.append(f"ERROR: Unrecognized target modifier {value}\nText: {x}")
 
             else:
-                form.append(f"ERROR: Unrecognized action {action}={value}")
+                form.append(f"ERROR: Unrecognized token {action}={value}")
 
             if to_append:
                 a = form.pop(-1)
@@ -299,11 +326,22 @@ def format_player_card_effect(code: _parse_list) -> str:
 
 def format_player_card_special(code: _extra_dict) -> Tuple[str, str]:
     """Return a formatted text of the card's special conditions."""
-    text = []
+    before = []
+    after = []
     for key, value in code.items():
         if key == "D":
-            text.append(f"{config.prefix}Dual")
-        if key == "L":
-            text.append(f"{config.prefix}Link")
-    return "\n".join(text), ""
+            before.append(f"{config.prefix}Dual")
+        elif key == "E":
+            before.append(f"{config.prefix}Echo")
+        elif key == "L":
+            before.append(f"{config.prefix}Link")
+        elif key == "N":
+            before.append(f"Use this only when fighting against {value}.")
+        elif key == "T":
+            after.append(f"Card type: {value}")
+        elif key == "U":
+            before.append(f"Use this card only when playing with {value}.")
+        else:
+            before.append(f"ERROR: Unrecognized token {key}={value}")
+    return "\n".join(before), "\n".join(after)
 
