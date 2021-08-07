@@ -67,38 +67,47 @@ class Lexive(commands.Bot):
                 return
 
             ctx = await self.get_context(message)
-            value = content.split()
-            matches = complete_match(value[0], cmds)
-            if len(matches) == 1:
-                await cmds[matches[0]](ctx, *value[1:])
-                return
+            try:
+                value = content.split()
+                matches = complete_match(value[0], cmds)
+                if len(matches) == 1:
+                    await cmds[matches[0]](ctx, *value[1:])
+                    return
 
-            values, asset = get_card(content)
-            log("REQ:", content)
-            if values and values[0] is None: # too many values
-                await ctx.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
-                return
-            elif values:
-                msgs = "\n".join(values).split(r"\NEWLINE/")
-                for msg in msgs:
-                    await ctx.send(msg)
-                for ass in asset:
-                    with open(os.path.join("assets", ass), mode="rb") as a:
-                        await ctx.send(file=discord.File(a))
-                return
+                values, asset = get_card(content)
+                log("REQ:", content)
+                if values and values[0] is None: # too many values
+                    await ctx.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
+                    return
+                elif values:
+                    msgs = "\n".join(values).split(r"\NEWLINE/")
+                    for msg in msgs:
+                        await ctx.send(msg)
+                    for ass in asset:
+                        with open(os.path.join("assets", ass), mode="rb") as a:
+                            await ctx.send(file=discord.File(a))
+                    return
+            except Exception as e:
+                if hasattr(config, "server") and hasattr(config, "channel"):
+                    await report(ctx, f"[Automatic reporting]\n{e}")
+                raise
 
-        await super().on_message(message)
+            await super().on_message(message)
 
 bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True, activity=activity)
 
-@bot.command() # not a regular @command because we don't want autocomplete for this one
-async def report(ctx, *args):
+@bot.command("report") # not a regular @command because we don't want autocomplete for this one
+async def report_cmd(ctx, *args):
     if not hasattr(config, "server") or not hasattr(config, "channel"):
         ctx.send("Automatic issue reporting is not enabled")
+        return
+    await report(ctx, f"Reported by {ctx.message.author} in {ctx.message.guild} ({ctx.message.channel}):\n" + " ".join(args))
+
+async def report(ctx, message):
     for guild in ctx.bot.guilds:
         if guild.id == config.server:
             chan = guild.get_channel(config.channel)
-            await chan.send(" ".join(args))
+            await chan.send(message)
 
 @sync(mechanics)
 def unique_handler(name: str) -> List[str]:
