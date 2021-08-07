@@ -1,7 +1,6 @@
 import argparse
 import random as _random
 import os
-import re
 
 from typing import List, Tuple, Optional, Iterable
 
@@ -23,6 +22,10 @@ from loader import (
 )
 
 import config
+
+AUTHOR = ""
+VERSION = ""
+author_id = 320646088723791874
 
 cmds = {}
 content_dicts = []
@@ -398,7 +401,6 @@ async def reload(ctx):
 
 @command()
 async def issues(ctx):
-    from main import author_id
     aid = ctx.bot.get_user(author_id)
     mention = ""
     if aid is not None:
@@ -424,14 +426,13 @@ async def eval_(ctx, *args):
 
 @command()
 async def whoami(ctx):
-    import main
-    author = main.AUTHOR
-    aid = ctx.bot.get_user(main.author_id)
+    author = AUTHOR
+    aid = ctx.bot.get_user(author_id)
     mention = ""
     if aid is not None:
         author += f" ({aid.mention})"
         mention = f" You may also ask or tell {aid.mention} directly."
-    await ctx.send(f"I am Lexive v{main.VERSION} and I was created by {author}. " +
+    await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
     "My code is available at <https://github.com/Vgr255/Lexive> where you can submit " +
     f"pull requests and bug reports.{mention}" +
     "\nI am a utility bot for all Aeon's End content. You can ask me about anything by doing " +

@@ -26,7 +26,6 @@ from loader import (
 
 VERSION = "0.3"
 AUTHOR = "Anilyka Barry"
-author_id = 320646088723791874
 
 def sync(d):
     def wrapper(func):
@@ -474,6 +473,11 @@ def get_treasure(name: str) -> List[str]:
         values.append("```")
 
     return values
+
+import cmds as cmds_module
+cmds_module.VERSION = VERSION
+cmds_module.AUTHOR = AUTHOR
+del cmds_module
 
 print("Bot loaded. Starting")
 
