@@ -1,6 +1,7 @@
 import argparse
 import random as _random
 import os
+import re
 
 from typing import List, Tuple, Optional, Iterable
 
@@ -80,12 +81,12 @@ def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
 
     return ret, ass
 
-def complete_match(string: str, matches: Iterable) -> list:
+def complete_match(string: str, matches: Iterable[str]) -> list:
     possible_matches = set()
     for possible in matches:
         if string == possible:
             return [string]
-        if possible.startswith(string):
+        if possible.startswith(string) or string in possible:
             possible_matches.add(possible)
     return sorted(possible_matches)
 
@@ -263,7 +264,6 @@ async def random(ctx, *args):
         message.extend([f"{value['name']} (from {value['box']}, {value['cost']}-cost)" for value in container])
 
     await ctx.send("\n".join(message))
-
 
 @command()
 async def info(ctx, *args):
