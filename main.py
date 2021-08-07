@@ -6,7 +6,7 @@ from discord.ext import commands
 
 import config
 from code_parser import format
-from cmds import cmds, get_card, complete_match, card_
+from cmds import cmds, get_card, complete_match, card_, content_dicts
 from loader import (
     log,
     casefold,
@@ -27,8 +27,6 @@ from loader import (
 VERSION = "0.3"
 AUTHOR = "Anilyka Barry"
 author_id = 320646088723791874
-
-content_dicts = []
 
 def sync(d):
     def wrapper(func):

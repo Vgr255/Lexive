@@ -25,6 +25,7 @@ from loader import (
 import config
 
 cmds = {}
+content_dicts = []
 
 def command(name=None):
     def wrapper(func):
@@ -36,7 +37,6 @@ def command(name=None):
     return wrapper
 
 def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
-    from main import content_dicts
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
         index = name.index("<@!")
