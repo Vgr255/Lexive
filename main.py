@@ -91,6 +91,15 @@ class Lexive(commands.Bot):
 
 bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True, activity=activity)
 
+@bot.command() # not a regular @command because we don't want autocomplete for this one
+async def report(ctx, *args):
+    if not hasattr(config, "server") or not hasattr(config, "channel"):
+        ctx.send("Automatic issue reporting is not enabled")
+    for guild in ctx.bot.guilds:
+        if guild.id == config.server:
+            chan = guild.get_channel(config.channel)
+            await chan.send(" ".join(args))
+
 @sync(mechanics)
 def unique_handler(name: str) -> List[str]:
     mechanic = mechanics[name][0]["content"]
