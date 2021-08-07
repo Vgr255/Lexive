@@ -1,4 +1,3 @@
-from Lexive.code_parser.player_cards import format_player_card_special
 from code_parser.player_cards import parse_player_card, format_player_card_effect, format_player_card_special
 
 def parse(code: str, type: str):

@@ -266,4 +266,3 @@ def load():
             cards_num[wave][deck][int(number)] = (pvalue, name)
 
     log("Treasures loaded", level="local")
-

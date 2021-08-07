@@ -62,10 +62,8 @@ def format_player_card_effect(code: _parse_list) -> str:
                     value = value[1:]
                 form.append(f"gain {add}{value}$")
             elif action == "C":
-                if value == "1":
-                    form.append("gain a charge")
-                elif value.isdigit():
-                    form.append(f"gain {value} charges")
+                if value.isdigit():
+                    form.append(f"gain {value} charge{'s' if int(value) > 1 else ''}")
                 elif value == "-1":
                     form.append("lose a charge")
                 else:
@@ -89,9 +87,9 @@ def format_player_card_effect(code: _parse_list) -> str:
                     else:
                         c = f" {c} times"
                 if not br:
-                    form.append("focus {target} closed breach{plural2}{c}")
+                    form.append(f"focus {{target}} closed breach{{plural2}}{c}")
                 elif br == "0":
-                    form.append("focus {targ_sing} closed breach with the lowest focus cost{c}")
+                    form.append(f"focus {{targ_sing}} closed breach with the lowest focus cost{c}")
                 else:
                     a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
                     form.append(f"focus {{target}} {a[br]} breach{c}")
@@ -142,9 +140,9 @@ def format_player_card_effect(code: _parse_list) -> str:
                     else:
                         c = f" {c} times"
                 if not value:
-                    form.append("{source} focuses one of their closed breaches{c}")
+                    form.append(f"{{source}} focuses one of their closed breaches{c}")
                 elif value == "0":
-                    form.append("{source} focuses their closed breach with the lowest focus cost{c}")
+                    form.append(f"{{source}} focuses their closed breach with the lowest focus cost{c}")
                 else:
                     a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
                     form.append(f"{{source}} focuses their {a[br]} breach{c}")
@@ -153,7 +151,7 @@ def format_player_card_effect(code: _parse_list) -> str:
             elif action == "&":
                 x = form.pop(-1)
                 if value.isdigit():
-                    form.append(f"{x} that costs {value}")
+                    form.append(f"{x} that costs {value}$")
                 elif value[0] == "+":
                     value = value[1:]
                     form.append(f"if {{pronoun}} have at least {value} charges, {x}")
@@ -176,7 +174,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                 elif value == "C":
                     form.append(f"Cast: {x[0].upper()}{x[1:]}")
                 elif value == "D":
-                    form.append("divided however you choose to the nemesis and any number of minions")
+                    form.append(f"{x} divided however you choose to the nemesis and any number of minions")
                 elif value == "H":
                     form.append(f"{{source}} may {x}")
                 elif value == "I":
@@ -188,9 +186,9 @@ def format_player_card_effect(code: _parse_list) -> str:
                 elif value == "N":
                     form.append(f"if the nemesis tier is 2 or higher, {x}")
                 elif value == "O":
-                    form.append(f"if all your breaches are opened, {x}")
+                    form.append(f"if all of your breaches are opened, {x}")
                 elif value == "T":
-                    form.append("that can only be used to")
+                    form.append(f"{x} that can only be used to")
                 elif value == "W":
                     form.append(f"{x} without discarding it")
                 else:
@@ -239,6 +237,9 @@ def format_player_card_effect(code: _parse_list) -> str:
             elif action == "$": # target modifiers
                 # todo: remove the load on individual values and split further
                 x = form.pop(-1)
+                if value.startswith("="):
+                    x = f"{{maybe_source}}{x}"
+                    value = value[1:]
                 if value == "A":
                     form.append(x.format(
                         source="any player",
@@ -266,6 +267,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="s",
                         a_card="{a_card}",
                         place="{place}",
+                        name="{name}",
                         ))
                 elif value == "C":
                     form.append(x.format(
@@ -280,6 +282,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="",
                         a_card="{a_card}",
                         place="{place}",
+                        name="{name}",
                         ))
                 elif value == "D":
                     form.append(x.format(
@@ -294,21 +297,50 @@ def format_player_card_effect(code: _parse_list) -> str:
                         plural3="s",
                         a_card="{a_card}",
                         place="{place}",
+                        name="{name}",
                     ))
                 elif value == "E":
-                    form.append(x.format(place1="in hand", place2=""))
+                    form.append(x.format(
+                        place1="in hand",
+                        place2="",
+                        name="{name}",
+                    ))
                 elif value == "F":
-                    form.append(x.format(place1="in your discard pile", place2="of your discard pile"))
+                    form.append(x.format(
+                        place1="in your discard pile",
+                        place2="of your discard pile",
+                        name="{name}",
+                    ))
                 elif value == "G":
-                    form.append(x.format(place1="in your hand or discard pile", place2=""))
+                    form.append(x.format(
+                        place1="in your hand or discard pile",
+                        place2="",
+                        name="{name}",
+                    ))
                 elif value == "H":
-                    form.append(x.format(place1="in hand or on top of any player's discard pile", place2=""))
+                    form.append(x.format(
+                        place1="in hand or on top of any player's discard pile",
+                        place2="",
+                        name="{name}",
+                    ))
                 elif value == "I":
-                    form.append(x.format(place1="on the top of any player's discard pile", place2="of any player's discard pile"))
+                    form.append(x.format(
+                        place1="on the top of any player's discard pile",
+                        place2="of any player's discard pile",
+                        name="{name}",
+                    ))
                 elif value == "J":
-                    form.append(x.format(a_card="a card", place="{place1}"))
+                    form.append(x.format(
+                        a_card="a card",
+                        place="{place1}",
+                        name="{name}",
+                    ))
                 elif value == "K":
-                    form.append(x.format(a_card="the top card", place="{place2}"))
+                    form.append(x.format(
+                        a_card="the top card",
+                        place="{place2}",
+                        name="{name}",
+                    ))
                 else:
                     form.append(f"ERROR: Unrecognized target modifier {value}\nText: {x}")
 
@@ -321,6 +353,12 @@ def format_player_card_effect(code: _parse_list) -> str:
                 form.append(f"{b} {a}")
 
         text.append(" ".join(f"{x[0].upper()}{x[1:]}." for x in form))
+
+        # Rule clarifications
+
+        if ("&", "O") in code:
+            text.append("Rule clarification: If all of a mage's breaches have been destroyed, " +
+                        "then they are considered to have only opened breaches.")
 
     return "\n".join(text)
 
@@ -336,7 +374,7 @@ def format_player_card_special(code: _extra_dict) -> Tuple[str, str]:
         elif key == "L":
             before.append(f"{config.prefix}Link")
         elif key == "N":
-            before.append(f"Use this only when fighting against {value}.")
+            before.append(f"Use this only when playing with {value}.")
         elif key == "T":
             after.append(f"Card type: {value}")
         elif key == "U":
