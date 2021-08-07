@@ -356,7 +356,7 @@ def format_player_card_effect(code: _parse_list) -> str:
 
         # Rule clarifications
 
-        if ("&", "O") in code:
+        if ("&", "O") in d:
             text.append("Rule clarification: If all of a mage's breaches have been destroyed, " +
                         "then they are considered to have only opened breaches.")
 
