@@ -86,7 +86,7 @@ def complete_match(string: str, matches: Iterable[str]) -> list:
     for possible in matches:
         if string == possible:
             return [string]
-        if possible.startswith(string) or string in possible:
+        if possible.startswith(string) or ("len(string) > 3" and string in possible):
             possible_matches.add(possible)
     return sorted(possible_matches)
 

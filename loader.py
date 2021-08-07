@@ -19,11 +19,11 @@ _newline_str = "#"
 _prefix_str = "!"
 
 assets = {}
-mechanics = {}
 waves = {}
 cards_num = {} # type: Dict[str, Dict[int, Tuple[str, str]]]
 ctypes = {}
 ability_types = {}
+mechanics = defaultdict(list)
 player_cards = defaultdict(list)
 nemesis_cards = defaultdict(list)
 player_mats = defaultdict(list)
@@ -56,7 +56,6 @@ class _open:
             value = value.lstrip(b"\xef\xbb\xbf")
         value = value.rstrip()
         return value.decode("utf-8")
-
 
 def log(*x: str, level:str="use", **kwargs) -> None:
     # probably gonna log to a file at some point
@@ -91,7 +90,7 @@ def load():
         if not filename.endswith(".lexive"):
             continue
         with open(os.path.join("unique", filename), "rt") as unique_file:
-            mechanics[filename[:-7]] = unique_file.readlines()
+            mechanics[filename[:-7]].append({"name": filename[:-7], "content": unique_file.readlines()})
 
     log("Mechanics loaded", level="local")
 

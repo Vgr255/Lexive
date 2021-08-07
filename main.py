@@ -94,7 +94,7 @@ bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensiti
 
 @sync(mechanics)
 def unique_handler(name: str) -> List[str]:
-    mechanic = mechanics[name]
+    mechanic = mechanics[name][0]["content"]
     values = []
     if len(mechanic) == 1: # most common occurence
         values.append("```")
