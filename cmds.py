@@ -434,7 +434,8 @@ async def whoami(ctx):
         mention = f" You may also ask or tell {aid.mention} directly."
     await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
     "My code is available at <https://github.com/Vgr255/Lexive> where you can submit " +
-    f"pull requests and bug reports.{mention}" +
+    f"pull requests and bug reports.{mention} You may use `{config.prefix}report <issue>`" +
+    "to directly report an issue to the developers." +
     "\nI am a utility bot for all Aeon's End content. You can ask me about anything by doing " +
     f"`{config.prefix}<name>` in any channel on this server, or in private message with me. " +
     "I also know about some unique mechanics, and autocomplete is supported. Type " +
