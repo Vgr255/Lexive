@@ -1,9 +1,9 @@
-from typing import List, Dict, Tuple
+from typing import List, Tuple
 
 import config
 
-_parse_list = List[Tuple[str, str]]
-_extra_dict = Dict[str, str]
+_parse_list = List[List[Tuple[str, str]]]
+_extra_list = List[Tuple[str, str]]
 
 def _int_internal(x: str, word):
     # FIXME: plural3 messes with "any X may"
@@ -27,9 +27,9 @@ def _int_internal(x: str, word):
         return f"{word}{{plural3}} up to {upper} cards {{place}}"
     return f"{word}{{plural3}} from {lower} to {upper} cards {{place}}"
 
-def parse_player_card(code: str) -> Tuple[_parse_list, _extra_dict]:
+def parse_player_card(code: str) -> Tuple[_parse_list, _extra_list]:
     values = []
-    extra = {}
+    extra = []
     sub, *rest = code.split(";")
     if sub:
         for segment in sub.split("/"):
@@ -40,10 +40,10 @@ def parse_player_card(code: str) -> Tuple[_parse_list, _extra_dict]:
             values.append(d)
     for x in rest:
         key, _, value = x.partition("=")
-        extra[key] = value
+        extra.append((key, value))
     return values, extra
 
-def format_player_card_effect(code: _parse_list) -> str:
+def format_player_card_effect(code: _parse_list, *, auto_cast=True) -> str:
     """Return a formatted text of the card effect."""
     text = []
     for d in code:
@@ -52,8 +52,12 @@ def format_player_card_effect(code: _parse_list) -> str:
         form: List[str] = []
         for action, value in d:
             to_append = False
+            append_str = "{} {}"
             if len(action) > 1 and action.startswith("&"):
                 to_append = True
+                action = action[1:]
+            if len(action) > 1 and action.startswith("&"): # this is &&
+                append_str = "{} and {}"
                 action = action[1:]
             if action == "A":
                 add = ""
@@ -73,7 +77,7 @@ def format_player_card_effect(code: _parse_list) -> str:
                 if value[0] == "+":
                     add = " additional"
                     value = value[1:]
-                if form: # might be part of something like "do X, if you do, deal Y damage"
+                if form or not auto_cast: # might be part of something like "do X, if you do, deal Y damage"
                     form.append(f"deal {value}{add} damage")
                 else: # but if it's not, we can assume it has a Cast: prefix, and doesn't need &=C
                     form.append(f"Cast: Deal {value}{add} damage")
@@ -108,7 +112,11 @@ def format_player_card_effect(code: _parse_list) -> str:
                 form.append(_int_internal(value, "destroy"))
             elif action == "L":
                 form.append(f"{{maybe_source}}gain{{plural3}} {value} life")
-            elif action == "N":
+            elif action == "M":
+                neg = ""
+                if value[0] == "!":
+                    neg = "not "
+                    value = value[1:]
                 s = f"{value}th"
                 if value == "1":
                     s = "first"
@@ -116,7 +124,20 @@ def format_player_card_effect(code: _parse_list) -> str:
                     s = "second"
                 if value == "3":
                     s = "third"
-                form.append(f"if this is the {s} time you have played {{name}} this turn,")
+                form.append(f"if this is {neg}the {s} {{name}} you have cast this turn,")
+            elif action == "N":
+                neg = ""
+                if value[0] == "!":
+                    neg = "not "
+                    value = value[1:]
+                s = f"{value}th"
+                if value == "1":
+                    s = "first"
+                if value == "2":
+                    s = "second"
+                if value == "3":
+                    s = "third"
+                form.append(f"if this is {neg}the {s} time you have played {{name}} this turn,")
             elif action == "O":
                 form.append(f"Xaxos: Outcast gains {value} charge{'s' if int(value) > 1 else ''}")
             elif action == "P":
@@ -132,6 +153,8 @@ def format_player_card_effect(code: _parse_list) -> str:
                 form.append(f"{config.prefix}Silence a minion")
             elif action == "X":
                 form.append("destroy {card}")
+            elif action == "Y":
+                form.append(f"{{maybe_source}}suffer{{plural3}} {value} damage")
             elif action == "Z":
                 br, _, c = value.partition("+")
                 if c:
@@ -350,7 +373,7 @@ def format_player_card_effect(code: _parse_list) -> str:
             if to_append:
                 a = form.pop(-1)
                 b = form.pop(-1)
-                form.append(f"{b} {a}")
+                form.append(append_str.format(b, a))
 
         text.append(" ".join(f"{x[0].upper()}{x[1:]}." for x in form))
 
@@ -362,12 +385,14 @@ def format_player_card_effect(code: _parse_list) -> str:
 
     return "\n".join(text)
 
-def format_player_card_special(code: _extra_dict) -> Tuple[str, str]:
+def format_player_card_special(code: _extra_list) -> Tuple[str, str]:
     """Return a formatted text of the card's special conditions."""
     before = []
     after = []
-    for key, value in code.items():
-        if key == "D":
+    for key, value in code:
+        if key == "C":
+            before.append("This spell may be prepped to a closed breach without focusing it.")
+        elif key == "D":
             before.append(f"{config.prefix}Dual")
         elif key == "E":
             before.append(f"{config.prefix}Echo")
@@ -375,11 +400,31 @@ def format_player_card_special(code: _extra_dict) -> Tuple[str, str]:
             before.append(f"{config.prefix}Link")
         elif key == "N":
             before.append(f"Use this only when playing with {value}.")
+        elif key == "P":
+            before.append("While prepped,")
         elif key == "T":
             after.append(f"Card type: {value}")
         elif key == "U":
             before.append(f"Use this card only when playing with {value}.")
+        elif key == "&":
+            x = before.pop(-1)
+            if value == "C":
+                before.append(f"{x} at the end of your casting phase,")
+            elif value == "M":
+                before.append(f"{x} once per turn during your main phase,")
+            else:
+                before.append(f"ERROR: Unrecognized modifier {value}\nText: {x}")
+        elif key == "?":
+            x = before.pop(-1)
+            content = []
+            for c in value.split(","):
+                a, _, b = c.partition(":")
+                content.append((a, b))
+            text = format_player_card_effect([content], auto_cast=False)
+            before.append(f"{x} {text[0].lower()}{text[1:]}")
+
         else:
             before.append(f"ERROR: Unrecognized token {key}={value}")
+
     return "\n".join(before), "\n".join(after)
 
