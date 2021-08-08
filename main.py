@@ -102,6 +102,7 @@ async def report_cmd(ctx, *args):
         ctx.send("Automatic issue reporting is not enabled")
         return
     await report(ctx, f"Reported by {ctx.message.author} in {ctx.message.guild} ({ctx.message.channel}):\n" + " ".join(args))
+    await ctx.send("Issue reported, thank you!")
 
 async def report(ctx, message):
     for guild in ctx.bot.guilds:
