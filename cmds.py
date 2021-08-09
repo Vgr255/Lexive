@@ -5,6 +5,7 @@ import os
 from typing import List, Tuple, Optional, Iterable
 
 import discord
+from discord.ext.commands.context import Context
 
 from loader import (
     casefold,
@@ -22,10 +23,6 @@ from loader import (
 )
 
 import config
-
-AUTHOR = ""
-VERSION = ""
-author_id = 320646088723791874
 
 cmds = {}
 content_dicts = []
@@ -139,7 +136,7 @@ def _isin(code: str, *items: str) -> bool:
     return False
 
 @command()
-async def random(ctx, *args):
+async def random(ctx: Context, *args):
     # TODO: Add expedition support
     try:
         namespace = _randomizer_args.parse_args(args)
@@ -269,7 +266,7 @@ async def random(ctx, *args):
     await ctx.send("\n".join(message))
 
 @command()
-async def info(ctx, *args):
+async def info(ctx: Context, *args):
     arg = "".join(args)
     if not arg:
         await ctx.send("No argument provided.")
@@ -292,7 +289,7 @@ async def info(ctx, *args):
             await ctx.send(file=discord.File(a))
 
 @command()
-async def card(ctx, *args):
+async def card(ctx: Context, *args):
     await ctx.send(card_(casefold("".join(args)).upper(), detailed=True))
 
 def card_(arg: str, *, detailed=False) -> str:
@@ -343,7 +340,7 @@ def card_(arg: str, *, detailed=False) -> str:
     return f"{name} ({ctype})"
 
 @command()
-async def box(ctx, *args):
+async def box(ctx: Context, *args):
     arg = "".join(args)
     arg = casefold(arg)
     mapping = {casefold(x): x for x in waves}
@@ -375,6 +372,8 @@ async def box(ctx, *args):
                 count = 3
             ind = c[ctype][casefold(card)]
             for d in ind:
+                if d['box'] != box:
+                    continue
                 if count >= 1800:
                     result.append("```\\NEWLINE/```")
                     count = 3
@@ -387,67 +386,47 @@ async def box(ctx, *args):
         await ctx.send(line)
 
 @command()
-async def unique(ctx):
+async def unique(ctx: Context):
     await ctx.send("```\nThe unique mechanics that I know about are as follow. " +
     f"You may prefix them with {config.prefix} to ask me about them.\n- " +
     "\n- ".join(mechanics) + "\n```")
 
 @command()
-async def reload(ctx):
+async def reload(ctx: Context):
     if await ctx.bot.is_owner(ctx.author):
         print("\nReloading content")
         load()
         await ctx.send("Reloaded data.")
 
 @command()
-async def issues(ctx):
-    aid = ctx.bot.get_user(author_id)
-    mention = ""
-    if aid is not None:
-        mention = f"Report all other issues to {aid.mention}."
-    content = """* Known issues and to-do list *
+async def issues(ctx: Context):
+    content = f"""* Known issues and to-do list *
 
 - Entwined Amethyst will send a similar message twice;
 - Not all Legacy-specific content is implemented;
 - !card doesn't return a block of text yet.
 
-""" + mention
+Report all other issues using `{config.prefix}report <issue>`
+
+"""
 
     await ctx.send(content)
 
 @command()
-async def github(ctx):
+async def github(ctx: Context):
     await ctx.send("https://github.com/Vgr255/Lexive")
 
 @command("eval")
-async def eval_(ctx, *args):
+async def eval_(ctx: Context, *args):
     if await ctx.bot.is_owner(ctx.author):
         await ctx.send(eval(" ".join(args)))
 
 @command()
-async def whoami(ctx):
-    author = AUTHOR
-    aid = ctx.bot.get_user(author_id)
-    mention = ""
-    if aid is not None:
-        author += f" ({aid.mention})"
-        mention = f" You may also ask or tell {aid.mention} directly."
-    await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
-    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit " +
-    f"pull requests and bug reports.{mention} You may use `{config.prefix}report <issue>` " +
-    "to report an issue directly to the developers." +
-    "\nI am a utility bot for all Aeon's End content. You can ask me about anything by doing " +
-    f"`{config.prefix}<name>` in any channel on this server, or in private message with me. " +
-    "I also know about some unique mechanics, and autocomplete is supported. Type " +
-    f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
-    "for a list of unique mechanics I know about.\nArt by Amaple")
-
-@command()
-async def faq(ctx):
+async def faq(ctx: Context):
     await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
 
 @command()
-async def outcasts(ctx):
+async def outcasts(ctx: Context):
     await ctx.send("""Known issues with the first Outcasts printing (from the Kickstarter):
 
 - Ilya's Deck: Stop Deck 1b contains the wrong starter cards for Ilya. Her starting hand and \
@@ -478,4 +457,3 @@ is working on reprinting them and sending them out to all backers.
 Thread: <https://boardgamegeek.com/thread/2499061/outcasts-errata> (maintained by Will)
 
 """)
-

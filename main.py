@@ -6,7 +6,7 @@ from discord.ext import commands
 
 import config
 from code_parser import format
-from cmds import cmds, get_card, complete_match, card_, content_dicts
+from cmds import cmds, get_card, complete_match, card_, content_dicts, command
 from loader import (
     log,
     casefold,
@@ -26,6 +26,7 @@ from loader import (
 
 VERSION = "0.3"
 AUTHOR = "Anilyka Barry"
+author_id = 320646088723791874
 
 def sync(d):
     def wrapper(func):
@@ -68,6 +69,7 @@ class Lexive(commands.Bot):
 
             ctx = await self.get_context(message)
             try:
+                log("REQ:", content)
                 value = content.split()
                 matches = complete_match(value[0], cmds)
                 if len(matches) == 1:
@@ -75,7 +77,6 @@ class Lexive(commands.Bot):
                     return
 
                 values, asset = get_card(content)
-                log("REQ:", content)
                 if values and values[0] is None: # too many values
                     await ctx.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
                     return
@@ -109,6 +110,24 @@ async def report(ctx, message):
         if guild.id == config.server:
             chan = guild.get_channel(config.channel)
             await chan.send(message)
+
+@command()
+async def whoami(ctx):
+    author = AUTHOR
+    aid = ctx.bot.get_user(author_id)
+    mention = ""
+    if aid is not None:
+        author += f" ({aid.mention})"
+        mention = f" You may also ask or tell {aid.mention} directly."
+    await ctx.send(f"I am Lexive v{VERSION} and I was created by {author}. " +
+    "My code is available at <https://github.com/Vgr255/Lexive> where you can submit " +
+    f"pull requests and bug reports.{mention} You may use `{config.prefix}report <issue>` " +
+    "to report an issue directly to the developers." +
+    "\nI am a utility bot for all Aeon's End content. You can ask me about anything by doing " +
+    f"`{config.prefix}<name>` in any channel on this server, or in private message with me. " +
+    "I also know about some unique mechanics, and autocomplete is supported. Type " +
+    f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
+    "for a list of unique mechanics I know about.\nArt by Amaple")
 
 @sync(mechanics)
 def unique_handler(name: str) -> List[str]:
@@ -493,11 +512,7 @@ def get_treasure(name: str) -> List[str]:
 
     return values
 
-import cmds as cmds_module
-cmds_module.VERSION = VERSION
-cmds_module.AUTHOR = AUTHOR
-del cmds_module
+if __name__ == "__main__":
+    print("Bot loaded. Starting")
 
-print("Bot loaded. Starting")
-
-bot.run(config.token)
+    bot.run(config.token)
