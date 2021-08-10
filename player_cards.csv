@@ -239,7 +239,7 @@ Infused Ignition,S,4,,,"Cast: Deal 3 damage. If Xaxos: Outcast has 4 or less cha
 ,,,,,,,,,,,
 Elongated Looq,G,4,,,"Gain 2$. The next time you focus or open a breach this turn, gain 1 charge.",,,Outcasts,2b,2,8
 Chain of Retrieval,R,4,,,Focus any ally's breach.#OR#Return a card in your discard pile to your hand that costs 6$ or less.,,,Outcasts,2b,9,13
-Paired Storm,S,3,,!Link,"Cast: Deal 2 damage. If this is the second time you have cast a Paired Storm this turn, deal 2 additional damage.",,,Outcasts,2b,14,18
+Paired Storm,S,3,"D=2,N=2,&D=+2;L",!Link,"Cast: Deal 2 damage. If this is the second time you have cast a Paired Storm this turn, deal 2 additional damage.",,,Outcasts,2b,14,18
 Arcane Relay,S,8,,,Cast: Any ally draws a card and then reveals their hand. Deal 4 damage. Deal 1 additional damage for each card in that ally's hand that costs 1$ or more.,,,Outcasts,2b,19,23
 ,,,,,,,,,,,
 Helix of Amber,G,3,,,"Gain 2$. You may suffer 1 damage. If you do, destroy a card that costs 0$ in your hand.",,,Outcasts,3b,2,8

@@ -5,9 +5,9 @@ def parse(code: str, type: str):
         return parse_player_card(code)
     return code
 
-def format(code, type: str) -> str:
+def format(code, type: str, name: str, ctype: str) -> str:
     if type == "PE":
-        return format_player_card_effect(code)
+        return format_player_card_effect(code, name, ctype)
     if type == "PS":
-        return format_player_card_special(code)
+        return format_player_card_special(code, name, ctype)
     return ""
