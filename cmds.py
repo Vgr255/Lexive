@@ -1,5 +1,5 @@
 import argparse
-import random as _random
+import random
 import os
 
 from typing import List, Tuple, Optional, Iterable
@@ -86,7 +86,7 @@ def complete_match(string: str, matches: Iterable[str]) -> list:
     for possible in matches:
         if string == possible:
             return [string]
-        if possible.startswith(string) or ("len(string) > 3" and string in possible):
+        if possible.startswith(string) or string in possible:
             possible_matches.add(possible)
     return sorted(possible_matches)
 
@@ -135,8 +135,8 @@ def _isin(code: str, *items: str) -> bool:
             return True
     return False
 
-@command()
-async def random(ctx: Context, *args):
+@command("random")
+async def random_cmd(ctx: Context, *args):
     # TODO: Add expedition support
     try:
         namespace = _randomizer_args.parse_args(args)
@@ -165,8 +165,8 @@ async def random(ctx: Context, *args):
         if count == 1000:
             await ctx.send("Could not find a matching nemesis")
             return
-        values = _random.choice(list(nemesis_mats.values()))
-        value = _random.choice(values)
+        values = random.choice(list(nemesis_mats.values()))
+        value = random.choice(values)
         if verbose >= 2:
             await ctx.send(f"Checking {value['name']}")
         if not (namespace.lowest_difficulty <= value["difficulty"] <= namespace.highest_difficulty):
@@ -190,8 +190,8 @@ async def random(ctx: Context, *args):
         if count == 1000:
             await ctx.send("Could not find enough mages")
             return
-        values = _random.choice(list(player_mats.values()))
-        value = _random.choice(values)
+        values = random.choice(list(player_mats.values()))
+        value = random.choice(values)
         if value in mages:
             if verbose >= 3:
                 await ctx.send(f"Found {value['name']} but already in, skipping")
@@ -223,7 +223,7 @@ async def random(ctx: Context, *args):
         if count == 5000:
             await ctx.send("Could not find enough market cards")
             return
-        for value in _random.choice(list(player_cards.values())):
+        for value in random.choice(list(player_cards.values())):
             if value["type"] == "G":
                 if not gems and namespace.force_cheap_gem and value["cost"] > 3:
                     continue
