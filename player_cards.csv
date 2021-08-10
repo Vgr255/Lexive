@@ -10,9 +10,9 @@ Searing Ruby,G,4,"A=2,A=+1,&=T,%=S",,Gain 2$. Gain an additional 1$ that can onl
 Sifter's Pearl,G,3,,,Gain 2$. Each player reveals the top card of their deck and either discards it or returns it to the top of their deck.,"""To those who have stepped through the breach, the pearl shows the splinters of time itself."" - Phaedraxa, Breach Mage Seer",,Aeon's End,,90,96
 V'riswood Amber,G,3,,"When you gain this, you may place it on top of your deck.",Gain 2$.,"""Once, the trees of V'riswood towered ancient and beautiful. These polished bits of their amber is all that remains beyond that memory."" - Brama, Breach Mage Elder",,Aeon's End,,97,103
 Blasting Staff,R,4,,,"You may cast a prepped spell that you prepped this turn. If you do, that spell deals 2 additional damage.","While appearing to be crudely fashioned, these staffs contain within them the very essence of the void.",,Aeon's End,,104,108
-Bottled Vortex,R,3,"X,$=C,K=0-2,$=C,$=J,$=G,J=1,$=C",,Destroy this. Destroy up to two cards in your hand or discard pile. Draw a card.,"""There are worlds within worlds, infinite realms cascading from the yawning nothing."" - Phaedraxa, Breach Mage Seer",,Aeon's End,,109,113
+Bottled Vortex,R,3,"X,K=0-2,$=C,$=J,$=G,J=1,$=C",,Destroy this. Destroy up to two cards in your hand or discard pile. Draw a card.,"""There are worlds within worlds, infinite realms cascading from the yawning nothing."" - Phaedraxa, Breach Mage Seer",,Aeon's End,,109,113
 Flexing Dagger,R,2,,,"The next time you focus or open a breach this turn, it costs 3$ less.#OR#Destroy this. Deal 1 damage.","""Forged from unstable void ore, the blade shifts with the will of its wielder."" - Adelheim, Breach Mage Weaponsmith",,Aeon's End,,114,118
-Focusing Orb,R,4,"F,$=A/X,$=C,G=3",,Focus any player's breach.#OR#Destroy this. Gravehold gains 3 life.,Jian picked up the orb as if knowing its purpose. That was the last day she ever spoke.,,Aeon's End,,119,123
+Focusing Orb,R,4,"F,$=A/X,G=3",,Focus any player's breach.#OR#Destroy this. Gravehold gains 3 life.,Jian picked up the orb as if knowing its purpose. That was the last day she ever spoke.,,Aeon's End,,119,123
 Mage's Talisman,R,5,"C=1,R=1,$=B",,Gain 1 charge. Any ally gains 1 charge.,The sister-mages of old would wear their talismans as a symbol of their station and a warning to those that would challenge them.,,Aeon's End,,124,128
 Unstable Prism,R,3,,,Play a gem in hand twice and destroy it.#OR#Gain 2$.,"""Not every pretty rock is a means to wage war. Some must be cut and carved into more useful things."" - Adelheim, Breach Mage Weaponsmith",,Aeon's End,,129,133
 Amplify Vision,S,4,"F=0,&=C,$=C,D=2,D=+1,&=O",,"Cast: Focus your closed breach with the lowest focus cost. Deal 2 damage. If all of your breaches are opened, deal 1 additional damage.#Rule clarification: If all of a mage's breaches have been destroyed, then they are considered to have only opened breaches, and gain the 1 additional damage.","""The breaches are merely a mirror through which worlds whisper."" - Phaedraxa, Breach Mage Seer",,Aeon's End,,134,138
@@ -60,7 +60,7 @@ Cairn Compass,R,4,,,Any ally may prep a spell in their discard pile to their ope
 Conclave Scroll,R,3,,,"Gain 1 charge. If this card's supply pile is empty, you may destroy the top card of any ally's discard pile.","""Brama and her ilk read the words and consider them answers. I see only questions."" - Yan Magda, Enlightened Exile",,War Eternal,,110,114
 Fiend Catcher,R,3,,,"You may destroy a card in your hand or discard pile. Reveal the top card of the turn order deck. If you revealed a nemesis turn order card, you may place that card on the bottom of the turn order deck.","""It's as good a place as any for a world-swallowing beast."" - Garu, Oathsworn Protector",,War Eternal,,115,119
 Mage's Totem,R,2,,,Destroy a gem or relic you played this turn.#OR#Destroy this. Gravehold gains 1 life.,"""Once, the conclave worshipped at the foot of a great tower much like this very effigy."" - Yan Magda, Enlightened Exile",,War Eternal,,120,124
-Primordial Fetish,R,4,"F,$=A/X,$=C,L=3,$=C",,Focus any player's breach.#OR#Destroy this. Gain 3 life.,"""The child rose from the dust and opened its eyes. The Conclave revere this child, for she was the first of their kind."" - Mazahaedron, Henge Mystic",,War Eternal,,125,129
+Primordial Fetish,R,4,"F,$=A/X,L=3,$=C",,Focus any player's breach.#OR#Destroy this. Gain 3 life.,"""The child rose from the dust and opened its eyes. The Conclave revere this child, for she was the first of their kind."" - Mazahaedron, Henge Mystic",,War Eternal,,125,129
 Vortex Gauntlet,R,6,,,Cast any player's prepped spell. Return that spell to that player's hand.,"""One does not wield this glove. The glove wields the bearer."" - Gex, Breach Mage Advisor",,War Eternal,,130,134
 Aurora,S,5,,"While prepped, once per turn during your main phase, you may gain 1 charge.",Cast: Deal 3 damage.,"""It is only natural that they question my being here. But let my answer be written in fire."" - Yan Magda, Enlightened Exile",,War Eternal,,135,139
 Carbonize,S,4,,,Cast: Deal 3 damage. Reveal the top card of the turn order deck. You may place that card on the bottom of the turn order deck.,,,War Eternal,,140,144
@@ -170,7 +170,7 @@ Stunning Force,S,5,,,Cast: Deal 4 damage to the nemesis. !Silence a minion.,The 
 ,,,,,,,,,,,
 # New Age,,,,,,,,,,,
 ,,,,,,,,,,,
-Exogranite,G,3,"A=2/X,$=C,A=3",,Gain 2$.#OR#Destroy this. Gain 3$.,"""I love the colors this one makes when it explodes."" - Claudia",,The New Age,1a,2,8
+Exogranite,G,3,"A=2/X,A=3",,Gain 2$.#OR#Destroy this. Gain 3$.,"""I love the colors this one makes when it explodes."" - Claudia",,The New Age,1a,2,8
 Recurring Jasper,G,4,,,"Gain 2$. If the top card of your discard spell is a spell, you may place this gem on top of your deck.","""Most times, aether calls to magic. In this one, magic calls to aether."" - Lexive, Arcane Theorist",,The New Age,1a,9,15
 Energized Rubidium,G,5,,,"Gain 3$. Any ally may discard a card in hand. If they do, that player gains 1 charge.","""Let knowledge empower you."" - Gygar",,The New Age,1a,16,22
 Galvanized Bauble,R,3,,,Focus any ally's breach.#OR#Cast any player's prepped spell. You may destroy it.,"""I think I knew this relic once. I was happier then."" - Lost",,The New Age,1a,23,27
@@ -181,7 +181,7 @@ Imbued Smash,S,5,,,"Cast: Deal 4 damage. You may discard a card in hand. If you 
 Patterned Strike,S,7,,,Cast: Deal 4 damage. You may return to your hand up to two cards in your discard pile that cost 0$.,"""Even breach magic is governed by rules of action and result."" - Lexive, Arcane Theorist",,The New Age,1a,48,52
 ,,,,,,,,,,,
 Resonant Pearl,G,3,,,"Gain 2$. Any ally may discard a Resonant Pearl in hand and draw a card. If they do, gain an additional 1$.","""Aether echoes in numerous ways."" - Lexive, Arcane Theorist",,The New Age,1d,10,16
-Caged Fire,R,3,"K=1,$=C,$=K,$=I/X,$=C,L=2,$=C",,Destroy the top card of any player's discard pile.#OR#Destroy this. Gain 2 life.,"""I've fed it so much and it's still hungry. How?"" - Inco",,The New Age,1d,17,21
+Caged Fire,R,3,"K=1,$=C,$=K,$=I/X,L=2,$=C",,Destroy the top card of any player's discard pile.#OR#Destroy this. Gain 2 life.,"""I've fed it so much and it's still hungry. How?"" - Inco",,The New Age,1d,17,21
 Well of Energy,R,7,"G=2/L=2,$=A",,Gravehold gains 2 life.#OR#Any player gains 2 life.,"""Very well, I'll stay back this time. Take this at least, to restore you."" - Mazra",,The New Age,1d,22,26
 Spirit Lift,S,8,,"While prepped once during your turn when you gain a charge, any ally gains 2 charges.",Cast: Deal 5 damage.,"""More!"" - Gygar",,The New Age,1d,27,31
 ,,,,,,,,,,,
@@ -248,7 +248,7 @@ Unhinged Vortex,R,7,,,"Any ally draws three cards. Then, they discard a card in 
 Radiant Conflux,S,5,,,Cast: Deal 3 damage. Any ally may draw a card and then discard a card in hand.,"""When dealing with magic, you cannot rely on your eyes and ears. You must learn to rely on senses beyond that."" - Lexive, Arcane Theorist",,Outcasts,3b,19,23
 ,,,,,,,,,,,
 Unstable Pyrite,G,2,"A=1,X,&=H,$=C,A=+2,&=I,$=C",,"Gain 1$. You may destroy this. If you do, gain an additional 2$.",,,Outcasts,END,2,8
-Orb of the Deep,R,2,"F=0,$=C/X,$=C,C=1",,Focus your closed breach with the lowest focus cost.#OR#Destroy this. Gain 1 charge.,,,Outcasts,END,9,13
+Orb of the Deep,R,2,"F=0,$=C/X,C=1",,Focus your closed breach with the lowest focus cost.#OR#Destroy this. Gain 1 charge.,,,Outcasts,END,9,13
 Rift Dagger,R,3,,,"Gain a card from any other supply pile that costs 3$ or less. You may destroy this to gain a card that costs up to 4$ instead. You may spend 1$. If you do, place that card into your hand.",,,Outcasts,END,14,18
 Bottled Sun,R,6,O=3,,Xaxos: Outcast gains 3 charges.,,,Outcasts,END,19,23
 Shattering Bolt,S,4,,,"Cast: Deal 2 damage. You may destroy a card in your hand.#OR#Cast: Discard a gem in hand. If you do, deal 4 damage.",,,Outcasts,END,24,28

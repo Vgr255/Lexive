@@ -152,7 +152,7 @@ def format_player_card_effect(code: _parse_list, *, auto_cast=True) -> str:
             elif action == "S":
                 form.append(f"{config.prefix}Silence a minion")
             elif action == "X":
-                form.append("destroy {card}")
+                form.append("destroy this")
             elif action == "Y":
                 form.append(f"{{maybe_source}}suffer{{plural3}} {value} damage")
             elif action == "Z":
@@ -270,7 +270,6 @@ def format_player_card_effect(code: _parse_list, *, auto_cast=True) -> str:
                         pronoun="they",
                         target="any player's",
                         targ_sing="any player's",
-                        card="any card",
                         plural1="",
                         plural2="",
                         plural3="s",
@@ -284,7 +283,6 @@ def format_player_card_effect(code: _parse_list, *, auto_cast=True) -> str:
                         pronoun="they",
                         target="any ally's",
                         targ_sing="any ally's",
-                        card="a card you played this turn",
                         plural1="",
                         plural2="",
                         plural3="s",
@@ -299,7 +297,6 @@ def format_player_card_effect(code: _parse_list, *, auto_cast=True) -> str:
                         pronoun="you",
                         target="one of your",
                         targ_sing="your",
-                        card="this",
                         plural1="s",
                         plural2="es",
                         plural3="",
@@ -314,7 +311,6 @@ def format_player_card_effect(code: _parse_list, *, auto_cast=True) -> str:
                         pronoun="they",
                         target="each ally's",
                         targ_sing="each ally's",
-                        card="any card",
                         plural1="",
                         plural2="",
                         plural3="s",
