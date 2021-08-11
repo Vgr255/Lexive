@@ -387,31 +387,30 @@ async def box(ctx: Context, *args):
 
 @command()
 async def search(ctx: Context, *args):
-    arg = " ".join(args)
-    callie = []
-    for meow in player_cards.values():
-        for catto in meow:
-            if arg in catto["text"] or arg in catto["flavour"] or arg in catto["special"]:
-                callie.append(catto)
-    for kitty in nemesis_cards.values():
-        for baby in kitty:
-            if arg in baby["effect"] or arg in baby["flavour"] or arg in baby["special"] or arg in baby["immediate"] or arg in baby["discard"]:
-                callie.append(baby)
-    for SQUIRREL in player_mats.values():
-        for adhd in SQUIRREL:
-            if arg in adhd["special"] or arg in adhd["title"] or arg in adhd["ability"]["name"] or arg in adhd["ability"]["effect"]:
-                callie.append(adhd)
-    for ohgodno in nemesis_mats.values():
-        for saveme in ohgodno:
-            if (arg in saveme["unleash"] or arg in saveme["setup"] or arg in saveme["additional_rules"] or arg in saveme["flavour"]
-            or arg in saveme["extra"] or arg in saveme["id_rules"] or arg in saveme["id_unleash"] or arg in saveme["id_setup"] or arg in saveme["side"]):
-                callie.append(saveme)
-    for aaaaaaaa in treasure_values.values():
-        for haaaaaaaaaaands in aaaaaaaa:
-            if arg in haaaaaaaaaaands["effect"] or arg in haaaaaaaaaaands["flavour"]:
-                callie.append(haaaaaaaaaaands)
+    arg = " ".join(args).lower()
+    final = []
+    for mapping, attrs in (
+        (player_cards, ("text", "special", "flavour")),
+        (nemesis_cards, ("effect", "special", "immediate", "discard", "flavour")),
+        (player_mats, ("special", "title", "flavour", "ability:name", "ability:effect")),
+        (nemesis_mats, ("unleash", "id_unleash", "setup", "id_setup", "extra", "side", "additional_rules", "id_rules", "flavour")),
+        (treasure_values, ("effect", "flavour")),
+    ):
 
-    await ctx.send("Found the following:\n- " + "\n -".join(catgirl['name'] for catgirl in callie))
+        for content in mapping.values():
+            for inner in content:
+                for attr in attrs:
+                    name, _, second = attr.partition(":")
+                    c = inner[name]
+                    if second:
+                        c = c[second]
+                    if arg in c.lower():
+                        final.append(inner)
+
+    msg = "Could not find anything matching pattern `{arg}`."
+    if final:
+        msg = "Found the following content for pattern `{arg}`:\n- " + "\n- ".join(x["name"] for x in final)
+    await ctx.send(msg.format(arg=arg))
 
 @command()
 async def unique(ctx: Context):
