@@ -386,6 +386,34 @@ async def box(ctx: Context, *args):
         await ctx.send(line)
 
 @command()
+async def search(ctx: Context, *args):
+    arg = " ".join(args)
+    callie = []
+    for meow in player_cards.values():
+        for catto in meow:
+            if arg in catto["text"] or arg in catto["flavour"] or arg in catto["special"]:
+                callie.append(catto)
+    for kitty in nemesis_cards.values():
+        for baby in kitty:
+            if arg in baby["effect"] or arg in baby["flavour"] or arg in baby["special"] or arg in baby["immediate"] or arg in baby["discard"]:
+                callie.append(baby)
+    for SQUIRREL in player_mats.values():
+        for adhd in SQUIRREL:
+            if arg in adhd["special"] or arg in adhd["title"] or arg in adhd["ability"]["name"] or arg in adhd["ability"]["effect"]:
+                callie.append(adhd)
+    for ohgodno in nemesis_mats.values():
+        for saveme in ohgodno:
+            if (arg in saveme["unleash"] or arg in saveme["setup"] or arg in saveme["additional_rules"] or arg in saveme["flavour"]
+            or arg in saveme["extra"] or arg in saveme["id_rules"] or arg in saveme["id_unleash"] or arg in saveme["id_setup"] or arg in saveme["side"]):
+                callie.append(saveme)
+    for aaaaaaaa in treasure_values.values():
+        for haaaaaaaaaaands in aaaaaaaa:
+            if arg in haaaaaaaaaaands["effect"] or arg in haaaaaaaaaaands["flavour"]:
+                callie.append(haaaaaaaaaaands)
+
+    await ctx.send("Found the following:\n- " + "\n -".join(catgirl['name'] for catgirl in callie))
+
+@command()
 async def unique(ctx: Context):
     await ctx.send("```\nThe unique mechanics that I know about are as follow. " +
     f"You may prefix them with {config.prefix} to ask me about them.\n- " +
