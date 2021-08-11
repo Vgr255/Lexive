@@ -22,6 +22,8 @@ from loader import (
     assets,
 )
 
+_owner_cmds = ("eval", "reload")
+
 import config
 
 cmds = {}
@@ -413,20 +415,20 @@ async def search(ctx: Context, *args):
     await ctx.send(msg.format(arg=arg))
 
 @command()
-async def unique(ctx: Context):
+async def unique(ctx: Context, *args):
     await ctx.send("```\nThe unique mechanics that I know about are as follow. " +
     f"You may prefix them with {config.prefix} to ask me about them.\n- " +
     "\n- ".join(mechanics) + "\n```")
 
 @command()
-async def reload(ctx: Context):
+async def reload(ctx: Context, *args):
     if await ctx.bot.is_owner(ctx.author):
         print("\nReloading content")
         load()
         await ctx.send("Reloaded data.")
 
 @command()
-async def issues(ctx: Context):
+async def issues(ctx: Context, *args):
     content = f"""* Known issues and to-do list *
 
 - Entwined Amethyst will send a similar message twice;
@@ -440,7 +442,7 @@ Report all other issues using `{config.prefix}report <issue>`
     await ctx.send(content)
 
 @command()
-async def github(ctx: Context):
+async def github(ctx: Context, *args):
     await ctx.send("https://github.com/Vgr255/Lexive")
 
 @command("eval")
@@ -449,11 +451,20 @@ async def eval_(ctx: Context, *args):
         await ctx.send(eval(" ".join(args)))
 
 @command()
-async def faq(ctx: Context):
+async def faq(ctx: Context, *args):
     await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
 
+@command("commands")
+async def commands_cmd(ctx: Context, *args):
+    msg = list(cmds)
+    for c in _owner_cmds:
+        if c in msg:
+            msg.remove(c)
+    msg.sort()
+    await ctx.send("```\nCommands:\n- " + "\n- ".join(msg) + "```")
+
 @command()
-async def outcasts(ctx: Context):
+async def outcasts(ctx: Context, *args):
     await ctx.send("""Known issues with the first Outcasts printing (from the Kickstarter):
 
 - Ilya's Deck: Stop Deck 1b contains the wrong starter cards for Ilya. Her starting hand and \

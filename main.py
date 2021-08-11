@@ -112,7 +112,7 @@ async def report(ctx, message):
             await chan.send(message)
 
 @command()
-async def whoami(ctx):
+async def whoami(ctx, *args):
     author = AUTHOR
     aid = ctx.bot.get_user(author_id)
     mention = ""
@@ -127,7 +127,11 @@ async def whoami(ctx):
     f"`{config.prefix}<name>` in any channel on this server, or in private message with me. " +
     "I also know about some unique mechanics, and autocomplete is supported. Type " +
     f"`{config.prefix}issues` for a list of known issues, and `{config.prefix}unique` " +
-    "for a list of unique mechanics I know about.\nArt by Amaple")
+    "for a list of unique mechanics I know about. You may search the content for a specific " +
+    f"word or phrase using `{config.prefix}search <word>`. I also have a randomizer, which you " +
+    f"can use with `{config.prefix}random`. See `{config.prefix}random --help` for help on " +
+    "customizing the randomizer to your liking. You may see all of the commands I know of with " +
+    f"`{config.prefix}commands`." + "\nArt by Amaple")
 
 @sync(mechanics)
 def unique_handler(name: str) -> List[str]:
