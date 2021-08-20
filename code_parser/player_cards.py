@@ -51,6 +51,7 @@ def format_player_card_effect(code: _parse_list, name: str, ctype: str, *, auto_
             text.append("OR")
         form: List[str] = []
         for action, value in d:
+            rule = []
             to_append = False
             append_str = "{} {}"
             if len(action) > 1 and action.startswith("&"):
@@ -213,6 +214,8 @@ def format_player_card_effect(code: _parse_list, name: str, ctype: str, *, auto_
                     form.append(f"if the nemesis tier is 2 or higher, {x}")
                 elif value == "O":
                     form.append(f"if all of your breaches are opened, {x}")
+                    rule.append("Rule clarification: If all of a mage's breaches have been destroyed, " +
+                                "then they are considered to have only opened breaches.")
                 elif value == "T":
                     form.append(f"{x} that can only be used to")
                 elif value == "W":
@@ -379,11 +382,8 @@ def format_player_card_effect(code: _parse_list, name: str, ctype: str, *, auto_
         else:
             text.append(" ".join(form))
 
-        # Rule clarifications
-
-        if ("&", "O") in d:
-            text.append("Rule clarification: If all of a mage's breaches have been destroyed, " +
-                        "then they are considered to have only opened breaches.")
+        # some stuff has rule clarifications; make sure to include them
+        text.extend(rule)
 
     return "\n".join(text)
 
