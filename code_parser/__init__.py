@@ -6,8 +6,20 @@ def parse(code: str, type: str):
     return code
 
 def format(code, type: str, name: str, ctype: str) -> str:
+    ret = ""
     if type == "PE":
-        return format_player_card_effect(code, name, ctype)
+        ret = format_player_card_effect(code, name, ctype)
     if type == "PS":
-        return format_player_card_special(code, name, ctype)
-    return ""
+        ret = format_player_card_special(code, name, ctype)
+    d = {}
+    while True:
+        try:
+            ret = ret.format(**d)
+        except KeyError as e:
+            d[e.args[0]] = f"ERROR: Item {e.args[0]!r} was not included in format string"
+        except Exception as e:
+            ret = f"ERROR: Malformed code string {ret!r}"
+            break
+        else:
+            break
+    return ret
