@@ -191,7 +191,7 @@ Bouncing Boom,S,6,D=2;E,!Echo,Cast: Deal 2 damage.,"""A simple trick, but expone
 ,,,,,,,,,,,
 Unrefined Blaststone,G,6,,,"Gain 3$.#OR#Destroy a card in this card's supply pile. If you do, deal 3 damage.","""Not every blast needs to come from a spell."" - Lexive, Arcane Theorist",,The New Age,3b,17,23
 Link Conduit,R,6,,,Attach this to any player's breach. Two spells may be prepped to this breach.,"""I can see the stars. They will fuel us."" - Sahala",,The New Age,3b,24,28
-Reverating Shock,S,4,"D=1,A=1,&=T,%=C;E",!Echo,Cast: Deal 1 damage. Gain 1$ that can only be used to gain cards.,"""Thank you, my friends. Go forth."" - Sahala",,The New Age,3b,29,33
+Reverberating Shock,S,4,"D=1,A=1,&=T,%=C;E",!Echo,Cast: Deal 1 damage. Gain 1$ that can only be used to gain cards.,"""Thank you, my friends. Go forth."" - Sahala",,The New Age,3b,29,33
 ,,,,,,,,,,,
 Lurking Sionite,G,3,,,"Gain 2$. If there is a Lurking Sionite in any ally's discard pile, gain an additional 1$.","""One man can accomplish much, but give him brothers, sisters, friends? He is an army."" - Taqren",,The New Age,END,18,24
 Marble Galaxy,R,2,,,"Any ally may discard a Marble Galaxy in hand and draw a card. Gain 1 charge or focus your closed breach with the lowest focus cost. If an ally discarded a Marble Galaxy, resolve both effects.","""Hold the world in your hands."" - Nook",,The New Age,END,25,29
