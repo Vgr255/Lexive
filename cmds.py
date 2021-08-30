@@ -454,6 +454,10 @@ async def eval_(ctx: Context, *args):
 async def faq(ctx: Context, *args):
     await ctx.send("https://www.querki.net/u/aefaq/aeons-end-faq")
 
+@command()
+async def wiki(ctx: Context, *args):
+    await ctx.send("https://aeonsend.fandom.com/")
+
 @command("commands")
 async def commands_cmd(ctx: Context, *args):
     msg = list(cmds)
