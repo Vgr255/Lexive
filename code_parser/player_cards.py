@@ -1,31 +1,572 @@
-from typing import List, Tuple
+from __future__ import annotations
+
+from enum import Enum
+from typing import Dict, List, Tuple, Optional, Union
 
 import config
 
 _parse_list = List[List[Tuple[str, str]]]
 _extra_list = List[Tuple[str, str]]
+_range_tuple = Tuple[Optional[int], Optional[int]]
+_data_dict = Dict[str, Union[bool, None, str, _range_tuple]]
 
-def _int_internal(x: str, word):
-    # FIXME: plural3 messes with "any X may"
-    lower = 0
-    upper = 0
-    if "-" in x:
-        begin, _, end = x.partition("-")
-        if begin.isdigit() and end.isdigit():
-            lower = int(begin)
-            upper = int(end)
+_definitions: Dict[str, _ActionBase] = {}
+
+def register(prefix: str):
+    def inner(cls: _ActionBase):
+        _definitions[prefix] = cls
+        return cls
+    return inner
+
+def get_data_dict() -> _data_dict:
+    ret = {
+        "source": None,
+        "location": None,
+        "auto_cast": False,
+        "cost": (None, None),
+        "charges": (None, None),
+        "life": (None, None),
+        "specific": "",
+    }
+    ret.update((v, False) for v in _data_values.values())
+    return ret
+
+_data_values: Dict[str, str] = {
+    "C": "cast",
+    "D": "divided",
+    "H": "optional",
+    "I": "conditional",
+    "N": "nemesis_tier",
+    "O": "opened",
+    "W": "no_discard",
+}
+
+class AppendType(Enum):
+    NoAppend = ""
+    Concat = "{} {}"
+    And = "{} and {}"
+    AndThen = "{} and then {}"
+
+class CardLocation(Enum):
+    InHand = "{a_card} in hand"
+    InSelfDiscard = "{a_card} in your discard pile"
+    HandOrSelfDiscard = "{a_card} in your hand or discard pile"
+    HandOrAnyDiscard = "{a_card} in hand or on top of any player's discard pile"
+    TopAnyDiscard = "{top_card} of any player's discard pile"
+
+_source_values: Dict[str, str] = {
+    "A": "any player",
+    "B": "any ally",
+    "C": "self",
+    "D": "each ally",
+}
+
+_location_values: Dict[str, CardLocation] = {
+    "E": CardLocation.InHand,
+    "F": CardLocation.InSelfDiscard,
+    "G": CardLocation.HandOrSelfDiscard,
+    "H": CardLocation.HandOrAnyDiscard,
+    "I": CardLocation.TopAnyDiscard,
+}
+
+class Context:
+    def __init__(self, actions: List[_ActionBase], card_name: str, card_type: str, data: _data_dict, contexts: List[Context]):
+
+        # FIXME: move source/target/etc. to be per-token rather than per-context
+        # (this will require moving all of the &=* tokens outside of Context)
+        self.actions = actions
+        self.card_name = card_name
+        self.card_type = card_type
+
+        # we are storing a list of all the contexts of this card
+        # (this is the whole code if there is no OR in it)
+        # sometimes, we need to look ahead (or back) and we can use this
+        # 'self in self.contexts' is always true
+        # this is mutable, so we want to keep the original around
+        self.contexts = contexts
+
+        self.source: Optional[str] = data["source"]
+        self.location: Optional[CardLocation] = data["location"]
+
+        self.cost: _range_tuple = data["cost"]
+        self.charges: _range_tuple = data["charges"]
+        self.life: _range_tuple = data["life"]
+
+        self.specific: str = data["specific"]
+
+        self.cast: bool = data["cast"]
+        self.auto_cast: bool = data["auto_cast"]
+        self.divided: bool = data["divided"]
+        self.optional: bool = data["optional"]
+        self.conditional: bool = data["conditional"]
+        self.nemesis_tier: bool = data["nemesis_tier"]
+        self.opened: bool = data["opened"]
+        self.no_discard: bool = data["no_discard"]
+
+    def format(self, *, auto_format: bool) -> str:
+        final: List[str] = []
+        for action in self.actions:
+            value = action.format(context=self)
+            if action.append_type != AppendType.NoAppend:
+                prev = final.pop(-1)
+                value = action.append_type.value.format(prev, value)
+            final.append(value)
+
+        ret = " ".join(final)
+        if self.cost != (None, None):
+            if self.cost[0] is None:
+                ret = f"{ret} that costs {self.cost[1]}$ or less"
+            elif self.cost[1] is None:
+                ret = f"{ret} that costs {self.cost[0]}$ or more"
+            else:
+                ret = f"{ret} that costs {self.cost[0]}$"
+        if self.charges != (None, None):
+            if self.source == "self":
+                pronoun = "you"
+            else:
+                pronoun = "they"
+            if self.charges[0] is None:
+                ret = f"if {pronoun} have {self.charges[1]} charges or less, {ret}"
+            elif self.charges[1] is None:
+                ret = f"if {pronoun} have at least {self.charges[0]} charges, {ret}"
+            else:
+                ret = f"if {pronoun} have between {self.charges[0]} and {self.charges[1]} charges, {ret}"
+        if self.life != (None, None):
+            if self.source == "self":
+                pronoun = "you"
+            else:
+                pronoun = "they"
+            if self.life[0] == self.life[1]:
+                if self.life[0] == 0:
+                    ret = f"if {pronoun} are exhausted, {ret}"
+                else:
+                    ret = f"if {pronoun} have {self.life[0]} life, {ret}"
+            elif self.life[0] == 0:
+                ret = f"if {pronoun} have {self.life[1]} life or less, {ret}"
+            elif self.life[1] == 99:
+                ret = f"if {pronoun} have {self.life[0]} life or more, {ret}"
+            else:
+                ret = f"if {pronoun} have between {self.life[0]} and {self.life[1]} life, {ret}"
+
+        if self.specific:
+            values = []
+            if "C" in self.specific:
+                values.append("gain cards")
+            if "G" in self.specific:
+                values.append("gain a gem")
+            if "R" in self.specific:
+                if not values:
+                    values.append("gain")
+                else:
+                    values.append("or")
+                values.append("a relic")
+            if "S" in self.specific:
+                if not values:
+                    values.append("gain")
+                else:
+                    values.append("or")
+                values.append("a spell")
+
+            if "F" in self.specific or "O" in self.specific:
+                if "F" in self.specific:
+                    values.append("focus")
+                if "O" in self.specific:
+                    if "F" in self.specific:
+                        values.append("or")
+                    values.append("open")
+                if "IV" in self.specific:
+                    values.append("your IV breach")
+                elif "III" in self.specific:
+                    values.append("your III breach")
+                elif "II" in self.specific:
+                    values.append("your II breach")
+                elif "I" in self.specific:
+                    values.append("your I breach")
+                else:
+                    values.append("a breach")
+
+            ret = f"{ret} that can only be used to {' '.join(values)}"
+
+        if self.optional:
+            if self.source == "self":
+                ret = f"you may {ret}"
+            else:
+                ret = f"{self.source} may {ret}"
+        if self.divided:
+            ret = f"{ret} divided however you choose to the nemesis and any number of minions"
+        if self.conditional:
+            if self.source == "self":
+                ret = f"if you do, {ret}"
+            else:
+                ret = f"if they do, {ret}"
+        if self.nemesis_tier:
+            ret = f"if the nemesis tier is 2 or higher, {ret}"
+        if self.opened:
+            # TODO: Add rule clarification for this, somewhere
+            ret = f"if all of your breaches are opened, {ret}"
+        if self.no_discard:
+            ret = f"{ret} without discarding it"
+
+        if auto_format:
+            ret = f"{ret[0].upper()}{ret[1:]}."
+            if self.auto_cast or self.cast:
+                ret = f"Cast: {ret}"
+        elif self.cast:
+            ret = f"Cast: {ret}"
+
+        return ret
+
+class _ActionBase:
+    support_additional = False
+    support_exclusive = False
+    support_negative = False
+    support_range = False
+
+    convert_integer = False
+    has_value = True
+
+    def __init__(self, value: str, append_type: AppendType):
+        self.append_type = append_type
+        if not self.has_value:
+            return
+        self.additional = False
+        self.exclusive = False
+        self.negative = False
+        if self.support_additional and value[0] == "+":
+            self.additional = True
+            value = value[1:]
+        if self.support_exclusive and value[0] == "!":
+            self.exclusive = True
+            value = value[1:]
+        if self.support_negative and value[0] == "-":
+            self.negative = True
+            value = value[1:]
+        if self.support_range:
+            if "-" in value:
+                begin, _, end = value.partition("-")
+                self.lower = int(begin)
+                self.upper = int(end)
+            else:
+                self.lower = self.upper = int(value)
+
+        if self.convert_integer:
+            value = int(value)
+        self.value = value
+
+    def format(self, context: Context) -> str:
+        """Base formatting function. The return value should be lowercase and not have a trailing period."""
+        return f"{self.__class__.__name__} does not support formatting."
+
+class _ChargePulseBase(_ActionBase):
+    support_additional = True
+    support_negative = True
+    convert_integer = True
+
+    word = "<undefined>"
+
+    def format(self, context: Context) -> str:
+        add = ""
+        if self.additional:
+            add = "an additional "
+        if context.optional or context.source == "self":
+            if self.value == 1 and self.negative:
+                if self.additional:
+                    return f"lose an additional {self.word}"
+                return f"lose a {self.word}"
+            s = "lose" if self.negative else "gain"
+            return f"{s} {add}{self.value} {self.word}{'s' if self.value > 1 else ''}"
+        if self.value == 1 and self.negative:
+            return f"{context.source} loses a {self.word}"
+        s = "loses" if self.negative else "gains"
+        return f"{context.source} {s} {add}{self.value} {self.word}{'s' if self.value > 1 else ''}"
+
+class _DiscardDestroyBase(_ActionBase):
+    support_range = True
+    word = "<undefined>"
+
+    def format(self, context: Context) -> str:
+        form = []
+        if context.optional or context.source == "self":
+            form.append(self.word)
         else:
-            return f"ERROR: Malformed range {x}"
-    else:
-        lower = upper = int(x)
-    if lower == upper:
-        if lower == 1:
-            return f"{word}{{plural3}} {{a_card}} {{place}}"
-        return f"{word}{{plural3}} {lower} cards {{place}}"
+            form.append(f"{context.source} {self.word}s")
 
-    if lower == 0:
-        return f"{word}{{plural3}} up to {upper} cards {{place}}"
-    return f"{word}{{plural3}} from {lower} to {upper} cards {{place}}"
+        if self.lower == self.upper:
+            if self.lower == 1:
+                a_card = "a card"
+                top_card = "the top card"
+            else:
+                a_card = f"{self.lower} cards"
+                top_card = f"the top {self.lower} cards"
+
+        elif self.lower == 0:
+            a_card = f"up to {self.upper} cards"
+            top_card = f"up to {self.upper} cards on top"
+
+        else:
+            a_card = f"between {self.lower} and {self.upper} cards"
+            top_card = f"between {self.lower} and {self.upper} cards on top"
+
+        form.append(context.location.value.format(a_card=a_card, top_card=top_card))
+
+        return " ".join(form)
+
+@register("A")
+class AetherGain(_ActionBase):
+    support_additional = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        if self.additional:
+            return f"gain an additional {self.value}$"
+        return f"gain {self.value}$"
+
+@register("B")
+class CastPrepped(_ActionBase):
+    has_value = False
+
+    def format(self, context: Context) -> str:
+        if context.source == "self":
+            return "cast one of your prepped spells"
+        return f"cast {context.source}'s prepped spell"
+
+@register("C")
+class ChargeGain(_ChargePulseBase):
+    word = "charge"
+
+@register("D")
+class DamageDeal(_ActionBase):
+    support_additional = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        add = ""
+        if self.additional:
+            add = " additional"
+        return f"deal {self.value}{add} damage"
+
+@register("F")
+class FocusBreach(_ActionBase):
+    def __init__(self, value: str, append_type: AppendType):
+        super().__init__(value, append_type)
+        breach, _, count = value.partition("+")
+        self.breach = int(breach) if breach else None
+        self.count = int(count) if count else 1
+
+    def format(self, context: Context) -> str:
+        count = ""
+        if self.count == 2:
+            count = " twice"
+        elif self.count == 3:
+            count = " three times"
+        elif self.count == 4:
+            count = " four times"
+
+        if self.breach is None:
+            if context.source == "self":
+                return f"focus one of your breaches{count}"
+            return f"focus {context.source}'s closed breach{count}"
+
+        if self.breach == 0:
+            if context.source == "self":
+                return f"focus your closed breach with the lowest focus cost{count}"
+            return f"focus {context.source}'s closed breach with the lowest focus cost{count}"
+
+        a = (None, "I", "II", "III", "IV")
+        if context.source == "self":
+            return f"focus your {a[self.breach]} breach{count}"
+        return f"focus {context.source}'s {a[self.breach]} breach{count}"
+
+@register("G")
+class GraveholdHealth(_ActionBase):
+    support_additional = True
+    support_negative = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        a = "an additional " if self.additional else ""
+        if self.negative:
+            return f"Gravehold suffers {a}{self.value} damage"
+        return f"Gravehold gains {a}{self.value} life"
+
+@register("H")
+class CastFromHand(_ActionBase):
+    has_value = False
+
+    def format(self, context: Context) -> str:
+        return "cast a spell in hand"
+
+@register("I")
+class DiscardFromHand(_DiscardDestroyBase):
+    word = "discard"
+
+@register("J")
+class DrawCards(_ActionBase):
+    support_additional = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        if context.optional or context.source == "self":
+            draw = "draw"
+        else:
+            draw = f"{context.source} draws"
+
+        if self.value == 1:
+            if not self.additional:
+                count = "a card"
+            else:
+                count = "an additional card"
+        else:
+            if not self.additional:
+                count = f"{self.value} cards"
+            else:
+                count = f"an additional {self.value} cards"
+
+        return f"{draw} {count}"
+
+@register("K")
+class DestroyCards(_DiscardDestroyBase):
+    word = "destroy"
+
+@register("L")
+class GainLife(_ActionBase):
+    support_additional = True
+    support_negative = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        add = ""
+        if self.additional:
+            add = "an additional "
+        if self.negative:
+            if context.optional or context.source == "self":
+                return f"suffer {add}{self.value} damage"
+            return f"{context.source} suffers {add}{self.value} damage"
+
+        if context.source == "self":
+            return f"gain {add}{self.value} life"
+        return f"{context.source} gains {add}{self.value} life"
+
+@register("M")
+class PlayCountName(_ActionBase):
+    support_exclusive = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        neg = ""
+        if self.exclusive:
+            neg = "not "
+        s = f"{self.value}th"
+        if self.value == 1:
+            s = "first"
+        if self.value == 2:
+            s = "second"
+        if self.value == 3:
+            s = "third"
+        return f"if this is {neg}the {s} {context.card_name} you have {'cast' if 'S' in context.card_type else 'played'} this turn,"
+
+@register("N")
+class PlayCountTime(_ActionBase):
+    support_exclusive = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        neg = ""
+        if self.exclusive:
+            neg = "not "
+        s = f"{self.value}th"
+        if self.value == 1:
+            s = "first"
+        if self.value == 2:
+            s = "second"
+        if self.value == 3:
+            s = "third"
+        return f"if this is {neg}the {s} time you have {'cast' if 'S' in context.card_type else 'played'} {context.card_name} this turn,"
+
+@register("O")
+class XaxosCharges(_ActionBase):
+    support_additional = True
+    convert_integer = True
+
+    def format(self, context: Context) -> str:
+        add = ""
+        if self.additional:
+            add = "an additional "
+        return f"Xaxos: Outcast gains {add}{self.value} charge{'s' if self.value > 1 else ''}"
+
+@register("P")
+class PulseTokens(_ChargePulseBase):
+    word = "pulse token"
+
+@register("Q")
+class DiscardPrepped(_ActionBase):
+    support_range = True
+
+    def format(self, context: Context) -> str:
+        if self.lower == self.upper:
+            if self.lower == 1:
+                return "discard a prepped spell"
+            return f"discard {self.lower} prepped spells"
+
+        if self.lower == 0:
+            return f"discard up to {self.upper} prepped spells"
+
+        return f"discard between {self.lower} and {self.upper} prepped spells"
+
+@register("R")
+class DestroyPrepped(_ActionBase):
+    support_range = True
+
+    def format(self, context: Context) -> str:
+        if self.lower == self.upper:
+            if self.lower == 1:
+                return "destroy a prepped spell"
+            return f"destroy {self.lower} prepped spells"
+
+        if self.lower == 0:
+            return f"destroy up to {self.upper} prepped spells"
+
+        return f"destroy between {self.lower} and {self.upper} prepped spells"
+
+@register("S")
+class SilenceMinion(_ActionBase):
+    has_value = False
+
+    def format(self, context: Context) -> str:
+        return f"{config.prefix}Silence a minion"
+
+@register("X")
+class DestroyThis(_ActionBase):
+    has_value = False
+
+    def format(self, context: Context) -> str:
+        return "destroy this"
+
+@register("Z")
+class AllyFocus(_ActionBase):
+    def __init__(self, value: str, append_type: AppendType):
+        super().__init__(value, append_type)
+        breach, _, count = value.partition("+")
+        self.breach = int(breach) if breach else None
+        self.count = int(count) if count else 1
+
+    def format(self, context: Context) -> str:
+        count = ""
+        if self.count == 2:
+            count = " twice"
+        elif self.count == 3:
+            count = " three times"
+        elif self.count == 4:
+            count = " four times"
+
+        if self.breach is None:
+            return f"{context.source} focuses one of their closed breaches{count}"
+
+        if self.breach == 0:
+            return f"{context.source} focuses their closed breach with the lowest focus cost{count}"
+
+        a = (None, "I", "II", "III", "IV")
+        return f"{context.source} focuses their {a[self.breach]} breach{count}"
 
 def parse_player_card(code: str) -> Tuple[_parse_list, _extra_list]:
     values = []
@@ -43,347 +584,75 @@ def parse_player_card(code: str) -> Tuple[_parse_list, _extra_list]:
         extra.append((key, value))
     return values, extra
 
+def itemize(code: _parse_list, name: str, ctype: str) -> List[List[Context]]:
+    result: List[List[Context]] = []
+    for d in code:
+        form: List[Context] = []
+        actions: List[_ActionBase] = []
+        data = get_data_dict()
+        for key, value in d:
+            a = tuple(AppendType)
+            c = key.count("&", 0, len(a) - 1)
+            key = key.lstrip("&") if key != "&" else key
+            atype = a[c]
+
+            if actions and atype == AppendType.NoAppend and key.isalpha(): # store existing context
+                ctx = Context(actions, name, ctype, data, form)
+                form.append(ctx)
+                # create new variables for the next sentence
+                actions = []
+                data = get_data_dict()
+
+            if key in _definitions:
+                if key == "D" and not actions and not form and "S" in ctype:
+                    data["auto_cast"] = True
+                actions.append(_definitions[key](value, atype))
+
+            elif key == "&":
+                if value in _data_values:
+                    data[_data_values[value]] = True
+                elif value[0].isdigit() and len(value) <= 2:
+                    if len(value) == 1:
+                        data["cost"] = (int(value), int(value))
+                    elif value[1] == "-":
+                        data["cost"] = (None, int(value[0]))
+                    elif value[1] == "+":
+                        data["cost"] = (int(value[0]), None)
+                elif value[0] == "+":
+                    data["charges"] = (int(value[1]), None)
+                elif value[0] == "-":
+                    data["charges"] = (None, int(value[1]))
+                elif "-" in value:
+                    lower, _, upper = value.partition("-")
+                    data["life"] = (int(lower), int(upper))
+
+            elif key == "%":
+                data["specific"] = value
+
+            elif key == "$": # target
+                if value in _source_values:
+                    data["source"] = _source_values[value]
+                if value in _location_values:
+                    data["location"] = _location_values[value]
+
+        ctx = Context(actions, name, ctype, data, form)
+        form.append(ctx)
+
+        result.append(form)
+
+    return result
+
 def format_player_card_effect(code: _parse_list, name: str, ctype: str, *, auto_format=True) -> str:
     """Return a formatted text of the card effect."""
     text = []
-    for d in code:
+    contexts = itemize(code, name, ctype)
+    for ctx_list in contexts:
         if text:
             text.append("OR")
-        form: List[str] = []
-        for action, value in d:
-            rule = []
-            to_append = False
-            append_str = "{} {}"
-            if len(action) > 1 and action.startswith("&"):
-                to_append = True
-                action = action[1:]
-            if len(action) > 1 and action.startswith("&"): # this is &&
-                append_str = "{} and {}"
-                action = action[1:]
-            if len(action) > 1 and action.startswith("&"): # &&&
-                append_str = "{} and then {}"
-                action = action[1:]
-            if action == "A":
-                add = ""
-                if value[0] == "+":
-                    add = "an additional "
-                    value = value[1:]
-                form.append(f"gain {add}{value}$")
-            elif action == "C":
-                if value.isdigit():
-                    form.append(f"gain {value} charge{'s' if int(value) > 1 else ''}")
-                elif value == "-1":
-                    form.append("lose a charge")
-                else:
-                    form.append(f"lose {value[1:]} charges")
-            elif action == "D":
-                add = ""
-                if value[0] == "+":
-                    add = " additional"
-                    value = value[1:]
-                if form or not auto_format: # might be part of something like "do X, if you do, deal Y damage"
-                    form.append(f"deal {value}{add} damage")
-                else: # but if it's not, we can assume it has a Cast: prefix, and doesn't need &=C
-                    form.append(f"Cast: Deal {value}{add} damage")
-            elif action == "F":
-                br, _, c = value.partition("+")
-                if c:
-                    if c == "2":
-                        c = " twice"
-                    elif c == "3":
-                        c = " three times"
-                    else:
-                        c = f" {c} times"
-                if not br:
-                    form.append(f"focus {{target}} closed breach{{plural2}}{c}")
-                elif br == "0":
-                    form.append(f"focus {{targ_sing}} closed breach with the lowest focus cost{c}")
-                else:
-                    a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
-                    form.append(f"focus {{target}} {a[br]} breach{c}")
-            elif action == "G":
-                form.append(f"Gravehold gains {value} life")
-            elif action == "H":
-                form.append("cast a spell in hand")
-            elif action == "I":
-                form.append(_int_internal(value, "discard"))
-            elif action == "J":
-                if value == "1":
-                    form.append("{maybe_source}draw{plural3} a card")
-                else:
-                    form.append(f"{{maybe_source}}draw{{plural3}} {value} cards")
-            elif action == "K":
-                form.append(_int_internal(value, "destroy"))
-            elif action == "L":
-                form.append(f"{{maybe_source}}gain{{plural3}} {value} life")
-            elif action == "M":
-                neg = ""
-                if value[0] == "!":
-                    neg = "not "
-                    value = value[1:]
-                s = f"{value}th"
-                if value == "1":
-                    s = "first"
-                if value == "2":
-                    s = "second"
-                if value == "3":
-                    s = "third"
-                form.append(f"if this is {neg}the {s} {name} you have {'cast' if 'S' in ctype else 'played'} this turn,")
-            elif action == "N":
-                neg = ""
-                if value[0] == "!":
-                    neg = "not "
-                    value = value[1:]
-                s = f"{value}th"
-                if value == "1":
-                    s = "first"
-                if value == "2":
-                    s = "second"
-                if value == "3":
-                    s = "third"
-                form.append(f"if this is {neg}the {s} time you have {'cast' if 'S' in ctype else 'played'} {name} this turn,")
-            elif action == "O":
-                form.append(f"Xaxos: Outcast gains {value} charge{'s' if int(value) > 1 else ''}")
-            elif action == "P":
-                form.append("cast {target} prepped spell{plural1}")
-            elif action == "Q":
-                if value == "1":
-                    form.append("discard a prepped spell")
-                else:
-                    form.append(f"discard {value} prepped spells")
-            elif action == "R":
-                form.append(f"{{source}} gain{{plural3}} {value} charge{'s' if int(value) > 1 else ''}")
-            elif action == "S":
-                form.append(f"{config.prefix}Silence a minion")
-            elif action == "X":
-                form.append("destroy this")
-            elif action == "Y":
-                form.append(f"{{maybe_source}}suffer{{plural3}} {value} damage")
-            elif action == "Z":
-                br, _, c = value.partition("+")
-                if c:
-                    if c == "2":
-                        c = " twice"
-                    else:
-                        c = f" {c} times"
-                if not value:
-                    form.append(f"{{source}} focuses one of their closed breaches{c}")
-                elif value == "0":
-                    form.append(f"{{source}} focuses their closed breach with the lowest focus cost{c}")
-                else:
-                    a = {"1": "I", "2": "II", "3": "III", "4": "IV"}
-                    form.append(f"{{source}} focuses their {a[br]} breach{c}")
-
-            # modifiers to the previous entry
-            elif action == "&":
-                x = form.pop(-1)
-                if value.isdigit():
-                    form.append(f"{x} that costs {value}$")
-                elif value[0] == "+":
-                    value = value[1:]
-                    form.append(f"if {{pronoun}} have at least {value} charges, {x}")
-                elif value[0] == "-":
-                    value = value[1:]
-                    form.append(f"if {{pronoun}} have {value} charges or less, {x}")
-                elif "-" in value:
-                    lower, _, upper = value.partition("-")
-                    if lower == upper:
-                        if lower == "0":
-                            form.append(f"if {{pronoun}} are exhausted, {x}")
-                        else:
-                            form.append(f"if {{pronoun}} have {lower} life, {x}")
-                    elif lower == "0":
-                        form.append(f"if {{pronoun}} have {upper} life or less, {x}")
-                    elif upper == "0":
-                        form.append(f"if {{pronoun}} have {lower} life or more, {x}")
-                    else:
-                        form.append(f"if {{pronoun}} have from {lower} to {upper} life, {x}")
-                elif value == "C":
-                    form.append(f"Cast: {x[0].upper()}{x[1:]}")
-                elif value == "D":
-                    form.append(f"{x} divided however you choose to the nemesis and any number of minions")
-                elif value == "H":
-                    form.append(f"{{source}} may {x}")
-                elif value == "I":
-                    form.append(f"If {{pronoun}} do, {x}")
-                elif value == "L":
-                    form.append(f"{x} or less")
-                elif value == "M":
-                    form.append(f"{x} or more")
-                elif value == "N":
-                    form.append(f"if the nemesis tier is 2 or higher, {x}")
-                elif value == "O":
-                    form.append(f"if all of your breaches are opened, {x}")
-                    rule.append("Rule clarification: If all of a mage's breaches have been destroyed, " +
-                                "then they are considered to have only opened breaches.")
-                elif value == "T":
-                    form.append(f"{x} that can only be used to")
-                elif value == "W":
-                    form.append(f"{x} without discarding it")
-                else:
-                    form.append(f"ERROR: Unrecognized param {value}\nText: {x}")
-
-            elif action == "%": # further modifiers to &=T
-                x = form.pop(-1)
-                values = []
-                if "C" in value:
-                    values.append("gain cards")
-                if "G" in value:
-                    values.append("gain a gem")
-                if "R" in value:
-                    if not values:
-                        values.append("gain")
-                    else:
-                        values.append("or")
-                    values.append("a relic")
-                if "S" in value:
-                    if not values:
-                        values.append("gain")
-                    else:
-                        values.append("or")
-                    values.append("a spell")
-
-                if "F" in value or "O" in value:
-                    if "F" in value:
-                        values.append("focus")
-                    if "O" in value:
-                        if "F" in value:
-                            values.append("or")
-                        values.append("open")
-                    if "IV" in value:
-                        values.append("your IV breach")
-                    elif "III" in value:
-                        values.append("your III breach")
-                    elif "II" in value:
-                        values.append("your II breach")
-                    elif "I" in value:
-                        values.append("your I breach")
-                    else:
-                        values.append("a breach")
-
-                form.append(f"{x} {' '.join(values)}")
-
-            elif action == "$": # target modifiers
-                # todo: remove the load on individual values and split further
-                x = form.pop(-1)
-                if value.startswith("="):
-                    x = f"{{maybe_source}}{x}"
-                    value = value[1:]
-                if value == "A":
-                    form.append(x.format(
-                        source="any player",
-                        maybe_source="any player ",
-                        pronoun="they",
-                        target="any player's",
-                        targ_sing="any player's",
-                        plural1="",
-                        plural2="",
-                        plural3="s",
-                        a_card="{a_card}",
-                        place="{place}",
-                        ))
-                elif value == "B":
-                    form.append(x.format(
-                        source="any ally",
-                        maybe_source="any ally ",
-                        pronoun="they",
-                        target="any ally's",
-                        targ_sing="any ally's",
-                        plural1="",
-                        plural2="",
-                        plural3="s",
-                        a_card="{a_card}",
-                        place="{place}",
-                        name="{name}",
-                        ))
-                elif value == "C":
-                    form.append(x.format(
-                        source="you",
-                        maybe_source="",
-                        pronoun="you",
-                        target="one of your",
-                        targ_sing="your",
-                        plural1="s",
-                        plural2="es",
-                        plural3="",
-                        a_card="{a_card}",
-                        place="{place}",
-                        name="{name}",
-                        ))
-                elif value == "D":
-                    form.append(x.format(
-                        source="each ally",
-                        maybe_source="each ally ",
-                        pronoun="they",
-                        target="each ally's",
-                        targ_sing="each ally's",
-                        plural1="",
-                        plural2="",
-                        plural3="s",
-                        a_card="{a_card}",
-                        place="{place}",
-                        name="{name}",
-                    ))
-                elif value == "E":
-                    form.append(x.format(
-                        place1="in hand",
-                        place2="",
-                        name="{name}",
-                    ))
-                elif value == "F":
-                    form.append(x.format(
-                        place1="in your discard pile",
-                        place2="of your discard pile",
-                        name="{name}",
-                    ))
-                elif value == "G":
-                    form.append(x.format(
-                        place1="in your hand or discard pile",
-                        place2="",
-                        name="{name}",
-                    ))
-                elif value == "H":
-                    form.append(x.format(
-                        place1="in hand or on top of any player's discard pile",
-                        place2="",
-                        name="{name}",
-                    ))
-                elif value == "I":
-                    form.append(x.format(
-                        place1="on the top of any player's discard pile",
-                        place2="of any player's discard pile",
-                        name="{name}",
-                    ))
-                elif value == "J":
-                    form.append(x.format(
-                        a_card="a card",
-                        place="{place1}",
-                        name="{name}",
-                    ))
-                elif value == "K":
-                    form.append(x.format(
-                        a_card="the top card",
-                        place="{place2}",
-                        name="{name}",
-                    ))
-                else:
-                    form.append(f"ERROR: Unrecognized target modifier {value}\nText: {x}")
-
-            else:
-                form.append(f"ERROR: Unrecognized token {action}={value}")
-
-            if to_append:
-                a = form.pop(-1)
-                b = form.pop(-1)
-                form.append(append_str.format(b, a))
-
-        if auto_format:
-            text.append(" ".join(f"{x[0].upper()}{x[1:]}." for x in form))
-        else:
-            text.append(" ".join(form))
-
-        # some stuff has rule clarifications; make sure to include them
-        text.extend(rule)
+        form = []
+        for ctx in ctx_list:
+            form.append(ctx.format(auto_format=auto_format))
+        text.append(" ".join(form))
 
     return "\n".join(text)
 
