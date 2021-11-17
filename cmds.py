@@ -467,7 +467,8 @@ async def commands_cmd(ctx: Context, *args):
     msg.sort()
     await ctx.send("```\nCommands:\n- " + "\n- ".join(msg) + "```")
 
-@command()
+#@command()
+# No longer used, keeping for posterity
 async def outcasts(ctx: Context, *args):
     await ctx.send("""Known issues with the first Outcasts printing (from the Kickstarter):
 
