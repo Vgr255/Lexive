@@ -165,6 +165,9 @@ def unique_handler(name: str) -> List[str]:
             if current == "CONTINUE":
                 is_continue = True
                 continue
+            if current == "NEXT":
+                values.append(r"\NEWLINE/")
+                continue
             if is_title:
                 values.append(preformat(current))
                 is_title = False
