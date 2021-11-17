@@ -1,15 +1,18 @@
 TITLE
 Xaxos: Outcast Rules
+CONTINUE
 You have invaded the Void to find the home of the Nameless and end their threat once and for all. You will be fighting alongside Xaxos: Outcast, who will use his breach magic to fight the nemesis and to protect you and your fellow mages from the dangerous fight inside the Void. Xaxos: Outcast has a wide ranging variety of powerful abilities, but cannot control which he uses. Instead of Gravehold, you must protect Xaxos: Outcast if you want to make it out alive.
 
 TITLE
 Setup
+CONTINUE
 Xaxos: Outcast starts the game with 30 life. You lose the game if Xaxos: Outcast has 0 life. Any effects that would refer to Gravehold instead refer to Xaxos: Outcast. All standard Aeon's End rules that involve Gravehold apply to Xaxos: Outcast instead.
 {newline}
 Shuffle all of the Xaxos: Outcast ability cards facedown to form the Xaxos: Outcast ability deck. Set that deck facedown to form the Xaxos: Outcast ability deck. Set that deck facedown next to the Xaxos: Outcast mat.
 
 TITLE
 Rules
+CONTINUE
 When a player would gain 1 or more charges, they may have Xaxos: Outcast gain those charges instead. Xaxos: Outcast cannot have more than 8 charges at a time. When Xaxos: Outcast has 8 charges, completely resolve the effect that gained Xaxos: Outcast the final charge, and then Xaxos: Outcast activates his ability. First, Xaxos: Outcast loses all of his charges. Then, draw an ability card from Xaxos: Outcast's ability deck and resolve its effect.
 {newline}
 When Xaxos: Outcast's ability deck is empty, shuffle Xaxos: Outcast's ability discard pile and place it facedown to form the ability deck.
@@ -20,6 +23,7 @@ Xaxos: Outcast is not considered a player for any other purpose.
 
 TITLE
 Xaxos: Outcast's ability cards
+CONTINUE
 {card[O1d02]}
 {card[O1d03]}
 {card[O1d04]}

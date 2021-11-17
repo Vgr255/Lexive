@@ -150,6 +150,7 @@ def unique_handler(name: str) -> List[str]:
             return x.format(prefix=config.prefix, newline="", card=_card_internal())
 
         is_title = False
+        is_continue = False
         continuing = False
         for current in mechanic:
             current = current.rstrip("\n")
@@ -161,6 +162,9 @@ def unique_handler(name: str) -> List[str]:
             if current == "TITLE":
                 is_title = True
                 continue
+            if current == "CONTINUE":
+                is_continue = True
+                continue
             if is_title:
                 values.append(preformat(current))
                 is_title = False
@@ -169,11 +173,12 @@ def unique_handler(name: str) -> List[str]:
                 values.append(preformat(current))
                 continue
 
-            if values:
+            if values and not is_continue:
                 values.append(r"\NEWLINE/")
             values.append("```")
             values.append(preformat(current))
             continuing = True
+            is_continue = False
 
         if continuing:
             values.append("```")
