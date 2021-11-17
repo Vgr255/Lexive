@@ -409,10 +409,21 @@ async def search(ctx: Context, *args):
                     if arg in c.lower():
                         final.append(inner)
 
-    msg = "Could not find anything matching pattern `{arg}`."
     if final:
-        msg = "Found the following content for pattern `{arg}`:\n- " + "\n- ".join(x["name"] for x in final)
-    await ctx.send(msg.format(arg=arg))
+        await ctx.send(f"Found the following content for pattern `{arg}`:")
+        l = 0
+        msg = []
+        for x in final:
+            if l >= 1800:
+                await ctx.send("\n".join(msg))
+                msg.clear()
+                l = 0
+            msg.append(f"- {x['name']}")
+            l += len(x["name"]) + 2
+        if msg:
+            await ctx.send("\n".join(msg))
+    else:
+        await ctx.send(f"Could not find anything matching pattern `{arg}`.")
 
 @command()
 async def unique(ctx: Context, *args):
