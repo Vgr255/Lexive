@@ -2,7 +2,6 @@ from typing import Dict, Tuple
 from collections import defaultdict
 import csv
 import os
-from Lexive.code_parser.player_cards import format_player_card_effect
 
 from code_parser import parse
 
