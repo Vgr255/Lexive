@@ -367,7 +367,7 @@ def load():
     load_breaches()
     load_treasures()
 
-    for folder in os.listdir(os.path.join(os.getcwd(), "guilds")):
+    for folder in os.listdir("guilds"):
         if folder.isdigit():
             load_meta(folder)
             load_pcards(folder)
