@@ -2,6 +2,7 @@ from typing import Dict, Tuple
 from collections import defaultdict
 import csv
 import os
+from Lexive.code_parser.player_cards import format_player_card_effect
 
 from code_parser import parse
 
@@ -78,25 +79,16 @@ def expand(x: str, *, flavour=False, prefix=False) -> str:
         x = x.replace(_prefix_str, config.prefix)
     return x
 
-def load():
-    assets.clear()
-    for filename in os.listdir("assets"):
-        assets[casefold(filename.split(".")[0])] = filename
-
-    log("Assets indexed", level="local")
-
-    mechanics.clear()
-    for filename in os.listdir("unique"):
-        if not filename.endswith(".lexive"):
-            continue
-        with open(os.path.join("unique", filename), "rt") as unique_file:
-            mechanics[filename[:-7]].append({"name": filename[:-7], "content": unique_file.readlines()})
-
-    log("Mechanics loaded", level="local")
-
-    waves.clear()
-    cards_num.clear()
-    with _open("boxes.csv") as boxes_file:
+def load_boxes(relpath):
+    file = "boxes.csv"
+    if relpath is None:
+        waves.clear()
+        cards_num.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as boxes_file:
         content = csv.reader(boxes_file, dialect="excel")
         for prefix, name, wave in content:
             if not name or prefix.startswith("#"):
@@ -109,8 +101,15 @@ def load():
 
     log("Waves loaded", level="local")
 
-    ctypes.clear()
-    with _open("card_types.csv") as types_file:
+def load_ctypes(relpath):
+    file = "card_types.csv"
+    if relpath is None:
+        ctypes.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as types_file:
         content = csv.reader(types_file, dialect="excel")
         for prefix, name in content:
             if not prefix or prefix.startswith("#"):
@@ -119,8 +118,15 @@ def load():
 
     log("Prefixes loaded", level="local")
 
-    ability_types.clear()
-    with _open("mage_ability_types.csv") as ability_file:
+def load_atypes(relpath):
+    file = "mage_ability_types.csv"
+    if relpath is None:
+        ability_types.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as ability_file:
         content = csv.reader(ability_file, dialect="excel")
         for shorthand, long in content:
             if not shorthand or shorthand.startswith("#"):
@@ -129,8 +135,40 @@ def load():
 
     log("Ability types loaded", level="local")
 
-    player_cards.clear()
-    with _open("player_cards.csv") as player_file:
+def load_meta(relpath=None):
+    if relpath is None:
+        log("Loading global metadata:", level="local")
+        assets.clear()
+        for filename in os.listdir("assets"):
+            assets[casefold(filename.split(".")[0])] = filename
+
+        log("Assets indexed", level="local")
+    else:
+        log(f"\nLoading guild-specific metadata for {relpath}:", level="local")
+
+    load_boxes(relpath)
+    load_ctypes(relpath)
+    load_atypes(relpath)
+
+def load_unique():
+    mechanics.clear()
+    for filename in os.listdir("unique"):
+        if not filename.endswith(".lexive"):
+            continue
+        with open(os.path.join("unique", filename), "rt") as unique_file:
+            mechanics[filename[:-7]].append({"name": filename[:-7], "content": unique_file.readlines()})
+
+    log("Mechanics loaded", level="local")
+
+def load_pcards(relpath=None):
+    file = "player_cards.csv"
+    if relpath is None:
+        player_cards.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as player_file:
         content = csv.reader(player_file, dialect="excel")
         for name, ctype, cost, code, special, text, flavour, starter, box, deck, start, end in content:
             if not name or name.startswith("#"):
@@ -141,7 +179,7 @@ def load():
                 "name": name, "type": ctype, "cost": int(cost), "code": parse(code, "P"),
                 "special": expand(special, prefix=True), "text": expand(text),
                 "flavour": expand(flavour), "starter": starter, "box": box,
-                "deck": deck, "start": start, "end": end
+                "deck": deck, "start": start, "end": end, "guild": int(relpath) if relpath else 0
             })
             nums = [start]
             if end and not starter:
@@ -156,10 +194,20 @@ def load():
             for num in nums:
                 cards_num[wave][deck][num] = ("P", name)
 
-    log("Player cards loaded", level="local")
+    if not relpath:
+        log("Player cards loaded", level="local")
+    else:
+        log(f"Guild-specific player cards loaded for {relpath}", level="local")
 
-    nemesis_cards.clear()
-    with _open("nemesis_cards.csv") as nemesis_file:
+def load_ncards(relpath=None):
+    file = "nemesis_cards.csv"
+    if relpath is None:
+        nemesis_cards.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as nemesis_file:
         content = csv.reader(nemesis_file, dialect="excel")
         for name, ctype, tokens_hp, shield, tier, cat, code, special, discard, immediate, effect, flavour, box, deck, start, end in content:
             if not name or name.startswith("#"):
@@ -174,7 +222,7 @@ def load():
                 "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
                 "code": parse(code, "N"), "special": expand(special, prefix=True), "discard": expand(discard),
                 "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
-                "box": box, "deck": deck, "start": start, "end": end
+                "box": box, "deck": deck, "start": start, "end": end, "guild": int(relpath) if relpath else 0
             })
             nums = [start]
             if end:
@@ -187,10 +235,20 @@ def load():
             for num in nums:
                 cards_num[wave][deck][num] = ("N", name)
 
-    log("Nemesis cards loaded", level="local")
+    if not relpath:
+        log("Nemesis cards loaded", level="local")
+    else:
+        log(f"Guild-specific nemesis cards loaded for {relpath}", level="local")
 
-    player_mats.clear()
-    with _open("player_mats.csv") as pmats_file:
+def load_pmats(relpath=None):
+    file = "player_mats.csv"
+    if relpath is None:
+        player_mats.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as pmats_file:
         content = csv.reader(pmats_file, dialect="excel")
         for name, title, rating, aname, charges, atype, code, ability, special, breaches, hand, deck, b1, b2, b3, b4, flavour, box in content:
             if not name or name.startswith("#"):
@@ -209,13 +267,23 @@ def load():
             player_mats[casefold(name)].append({
                 "name": name, "title": title, "rating": int(rating), "ability": adict, "breaches": blist,
                 "hand": hand.split(","), "deck": deck.split(","), "flavour": expand(flavour),
-                "special": expand(special, prefix=True), "box": box
+                "special": expand(special, prefix=True), "box": box, "guild": int(relpath) if relpath else 0
             })
 
-    log("Player mats loaded", level="local")
+    if not relpath:
+        log("Player mats loaded", level="local")
+    else:
+        log(f"Guild-specific player mats loaded for {relpath}", level="local")
 
-    nemesis_mats.clear()
-    with _open("nemesis_mats.csv") as nmats_file:
+def load_nmats(relpath=None):
+    file = "nemesis_mats.csv"
+    if relpath is None:
+        nemesis_mats.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as nmats_file:
         content = csv.reader(nmats_file, dialect="excel")
         for name, hp, diff, battle, code, extra, unleash, setup, id_s, id_u, id_r, add_r, flavour, side, box, cards in content:
             if not name or name.startswith("#"):
@@ -225,13 +293,23 @@ def load():
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
                 "code": parse(code, "M"), "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u,
                 "id_rules": id_r, "side": expand(side), "box": box, "battle": int(battle),
-                "cards": cards.split(",")
+                "cards": cards.split(","), "guild": int(relpath) if relpath else 0
             })
 
-    log("Nemesis mats loaded", level="local")
+    if not relpath:
+        log("Nemesis mats loaded", level="local")
+    else:
+        log(f"Guild-specific nemesis mats loaded for {relpath}", level="local")
 
-    breach_values.clear()
-    with _open("breaches.csv") as breach_file:
+def load_breaches(relpath=None):
+    file = "breaches.csv"
+    if relpath is None:
+        breach_values.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as breach_file:
         content = csv.reader(breach_file, dialect="excel")
         for name, pos, focus, left, down, right, effect, mage in content:
             if not name or name.startswith("#"):
@@ -239,20 +317,31 @@ def load():
             breach_values[casefold(name)].append({
                 "name": name, "position": int(pos), "focus": int(focus),
                 "left": int(left), "down": int(down), "right": int(right),
-                "effect": expand(effect), "mage": mage
+                "effect": expand(effect), "mage": mage, "guild": int(relpath) if relpath else 0
             })
 
-    log("Breaches loaded", level="local")
+    if relpath is None:
+        log("Breaches loaded", level="local")
+    else:
+        log(f"Guild-specific breaches loaded for {relpath}", level="local")
 
-    treasure_values.clear()
-    with _open("treasures.csv") as treasure_file:
+def load_treasures(relpath=None):
+    file = "treasures.csv"
+    if relpath is None:
+        treasure_values.clear()
+    else:
+        file = os.path.join("guilds", relpath, file)
+        if not os.path.isfile(file):
+            return
+    with _open(file) as treasure_file:
         content = csv.reader(treasure_file, dialect="excel")
         for name, ttype, code, effect, flavour, box, deck, number in content:
             if not name or name.startswith("#"):
                 continue
             treasure_values[casefold(name)].append({
                 "name": name, "type": ttype, "code": parse(code, "T"), "effect": expand(effect),
-                "flavour": expand(flavour), "box": box, "deck": deck, "number": int(number)
+                "flavour": expand(flavour), "box": box, "deck": deck, "number": int(number),
+                "guild": int(relpath) if relpath else 0
             })
             wave = waves[box][0]
             pvalue = "T"
@@ -264,4 +353,27 @@ def load():
                 cards_num[wave][deck] = {}
             cards_num[wave][deck][int(number)] = (pvalue, name)
 
-    log("Treasures loaded", level="local")
+    if relpath is None:
+        log("Treasures loaded", level="local")
+    else:
+        log(f"Guild-specific treasures loaded for {relpath}", level="local")
+
+def load():
+    load_meta()
+    load_unique()
+    load_pcards()
+    load_ncards()
+    load_pmats()
+    load_nmats()
+    load_breaches()
+    load_treasures()
+
+    for folder in os.listdir(os.path.join(os.getcwd(), "guilds")):
+        if folder.isdigit():
+            load_meta(folder)
+            load_pcards(folder)
+            load_ncards(folder)
+            load_pmats(folder)
+            load_nmats(folder)
+            load_breaches(folder)
+            load_treasures(folder)

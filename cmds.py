@@ -38,7 +38,8 @@ def command(name=None):
         return func
     return wrapper
 
-def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
+def get_card(guild, name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
+    guild: int = guild.id if guild is not None else 0
     mention = None # Optional
     if "<@!" in name and ">" in name: # mentioning someone else
         index = name.index("<@!")
@@ -66,7 +67,9 @@ def get_card(name: str) -> Tuple[Optional[List[str]], Optional[List[str]]]:
     for x in matches:
         for func, mapping in content_dicts:
             if x in mapping:
-                values.append(func(x))
+                ret = func(guild, x)
+                if ret:
+                    values.append(ret)
         if x in assets:
             ass.append(assets[x])
 
@@ -276,7 +279,7 @@ async def info(ctx: Context, *args):
     if not arg.isalpha() and arg.isalnum(): # has numbers and no special characters
         await ctx.send(f"Number detected. Did you want `{config.prefix}card` instead?")
         return
-    values, asset = get_card(arg)
+    values, asset = get_card(ctx.guild, arg)
     if values and values[0] is None: # too many values
         to_send = f"Ambiguous value. Possible matches: {', '.join(values[1:])}"
     elif not values:
@@ -391,6 +394,7 @@ async def box(ctx: Context, *args):
 async def search(ctx: Context, *args):
     arg = " ".join(args).lower()
     final = []
+    guild = ctx.guild.id
     for mapping, attrs in (
         (player_cards, ("text", "special", "flavour")),
         (nemesis_cards, ("effect", "special", "immediate", "discard", "flavour")),
@@ -401,6 +405,9 @@ async def search(ctx: Context, *args):
 
         for content in mapping.values():
             for inner in content:
+                if inner['guild'] != 0 and inner['guild'] != guild:
+                    # cannot be used in this guild
+                    continue
                 for attr in attrs:
                     name, _, second = attr.partition(":")
                     c = inner[name]

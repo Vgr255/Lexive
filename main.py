@@ -76,7 +76,7 @@ class Lexive(commands.Bot):
                     await cmds[matches[0]](ctx, *value[1:])
                     return
 
-                values, asset = get_card(content)
+                values, asset = get_card(ctx.guild, content)
                 if values and values[0] is None: # too many values
                     await ctx.send(f"Ambiguous value. Possible matches: {', '.join(values[1:])}")
                     return
@@ -134,7 +134,8 @@ async def whoami(ctx, *args):
     f"`{config.prefix}commands`." + "\nArt by Amaple")
 
 @sync(mechanics)
-def unique_handler(name: str) -> List[str]:
+def unique_handler(guild, name: str) -> List[str]:
+    # there is no support for guild-specific mechanic currently
     mechanic = mechanics[name][0]["content"]
     values = []
     if len(mechanic) == 1: # most common occurence
@@ -189,10 +190,13 @@ def unique_handler(name: str) -> List[str]:
     return values
 
 @sync(player_cards)
-def player_card(name: str) -> List[str]:
+def player_card(guild, name: str) -> List[str]:
     card = player_cards[name]
     values = []
     for c in card:
+        if c['guild'] != 0 and guild != c['guild']:
+            # this card can only be used in a specific guild, and this isn't it
+            continue
         text_code, special_code = c['code']
         before, after = format(special_code, "PS", c['name'], c['type'])
         if values: # second pass-through or more, make it different messages
@@ -245,10 +249,13 @@ def player_card(name: str) -> List[str]:
     return values
 
 @sync(nemesis_cards)
-def nemesis_card(name: str) -> List[str]:
+def nemesis_card(guild, name: str) -> List[str]:
     card = nemesis_cards[name]
     values = []
     for c in card:
+        if c['guild'] != 0 and guild != c['guild']:
+            # this card can only be used in a specific guild, and this isn't it
+            continue
         if values:
             values.append(r"\NEWLINE/")
         values.extend(["```", c['name'], "", f"Type: {ctypes[c['type']]}"])
@@ -319,10 +326,13 @@ def nemesis_card(name: str) -> List[str]:
     return values
 
 @sync(player_mats)
-def player_mat(name: str) -> List[str]:
+def player_mat(guild, name: str) -> List[str]:
     mat = player_mats[name]
     values = []
     for c in mat:
+        if c['guild'] != 0 and guild != c['guild']:
+            # this card can only be used in a specific guild, and this isn't it
+            continue
         if values:
             values.append(r"\NEWLINE/")
         values.extend(["```", c['name'], c['title'], f"Complexity rating: {c['rating']}", "", "Starting breach positions:", ""])
@@ -393,10 +403,13 @@ def player_mat(name: str) -> List[str]:
     return values
 
 @sync(nemesis_mats)
-def nemesis_mat(name: str) -> List[str]:
+def nemesis_mat(guild, name: str) -> List[str]:
     mat = nemesis_mats[name]
     values = []
     for c in mat:
+        if c['guild'] != 0 and guild != c['guild']:
+            # this card can only be used in a specific guild, and this isn't it
+            continue
         if values:
             values.append(r"\NEWLINE/")
         hp = c['hp']
@@ -471,10 +484,13 @@ def nemesis_mat(name: str) -> List[str]:
     return values
 
 @sync(breach_values)
-def get_breach(name: str) -> List[str]:
+def get_breach(guild, name: str) -> List[str]:
     b = breach_values[name]
     values = []
     for c in b:
+        if c['guild'] != 0 and guild != c['guild']:
+            # this card can only be used in a specific guild, and this isn't it
+            continue
         if values:
             values.append(r"\NEWLINE/")
         values.extend(["```", c['name'], f"Position: {c['position']}", ""])
@@ -503,10 +519,13 @@ def get_breach(name: str) -> List[str]:
     return values
 
 @sync(treasure_values)
-def get_treasure(name: str) -> List[str]:
+def get_treasure(guild, name: str) -> List[str]:
     t = treasure_values[name]
     values = []
     for c in t:
+        if c['guild'] != 0 and guild != c['guild']:
+            # this card can only be used in a specific guild, and this isn't it
+            continue
         if values:
             values.append(r"\NEWLINE/")
         values.extend(["```", c['name'], f"Type: {ctypes[c['type']]}", "", c['effect'], ""])
