@@ -544,6 +544,6 @@ def get_treasure(guild, name: str) -> List[str]:
     return values
 
 if __name__ == "__main__":
-    print("Bot loaded. Starting")
+    print("\nBot loaded. Starting")
 
     bot.run(config.token)

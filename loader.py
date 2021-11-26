@@ -193,10 +193,7 @@ def load_pcards(relpath=None):
             for num in nums:
                 cards_num[wave][deck][num] = ("P", name)
 
-    if not relpath:
-        log("Player cards loaded", level="local")
-    else:
-        log(f"Guild-specific player cards loaded for {relpath}", level="local")
+    log("Player cards loaded", level="local")
 
 def load_ncards(relpath=None):
     file = "nemesis_cards.csv"
@@ -234,10 +231,7 @@ def load_ncards(relpath=None):
             for num in nums:
                 cards_num[wave][deck][num] = ("N", name)
 
-    if not relpath:
-        log("Nemesis cards loaded", level="local")
-    else:
-        log(f"Guild-specific nemesis cards loaded for {relpath}", level="local")
+    log("Nemesis cards loaded", level="local")
 
 def load_pmats(relpath=None):
     file = "player_mats.csv"
@@ -269,10 +263,7 @@ def load_pmats(relpath=None):
                 "special": expand(special, prefix=True), "box": box, "guild": int(relpath) if relpath else 0
             })
 
-    if not relpath:
-        log("Player mats loaded", level="local")
-    else:
-        log(f"Guild-specific player mats loaded for {relpath}", level="local")
+    log("Player mats loaded", level="local")
 
 def load_nmats(relpath=None):
     file = "nemesis_mats.csv"
@@ -295,10 +286,7 @@ def load_nmats(relpath=None):
                 "cards": cards.split(","), "guild": int(relpath) if relpath else 0
             })
 
-    if not relpath:
-        log("Nemesis mats loaded", level="local")
-    else:
-        log(f"Guild-specific nemesis mats loaded for {relpath}", level="local")
+    log("Nemesis mats loaded", level="local")
 
 def load_breaches(relpath=None):
     file = "breaches.csv"
@@ -319,10 +307,7 @@ def load_breaches(relpath=None):
                 "effect": expand(effect), "mage": mage, "guild": int(relpath) if relpath else 0
             })
 
-    if relpath is None:
-        log("Breaches loaded", level="local")
-    else:
-        log(f"Guild-specific breaches loaded for {relpath}", level="local")
+    log("Breaches loaded", level="local")
 
 def load_treasures(relpath=None):
     file = "treasures.csv"
@@ -352,10 +337,7 @@ def load_treasures(relpath=None):
                 cards_num[wave][deck] = {}
             cards_num[wave][deck][int(number)] = (pvalue, name)
 
-    if relpath is None:
-        log("Treasures loaded", level="local")
-    else:
-        log(f"Guild-specific treasures loaded for {relpath}", level="local")
+    log("Treasures loaded", level="local")
 
 def load():
     load_meta()
