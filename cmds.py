@@ -362,7 +362,7 @@ async def box(ctx: Context, *args):
     
     result = ["```", f"Cards from {box}:", ""]
     count = len(" ".join(result))
-    c = {"P": player_cards, "N": nemesis_cards, "T": treasure_values}
+    c = {"P": player_cards, "N": nemesis_cards, "T": treasure_values, "O": treasure_values}
 
     for deck in cards_num[prefix]:
         if count >= 1800:
