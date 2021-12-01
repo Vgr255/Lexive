@@ -96,7 +96,8 @@ def load_boxes(relpath):
                 prefix = None
             wave = int(wave)
             waves[name] = (prefix, wave)
-            cards_num[prefix] = {}
+            if prefix not in cards_num:
+                cards_num[prefix] = {}
 
     log("Waves loaded", level="local")
 
