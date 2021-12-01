@@ -368,7 +368,7 @@ async def box(ctx: Context, *args):
         if count >= 1800:
             result.append("```\\NEWLINE/```")
             count = 3
-        if deck:
+        if deck and deck != "Promo": # promo cards do their own thing
             result.extend([f"```\\NEWLINE/```", f"Deck: {deck}", ""])
             count = len(deck) + 12
         for num, (ctype, card) in cards_num[prefix][deck].items():
