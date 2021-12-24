@@ -353,6 +353,9 @@ def player_mat(guild, name: str) -> List[str]:
         deck = []
         for orig, new in zip((c["hand"], c["deck"]), (hand, deck)):
             for x in orig:
+                if x.count("-") == 2:
+                    wave, x = x.split("-", 1)
+                    x = x.replace("-", "")
                 if x.isdigit():
                     x = cards_num[wave][None][int(x)][1]
                 elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit():
