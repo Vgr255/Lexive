@@ -394,7 +394,7 @@ async def box(ctx: Context, *args):
 async def search(ctx: Context, *args):
     arg = " ".join(args).lower()
     final = []
-    guild = ctx.guild.id
+    guild = ctx.guild.id if ctx.guild else None
     for mapping, attrs in (
         (player_cards, ("text", "special", "flavour")),
         (nemesis_cards, ("effect", "special", "immediate", "discard", "flavour")),
