@@ -51,7 +51,11 @@ def get_card(guild, name: str) -> Tuple[Optional[List[str]], Optional[List[str]]
     arg = casefold(name)
     possible = set()
     for func, mapping in content_dicts:
-        possible.update(mapping.keys())
+        for key, val in mapping.items():
+            for item in val:
+                if item["guild"] != 0 and guild != item["guild"]:
+                    continue
+                possible.add(key)
     matches = complete_match(arg, possible)
     values = []
     if len(matches) > config.max_dupes:
