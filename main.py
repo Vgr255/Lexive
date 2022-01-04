@@ -327,6 +327,7 @@ def nemesis_card(guild, name: str) -> List[str]:
 
 @sync(player_mats)
 def player_mat(guild, name: str) -> List[str]:
+    x: str
     mat = player_mats[name]
     values = []
     for c in mat:
@@ -338,13 +339,13 @@ def player_mat(guild, name: str) -> List[str]:
         values.extend(["```", c['name'], c['title'], f"Complexity rating: {c['rating']}", "", "Starting breach positions:", ""])
 
         bconv = ("I", "II", "III", "IV")
-        for x in range(4):
-            pos, special = c['breaches'][x]
+        for i in range(4):
+            pos, special = c['breaches'][i]
             if pos == 9: # no breach
-                values.append(f"(No breach {bconv[x]})")
+                values.append(f"(No breach {bconv[i]})")
                 continue
             if special is None:
-                special = f"Breach {bconv[x]}"
+                special = f"Breach {bconv[i]}"
             values.append(f"{config.prefix}{special} - {breaches_orientation[pos]}")
 
         values.append("")

@@ -8,14 +8,14 @@ Breach IV,4,4,7,10,13,Once Opened: On Cast: Deal +1 Damage.,
 Sigil Breach,1,0,0,0,0,On Cast: Deal +2 Damage.,Dezmodia (WE)
 Aether Breach,2,2,3,4,5,Once Opened: On Cast: Gain +1$.,Remnant
 Celestial Breach,4,4,7,10,13,Once Opened: On Cast: Deal +2 Damage.,Sahala
-Ancient Breach,1,0,0,0,0,"Up to 10 Surge tokens can be placed on the Ancient Breach. When a spell is cast from this breach, that spell deals 1 additional damage for each Surge token placed on that breach.",Gygar
+Ancient Breach,1,0,0,0,0,"Up to 10 Surge tokens can be placed on the Ancient Breach. When a spell is cast from this breach, that spell deals 1 additional damage for each Surge token placed on that breach.",Gygar (NA)
 Defender Breach,4,4,7,10,13,Once Opened: On Cast: Gravehold gains 1 life.,Taqren (NA)
-Research Breach,3,3,5,7,9,Once Opened: On Cast: Gain 1 charge.,Mazra
+Research Breach,3,3,5,7,9,Once Opened: On Cast: Gain 1 charge.,Mazra (NA)
 ,,,,,,,
-Forged Breach,1,1,2,3,4,"When you open this, gain a card that costs 4$ or less from any supply pile.",Thraxir
-Honed Breach,2,2,3,4,5,"When you open this, gain a spell that costs 5$ or less from any supply pile.",Thraxir
-Refined Breach,3,3,5,7,9,"When you open this, shuffle your turn order card into the turn order deck.",Thraxir
-Serrated Breach,4,4,7,10,13,"When you open this, gain a spell from any supply pile.",Thraxir
+Forged Breach,1,1,2,3,4,"When you open this, gain a card that costs 4$ or less from any supply pile.",Thraxir (O)
+Honed Breach,2,2,3,4,5,"When you open this, gain a spell that costs 5$ or less from any supply pile.",Thraxir (O)
+Refined Breach,3,3,5,7,9,"When you open this, shuffle your turn order card into the turn order deck.",Thraxir (O)
+Serrated Breach,4,4,7,10,13,"When you open this, gain a spell from any supply pile.",Thraxir (O)
 ,,,,,,,
 Void Breach,4,4,7,10,13,Once Opened: On Cast: Deal +1 Damage.#Any number of spells may be prepped to an opened Void Breach.,Dezmodia (O)
 Essence Breach,4,4,7,10,13,Once Opened: On Cast: Gain 1 life.,Ohat and Ulgimor
