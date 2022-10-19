@@ -1,3 +1,33 @@
-To run this bot, you need to create a config.py file with the command prefix as `prefix` (str), the OAuth token as `token` (str) and the Owner ID as `owner` (int). Also set `max_dupes` to 2.
+To run this bot, you need to create an empty config.py file in this folder and fill it as exemplified below. Don't add it to Git, as it does require some private IDs, specifically the 'token' and 'owner' parameters. The token parameter refers to the token your bot gets assigned on creation. The owner parameter refers to your bot's Client ID.
+
+The file can look as follows for example:
+
+prefix = '!'
+token = 'Fill this with your own token'
+owner = 1234567890
+max_dupes = 2
+
+
 
 You need to install the discord.py module from PyPI. This is being developed on Python 3.8, but may work on 3.7 or 3.6. It will not work below 3.6.
+
+
+
+If you don't know how to create a Discord bot, please follow the following links:
+
+Main page:
+https://discordpy.readthedocs.io/en/stable/index.html
+
+Installing the Discord API for Python:
+https://discordpy.readthedocs.io/en/stable/intro.html
+
+Coding a simple bot to gain some initial experience:
+https://discordpy.readthedocs.io/en/stable/quickstart.html
+
+Creating a bot account that can use the code:
+https://discordpy.readthedocs.io/en/stable/discord.html
+Note that the bot will get a token that will be shown only once. If you lost it, just generate a new one and put it into the config.py file.
+
+If you happen to get a 401 authentication error, then the token is incorrect. Be sure to use the Copy-button to copy the token instead of manually copying it by highlighting it and using Ctrl-C/Ctrl-V, because you might accidentally not copy the entire string.
+
+
