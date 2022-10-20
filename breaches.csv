@@ -11,6 +11,7 @@ Celestial Breach,4,4,7,10,13,Once Opened: On Cast: Deal +2 Damage.,Sahala
 Ancient Breach,1,0,0,0,0,"Up to 10 Surge tokens can be placed on the Ancient Breach. When a spell is cast from this breach, that spell deals 1 additional damage for each Surge token placed on that breach.",Gygar (NA)
 Defender Breach,4,4,7,10,13,Once Opened: On Cast: Gravehold gains 1 life.,Taqren (NA)
 Research Breach,3,3,5,7,9,Once Opened: On Cast: Gain 1 charge.,Mazra (NA)
+Research Breach,3,3,5,7,9,Once Opened: On Cast: Gain 1 charge.,Mazra (LOG)
 ,,,,,,,
 Forged Breach,1,1,2,3,4,"When you open this, gain a card that costs 4$ or less from any supply pile.",Thraxir (O)
 Honed Breach,2,2,3,4,5,"When you open this, gain a spell that costs 5$ or less from any supply pile.",Thraxir (O)
@@ -25,3 +26,9 @@ Tide Breach,3,4,0,0,0,"Once Opened: On Cast: Destroy a card in hand or discard p
 Flood Breach,4,5,0,0,0,"Once Opened: On Cast: Deal +3 Damage. Once a spell cast from this breach has finished resolving, return this breach to its starting position.",Lucien
 ,,,,,,,
 Unbound Breach,3,3,5,7,9,Once Opened: Any number of spells with the same name may be prepped to this.#On Cast: Each spell does +1 additional damage for each other spell prepped to this breach.,Reth
+,,,,,,,
+Memory Breach,1,0,0,0,0,On Cast: Focus any player's closed breach with the lowest focus cost.,Thraxir (LOGA)
+Incanted Breach,3,2,3,4,5,No special effects,Yan Magda (LOGA)
+Incanted Breach,4,2,3,4,5,No special effects,Yan Magda (LOGA)
+Fortified Breach,3,3,5,7,9,Once Opened: On Cast: Gain aether equal to the nemesis tier.,Taqren (LOGA)
+Garrison Breach,4,4,7,10,13,Once Opened: On Cast: Deal additional damage equal to the nemesis tier.,Taqren (LOGA)
