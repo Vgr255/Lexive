@@ -448,15 +448,22 @@ def nemesis_mat(guild, name: str) -> List[str]:
             if x.isdigit() and x[0] in box:
                 deck = x[0]
                 num = int(x[1:])
-            elif x.isdigit():
+            elif x.isdigit(): # Cards that have nothing but a number.
                 deck = None
                 num = int(x)
-            elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit(): # regular non-Legacy stuff
+            elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit(): # regular non-Legacy stuff, like "2a19", i.e. x[0] is "2", x[1] is "a" and the rest is "19"
                 deck = x[:2]
                 num = int(x[2:])
+            elif x.startswith("L2-"): # Legacy of Gravehold. Card IDs are L2-[X]-[Y], with X being either two letters or "END", and Y being a number with up to two digits.
+                if x.startswith("L2-END-"):
+                    deck = x[:7]
+                    num = int(x[7:])
+                else:
+                    deck = x[:6]
+                    num = int(x[6:])
             else: # Legacy stuff
-                for d in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "END"):
-                    if x.upper().startswith(d) and x[len(d):].isdigit():
+                for d in ("Ic", "II", "III", "IV", "V", "VI", "VII", "VIII", "END"):
+                    if x.startswith(d) and x[len(d):].isdigit():
                         deck = d
                         num = int(x[len(d):])
                         break
@@ -467,10 +474,12 @@ def nemesis_mat(guild, name: str) -> List[str]:
 
             if ctype == "N":
                 content = nemesis_cards[casefold(card)][0]
-                cards.append((f"(Tier {content['tier']} {{0}}) {card}", ctypes[content['type']]))
+                cards.append((f"(Tier {content['tier']} {{0}}) {card}",
+                ctypes[content['type']]))
             elif ctype == "P":
                 content = player_cards[casefold(card)][0]
-                cards.append((f"({content['cost']}-Cost {{0}}) {card}", ctypes[content['type']]))
+                cards.append((f"({content['cost']}-Cost {{0}}) {card}",
+                ctypes[content['type']]))
             largest = max(largest, len(ctypes[content["type"]]))
 
         cards = [text.format(t.ljust(largest)) for text, t in cards]
