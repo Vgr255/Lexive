@@ -215,8 +215,8 @@ def load_ncards(relpath=None):
             else:
                 end = 0
             nemesis_cards[casefold(name)].append({
-                "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
-                "shield": (int(shield) if shield else 0),
+                "name": name, "type": ctype, "tokens_hp": (str(tokens_hp) if tokens_hp else 0),
+                "shield": (str(shield) if shield else 0),
                 "tier": int(tier),
                 "category": cat,
                 "code": parse(code, "N"), "special": expand(special, prefix=True), "discard": expand(discard),
