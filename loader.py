@@ -215,8 +215,10 @@ def load_ncards(relpath=None):
             else:
                 end = 0
             nemesis_cards[casefold(name)].append({
-                "name": name, "type": ctype, "tokens_hp": (int(tokens_hp) if tokens_hp else 0),
-                "shield": (int(shield) if shield else 0), "tier": int(tier), "category": cat,
+                "name": name, "type": ctype, "tokens_hp": (str(tokens_hp) if tokens_hp else 0),
+                "shield": (str(shield) if shield else 0),
+                "tier": int(tier),
+                "category": cat,
                 "code": parse(code, "N"), "special": expand(special, prefix=True), "discard": expand(discard),
                 "immediate": expand(immediate), "effect": expand(effect), "flavour": expand(flavour),
                 "box": box, "deck": deck, "start": start, "end": end, "guild": int(relpath) if relpath else 0
@@ -280,10 +282,10 @@ def load_nmats(relpath=None):
             if not name or name.startswith("#"):
                 continue
             nemesis_mats[casefold(name)].append({
-                "name": name, "hp": int(hp), "difficulty": int(diff), "unleash": expand(unleash),
+                "name": name, "hp": str(hp), "difficulty": int(diff), "unleash": expand(unleash),
                 "setup": expand(setup), "additional_rules": expand(add_r), "flavour": expand(flavour),
                 "code": parse(code, "M"), "extra": expand(extra), "id_setup": id_s, "id_unleash": id_u,
-                "id_rules": id_r, "side": expand(side), "box": box, "battle": int(battle),
+                "id_rules": id_r, "side": expand(side), "box": box, "battle": str(battle),
                 "cards": cards.split(","), "guild": int(relpath) if relpath else 0
             })
 

@@ -1,3 +1,43 @@
-To run this bot, you need to create a config.py file with the command prefix as `prefix` (str), the OAuth token as `token` (str) and the Owner ID as `owner` (int). Also set `max_dupes` to 2.
+This readme will guide you through the steps required to run Lexive with your own Discord bot.
 
+====================== Python prerequisites	=====================================
 You need to install the discord.py module from PyPI. This is being developed on Python 3.8, but may work on 3.7 or 3.6. It will not work below 3.6.
+
+
+====================== Learning about Discord Bots ==============================
+If you don't know how to create a Discord bot, please follow the links below. Otherwise, feel free to skip this chapter.
+
+Main page:
+https://discordpy.readthedocs.io/en/stable/index.html
+
+Installing the Discord API for Python:
+https://discordpy.readthedocs.io/en/stable/intro.html
+
+Coding a simple bot to gain some initial experience:
+https://discordpy.readthedocs.io/en/stable/quickstart.html
+
+Creating a bot account that can use the code:
+https://discordpy.readthedocs.io/en/stable/discord.html
+Note that the bot will get a token that will be shown only once. If you lost it, just generate a new one and put it into the config.py file.
+
+If you happen to get a 401 authentication error, then the token is incorrect. Be sure to use the Copy-button to copy the token instead of manually copying it by highlighting it and using Ctrl-C/Ctrl-V, because you might accidentally not copy the entire string.
+
+
+====================== Creating the config.py file ==============================
+To run this bot, you need to create an empty config.py file in the root directory (i.e. the directory where this README is, too) and fill it as exemplified below. Don't add it to Git, as it does require some private IDs, specifically the 'token' and 'owner' parameters. The token parameter refers to the token your bot gets assigned on creation. The owner parameter refers to your Discord ID, but you can just set it to any number. You can find your ID by activating Developer Mode in Discord and then right-clicking on your user name and choosing "Copy ID".
+
+The file can look as follows for example:
+
+prefix = '!'
+token = 'Fill this with your own token'
+owner = 1234567890
+max_dupes = 2
+
+
+====================== Running Lexive ===========================================
+Run main.py. To do that on Windows, go to the command-line, navigate to the root directory, and type in the following command:
+
+	py -3 main.py
+
+If it complains about a missing guilds folder, just create an empty one in the root directory and run Lexive again.
+Now you should be able to interact with your bot in your server's channel and/or via DMs. Try e.g. "!whoami" to see if it works.

@@ -8,3 +8,5 @@ C,during your casting phase
 A,during any ally's main phase
 Y,during your casting or main phase
 D,at the end of your draw phase
+T2,during your turn
+S,after the turn order deck is shuffled
