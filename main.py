@@ -95,7 +95,7 @@ class Lexive(commands.Bot):
 
             await super().on_message(message)
 
-bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True, activity=activity, intents=discord.Intents(messages=True))
+bot = Lexive(command_prefix=config.prefix, owner_id=config.owner, case_insensitive=True, activity=activity, intents=discord.Intents.all())
 
 @bot.command("report") # not a regular @command because we don't want autocomplete for this one
 async def report_cmd(ctx, *args):
