@@ -483,95 +483,95 @@ Magnificent Opal,G,0,,,Gain 1$.#You may cast a spell in your discard pile.,"""I 
 Eldritch Eye,S,0,,,"While this is prepped, when you open a breach during your turn, deal 2 damage.#Cast: Deal 1 damage.","""Look into the Void, my child. It's looking back."" - Yan Magda",Yan Magda,Legacy of Gravehold (Azer),,4,0
 ,,,,,,,,,,,
 ,,,,,,,,,,,
+# wave 7,,,,,,,,,,,
 ,,,,,,,,,,,
+Feeding Lichen,G,5,,,"Gain 2$.#If the nemesis tier is 2 or higher, draw an additional card at the end of this turn",Develop cost: 3$,,Past and Future (Expansion),,1,8
+Rhodonix,G,6,,,"Gain 3$.#If this is the first Rhodonix you've played this turn, draw an additional card at the end of this turn.",,,Past and Future (Expansion),,8,15
+Fall Lantern,R,5,,"When you Develop this, deal 2 damage.","Attach this to any player's breach.#When a spell is cast from this breach, any ally may prep a spell to one of their closed or open breaches.",Develop cost: 4$,,Past and Future (Expansion),,15,20
+Crescent Greave,R,8,,"When you Develop this, draw an additional card at the end of this turn.",Gain 2 charges.#Draw an additional card at the end of this turn.,Develop cost: 5$,,Past and Future (Expansion),,20,25
+Lashing Sinew,S,5,,"When you prep this, draw an additional card at the end of this turn.",Cast: Deal 2 damage.,,,Past and Future (Expansion),,25,30
+Propel,S,5,,,"Cast: Deal 4 damage.#If you placed this into your discard pile, swap this card for Gather Force.",,,Past and Future (Expansion),,30,35
+Gather Force,R,7,,This card begins in the Swap zone.,Any ally draws two cards.#Gravehold gains 1 life.#Swap this card for Propel.,,,Past and Future (Expansion),,35,40
+Reflecting Current,S,6,,"While prepped, when you prep another spell gain 1$.",Cast: Deal 4 damage.,,,Past and Future (Expansion),,40,45
+Starfall,S,6,,,Cast: Deal 3 damage.#Reveal the top three cards of your deck. You may prep a spell not named Starfall that is revealed this way.,,,Past and Future (Expansion),,45,50
+Splintered Garnet,G,5,,"When you Develop this, destroy a gem you played this turn.",Gain 3$.,Develop cost: 4$,,Past and Future (Future),1a,2,9
+Seer's Wrath,S,5,,"When you Develop this, look at the top card of the turn order deck. You may place that card on the bottom or top of the turn order deck.",Cast: Deal 4 damage.,Develop cost: 3$,,Past and Future (Future),1a,9,14
+Tethered Smite,S,7,,,Cast: Deal 5 damage divided however you choose to the nemesis and any number of minions.,Develop cost: 4$,,Past and Future (Future),1a,14,19
+Taluna Branch,R,6,,"When you Develop this, any ally gains an$ token.",Focus any player's breach.#Any player may destroy a card in hand or in their discard.,Develop cost: 4$,,Past and Future (Future),1c,2,7
+Building Storm,S,4,,,Cast: Deal 2 damage.#Deal 1 additional damage for every copy of this card in the Develop zone.,Develop cost: 2$,,Past and Future (Future),1c,7,12
+Amplifying Calcite,G,3,,,Gain 2$#OR#Gain 3$ that can only be used to Develop.,,,Past and Future (Future),2b,2,9
+Imbued Pocketwatch,R,2,,,"Any player gains a charge. If there are 2 or more Imbued Pocketwatches in the Develop zone, any player gains a life.",Develop cost: 3$,,Past and Future (Future),2b,9,14
+Mica Shard,G,4,,"When you gain this, you may Conjure to a closed or opened breach.",Gain 2$.,,,Past and Future (Future),3b,2,9
+Thistle Spear,S,8,,,Cast: Deal 5 damage.#Any ally gains a card from the Develop zone and places it into their hand.,Develop cost: 5$,,Past and Future (Future),3b,9,14
+Citrine Shrapnel,G,3,,,Gain 1$ for each copy of this card in the Develop zone.#OR#Develop a Citrine Shrapnel.,Develop cost: 3$,,Past and Future (Promo),,300,307
+Cataclysm Seed,R,7,,,Gain a charge.#OR#Destroy this. Each player may destroy any number of cards in hand.,,,Past and Future (Promo),,307,312
+Tome of the Ancients,R,2,,,"If all of your breaches are opened, destroy this and then destroy up to two cards in your hand or discard pile.#Otherwise, focus your closed breach with the lowest focus cost.",,,Past and Future (Past),1a,2,7
+Consume Magic,S,4,,,"Cast: Deal 3 damage.#If this defeats a minion from the nemesis deck, swap this card for Detonate.",,,Past and Future (Past),1a,7,12
+Detonate,S,5,,This card begins in the Swap zone.,Cast: Deal 3 damage to a minion.#Deal 3 damage to the nemesis.,,,Past and Future (Past),1a,12,17
+Prismatic Flare,S,5,,"When you prep this, focus your III breach.",Cast: Deal 3 damage.,,,Past and Future (Past),1a,17,22
+Inscrutable Artifact,R,6,,,"Cast any player's prepped spell that costs 5$ or less without discarding it.#If you have 3 life or less, Swap this card for Aetherrune.",,,Past and Future (Past),1c,2,7
+Aetherrune,R,8,,This card begins in the Swap zone.,Gain a charge.#Cast any player's prepped spell without discarding it.,,,Past and Future (Past),1c,7,12
+Cavernous Maw,S,3,,,"Cast: Deal 2 damage.#You may destroy a card in your discard pile that costs 4$ or more. If you do, Swap this card for Dragonflare and place it on top of your deck.",,,Past and Future (Past),1c,12,17
+Dragonflare,S,6,,This card begins in the Swap zone.,Cast: Deal 5 damage.,,,Past and Future (Past),1c,17,22
+Corrupted Opal,G,2,,,Gain 2$. Any ally discards a card.,,,Past and Future (Past),2a,2,9
+Poisoned Peridot,G,4,,,Gain 3$.#A minion in play gains 2 life. This may cause it to have more than its starting life.,,,Past and Future (Past),2a,9,16
+Draining Diamond,G,5,,,Gain 4$.#Suffer 1 damage.,,,Past and Future (Past),2a,16,23
+Glowstone,G,3,,,Gain 2$.#Swap this card for Illuminite.,,,Past and Future (Past),2b,2,9
+Illuminite,G,5,,This card begins in the Swap zone.,Gain 3$.#Swap this card for Glowstone.,,,Past and Future (Past),2b,9,16
+Encased Fossil,G,4,,,Gain 2$.#You may spend 6$ to Swap this card for Diamin.,,,Past and Future (Past),2b,16,23
+Diamin,G,8,,This card begins in the Swap zone.,Gain 4$.#You may cast any player's prepped spell.,,,Past and Future (Past),2b,23,30
+Fool's Gold,G,5,,,Gain 3$.#You may Swap this card for Smite.,,,Past and Future (Past),3b,2,9
+Smite,S,5,,This card begins in the Swap zone.,Cast: Deal 4 damage.#Any ally gains an$ token.,,,Past and Future (Past),3b,9,14
+Harbinger Descent,S,8,,,"Cast: Deal 6 damage.#If you have 3 or more other prepped spells, you may discard them to swap this card for Apocalypse.",,,Past and Future (Past),3b,16,21
+Apocalypse,S,11,,"This card begins in the Swap zone.#While prepped, all your other prepped spells have \Echo.",Cast: Deal 6 damage.,,,Past and Future (Past),3b,21,26
 ,,,,,,,,,,,
+# Starter cards,,,,,,,,,,,
 ,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-# Treasures level 1,,,,,,,,,,,
-,,,,,,,,,,,
-Nym's Vision,TS,0,,,"Cast: Deal 1 damage. Reveal the top card of the nemesis deck. If you revealed an attack, gain 2$.",,,The New Age (Kickstarter Exclusive),,51,0
-Reeve's Raven Shard,TG,0,,,"Gain 1$. You may discard a card in hand. If you do, gain an additional 1$.",,,The New Age (Kickstarter Exclusive),,52,0
-Kadir's Emerald Shard,TG,0,"A=1/L=1,$=A",,Gain 1$.#OR#Any player gains 1 life.,,,The New Age,1d,4,0
-Jian's Moonstone Shard,TG,0,,,Gain 1$. Gain an additional 1$ that can only be used to gain a gem.,,,The New Age,END,59,0
-Lash's Quartz Shard,TG,0,,,"Gain 1$. Reveal the top card of the turn order deck. You may place that card on the bottom or the top of the turn order deck. If you revealed a player turn order card, gain an additional 1$.",,,The New Age,END,60,0
-Z'hana's Fleeting Ember,TS,0,"D=1/B,&=4-,$=C,&=W,&=C",,Cast: Deal 1 damage.#OR#Cast: Cast one of your prepped spells that costs 4$ or less without discarding it.,,,The Ancients,,62,0
-Brama's Buried Light,TS,0,"D=1,A=1",,Cast: Deal 1 damage. Gain 1$.,,,The New Age,1d,2,0
-Malastar's Immolate,TS,0,,"While prepped, when you suffer damage, gain 1 charge.",Cast: Deal 1 damage.,,,Into the Wild,,21,0
-Adelheim's Amethyst Shard,TG,0,,,Gain 1$. Any ally may draw a card and then discard a card in hand.,,,The New Age,END,57,0
-Phaedraxa's Tourmaline Shard,TG,0,,,"Gain 1$. Any ally may suffer 1 damage. If they do, they destroy a card in hand.",,,Shattered Dreams,,70,0
-Mist's Garnet Shard,TG,0,"A=1/B,$=A",,Gain 1$.#OR#Cast any player's prepped spell.,,,The New Age,1d,5,0
-Xaxos's Flare,TS,0,,,"Cast: Reveal the top card of the turn order deck, and then place it back on top of the turn order deck. If you revealed a player turn order card, deal 3 damage. Otherwise, deal 1 damage.",,,The New Age,END,61,0
-Sparrow's Aid,TS,0,,,Cast: Deal 1 damage. Any ally may prep a spell in hand to their opened or closed breach(es).,,,The New Age (Kickstarter Exclusive),,50,0
-Gex's Shattered Geode,TG,0,,,Gain 1$. You may place the top card of any ally's discard pile into your hand.,,,The New Age,END,58,0
-Yan Magda's Illuminate,TS,0,,"While prepped, when you focus or open one of your breaches during your turn, deal 1 damage.",Cast: Deal 1 damage.,,,Into the Wild,,23,0
-Quilius's Erasure,TS,0,,,"Cast: Deal 1 damage. If this damages a minion, deal 1 additional damage.",,,The Ancients,,61,0
-Garu's Torch,TS,0,"D=1/F,$=A,&=C",,Cast: Deal 1 damage.#OR#Cast: Focus any player's breach.,,,The New Age,1d,3,0
-Dezmodia's Oblivion Shard,TG,0,,,Gain 2$ that cannot be used to gain a relic or spell.,,,Into the Wild,,19,0
-Ulgimor's Coal Fragment,TG,0,,,Gain 2$ and suffer 1 damage.#OR#Gain 1 life.,,,Into the Wild,,73,0
-Remnant's Void Shard,TG,0,,,Gain 1$. Gain an additional 1$ that can only be used to focus or open a breach.,,,The Ancients,,60,0
-Xaxos's Pyre,TS,0,,,"Cast: Deal 1 damage. Any ally may discard a card in hand. If they do, deal 2 additional damage.",,,The New Age,1d,6,0
-Indira's Lone Opal,TG,0,"A=1,H,&=H,$=C,&=4-",,Gain 1$. You may cast a spell in hand that costs 4$ or less.,,,Into the Wild,,20,0
-Mist's Amethyst Paragon,TG,0,,,"Gain 1$. Any ally may prep a spell in hand to their opened or closed breach(es).#Rule clarification: If it is a closed breach, it does not need to have been focused this turn.",,,Into the Wild,,22,0
-Mazahaedron's Worldheart Shard,TG,0,,,Gain 1$.#OR#Gain 2$ that can only be used to gain a card. Place the next card you gain this turn on top of any ally's discard pile.,,,Shattered Dreams,,69,0
-Razra's Training Whistle,TG,0,"A=1/C=1,$=C",,Gain 1$.#OR#Gain 1 charge.,,,Outcasts,1d,34,0
-Sahala's Black Meteorite,TG,0,,,Gain 1$.#OR#Gain 3$ that can only be used to focus or open your IV breach.,,,Outcasts (Kickstarter Exclusive),,110,0
-Rhia's Planar Pocket,TG,0,,,Gain 1$. Gain an additional 1$ that can only be used to gain a relic.,,,Outcasts,1d,32,0
-Talix's Everburn,TG,0,,,Gain 1$. Discard up to three spells in hand. Gain 1$ for each spell discarded this way.,,,Outcasts,1d,33,0
-Claudia's Aetherscope,TG,0,,,"Gain 1$.#OR#Any ally may lose 1 charge. If they do, gain 2 charges.",,,Return to Gravehold,,18,0
-Lost's Forged Spark,TS,0,,"When the game starts, add a Crystal to your discard pile.",Cast: Deal 2 damage.,,,Outcasts,1d,35,0
-Lost's Forged Crystal,TG,0,,"When the game starts, add a Crystal to your discard pile.",Gain 2$.,,,Southern Village,,58,0
-Qu's Void Radite,TG,0,,,"Gain 1$. You may cast any player's prepped spell. That spell deals 1 less damage, minimum 1.",,,Return to Gravehold,,20,0
-Soskel's Lucky Coin,TG,0,,,"Gain 1$. You may lose 1 charge. If you do, gain an additional 2$.",,,Return to Gravehold,,19,0
-Nook's Mystic Flourish,TG,0,,,"Gain 1$. Cast a spell in your hand. If that spell costs 1$ or more, return that spell to its supply pile, gain a spell from any supply pile that costs less than the cast spell, and gain 1 charge.",,,Outcasts (Kickstarter Exclusive),,111,0
-Inco's Spreading Emerald,TG,0,,,"Gain 1$.#OR#The next time you gain a card that costs 3$ or less this turn, any ally gains a copy of that card from the supply.",,,Southern Village,,57,0
-Gygar's Tsunami,TS,0,,,"Cast: Deal 1 damage. You may lose 1 charge. If you do, deal 3 additional damage.",,,Return to Gravehold,,22,0
-Taqren's Gift of Spirit,TS,0,,,Cast: Deal 1 damage.#OR#Cast: Any ally draws a card.,,,Return to Gravehold,,21,0
-Mazra's Thesis,TS,0,,,Cast: Deal 1 damage. Focus any player's III breach.,,,Outcasts,1d,36,0
-,,,,,,,,,,,
-Crystal,G,0,A=1;T=Common,,Gain 1$.,,Starter,Aeon's End,,0,0
-Spark,S,0,D=1;T=Common,,Cast: Deal 1 damage.,,Starter,War Eternal,,0,0
-,,,,,,,,,,,
-# Nemesis cards that go into players' decks,,,,,,,,,,,
-,,,,,,,,,,,
-Tainted Jade,G,0,;N=Blight Lord,Use this only when playing with Blight Lord.,"Gain 2$. Suffer 1 damage.#OR#Spend 2$ to destroy this. If you destroy this card in any other way, suffer 1 damage. When you destroy it, return this to the Tainted Jade supply pile.","""The tainted jade calls to those weak enough to listen."" - Ghan, Gem Scavenger",Special,The Nameless,,48,55
-,,,,,,,,,,,
-[X:A] Flare,X,3,;N=Xaxos: Ascended,,"Cast: Gravehold suffers 1 damage. Reveal the top card of the turn order deck. If a player turn order card was revealed, that player suffers 2 damage.",,Special,Legacy,VIII,25,26
+Impart Aether,R,0,,,"If you gained a gem this turn, gain 1 Knowledge.",,Kiri and Phoenix,Past and Future (Expansion),,50,55
+Condensed Pyre,S,0,,"While prepped once per turn during your main phase, gain 1 Knowledge.",Cast: Deal 1 damage.,,Kiri and Phoenix,Past and Future (Expansion),,51,56
+Phoenix Spark,S,0,,,Cast: Deal 1 damage.#You may spend 2 Knowledge to swap this card for Phoenix Blaze.,,<Unknown mage>,Past and Future (Expansion),,52,57
+Phoenix Ember,S,0,,,Cast: Deal 1 damage.#You may spend 2 Knowledge to swap this card for Phoenix Blast.,,<Unknown mage>,Past and Future (Expansion),,53,58
+Pheonix Flare,S,0,,,Cast: Deal 1 damage.#You may spend 2 Knowledge to swap this card for Phoenix Scorch.,,<Unknown mage>,Past and Future (Expansion),,54,59
+Phoenix Blaze,S,3,,,Cast: Deal 2 damage.#Kiri gains 1$ token.#You may spend 2 Knowledge to swap this card for Phoenix Pyre,,<Unknown mage>,Past and Future (Expansion),,55,60
+Phoenix Blast,S,3,,,Cast: Deal 3 damage.##You may spend 2 Knowledge to swap this card for Phoenix Inferno.,,<Unknown mage>,Past and Future (Expansion),,56,61
+Phoenix Scorch,S,3,,,Cast: Deal 2 damage.#Any player may discard a card to gain a charge.#You may spend 2 Knowledge to swap this card for Phoenix Char.,,<Unknown mage>,Past and Future (Expansion),,57,62
+Phoenix Pyre,S,6,,,Cast: Deal 3 damage.#Any player gains 1 life.,,<Unknown mage>,Past and Future (Expansion),,58,63
+Phoenix Char,S,6,,,Cast: Deal 4 damage.#Kiri gains a charge.,,<Unknown mage>,Past and Future (Expansion),,59,64
+Phoenix Inferno,S,6,,,Cast: Deal 5 damage.,,<Unknown mage>,Past and Future (Expansion),,60,65
+Spatial Distortion,S,0,,,"While prepped, you may Develop a card in the supply or Develop zone that does not have a Develop cost for half of that card's cost rounded up. Cast: Deal 1 damage.",,Dorian,Past and Future (Expansion),,61,66
+Flaming Aura,S,0,,,Cast: Prep a spell from your hand that costs 5$ or less. Return this to your hand.,,Bayli,Past and Future (Future),1b,2,7
+Imbued Ink,G,0,,,"Gain 1$.#OR#Your Tether may discard a gem. If they do, gain 2$ and the next card you gain this turn goes on top of your Tether's discard pile.",,L'Shona,Past and Future (Future),1b,3,10
+Soul Facet,G,0,,,"Gain 1$.#L'shona may discard any number of cards in hand. Then, she may gain a gem from the supply that costs less than or equal to the number of cards discarded this way and places it into their hand.",,<Unknown mage>,Past and Future (Future),1b,4,11
+Circuit Board,G,0,,,Gain 1$#OR#Remove 3 cost counters from an Artificial breach.,,Rhys,Past and Future (Future),1b,5,12
+Lure,S,0,,,"Cast: Deal 1 damage.#If a minion from the nemesis deck is defeated this way, place that minion into Lilly's discard pile.",,Lilly,Past and Future (Future),1b,6,11
+Lure,S,0,,,"Cast: Deal 1 damage.#If a minion from the nemesis deck is defeated this way, place that minion into Lilly's discard pile.",,<Unknown mage>,Past and Future (Future),1b,7,12
+Iron Scrap,G,0,,,"Gain 1$.#You may spend 3 Knowledge to swap this card for Energy Router.#When you open a breach this turn, gain 1 Knowledge.",,Auren,Past and Future (Past),1b,2,9
+Energy Router,R,3,,This card begins in the Swap zone.,"Attach this to any player's breach.#When a spell is cast from breach, any player gains 1 life.",,<Unknown mage>,Past and Future (Past),1b,3,8
+Copper Scrap,G,0,,,"Gain 1$.#If you've cast three or more spells this turn, gain 1 Knowledge.#You may spend 3 Knowledge to swap this card for Structure Stabilizer.",,Auren,Past and Future (Past),1b,4,11
+Structure Stabilizer,R,5,,This card begins in the Swap zone.,"Attach this to any player's breach.#When a spell is cast from this breach, Gravehold gains 1 life.",,<Unknown mage>,Past and Future (Past),1b,5,10
+Aluminum Scrap,G,0,,,"Gain 1$.#You may spend 2 Knowledge to swap this card for Aether Infuser.#When you gain a spell this turn, gain 1 Knowledge.",,Auren,Past and Future (Past),1b,6,13
+Aether Infuser,R,3,,This card begins in the Swap zone.,"Attach this to any player's breach.#When a spell is cast from breach, the player who cast that spell gains 1$.",,<Unknown mage>,Past and Future (Past),1b,7,12
+Automaton Prototype,S,0,,,"Cast: Deal 1 damage.#If you've defeated a minion from the nemesis deck this turn, gain 1 Knowledge.#You may spend 2 Knowledge to swap this card for Heliocopter.",,Auren,Past and Future (Past),1b,8,13
+Heliocopter,S,4,,This card begins in the Swap zone.,Cast: Deal 2 damage.#Gain 1 Charge.,,<Unknown mage>,Past and Future (Past),1b,9,14
+Innovation,R,0,,,Gain 1 Knowledge.#OR#Spend 2 Knowledge. Destroy a card in your hand or discard pile and gain a card from the supply of the same type that costs up to 4$ more than the destroyed card.,,Willow,Past and Future (Past),1b,10,15
+Innovation,R,0,,,Gain 1 Knowledge.#OR#Spend 2 Knowledge. Destroy a card in your hand or discard pile and gain a card from the supply of the same type that costs up to 4$ more than the destroyed card.,,<Unknown mage>,Past and Future (Past),1b,11,16
+Suncatcher,R,0,,,Gain 1$.,,Willow,Past and Future (Past),1b,11,16
+Fossilized Flame,G,0,,,"Gain 1$#You may spend 2 Knowledge to swap this card for Overwhelm.#When you gain a card that costs 5$ or more this turn, gain 1 Knowledge.",,Ona,Past and Future (Past),1b,12,19
+Leeching Beacon,S,0,,"When you prep this, if there is a spell that costs 5$ or more prepped to an adjacent breach, gain 1 Knowledge.",Cast: Deal 1 damage.#You may spend 2 Knowledge to swap this card for Sustain.,,Ona,Past and Future (Past),1b,13,18
+Vorpal Fang,S,0,,,"Cast: If this was cast from Naftir's Consuming breach, deal 2 damage. Otherwise, deal 1 damage.",,Naftir,Past and Future (Past),1b,13,18
+Golden Geode,G,0,,,"Gain 1$#You may spend 2 Knowledge to swap this card for Destroy.#When you open a breach this turn, gain 1 Knowledge.",,Ona,Past and Future (Past),1b,14,21
+Overwhelm,R,4,,This card begins in the Swap zone.,"When you swap into this, place it into Ona's ability zone.#While this is in your ability zone, your ability gains the text: ""Cast one of your prepped spells.""",,<Unknown mage>,Past and Future (Past),1b,15,20
+Sustain,R,4,,This card begins in the Swap zone.,"When you swap into this, place it into Ona's ability zone.#While this is in your ability zone, your ability gains the text: ""Prep a spell from your discard pile.""",,<Unknown mage>,Past and Future (Past),1b,16,21
+Destroy,R,4,,This card begins in the Swap zone.,"When you swap into this, place it into Ona's ability zone.#While this is in your ability zone, your ability gains the text: ""Gain a spell from the supply that costs 5$ or less.""",,<Unknown mage>,Past and Future (Past),1b,17,22
+Forbidden Ritual,S,0,,"While prepped, once during your main phase you may suffer 1 damage to gain 1 Knowledge.",Cast: Deal 1 damage.,,Kavoc,Past and Future (Past),1b,18,23
+Bloodstone,G,0,,,Gain 1$. You may spend 3 Knowledge to swap this card for Soulstone.,,Kavoc,Past and Future (Past),1b,20,27
+Darkspark,S,0,,,Cast: Deal 1 damage.#You may spend 2 Knowledge to swap this card for Brain Lance.,,Kavoc,Past and Future (Past),1b,21,26
+Brain Lance,S,4,,This card begins in the Swap zone.,"Cast: Deal 2 damage.#You may spend any amount of Knowledge. For each, this spell deals an additional 2 damage.",,<Unknown mage>,Past and Future (Past),1b,22,27
+Soulstone,G,5,,This card begins in the Swap zone.,"Gain 2$.#You may spend 1 Knowledge, if you do gain an additional 2$.",,<Unknown mage>,Past and Future (Past),1b,24,31
+Raw Tourmaline,G,0,,,"Gain 1$#You may spend 3 Knowledge to swap this card for Spectralite.#When you gain a card that costs 6$ or more this turn, gain 1 Knowledge.",,Nadea,Past and Future (Past),1c,22,29
+Spectralite,G,5,,This card begins in the Swap zone.#Recall: Place a gem or relic you played this turn on top of your deck.,Gain 2$.,,<Unknown mage>,Past and Future (Past),1c,23,30
+Royal Inscriptions,G,0,,Recall: Gain 1 Knowledge.,Gain 1$.#You may pay 3 Knowledge to swap this card for Legacy Coin.,,Nadea,Past and Future (Past),1c,24,31
+Legacy Coin,G,5,,This card begins in the Swap zone.#Recall: Any ally gains an$ token.,Gain 2$.,,<Unknown mage>,Past and Future (Past),1c,25,32
 [X:A] Gravity Node,X,3,;N=Xaxos: Ascended,,Cast: Any player suffers 2 damage and discards a card in hand.,,Special,Legacy,VIII,27,28
 [X:A] Incinerating Fist,X,3,;N=Xaxos: Ascended,,Cast: Gravehold suffers 3 damage.,,Special,Legacy,VIII,29,30
 [X:A] Breach Communion,X,4,;N=Xaxos: Ascended,,Cast: The player with the most pulse tokens loses 1 pulse token and suffers 3 damage.,,Special,Legacy,VIII,31,0
