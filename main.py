@@ -454,16 +454,22 @@ def nemesis_mat(guild, name: str) -> List[str]:
             elif x[0].isdigit() and x[1].isalpha() and x[2:].isdigit(): # regular non-Legacy stuff, like "2a19", i.e. x[0] is "2", x[1] is "a" and the rest is "19"
                 deck = x[:2]
                 num = int(x[2:])
-            elif x.startswith("L2-"): # Legacy of Gravehold. Card IDs are L2-[X]-[Y], with X being either "E", "END" or two letters, and Y being a number with up to two digits, except for Phantom Reaver who uses number 104, but that doesn't make a difference for the parser.
-                if x.startswith("L2-END-"):
-                    deck = x[:6]
-                    num = int(x[7:])
-                elif x.startswith("L2-E-"):
-                    deck = x[:4]
-                    num = int(x[5:])
-                else:
-                    deck = x[:5]
-                    num = int(x[6:])
+            # Legacy of Gravehold specific cases are handled below because LoG is the first wave where the deck name doesn't necessarily
+            # start with a digit like 1c or 2a, so the above case handles some, but not most of those decks.
+            elif x[0].isalpha():
+                if x[1].isalpha():
+                    if x[2].isalpha():
+                        # 3 alphas means END deck
+                        deck = x[:3]
+                        num = int(x[3:])
+                    elif x[2].isdigit():
+                        # 2 alphas means most regular decks, e.g. BS
+                        deck = x[:2]
+                        num = int(x[2:])
+                elif x[1].isdigit():
+                    # 1 alpha means E, i.e. the event deck.
+                    deck = x[0]
+                    num = int(x[1:])
             else: # Legacy stuff
                 for d in ("Ic", "II", "III", "IV", "V", "VI", "VII", "VIII", "END"):
                     if x.startswith(d) and x[len(d):].isdigit():
